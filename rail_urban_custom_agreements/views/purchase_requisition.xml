@@ -1,0 +1,19 @@
+<odoo>
+  <record model="ir.ui.view" id="rail_urban_agreement">
+    <field name="name">rail.urban.agreement</field>
+    <field name="model">purchase.requisition</field>
+    <field name="inherit_id" ref="purchase_requisition.view_purchase_requisition_form"/>
+    <field name="arch" type="xml">
+      <field name="vendor_id" position="replace">
+        <field name="vendor_id" invisible="1"/>
+        <field name="vendor_ids" attrs="{'readonly': [('state', '!=', 'draft')]}" required="1" widget="many2many_tags"/>
+      </field>
+      <field name="origin" position="replace">
+        <field name="origin" placeholder="e.g. PO0025" attrs="{'readonly': [('state', '!=', 'draft')]}" required="1"/>
+      </field>
+      <field name="type_id" position="after">
+        <field name="subtype" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+      </field>
+    </field>
+  </record>
+</odoo>
