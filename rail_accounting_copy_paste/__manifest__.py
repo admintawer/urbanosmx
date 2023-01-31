@@ -24,4 +24,5 @@
         'views/copy_paste_template.xml',
         'views/account_move.xml',
     ],
+    'license': 'LGPL-3',
 }

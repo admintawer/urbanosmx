@@ -12,8 +12,8 @@ class ImportBlanket(models.TransientModel):
 
     requisition_id = fields.Many2one('purchase.requisition')
     vendor_domain = fields.Char()
-    vendor_ids = fields.Many2many('res.partner', string="Vendor", domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
-    vendor_id = fields.Many2one('res.partner')
+    vendor_ids = fields.Many2many('res.partner', string="Proveedores", domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
+    vendor_id = fields.Many2one('res.partner', string='Proveedor')
     xlsx_file = fields.Binary('File')
 
     def import_bl_xlsx(self):

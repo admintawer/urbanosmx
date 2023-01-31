@@ -44,7 +44,7 @@ class PurchaseRequisition(models.Model):
 
     subtype = fields.Selection(string="Criterio", selection=[('time','Tiempo de entrega'),('price','Mejor precio')])
     vendor_qty = fields.Integer(string="Cnt. min. proveedores", related='type_id.vendor_qty')
-    vendor_ids = fields.Many2many('res.partner', string="Vendor", domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
+    vendor_ids = fields.Many2many('res.partner', string="Proveedores", domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
     bl_count = fields.Integer(compute='_compute_blanket_number', string='Number of BLs')
     blanket_ids = fields.One2many('pr.blanket.lines', 'requisition_id')
     state = fields.Selection(selection_add=[('sent','Enviado'),('in_progress',)], ondelete={'sent': 'set default'})
@@ -313,6 +313,7 @@ class PurchaseRequisitionType(models.Model):
 
 class PurchaseRequisitionRfqs(models.Model):
     _name = 'pr.blanket.lines'
+    _description = 'Blanket agreements analysis'
 
     partner_id = fields.Many2one('res.partner')
     requisition_line_id = fields.Many2one('purchase.requisition.line')

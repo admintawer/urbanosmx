@@ -1,0 +1,12 @@
+<odoo>
+    <record id="urban_blanket_requisition_type" model="ir.ui.view">
+        <field name="name">urban.blanket.requisition.type</field>
+        <field name="model">purchase.requisition.type</field>
+        <field name="inherit_id" ref="purchase_requisition.view_purchase_requisition_type_form"/>
+        <field name="arch" type="xml">
+            <field name="exclusive" position="after">
+                <field name="vendor_qty"/>
+            </field>
+        </field>
+    </record>
+</odoo>

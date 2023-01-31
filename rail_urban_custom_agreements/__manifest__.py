@@ -25,6 +25,7 @@
         'data/bl_email_template.xml',
         'wizard/import_blanket_line.xml',
         'views/pr_blanket_view.xml',
+        'views/purchase_requisition_type.xml',
         'views/purchase_requisition.xml',
         'views/templates.xml',
     ],
