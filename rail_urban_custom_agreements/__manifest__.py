@@ -16,7 +16,7 @@
     'version': '16.0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['purchase_requisition','report_xlsx','mail','contacts','web_widget_mpld3_chart'],
+    'depends': ['purchase_requisition','report_xlsx','mail','contacts'],
 
     # always loaded
     'data': [
