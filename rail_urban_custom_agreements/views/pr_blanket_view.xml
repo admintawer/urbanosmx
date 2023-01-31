@@ -1,0 +1,30 @@
+<odoo>
+    <data>
+        <!--pivot-->
+        <record id="purchase_requisition_bl_pivot" model="ir.ui.view">
+            <field name="name">puchase.requisition.bl.pivot</field>
+            <field name="model">pr.blanket.lines</field>
+            <field name="arch" type="xml">
+                <pivot string="BLs">
+                    <field name="product_id" type="row"/>
+                    <field name="schedule_date" type="col" interval="day"/>
+                    <field name="partner_id" type="col"/>
+                    <field name="price_unit" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+        
+        <!--actions-->
+        <record model="ir.actions.act_window" id="action_blanket_list">
+            <field name="name">BLs</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pr.blanket.lines</field>
+            <field name="view_mode">pivot,tree</field>
+            <field name="domain">[('requisition_id','=',active_id)]</field>
+            <field name="context">{
+                "default_requisition_id":active_id,
+                }
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,36 @@
+<odoo>
+   <data>
+        <record id="email_template_rail_urban_bl" model="mail.template">
+            <field name="name">Solicitud de licitacion</field>
+            <field name="model_id" ref="purchase_requisition.model_purchase_requisition"/>
+            <field name="subject">{{ object.company_id.name }} BL (Ref {{ object.origin or 'n/a' }})</field>
+            <field name="email_to">{{ object.vendor_emails }}</field>
+            <field name="description">Enviar solicitud de licitacion a competidores</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Dear 
+                        <br/>
+                        Here is in attachment a request for quotation 
+                        <t t-if="object.origin">
+                            with reference: <t t-out="object.origin or ''">REF_XXX</t>
+                        </t>
+                        from <t t-out="object.company_id.name or ''">YourCompany</t>.
+                        <br/><br/>
+                        If you have any questions, please do not hesitate to contact us.
+                        <br/><br/>
+                        Best regards,
+                        <t t-if="not is_html_empty(object.user_id.signature)">
+                            <br/><br/>
+                            <t t-out="object.user_id.signature or ''">--<br/>Mitchell Admin</t>
+                        </t>
+                    </p>
+                </div>
+            </field>
+            <!--field name="report_template" ref="report_purchase_quotation"/-->
+            <!--field name="report_name">BL_{{ (object.origin or '').replace('/','_') }}</field-->
+            <field name="lang">{{ object.user_id.partner_id.lang }}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+   </data>
+</odoo>

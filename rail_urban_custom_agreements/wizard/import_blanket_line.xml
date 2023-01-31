@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="import_blanket_wizard_view" model="ir.ui.view">
+        <field name="name">import.blanket.wizard.view</field>
+        <field name="model">import.blanket.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Import">
+                <sheet>
+                    <group>
+                        <field name="xlsx_file"/>
+                        <field name="requisition_id" invisible="1"/>
+                        <field name="vendor_ids" readonly="1" widget="many2many_tags"/>
+                        <field name="vendor_id" domain="[('id','in', vendor_ids)]" required="1"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="import_bl_xlsx" type="object" string="Import XLSX" class="oe_highlight" attrs="{'invisible': [('xlsx_file','=',False)]}"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="import_blanket_action" model="ir.actions.act_window">
+        <field name="name">Import</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">import.blanket.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
