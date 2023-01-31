@@ -16,12 +16,15 @@
     'version': '16.0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['purchase_requisition'],
+    'depends': ['purchase_requisition','report_xlsx','mail','contacts','web_widget_mpld3_chart'],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'data/purchase_requisition_data.xml',
+        'data/bl_email_template.xml',
+        'wizard/import_blanket_line.xml',
+        'views/pr_blanket_view.xml',
         'views/purchase_requisition.xml',
         'views/templates.xml',
     ],
@@ -29,4 +32,7 @@
     'demo': [
         'demo/demo.xml',
     ],
+
+    "license": "LGPL-3",
+
 }

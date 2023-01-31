@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data noupdate="1">
+        <!-- Purchase-related subtypes for messaging / Chatter -->
+        <record id="mt_bl_confirmed" model="mail.message.subtype">
+            <field name="name">BL Confirmed</field>
+            <field name="default" eval="False"/>
+            <field name="res_model">purchase.requisition</field>
+        </record>
+        <record id="mt_bl_approved" model="mail.message.subtype">
+            <field name="name">BL Approved</field>
+            <field name="default" eval="False"/>
+            <field name="res_model">purchase.requisition</field>
+        </record>
+        <record id="mt_bl_done" model="mail.message.subtype">
+            <field name="name">BL Done</field>
+            <field name="default" eval="False"/>
+            <field name="res_model">purchase.requisition</field>
+        </record>
+        <record id="mt_bl_sent" model="mail.message.subtype">
+            <field name="name">BL Sent</field>
+            <field name="default" eval="False"/>
+            <field name="res_model">purchase.requisition</field>
+        </record>
+
+        <!--Requisition types-->
         <record id="type_single" model="purchase.requisition.type">
             <field name="name">Adjudicacion directa</field>
             <field name="sequence">1</field>
