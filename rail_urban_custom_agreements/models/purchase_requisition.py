@@ -42,7 +42,7 @@ class PurchaseRequisition(models.Model):
     _name = 'purchase.requisition'
     _inherit = 'purchase.requisition'
 
-    subtype = fields.Selection(string="Criterio", selection=[('time','Tiempo de entrega'),('price','Mejor precio')])
+    subtype = fields.Selection(string="Criterio", selection=[('time','Tiempo de entrega'),('price','Mejor precio'),('time_price', 'Tiempo + Precio')])
     vendor_qty = fields.Integer(string="Cnt. min. proveedores", related='type_id.vendor_qty')
     vendor_ids = fields.Many2many('res.partner', string="Proveedores", domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
     bl_count = fields.Integer(compute='_compute_blanket_number', string='Number of BLs')
@@ -56,11 +56,12 @@ class PurchaseRequisition(models.Model):
     def _compute_vendor_emails(self):
         for r in self:
             emails = []
-            ids = []
             if r.vendor_ids:
                 for v in r.vendor_ids:
-                    emails.append(v.email)
-                    ids.append(str(v.id).replace('NewId_',''))
+                    if v.email:
+                        emails.append(v.email)
+                    else:
+                        raise ValidationError("No puedes agregar un proveedor sin email, por favor primero registra un correo electronico valido")
                 r.vendor_emails = ','.join(emails)
             else:
                 r.vendor_emails = ''
@@ -242,6 +243,18 @@ class PurchaseRequisition(models.Model):
                         'schedule_date': bl_price.schedule_date,
                         'price_unit': bl_price.price_unit
                     })
+            elif r.subtype == 'time_price':
+                for l in r.line_ids:
+                    bl_timeprice = bl_object.search([('requisition_id','=',r.id),
+                                                ('product_id','=',l.product_id.id)],order='score asc', limit=1)
+                    bl_timeprice.update({
+                        'requisition_line_id': l.id,
+                    })
+                    l.update({
+                        'vendor_id': bl_timeprice.partner_id,
+                        'schedule_date': bl_timeprice.schedule_date,
+                        'price_unit': bl_timeprice.price_unit
+                    })
 
     def button_manual_aproval(self):
         for r in self:
@@ -322,3 +335,16 @@ class PurchaseRequisitionRfqs(models.Model):
     price_unit = fields.Float()
     qty = fields.Float()
     schedule_date = fields.Date()
+    ordering_date = fields.Date(related='requisition_id.ordering_date')
+    score = fields.Float(compute = '_compute_score')
+
+    @api.depends('schedule_date')
+    def _compute_score(self):
+        for r in self:
+            if r.schedule_date and r.ordering_date:
+                if r.schedule_date < r.ordering_date:
+                    raise ValidationError('La fecha de entrega no puede ser menor a la fecha de pedido, revisa los datos por favor')
+                else:
+                    r.score = (r.schedule_date - r.ordering_date).days + r.price_unit
+            else:
+                r.score = 0

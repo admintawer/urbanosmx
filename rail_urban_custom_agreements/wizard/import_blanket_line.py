@@ -2,7 +2,7 @@
 
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
-import base64, xlrd
+import base64, xlrd, time
 from collections import Counter
 from datetime import datetime,date
 
@@ -50,8 +50,10 @@ class ImportBlanket(models.TransientModel):
                             error = True
                             skipped_line_no[str(ncounter)] = " - Hay un error en el precio unitario, por favor revisar"
                         if sheet.cell(r, 3).value not in (None, ""): 
-                            schedule_date = sheet.cell(r,3).value
-                            schedule_date = str(datetime.strptime(schedule_date, '%Y-%m-%d').date())
+                            d = sheet.cell(r,3).value
+                            #schedule_date = str(datetime.strftime(schedule_date, '%Y-%m-%d').date())
+                            year, month, day, hour, minutes, seconds = xlrd.xldate_as_tuple(d, workbook.datemode)
+                            schedule_date = "{0}-{1}-{2}".format(year, month, day)
                             blanket_vals.update({
                                 'schedule_date': schedule_date,
                             })
