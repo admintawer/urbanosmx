@@ -40,7 +40,7 @@ class ExcelReport(models.AbstractModel):
 
 class PurchaseRequisition(models.Model):
     _name = 'purchase.requisition'
-    _inherit = ['purchase.requisition','abstract.mpld3.parser']
+    _inherit = 'purchase.requisition'
 
     subtype = fields.Selection(string="Criterio", selection=[('time','Tiempo de entrega'),('price','Mejor precio')])
     vendor_qty = fields.Integer(string="Cnt. min. proveedores", related='type_id.vendor_qty')
