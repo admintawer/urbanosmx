@@ -185,8 +185,7 @@ class PurchaseRequisition(models.Model):
             'res_model': 'purchase.requisition'
         }
         attachment = self.env['ir.attachment'].sudo().create(ir_values)
-        #raise ValidationError(attachment)
-        email_template = self.env.ref('rail_urban_custom_agreements.email_template_rail_urban_bl')
+        email_template = self.env.ref('rail_urban_custom_agreements.email_template_rail_urban_bl').sudo()
         if email_template:
             email_values = {
                 'email_to': self.vendor_emails,
@@ -276,9 +275,6 @@ class PurchaseRequisition(models.Model):
             self.write({'state': 'ongoing'})
         else:
             self.write({'state': 'in_progress'})
-        # Set the sequence number regarding the requisition type
-        if self.name == 'New':
-            self.name = self.env['ir.sequence'].next_by_code('purchase.requisition.blanket.order')
         
         # Create PO
         vendors = self.line_ids.mapped('vendor_id.id')
@@ -287,11 +283,10 @@ class PurchaseRequisition(models.Model):
 
         for vendor_id in vendors:
             partner_id = self.env['res.partner'].browse(vendor_id)
-            lines = self.line_ids.filtered(lambda l: l.partner_id.id == vendor_id and l.purchase_id == False)
-
+            lines = self.line_ids.filtered(lambda l: l.vendor_id.id == vendor_id and not l.purchase_id)
             order_line = []
             for line_id in lines:
-                if line_id.purchase_id == False:
+                if  not line_id.purchase_id:
                     order_line.append((0, 0, {
                         'date_planned': line_id.schedule_date,
                         'product_id': line_id.product_id.id,
@@ -299,18 +294,25 @@ class PurchaseRequisition(models.Model):
                         'price_unit': line_id.price_unit,
                         'product_qty': line_id.product_qty,
                         'product_uom': line_id.product_uom_id.id or False,
+                        'taxes_id': [(6, 0, line_id.product_id.supplier_taxes_id.ids)],
                     }))
 
             purchase = self.env['purchase.order'].create({
                 'partner_id': partner_id.id,
-                'date_order': line_id.schedule_date,
+                'date_order': datetime.now(),
                 'origin':self.name,
                 'requisition_id': self.id,
                 'order_line':order_line,
                 })
             for line in lines:
-                line.purchase_id = purchase
+                line.purchase_id = purchase.id
 
+    @api.model
+    def create(self,vals):
+        if vals.get("name", _("New")) == _("New"):
+            # Set the sequence number regarding the requisition type
+            vals['name'] = self.env['ir.sequence'].next_by_code('purchase.requisition.blanket.order')
+        return super(PurchaseRequisition, self).create(vals)
 
 class PurchaseRequisitionLine(models.Model):
     _inherit = 'purchase.requisition.line'
