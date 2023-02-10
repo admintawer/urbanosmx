@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante
+    xmlns:cfdi="http://www.sat.gob.mx/cfd/4"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd http://www.sat.gob.mx/nomina12 http://www.sat.gob.mx/sitio_internet/cfd/nomina/nomina12.xsd"
+    xmlns:nomina12="http://www.sat.gob.mx/nomina12"
+    Version="4.0"
+    Sello=""
+    Serie="Serie"
+    {% if data['Atributos']['Folio'] %} Folio="{{ data['Atributos']['Folio'] }}"{% endif %}
+    Fecha="{{ data['Atributos']['Fecha'] }}"
+    NoCertificado="{{ data['Atributos']['NoCertificado'] }}"
+    Certificado="{{ data['Atributos']['Certificado'] }}"
+    SubTotal="{{ data['Atributos']['SubTotal'] }}"
+    {% if data['Atributos']['Descuento'] %} Descuento="{{ data['Atributos']['Descuento'] }}" {% endif %}
+    {% if data['Atributos']['Moneda'] %} Moneda="{{ data['Atributos']['Moneda'] }}"{% endif %}
+    Total="{{ data['Atributos']['Total'] }}"
+    TipoDeComprobante="{{ data['Atributos']['TipoDeComprobante'] }}"
+    MetodoPago="{{ data['Atributos']['MetodoPago'] }}"
+    Exportacion="{{ data['Atributos']['Exportacion'] }}"
+    LugarExpedicion="{{ data['Atributos']['LugarExpedicion'] }}">
+    <cfdi:Emisor
+        Rfc="{{ data['Emisor'].get('Rfc', '').replace('&','&amp;') }}"
+        {% if data['Emisor']['Nombre'] %} Nombre="{{ data['Emisor']['Nombre'].replace('&','&amp;') }}" {% endif %}
+        {% if data['Emisor']['RegimenFiscal'] %} RegimenFiscal="{{ data['Emisor']['RegimenFiscal'] }}" {% endif %}/>
+    <cfdi:Receptor
+        Rfc="{{ data['Receptor'].get('Rfc', '').replace('&','&amp;') }}"
+        {% if data['Receptor']['Nombre'] %} Nombre="{{ data['Receptor']['Nombre'].replace('&','&amp;') }}"{% endif %}
+        DomicilioFiscalReceptor="{{ data['Receptor']['DomicilioFiscalReceptor'] }}"
+        {% if data['Receptor'].get('RegimenFiscalReceptor') %} RegimenFiscalReceptor="{{ data['Receptor']['RegimenFiscalReceptor'] }}"{% endif %}
+        UsoCFDI="{{ data['Receptor']['UsoCFDI'] }}"/>
+    <cfdi:Conceptos>
+        <cfdi:Concepto 
+            ClaveProdServ="{{ data['Concepto']['ClaveProdServ'] }}" 
+            Cantidad="{{ data['Concepto']['Cantidad'] }}" 
+            ClaveUnidad="{{ data['Concepto']['ClaveUnidad'] }}"
+            Descripcion="{{ data['Concepto']['Descripcion'] }}"
+            ValorUnitario="{{ data['Concepto']['ValorUnitario'] }}"
+            Descuento="{{ data['Concepto']['Descuento'] }}" 
+            Importe="{{ data['Concepto']['Importe'] }}"
+            ObjetoImp="{{ data['Concepto']['ObjetoImp'] }}"/>
+    </cfdi:Conceptos>
+    <cfdi:Complemento>
+        <nomina12:Nomina 
+            Version="{{ data['Nomina']['Version'] }}" 
+            TipoNomina="{{ data['Nomina']['TipoNomina'] }}" 
+            FechaPago="{{ data['Nomina']['FechaPago'] }}" 
+            FechaInicialPago="{{ data['Nomina']['FechaInicialPago'] }}" 
+            FechaFinalPago="{{ data['Nomina']['FechaFinalPago'] }}" 
+            NumDiasPagados="{{ data['Nomina']['NumDiasPagados'] }}" 
+            TotalPercepciones="{{ data['Nomina']['TotalPercepciones'] }}" 
+            TotalDeducciones="{{ data['Nomina']['TotalDeducciones'] }}"
+            TotalOtrosPagos="{{ data['Nomina']['TotalOtrosPagos'] }}">
+            <nomina12:Emisor RegistroPatronal="{{ data['NEmisor']['RegistroPatronal'] }}" 
+                             {% if data['NEmisor']['RfcPatronOrigen'] %} RfcPatronOrigen="{{ data['NEmisor']['RfcPatronOrigen'] }}" /> {% endif %}/>
+            <nomina12:Receptor 
+                Curp="{{ data['NReceptor']['Curp'] }}" 
+                NumSeguridadSocial="{{ data['NReceptor']['NumSeguridadSocial'] }}" 
+                FechaInicioRelLaboral="{{ data['NReceptor']['FechaInicioRelLaboral'] }}" 
+                Antigüedad="{{ data['NReceptor']['Antigüedad'] }}" 
+                TipoContrato="{{ data['NReceptor']['TipoContrato'] }}" 
+                TipoJornada="{{ data['NReceptor']['TipoJornada'] }}" 
+                TipoRegimen="{{ data['NReceptor']['TipoRegimen'] }}" 
+                NumEmpleado="{{ data['NReceptor']['NumEmpleado'] }}" 
+                {% if data['NReceptor']['Departamento'] %} Departamento="{{ data['NReceptor']['Departamento'] }}" {% endif %}
+                {% if data['NReceptor']['Puesto'] %} Puesto="{{ data['NReceptor']['Puesto'] }}" {% endif %}
+                RiesgoPuesto="{{ data['NReceptor']['RiesgoPuesto'] }}" 
+                PeriodicidadPago="{{ data['NReceptor']['PeriodicidadPago'] }}" 
+                {% if data['NReceptor']['CuentaBancaria'] %} CuentaBancaria="{{ data['NReceptor']['CuentaBancaria'] }}" {% endif %}
+                {% if data['NReceptor']['Banco'] %} Banco="{{ data['NReceptor']['Banco'] }}" {% endif %}
+                SalarioBaseCotApor="{{ data['NReceptor']['SalarioBaseCotApor'] }}" 
+                SalarioDiarioIntegrado="{{ data['NReceptor']['SalarioDiarioIntegrado'] }}" 
+                ClaveEntFed="{{ data['NReceptor']['ClaveEntFed'] }}"/>
+            <nomina12:Percepciones 
+                TotalSueldos="{{ data['Percepciones']['TotalSueldos'] }}" 
+                TotalGravado="{{ data['Percepciones']['TotalGravado'] }}" 
+                TotalExento="{{ data['Percepciones']['TotalExento'] }}">
+                {% for Percepcion in data['Percepcion']['Percepcion'] %}
+                    <nomina12:Percepcion 
+                        TipoPercepcion="{{ Percepcion['TipoPercepcion'] }}" 
+                        Clave="{{ Percepcion['Clave'] }}" 
+                        Concepto="{{ Percepcion['Concepto'] }}" 
+                        ImporteGravado="{{ Percepcion['ImporteGravado'] }}" 
+                        ImporteExento="{{ Percepcion['ImporteExento'] }}"/>
+                {% endfor %}                
+                {% for PercepcionExc in data['Percepcion']['PercepcionExc'] %}
+                    <nomina12:Percepcion 
+                        TipoPercepcion="{{ PercepcionExc['TipoPercepcion'] }}" 
+                        Clave="{{ PercepcionExc['Clave'] }}" 
+                        Concepto="{{ PercepcionExc['Concepto'] }}" 
+                        ImporteGravado="{{ PercepcionExc['ImporteGravado'] }}" 
+                        ImporteExento="{{ PercepcionExc['ImporteExento'] }}"/>
+                {% endfor %}
+            </nomina12:Percepciones>
+            <nomina12:Deducciones 
+                TotalOtrasDeducciones="{{ data['Deducciones']['TotalOtrasDeducciones'] }}" 
+                {% if data['Deducciones']['TotalImpuestosRetenidos'] != '' %} TotalImpuestosRetenidos="{{ data['Deducciones']['TotalImpuestosRetenidos'] }}" {% endif %}> 
+                    {% for Deduccion in data['Deduccion'] %}
+                        <nomina12:Deduccion 
+                            TipoDeduccion="{{ Deduccion['TipoDeduccion'] }}" 
+                            Clave="{{ Deduccion['Clave'] }}" 
+                            Concepto="{{ Deduccion['Concepto'] }}" 
+                            Importe="{{ Deduccion['Importe'] }}"/>
+                    {% endfor %}
+            </nomina12:Deducciones>
+            <nomina12:OtrosPagos>
+                {% if data['OtrosPagos'] %}
+                    {% for OtrosPagos in data['OtrosPagos'] %}
+                        <nomina12:OtroPago 
+                            TipoOtroPago="{{ OtrosPagos['TipoOtrosPagos'] }}" 
+                            Clave="{{ OtrosPagos['Clave'] }}" 
+                            Concepto="{{ OtrosPagos['Concepto'] }}" 
+                            Importe="{{ OtrosPagos['ImporteExento'] }}">
+                            {% if OtrosPagos['TipoOtrosPagos'] == "002" %}
+                                <nomina12:SubsidioAlEmpleo SubsidioCausado="{{ OtrosPagos['ImporteExento'] }}"/>
+                            {% endif %}
+                        </nomina12:OtroPago>
+                    {% endfor %}
+                {% else %}
+                    <nomina12:OtroPago 
+                        TipoOtroPago="002" 
+                        Clave="002" 
+                        Concepto="Subsidio para el Empleado" 
+                        Importe="0.0">
+                            <nomina12:SubsidioAlEmpleo SubsidioCausado="0.0"/>
+                    </nomina12:OtroPago>
+                {% endif %}
+            </nomina12:OtrosPagos>
+        </nomina12:Nomina>
+    </cfdi:Complemento>
+</cfdi:Comprobante>

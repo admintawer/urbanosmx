@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1"> 
+        <record id="input_type_pda" model="hr.payslip.input.type">
+            <field name="name">Prima antiguedad</field>
+            <field name="code">PDA</field>
+        </record>
+        <record id="input_type_ind" model="hr.payslip.input.type">
+            <field name="name">Indemnizacion</field>
+            <field name="code">IND</field>
+        </record>
+        <record id="input_type_pps" model="hr.payslip.input.type">
+            <field name="name">Pago por separacion</field>
+            <field name="code">PPS</field>
+        </record>
+        <record id="input_type_pfa" model="hr.payslip.input.type">
+            <field name="name">Fondo ahorro</field>
+            <field name="code">PFA</field>
+        </record>
+    </data>
+</odoo>
