@@ -1,0 +1,2473 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* nomina_cfdi_extras
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-11 19:54+0000\n"
+"PO-Revision-Date: 2022-10-11 14:30-0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.cfdi_payroll_layout_extras
+msgid "&amp;bull;"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid "/ 100 *"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid "/ 100 <br/>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__calculo_isr_anual__ano__2019
+msgid "2019"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__calculo_isr_anual__ano__2020
+msgid "2020"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__calculo_isr_anual__ano__2021
+msgid "2021"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid ""
+"<br/>\n"
+"                    3 UMA:"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid ""
+"<br/>\n"
+"                    Total Cesantía y vejez:"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid ""
+"<br/>\n"
+"                  Cuota fija:"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid ""
+"<br/>\n"
+"                  Porcentaje:"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid ""
+"<br/>\n"
+"                  Subsidio mensual:"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid ""
+"<br/><br/>\n"
+"\n"
+"                  Excedente limite superior:  <br/>\n"
+"                  Gravado mensual - Límite inferior <br/>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid ""
+"<br/><br/>\n"
+"\n"
+"                  Impuesto marginal:  <br/>\n"
+"                  Excedente limite superior * Porcentaje sobre excedente <br/>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid ""
+"<br/><br/>\n"
+"\n"
+"                  Tarifa ISR:  <br/>\n"
+"                  Impuesto marginal * Cuota fija <br/>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid ""
+"<br/><br/>\n"
+"                    Prestaciones: <br/>\n"
+"                       SBC * Cuota * Dias completos <br/>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid ""
+"<br/><br/>\n"
+"                  Total2 pagado:"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid ""
+"<br/><br/>\n"
+"                  Total:"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_nomina_x3_document
+msgid "<span>Afil I.M.S.S.</span>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_nomina_x3_document
+msgid "<span>CURP </span>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_nomina_x3_document
+msgid "<span>Concepto</span>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_nomina_x3_document
+msgid "<span>DEDUCCIONES</span>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_nomina_x3_document
+msgid "<span>Departamento</span>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_nomina_x3_document
+msgid "<span>Dias Pag.</span>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_nomina_x3_document
+msgid "<span>Dias Trab.</span>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_nomina_x3_document
+msgid "<span>Fecha de Pago </span>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_nomina_x3_document
+msgid "<span>Firma del empleado.</span>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_nomina_x3_document
+msgid "<span>Importe</span>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.external_layout_standard_ext
+msgid "<span>Medio de Pago: Efectivo.</span>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_nomina_x3_document
+msgid "<span>Neto a pagar</span>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_nomina_x3_document
+msgid "<span>PERCEPCIONES</span>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_nomina_x3_document
+msgid "<span>R.F.C.</span>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_nomina_x3_document
+msgid "<span>SDI</span>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_nomina_x3_document
+msgid "<span>Suma deducciones</span>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_nomina_x3_document
+msgid "<span>Suma percepciones</span>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_nomina_x3_document
+msgid "<span>Valor</span>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_detail
+msgid ""
+"<strong>\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>Gran Total</span>\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t\t</strong>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_detail
+msgid ""
+"<strong>\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>Total Departamento</span>\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t\t</strong>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid "<strong>IMSS</strong>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid "<strong>ISR</strong>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_calculo_isr_anual
+msgid "<strong>Nomina</strong>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_calculo_isr_anual
+msgid "<strong>Tipo de calculo: </strong> anual"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_listado_de_raya_detail_more
+msgid "AL"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incidencias_nomina__tipo_de_baja__3
+msgid "Abandono de empleo"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incapacidades_nomina__tipo_de_riesgo__accidente_de_trabajo
+msgid "Accidente de trabajo"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incapacidades_nomina__tipo_de_riesgo__accidente_de_trayecto
+msgid "Accidente de trayecto"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__message_needaction
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__message_needaction
+msgid "Action Needed"
+msgstr "Acción necesaria"
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_dev_skip_installment_filter
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_filter
+msgid "Agrupar por"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incapacidades_nomina__control__alta_médica_o_st-2
+msgid "Alta médica o ST-2"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__is_apply_interest
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan_type__is_apply_interest
+msgid "Aplicar interés"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__employee_loan__state__hr_approval
+msgid "Aprobado"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_form
+msgid "Aprobar"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__message_attachment_count
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__message_attachment_count
+msgid "Attachment Count"
+msgstr "Número de archivos adjuntos"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incidencias_nomina__tipo_de_baja__7
+msgid "Ausentismo"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.external_layout_standard_ext
+msgid "Autorizado: __________________"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_calculo_isr_anual__ano
+msgid "Año"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incidencias_nomina__tipo_de_incidencia__baja
+msgid "Baja"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_installment_line__payslip_id
+msgid "Boleta de pago"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__dev_skip_installment__state__draft
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__dias_feriados__state__draft
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__employee_loan__state__draft
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__faltas_nomina__state__draft
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incapacidades_nomina__state__draft
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incidencias_nomina__state__draft
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__retardo_nomina__state__draft
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__vacaciones_nomina__state__draft
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_dias_feriados_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_faltas_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_incapacidades_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_incidencias_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_retardo_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_vacaciones_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_dev_skip_installment_filter
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_filter
+msgid "Borrador"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_dev_skip_installment_filter
+msgid "Buscar saltos de deducciones"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_filter
+msgid "Búscar deducción"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_listado_de_raya_detail_more
+msgid "CANTIDAD REBIDIDA"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_comprobaciones_viaticos_nomina__cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_entregas_viaticos_nomina__cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__comprobaciones_viaticos_nomina__referencia__01
+msgid "CFDI"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_form
+msgid "Calcular deducción"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_calculo_isr_anual
+msgid "CalculoISRAnual"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incidencias_nomina__tipo_de_incidencia__cambio_reg__patronal
+msgid "Cambio reg. patronal"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incidencias_nomina__tipo_de_incidencia__cambio_salario
+msgid "Cambio salario"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.crear_faltas_from_retardos_view_form
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_import_dias_wizard_xls_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__dias_feriados__state__cancel
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__faltas_nomina__state__cancel
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incapacidades_nomina__state__cancel
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incidencias_nomina__state__cancel
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__retardo_nomina__state__cancel
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__vacaciones_nomina__state__cancel
+msgid "Cancelado"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__dev_skip_installment__state__cancel
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__employee_loan__state__cancel
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_dias_feriados_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_faltas_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_incapacidades_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_retardo_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_vacaciones_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_dev_skip_installment_form
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_form
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_loan_import_logs_form
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.wizard_calculo_isr_anual_form_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.wizard_reglas_salariales_form_view
+msgid "Cancelar"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.hr_payslip_run_form_hr_payroll_cancel
+msgid "Cancelar CFDI"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.hr_payslip_run_form_hr_payroll_cancel
+msgid "Cancelar nómina"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__installment_amount
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_installment_line__installment_amt
+msgid "Cantidad a plazos"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__remaing_amount
+msgid "Cantidad restante"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__viaticos_nomina__state__closed
+msgid "Cerrado"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__employee_loan__state__close
+msgid "Cerrar"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_form
+msgid "Cerrar deducción"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid ""
+"Cesantía y vejez: <br/>\n"
+"                       SBC * Cuota * Dias periodo <br/>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incidencias_nomina__tipo_de_baja__5
+msgid "Clausura"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.actions.act_window,help:nomina_cfdi_extras.action_dev_skip_installment
+msgid "Clic para generar un salto de deducción"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_detail
+msgid "Cod"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_pagos2
+msgid "Code"
+msgstr "Código"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_viaticos_nomina__comprobaciones_ids
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_viaticos_nomina_view
+msgid "Comprobaciones"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_comprobaciones_viaticos_nomina
+msgid "ComprobacionesViaticosNomina"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_wizard_regalas_salarieles__rule_ids
+msgid "Conceptos"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_res_config_settings
+msgid "Config Settings"
+msgstr "Ajustes de configuración"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__dev_skip_installment__state__confirm
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_dev_skip_installment_form
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_form
+msgid "Confirmar"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_contract_historial_salario__contract_id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_importar_dias_wizard_xls__contract_id
+msgid "Contract"
+msgstr "Contrato"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_contract_historial_salario
+msgid "ContractHistorialSalario"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incapacidades_nomina__control
+msgid "Control"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incapacidades_nomina__control2
+msgid "Control maternidad"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.cfdi_payroll_layout_extras
+msgid "Correo Electrónico:"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.crear_faltas_from_retardos_view_form
+msgid "Crear"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.crear_faltas_from_retardos_view_form
+msgid "Crear Faltas"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_crear_faltas_from_retardos
+msgid "CrearFaltasFromRetardos"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_calculo_isr_anual__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_comprobaciones_viaticos_nomina__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_contract_historial_salario__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_crear_faltas_from_retardos__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dias_feriados__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan_type__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_entregas_viaticos_nomina__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_faltas_nomina__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_import_logs__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_importar_dias_wizard_xls__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incapacidades_nomina__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incidencias_nomina__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_installment_line__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_retardo_nomina__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_vacaciones_nomina__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_viaticos_nomina__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_wizard_regalas_salarieles__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_calculo_isr_anual__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_comprobaciones_viaticos_nomina__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_contract_historial_salario__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_crear_faltas_from_retardos__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dias_feriados__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan_type__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_entregas_viaticos_nomina__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_faltas_nomina__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_import_logs__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_importar_dias_wizard_xls__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incapacidades_nomina__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incidencias_nomina__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_installment_line__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_retardo_nomina__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_vacaciones_nomina__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_viaticos_nomina__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_wizard_regalas_salarieles__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan_type__interest_account
+msgid "Cuenta de intereses"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan_type__loan_account
+msgid "Cuenta de prestamo"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__installment_lines
+msgid "Cuotas"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:hr.leave.type,name:nomina_cfdi_extras.hr_holidays_status_dfest
+msgid "DFES"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:hr.leave.type,name:nomina_cfdi_extras.hr_holidays_status_dfest3
+msgid "DFES_3"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.actions.act_window,help:nomina_cfdi_extras.action_employee_loan
+msgid "Da clic para crear una deducción."
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_pagos
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_pagos2
+msgid "Deducciones"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.ui.menu,name:nomina_cfdi_extras.menu_main_employee_loan
+msgid "Deducciones recurrentes"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__loan_id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_installment_line__loan_id
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_filter
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_form
+msgid "Deducción"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_form
+msgid "Deducción realizada"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.act_window,name:nomina_cfdi_extras.action_employee_loan
+#: model:ir.ui.menu,name:nomina_cfdi_extras.menu_employee_loan
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_dev_skip_installment_form
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_form
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_tree
+msgid "Deducción recurrente"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incidencias_nomina__tipo_de_baja__4
+msgid "Defunción"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_calculo_isr_anual__department_id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__department_id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_wizard_regalas_salarieles__department_id
+msgid "Departamento"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_pagos2
+msgid "Descipcion"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incapacidades_nomina__descripcion
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_incapacidades_nomina_view
+msgid "Descripción"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_viaticos_nomina__description
+msgid "Description"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__employee_loan_type__tipo_deduccion__2
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__installment_line__tipo_deduccion__2
+msgid "Descuento periodico 1"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__employee_loan_type__tipo_deduccion__3
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__installment_line__tipo_deduccion__3
+msgid "Descuento periodico 2"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__move_id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan_type__journal_id
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_form
+msgid "Diario"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_faltas_nomina__dias
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incapacidades_nomina__dias
+msgid "Dias"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_detail
+msgid "Dias Pag"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_vacaciones_nomina__dias_de_vacaciones_disponibles
+msgid "Dias de vacaciones disponibles"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.act_window,name:nomina_cfdi_extras.action_tree_dias_feriados
+#: model:ir.ui.menu,name:nomina_cfdi_extras.menu_action_tree_dias_feriados
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.search_dias_feriados_view
+msgid "Dias feriados"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_dias_feriados
+msgid "DiasFeriados"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_calculo_isr_anual__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_comprobaciones_viaticos_nomina__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_contract_historial_salario__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_crear_faltas_from_retardos__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dias_feriados__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan_type__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_entregas_viaticos_nomina__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_faltas_nomina__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_import_logs__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_importar_dias_wizard_xls__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incapacidades_nomina__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incidencias_nomina__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_installment_line__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_retardo_nomina__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_vacaciones_nomina__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_viaticos_nomina__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_wizard_regalas_salarieles__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__dias_feriados__tipo__doble
+msgid "Doble"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__comprobaciones_viaticos_nomina__referencia__02
+msgid "Documentos no fiscales"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_dev_skip_installment_filter
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_filter
+msgid "Done Loan"
+msgstr "Préstamo hecho"
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_dev_skip_installment_filter
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_filter
+msgid "Draft Loan"
+msgstr "Borrador de Préstamo"
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.tree_dias_feriados_view
+msgid "Día feriado"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_vacaciones_nomina__dias
+msgid "Días"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_dias_feriados_view
+msgid "Días feriados"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__comprobaciones_viaticos_nomina__referencia__03
+msgid "Efectivo"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: code:addons/nomina_cfdi_extras/models/employee_loan.py:0
+#, python-format
+msgid "El préstamo solo se puede eliminar si está en estaado de borrador"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.external_layout_standard_ext
+msgid "Email:"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_calculo_isr_anual__employee_id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__employee_id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dias_feriados__employee_id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__employee_id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_faltas_nomina__employee_id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incapacidades_nomina__employee_id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incidencias_nomina__employee_id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_installment_line__employee_id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_retardo_nomina__employee_id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_vacaciones_nomina__employee_id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_viaticos_nomina__employee_id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_wizard_regalas_salarieles__employee_id
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_calculo_isr_anual
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_detail
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_pagos
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_pagos2
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_filter
+msgid "Empleado"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_dev_skip_installment_filter
+msgid "Empleados"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_hr_contract
+msgid "Employee Contract"
+msgstr "Contrato de empleado"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incapacidades_nomina__control2__02
+msgid "Enalce"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incapacidades_nomina__tipo_de_riesgo__enfermedad_de_trabajo
+msgid "Enfermedad de trabajo"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incapacidades_nomina__ramo_de_seguro__enfermedad_general
+msgid "Enfermedad general"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__installment_id
+msgid "Entrega"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_viaticos_nomina__entregas_ids
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_viaticos_nomina_view
+msgid "Entregas"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_entregas_viaticos_nomina
+msgid "EntregasViaticosNomina"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_form
+msgid "Enviar a borrador"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__dev_skip_installment__state__request
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_dev_skip_installment_form
+msgid "Enviar petición"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: code:addons/nomina_cfdi_extras/wizard/importar_dias_wizard.py:0
+#, python-format
+msgid "Error cell found while reading XLS/XLSX file: %s"
+msgstr "Error encontrado al leer el archivo XLS/XLSX: %s"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__is_close
+msgid "Esta cerrado"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_dev_skip_installment_form
+msgid "Establecer como borrador"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__state
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dias_feriados__state
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__state
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_faltas_nomina__state
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incapacidades_nomina__state
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incidencias_nomina__state
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_vacaciones_nomina__state
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_viaticos_nomina__state
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_filter
+msgid "Estado"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_dev_skip_installment_filter
+msgid "Estados"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:hr.leave.type,name:nomina_cfdi_extras.hr_holidays_status_fi
+msgid "FI"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_listado_de_raya_detail_more
+msgid "FIRMA DE RECIBIDO"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:hr.leave.type,name:nomina_cfdi_extras.hr_holidays_status_fjc
+msgid "FJC"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:hr.leave.type,name:nomina_cfdi_extras.hr_holidays_status_fjs
+msgid "FJS"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:hr.leave.type,name:nomina_cfdi_extras.hr_holidays_status_fr
+msgid "FR"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.act_window,name:nomina_cfdi_extras.action_tree_faltas_nomina
+#: model:ir.ui.menu,name:nomina_cfdi_extras.menu_action_tree_faltas_nomina
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_faltas_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.search_faltas_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.tree_faltas_nomina_view
+msgid "Faltas"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_faltas_nomina
+msgid "FaltasNomina"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_comprobaciones_viaticos_nomina__fecha
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_contract_historial_salario__fecha_sueldo
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dias_feriados__fecha
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_entregas_viaticos_nomina__fecha
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incapacidades_nomina__fecha
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incidencias_nomina__fecha
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_installment_line__date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_retardo_nomina__fecha
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_viaticos_nomina__fecha
+msgid "Fecha"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__start_date
+msgid "Fecha de inicio"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__end_date
+msgid "Fecha de termino"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_crear_faltas_from_retardos__end_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_faltas_nomina__fecha_fin
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_wizard_regalas_salarieles__date_to
+msgid "Fecha fin"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_vacaciones_nomina__fecha_inicial
+msgid "Fecha inicial"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_crear_faltas_from_retardos__start_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_faltas_nomina__fecha_inicio
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_wizard_regalas_salarieles__date_from
+msgid "Fecha inicio"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.external_layout_standard_ext
+msgid "Fecha:"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_payslip_run__file_data
+msgid "File"
+msgstr "Archivo"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_wizard_regalas_salarieles__file_data
+msgid "File Data"
+msgstr "Archivo de datos"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incapacidades_nomina__folio_incapacidad
+msgid "Folio de incapacidad"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__message_follower_ids
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__message_partner_ids
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (socios)"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__viaticos_nomina__state__open
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_viaticos_nomina_view
+msgid "Generar comprobaciones"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__viaticos_nomina__state__draft
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_viaticos_nomina_view
+msgid "Generar entregas"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid "Gravado en perido + Gravado acumulado <br/>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid "Gravado en periodo / días a pagar * dias en el mes <br/>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid "Gravado mensual: <br/>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__has_message
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__has_message
+msgid "Has Message"
+msgstr "Tiene un mensaje"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__dev_skip_installment__state__done
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__dias_feriados__state__done
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__employee_loan__state__done
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__faltas_nomina__state__done
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incapacidades_nomina__state__done
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incidencias_nomina__state__done
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__retardo_nomina__state__done
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__vacaciones_nomina__state__done
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_dev_skip_installment_filter
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_dev_skip_installment_form
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_filter
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_form
+msgid "Hecho"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_contract__historial_salario_ids
+msgid "Historial Salario"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_hr_contract_historial_salario_form
+msgid "Historial salario"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.cfdi_payroll_layout_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.external_layout_standard_ext
+msgid "Hoja: <span class=\"page\"/> / <span class=\"topage\"/>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_calculo_isr_anual__id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_comprobaciones_viaticos_nomina__id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_contract_historial_salario__id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_crear_faltas_from_retardos__id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dias_feriados__id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan_type__id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_entregas_viaticos_nomina__id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_faltas_nomina__id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_import_logs__id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_importar_dias_wizard_xls__id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incapacidades_nomina__id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incidencias_nomina__id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_installment_line__id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_retardo_nomina__id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_vacaciones_nomina__id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_viaticos_nomina__id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_wizard_regalas_salarieles__id
+msgid "ID"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:hr.leave.type,name:nomina_cfdi_extras.hr_holidays_status_inc_eg
+msgid "INC_EG"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:hr.leave.type,name:nomina_cfdi_extras.hr_holidays_status_inc_mat
+msgid "INC_MAT"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:hr.leave.type,name:nomina_cfdi_extras.hr_holidays_status_inc_rt
+msgid "INC_RT"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.act_window,name:nomina_cfdi_extras.action_wizard_calculo_isr_anual
+#: model:ir.actions.report,name:nomina_cfdi_extras.action_report_calculo_isr_anual
+#: model:ir.ui.menu,name:nomina_cfdi_extras.menu_action_wizard_calculo_isr_anual
+msgid "ISR retenido y SUBEM"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,help:nomina_cfdi_extras.field_dev_skip_installment__message_needaction
+#: model:ir.model.fields,help:nomina_cfdi_extras.field_dev_skip_installment__message_unread
+#: model:ir.model.fields,help:nomina_cfdi_extras.field_employee_loan__message_needaction
+#: model:ir.model.fields,help:nomina_cfdi_extras.field_employee_loan__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+"Si se encuentra seleccionado, hay nuevos mensajes que requieren su atención."
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,help:nomina_cfdi_extras.field_dev_skip_installment__message_has_error
+#: model:ir.model.fields,help:nomina_cfdi_extras.field_dev_skip_installment__message_has_sms_error
+#: model:ir.model.fields,help:nomina_cfdi_extras.field_employee_loan__message_has_error
+#: model:ir.model.fields,help:nomina_cfdi_extras.field_employee_loan__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si se encuentra seleccionado, algunos mensajes tienen error de envío."
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_import_dias_wizard_xls_form
+msgid "Import"
+msgstr "Importar"
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_import_dias_wizard_xls_form
+msgid "Import Dias XLS"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_importar_dias_wizard_xls__import_file
+msgid "Importar"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.act_window,name:nomina_cfdi_extras.act_importar_dias_trabajo
+msgid "Importar dias trabajo"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.act_window,name:nomina_cfdi_extras.act_importar_otras_entradas
+msgid "Importar otras entradas"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_importar_dias_wizard_xls
+msgid "ImportarDiasWizard"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_comprobaciones_viaticos_nomina__importe
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_entregas_viaticos_nomina__importe
+msgid "Importe"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_viaticos_nomina_view
+msgid "Importe Total"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.wizard_calculo_isr_anual_form_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.wizard_reglas_salariales_form_view
+msgid "Imprimir"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incapacidades_nomina__secuela__incapacidad_temporal
+msgid "Incapacidad temporal"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.act_window,name:nomina_cfdi_extras.action_tree_incapacidades_nomina
+#: model:ir.ui.menu,name:nomina_cfdi_extras.menu_action_tree_incapacidades_nomina
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_incapacidades_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.search_incapacidades_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.tree_incapacidades_nomina_view
+msgid "Incapacidades"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_incapacidades_nomina
+msgid "IncapacidadesNomina"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.act_window,name:nomina_cfdi_extras.action_tree_incidencias_nomina
+#: model:ir.ui.menu,name:nomina_cfdi_extras.menu_action_tree_incidencias_nomina
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_incidencias_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.search_incidencias_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.tree_incidencias_nomina_view
+msgid "Incidencias"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_incidencias_nomina
+msgid "IncidenciasNomina"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incapacidades_nomina__control__inicial
+msgid "Inicial"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__faltas_nomina__tipo_de_falta__injustificada
+msgid "Injustificada"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_installment_line__ins_interest
+msgid "Interés"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_payslip__installment_int
+msgid "Interés Péstamo"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:hr.salary.rule,name:nomina_cfdi_extras.dev_emp_loan_interest_installment
+msgid "Interés del préstamo"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_payslip__descuento1_int
+msgid "Interés descuento 1"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_payslip__descuento2_int
+msgid "Interés descuento 2"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_installment_line__interest
+msgid "Interés total"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid ""
+"Invalidez y vida: <br/>\n"
+"                       SBC * Cuota * Dias laborados <br/>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__message_is_follower
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__message_is_follower
+msgid "Is Follower"
+msgstr "Es seguidor"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incidencias_nomina__tipo_de_baja__9
+msgid "Jubilación"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__faltas_nomina__tipo_de_falta__justificada_con_goce_de_sueldo
+msgid "Justificada con goce de sueldo"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__faltas_nomina__tipo_de_falta__justificada_sin_goce_de_sueldo
+msgid "Justificada sin goce de sueldo"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_calculo_isr_anual____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_comprobaciones_viaticos_nomina____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_contract_historial_salario____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_crear_faltas_from_retardos____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dias_feriados____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan_type____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_entregas_viaticos_nomina____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_faltas_nomina____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_import_logs____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_importar_dias_wizard_xls____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incapacidades_nomina____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incidencias_nomina____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_installment_line____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_retardo_nomina____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_vacaciones_nomina____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_viaticos_nomina____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_wizard_regalas_salarieles____last_update
+msgid "Last Modified on"
+msgstr "Modificado por última vez el"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_calculo_isr_anual__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_comprobaciones_viaticos_nomina__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_contract_historial_salario__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_crear_faltas_from_retardos__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dias_feriados__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan_type__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_entregas_viaticos_nomina__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_faltas_nomina__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_import_logs__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_importar_dias_wizard_xls__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incapacidades_nomina__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incidencias_nomina__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_installment_line__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_retardo_nomina__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_vacaciones_nomina__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_viaticos_nomina__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_wizard_regalas_salarieles__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_calculo_isr_anual__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_comprobaciones_viaticos_nomina__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_contract_historial_salario__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_crear_faltas_from_retardos__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dias_feriados__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan_type__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_entregas_viaticos_nomina__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_faltas_nomina__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_import_logs__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_importar_dias_wizard_xls__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incapacidades_nomina__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incidencias_nomina__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_installment_line__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_retardo_nomina__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_vacaciones_nomina__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_viaticos_nomina__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_wizard_regalas_salarieles__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_leave_type__limit
+msgid "Limit"
+msgstr "Límite"
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.report,name:nomina_cfdi_extras.action_report_payslip_batches_detail
+msgid "Listado de nomina"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.hr_payslip_run_inherit_form
+msgid "Listado de nomina (Excel)"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.report,name:nomina_cfdi_extras.action_report_listado_de_raya
+msgid "Listado de raya"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_import_logs__name
+msgid "Log"
+msgstr "Registro"
+
+#. module: nomina_cfdi_extras
+#: code:addons/nomina_cfdi_extras/models/viaticos_nomina.py:0
+#, python-format
+msgid "Los montos entregados no son iguales a los montos comprobados."
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan_type__loan_limit
+msgid "Límite del monto del deducción"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid "Límite inferior:"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_listado_de_raya_detail_more
+msgid "MANIFIESTO:"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__message_main_attachment_id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Archivo adjunto principal"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incapacidades_nomina__ramo_de_seguro__maternidad
+msgid "Maternidad"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__message_has_error
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de envío de mensaje"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__message_ids
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_payslip__installment_amount
+msgid "Monto Pŕestamo"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__loan_amount
+msgid "Monto de deducción"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__interest_amount
+msgid "Monto de interés"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_installment_line__amount
+msgid "Monto de la deducción"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__paid_amount
+msgid "Monto de pago"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_payslip__descuento1_amount
+msgid "Monto descuento 1"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_payslip__descuento2_amount
+msgid "Monto descuento 2"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__payment_method
+msgid "Método de pago"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_listado_de_raya_detail_more
+msgid "NOMBRE DEL TRABAJADOR"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_listado_de_raya_detail_more
+msgid "NOMINA DE SALARIOS DE LA SEMANA DEL"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dias_feriados__name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_faltas_nomina__name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incapacidades_nomina__name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incidencias_nomina__name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_retardo_nomina__name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_vacaciones_nomina__name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_viaticos_nomina__name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_wizard_regalas_salarieles__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: nomina_cfdi_extras
+#: code:addons/nomina_cfdi_extras/models/dias_feriados.py:0
+#: code:addons/nomina_cfdi_extras/models/faltas_nomina.py:0
+#: code:addons/nomina_cfdi_extras/models/incapacidades.py:0
+#: code:addons/nomina_cfdi_extras/models/incidencias.py:0
+#: code:addons/nomina_cfdi_extras/models/retardo.py:0
+#: code:addons/nomina_cfdi_extras/models/vacaciones_nomina.py:0
+#: code:addons/nomina_cfdi_extras/models/viaticos_nomina.py:0
+#, python-format
+msgid "New"
+msgstr "Nuevo"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incapacidades_nomina__secuela__ninguna
+msgid "Ninguna"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_employee__no_employee
+msgid "No de empleado"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan_type__name
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_installment_line__name
+msgid "Nombre"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_importar_dias_wizard_xls__file_name
+msgid "Nombre de file"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.report,name:nomina_cfdi_extras.report_payslip_nomina_x3
+msgid "Nomina x 3"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__message_needaction_counter
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de acciones"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__message_has_error_counter
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de errores"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,help:nomina_cfdi_extras.field_dev_skip_installment__message_needaction_counter
+#: model:ir.model.fields,help:nomina_cfdi_extras.field_employee_loan__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Número de mensajes que requieren una acción"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,help:nomina_cfdi_extras.field_dev_skip_installment__message_has_error_counter
+#: model:ir.model.fields,help:nomina_cfdi_extras.field_employee_loan__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensajes con error de envío"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,help:nomina_cfdi_extras.field_dev_skip_installment__message_unread_counter
+#: model:ir.model.fields,help:nomina_cfdi_extras.field_employee_loan__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Número de mensajes sin leer"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_res_config_settings__numoer_de_retardos_x_falta
+msgid "Numoer de retardos x falta"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__employee_loan__payment_method__by_payslip
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_form
+msgid "Nómina"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.report,name:nomina_cfdi_extras.action_report_payslip_batches
+msgid "Nóminas procesadas"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.res_config_settings_view_form
+msgid "Número de retardos"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_viaticos_nomina__observaciones
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_viaticos_nomina_view
+msgid "Observaciones"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incidencias_nomina__tipo_de_baja__6
+msgid "Otras"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_listado_de_raya_detail_more
+msgid "PUESTO DE TRABAJO"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_installment_line__is_paid
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__employee_loan__state__paid
+msgid "Pagado"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_pagos
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_pagos2
+msgid "Pago total"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: code:addons/nomina_cfdi_extras/models/hr_payslip.py:0
+#, python-format
+msgid ""
+"Para cancelar la nómina, es necesario cancelar primero la nota de crédito."
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: code:addons/nomina_cfdi_extras/models/employee_loan.py:0
+#, python-format
+msgid "Para realizar un préstamo el empleado debe tener una dirección asignada"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_hr_payslip
+msgid "Pay Slip"
+msgstr "Recibo de nómina"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_hr_payslip_run
+msgid "Payslip Batches"
+msgstr "Lotes de recibos de nómina"
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid ""
+"Pensio y beneficios: <br/>\n"
+"                       SBC * Cuota * Dias completos <br/>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incidencias_nomina__tipo_de_baja__a
+msgid "Pensión"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_pagos
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_pagos2
+msgid "Percepciones"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan_type__periodo_de_pago
+msgid "Periodo de pago"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan_type__loan_term
+msgid "Plazo de la deducción"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__term
+msgid "Plazos"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_viaticos_nomina__por_comprobar
+msgid "Por comprobar"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__faltas_nomina__tipo_de_falta__retardo
+msgid "Por retardos"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incapacidades_nomina__porcentaje
+msgid "Porcentaje"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incapacidades_nomina__control2__03
+msgid "Postnatal"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incapacidades_nomina__control2__01
+msgid "Prenatal o ST-3"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.dev_hr_employee_loan_inherit_form
+msgid "Prestamo"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.act_window,name:nomina_cfdi_extras.act_hr_employee_loan_list
+msgid "Prestamo de empleado"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.dev_hr_employee_loan_inherit_form
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_dev_skip_installment_filter
+msgid "Prestamos"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:hr.salary.rule,name:nomina_cfdi_extras.dev_emp_loan_installment
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__employee_loan_type__tipo_deduccion__1
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__installment_line__tipo_deduccion__1
+msgid "Préstamo"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__job_id
+msgid "Puesto de trabajo"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.cfdi_payroll_layout_extras
+msgid "Página web:"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_payslip__installment_ids
+msgid "Pŕestamos"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_listado_de_raya_detail_more
+msgid ""
+"Que mediante mi firma, la cual yo mismo he escrito en el renglon "
+"correspondiente a mi\n"
+"\t\t\t\t\t\t\tnombre, CERTIFICO que he recibido de entera conformidad la "
+"cantidad indicada en dicho\n"
+"\t\t\t\t\t\t\trenglón, que desempeño el puesto de trabajo señalado, que mi "
+"horario de trabajo es de 8:30\n"
+"\t\t\t\t\t\t\ta 13:00 y de 13:30 a 18:30 horas de Lunes a Viernes de cada "
+"semana, que disfrute de media\n"
+"\t\t\t\t\t\t\thora para comer de 13:00 a 13:30 horas, tiempo durante el cual "
+"no estuve a disposicion del \n"
+"\t\t\t\t\t\t\tpatrón, y que no he trabajado ninguna hora extraodinaria a mi "
+"jornada normal de trabajo\n"
+"\t\t\t\t\t\t\tdurante esta semana. Medio de pago:Efectivo."
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__employee_loan_type__periodo_de_pago__quincenal
+msgid "Quincenal"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_nomina_x3_document
+msgid "R.F.C."
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_listado_de_raya_detail_more
+msgid "RECIBO DE NOMINA - CONSTANCIA"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incapacidades_nomina__ramo_de_seguro
+msgid "Ramo de seguro"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__notes
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__notes
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_dev_skip_installment_form
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_form
+msgid "Razón"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__dev_skip_installment__state__reject
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__employee_loan__state__reject
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_dev_skip_installment_form
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_form
+msgid "Rechazar"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_entregas_viaticos_nomina__referencia
+msgid "Referencia"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_payslip__refunded_id
+msgid "Refunded Payslip"
+msgstr "Nómina reembolsada"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incidencias_nomina__registro_patronal
+msgid "Registro patronal"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.act_window,name:nomina_cfdi_extras.action_wizard_reglas_salariales
+#: model:ir.ui.menu,name:nomina_cfdi_extras.menu_action_wizard_reglas_salariales
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.wizard_reglas_salariales_form_view
+msgid "Reglas salariales"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incidencias_nomina__tipo_de_incidencia__reingreso
+msgid "Reingreso"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.report,name:nomina_cfdi_extras.action_report_payslip_batches_pagos
+msgid "Relacion de pagos"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.report,name:nomina_cfdi_extras.action_report_payslip_batches_pagos2
+msgid "Relacion de pagos 2"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_pagos
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_pagos2
+msgid "Relación de pagos de nómina"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_report_nomina_cfdi_extras_report_calculo_isr_anual
+msgid "ReportGeneralLedger"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.report,name:nomina_cfdi_extras.action_report_imss_payslip_batch
+msgid "Reporte IMSS"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.report,name:nomina_cfdi_extras.report_payslips_extras
+msgid "Reporte ISR IMSS"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.report,name:nomina_cfdi_extras.action_report_de_control_payslip_batch
+msgid "Reporte de Control"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_calculo_isr_anual
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.wizard_calculo_isr_anual_form_view
+msgid "Reporte de ISR retenido y SUBEM"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.ui.menu,name:nomina_cfdi_extras.menu_payroll_payslip_reportes
+msgid "Reportes"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incidencias_nomina__tipo_de_baja__8
+msgid "Rescisión de contrato"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: code:addons/nomina_cfdi_extras/models/hr_payslip.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_payslip__retardo
+#, python-format
+msgid "Retardo"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_retardo_nomina
+msgid "RetardoNomina"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.act_window,name:nomina_cfdi_extras.action_tree_retardo_nomina
+#: model:ir.ui.menu,name:nomina_cfdi_extras.menu_action_tree_retardo_nomina
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_retardo_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.search_retardo_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.tree_retardo_nomina_view
+msgid "Retardos"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incapacidades_nomina__ramo_de_seguro__riesgo_de_trabajo
+msgid "Riesgo de trabajo"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__message_has_sms_error
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Error de entrega de SMS"
+
+#. module: nomina_cfdi_extras
+#: model:ir.ui.menu,name:nomina_cfdi_extras.menu_skip_installment
+msgid "Saltar deducción"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.act_window,name:nomina_cfdi_extras.action_dev_skip_installment
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_dev_skip_installment_tree
+msgid "Salto de deducción"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_dev_skip_installment_filter
+msgid "Salto de prestamo"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incapacidades_nomina__secuela
+msgid "Secuela"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid ""
+"Seguro enfermedad: <br/>\n"
+"                          Cuota * Dias completos * Excedente<br/>"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__employee_loan_type__periodo_de_pago__semanal
+msgid "Semanal"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incidencias_nomina__tipo_de_baja__2
+msgid "Separación voluntaria"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_payslip_run__show_cancelar_button
+msgid "Show Cancelar CFDI/Payslip Button"
+msgstr "Mostrar botón de Cancelar CFDI/Nómina"
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_viaticos_nomina_view
+msgid ""
+"Si tiene algún concepto con CFDI se va a generar y timbrar una nómina con la "
+"comprobación de los viáticos."
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_viaticos_nomina_view
+msgid ""
+"Si tiene algún concepto con CFDI se va a generar y timbrar una nómina con la "
+"entrega de los viáticos."
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_installment_line__is_skip
+msgid "Skip Installment"
+msgstr "Saltar cuota"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__employee_loan__interest_type__liner
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__employee_loan_type__interest_type__liner
+msgid "Sobre monto total"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__employee_loan__interest_type__reduce
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__employee_loan_type__interest_type__reduce
+msgid "Sobre saldo pendiente"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_employee__loan_request
+msgid "Solicitud del prestamo por año"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_retardo_nomina__state
+msgid "State"
+msgstr "Estado"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incapacidades_nomina__control__subsecuente
+msgid "Subsecuente"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid "Subsidio pagado:"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_contract_historial_salario__sueldo_base_cotizacion
+msgid "Sueldo base cotización"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incidencias_nomina__sueldo_cotizacion_base
+msgid "Sueldo cotización base"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid "Sueldo de cotizaión base:"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_contract_historial_salario__sueldo_diario
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incidencias_nomina__sueldo_diario
+msgid "Sueldo diario"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_contract_historial_salario__sueldo_diario_integrado
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incidencias_nomina__sueldo_diario_integrado
+msgid "Sueldo diario integrado"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_contract_historial_salario__sueldo_mensual
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incidencias_nomina__sueldo_mensual
+msgid "Sueldo mensual"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_contract_historial_salario__sueldo_por_hora
+msgid "Sueldo por hora"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incidencias_nomina__sueldo_por_horas
+msgid "Sueldo por horas"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_calculo_isr_anual__tablas_id
+msgid "Tabla CFDI"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__interest_rate
+msgid "Tasa de interés"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan_type__interest_rate
+msgid "Taza de interés"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.cfdi_payroll_layout_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.external_layout_standard_ext
+msgid "Teléfono:"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,help:nomina_cfdi_extras.field_importar_dias_wizard_xls__contract_id
+msgid "The contract for which applied this input"
+msgstr "El contrato aplicado para esta entrada"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_hr_leave_type
+msgid "Time Off Type"
+msgstr "Tipo de tiempo libre"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_comprobaciones_viaticos_nomina__referencia
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dias_feriados__tipo
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__loan_type_id
+msgid "Tipo"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incidencias_nomina__tipo_de_baja
+msgid "Tipo de baja"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan_type__tipo_deduccion
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_installment_line__tipo_deduccion
+#: model:ir.ui.menu,name:nomina_cfdi_extras.menu_employee_loan_type
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_filter
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_type_form
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_type_tree
+msgid "Tipo de deducción"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.act_window,name:nomina_cfdi_extras.action_employee_loan_type
+msgid "Tipo de deducción recurrente"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_faltas_nomina__tipo_de_falta
+msgid "Tipo de falta"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incidencias_nomina__tipo_de_incidencia
+msgid "Tipo de incidencia"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__interest_type
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan_type__interest_type
+msgid "Tipo de interés"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_pagos
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_pagos2
+msgid "Tipo de pago"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_incapacidades_nomina__tipo_de_riesgo
+msgid "Tipo de riesgo"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: code:addons/nomina_cfdi_extras/models/hr_payroll.py:0
+#, python-format
+msgid ""
+"To cancel the Original Payslip the\n"
+"                    Refunded Payslip needs to be canceled first!"
+msgstr ""
+"Para anular la nómina original es necesario anular primero la\n"
+"                    nómina reembolsada tiene que ser cancelada primero!"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_installment_line__total_installment
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_pagos
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_pagos2
+msgid "Total"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_pagos
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_pagos2
+msgid "Total Efectivo"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_pagos
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_pagos2
+msgid "Total Especie"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_document_extras
+msgid "Total IMSS:"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_viaticos_nomina__comprobaciones
+msgid "Total comprobaciones"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_viaticos_nomina__entregas
+msgid "Total entregas"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__dias_feriados__tipo__triple
+msgid "Triple"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incidencias_nomina__tipo_de_baja__1
+msgid "Término de contrato"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__skip_installment_url
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__loan_url
+msgid "URL"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_nomina_x3_document
+msgid "UUID:"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: code:addons/nomina_cfdi_extras/wizard/importar_dias_wizard.py:0
+#, python-format
+msgid "Unable to load \"{extension}\" file: requires Python module \"{modname}\""
+msgstr ""
+"No se ha podido cargar el archivo \"{extensión}\": requiere el módulo de "
+"Python \"{nombredelmodelo}\""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incapacidades_nomina__control__unica
+msgid "Unica"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__message_unread
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__message_unread
+msgid "Unread Messages"
+msgstr "Mensajes sin leer"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__message_unread_counter
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Contador de mensajes sin leer"
+
+#. module: nomina_cfdi_extras
+#: code:addons/nomina_cfdi_extras/wizard/importar_dias_wizard.py:0
+#, python-format
+msgid "Unsupported file format \"{}\", import only supports XLS, XLSX"
+msgstr ""
+"Formato de archivo no admitido \"{}\", la importación sólo admite XLS, XLSX"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__user_id
+msgid "User"
+msgstr "Usuario"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__user_id
+msgid "Usuario"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:hr.leave.type,name:nomina_cfdi_extras.hr_holidays_status_vac
+msgid "VAC"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.act_window,name:nomina_cfdi_extras.action_tree_vacaciones_nomina
+#: model:ir.ui.menu,name:nomina_cfdi_extras.menu_action_tree_vacaciones_nomina
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_vacaciones_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_viaticos_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.search_vacaciones_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.search_viaticos_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.tree_vacaciones_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.tree_viaticos_nomina_view
+msgid "Vacaciones"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_vacaciones_nomina
+msgid "VacacionesNomina"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.server,name:nomina_cfdi_extras.action_selected_incidencis
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_dias_feriados_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_faltas_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_incapacidades_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_incidencias_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_retardo_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_vacaciones_nomina_view
+msgid "Validar"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incapacidades_nomina__secuela__valuación_inicial_definitiva
+msgid "Valuación inicial definitiva"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields.selection,name:nomina_cfdi_extras.selection__incapacidades_nomina__secuela__valuación_inicial_provisional
+msgid "Valuación inicial provisional"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.actions.act_window,name:nomina_cfdi_extras.action_tree_viaticos_nomina
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_comprobaciones_viaticos_nomina__viaticos_id
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_entregas_viaticos_nomina__viaticos_id
+#: model:ir.ui.menu,name:nomina_cfdi_extras.menu_action_tree_viaticos_nomina
+#: model:ir.ui.menu,name:nomina_cfdi_extras.menu_main_viaticos
+msgid "Viaticos"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_viaticos_nomina
+msgid "ViaticosNomina"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_dev_skip_installment__website_message_ids
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_employee_loan__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes del sitio web"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,help:nomina_cfdi_extras.field_dev_skip_installment__website_message_ids
+#: model:ir.model.fields,help:nomina_cfdi_extras.field_employee_loan__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicaciones del sitio web"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_wizard_regalas_salarieles
+msgid "WizardReglasSalariales"
+msgstr "Asistente de reglas salariales"
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_listado_de_raya_detail_more
+msgid "__________________"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_form
+msgid "amount"
+msgstr "monto"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_dev_skip_installment
+msgid "dev_skip_installment"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_payslip__rp_dias_completos
+msgid "dias completos"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_payslip__rp_dias_laborados
+msgid "dias laborados"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_payslip__rp_dias_periodo
+msgid "dias periodo"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_pagos
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.report_payslip_batches_pagos2
+msgid "empleados"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_employee_loan
+msgid "employee_loan"
+msgstr "préstamo_empleado"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_employee_loan_type
+msgid "employee_loan_type"
+msgstr "tipo_de_préstamo_empleado"
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.res_config_settings_view_form
+msgid "falta"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_payslip__rp_gravado
+msgid "gravado"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_import_logs
+msgid "import_logs"
+msgstr "importar_registros"
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_form
+msgid "ins_interest"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_form
+msgid "installment_amt"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_installment_line
+msgid "installment_line"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_form
+msgid "interest"
+msgstr "interés"
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_report_nomina_cfdi_extras_report_de_control_payslip_batch
+msgid "report.nomina_cfdi_extras.report_de_control_payslip_batch"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_report_nomina_cfdi_extras_report_imss_payslip_batch
+msgid "report.nomina_cfdi_extras.report_imss_payslip_batch"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model,name:nomina_cfdi_extras.model_report_nomina_cfdi_extras_report_payslip_batches_pagos2
+msgid "report.nomina_cfdi_extras.report_payslip_batches_pagos2"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_payslip__rp_cuota_fija
+msgid "rp_cuota_fija"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_payslip__rp_limite_inferior
+msgid "rp_limite_inferior"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_payslip__rp_porcentaje
+msgid "rp_porcentaje"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model:ir.model.fields,field_description:nomina_cfdi_extras.field_hr_payslip__rp_subsidio
+msgid "rp_subsidio"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.view_employee_loan_form
+msgid "total_installment"
+msgstr "cuota_Total"
+
+#. module: nomina_cfdi_extras
+#: code:addons/nomina_cfdi_extras/models/skip_installment.py:0
+#, python-format
+msgid "¡Omitir la eliminación de cuotas solo en el estado borrador!"
+msgstr ""
+
+#. module: nomina_cfdi_extras
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_dias_feriados_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_faltas_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_incapacidades_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_retardo_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi_extras.form_vacaciones_nomina_view
+msgid "¿Seguro que quiere cancelar el registro?"
+msgstr ""
