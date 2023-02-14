@@ -28,12 +28,27 @@ class CopyPasteTemplate(models.Model):
         company_id = self.company_id
         for c in self.source_company_ids:
 
-            moves = self.env['account.move'].sudo().search([
-                                                        ('company_id','=', c.id),
-                                                        ('not_sync','=', False),
-                                                        ('synced','=',False),
-                                                        ('state','=','posted'),
-                                                        ('date','>=',self.date_start)])
+            domain = [
+                    ('company_id','=', c.id),
+                    ('not_sync','=', False),
+                    ('synced','=',False),
+                    ('state','=','posted'),
+                    ('date','>=',self.date_start)]
+            journal_types = []
+            if self.sale_journal_id:
+                journal_types.append('sale')
+            if self.purchase_journal_id:
+                journal_types.append('purchase')
+            if self.bank_journal_id:
+                journal_types.append('bank')
+            if self.cash_journal_id:
+                journal_types.append('cash')
+            if self.general_journal_id:
+                journal_types.append('general')
+
+            domain.append(('journal_id.type','in', journal_types))
+                
+            moves = self.env['account.move'].sudo().search(domain)
             if moves:
                 for m in moves:
                     if m.journal_id.type == 'sale':
