@@ -51,6 +51,9 @@
       <field name="origin" position="replace">
         <field name="origin" placeholder="e.g. PO0025" attrs="{'readonly': [('state', '!=', 'draft')]}" required="1"/>
       </field>
+      <xpath expr="//field[@name='type_id']" position="attributes">
+        <attribute name="string">Sondeo de mercado</attribute>
+      </xpath>
       <field name="type_id" position="after">
         <field name="subtype" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
       </field>

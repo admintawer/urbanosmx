@@ -28,6 +28,8 @@
         'views/purchase_requisition_type.xml',
         'views/purchase_requisition.xml',
         'views/templates.xml',
+        'views/stock_picking.xml',
+        'reports/delivery_order.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

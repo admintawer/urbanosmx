@@ -25,17 +25,21 @@ class ExcelReport(models.AbstractModel):
         }) """
 
         #Write XLSX
-        sheet.write(0, 0, 'Product code')
-        sheet.write(0, 1, 'Product name')
-        sheet.write(0, 2, 'Price')
-        sheet.write(0, 3, 'Schedule date')
+        sheet.write(0, 0, 'Codigo')
+        sheet.write(0, 1, 'Producto')
+        sheet.write(0, 2, 'Cantidad')
+        sheet.write(0, 3, 'Precio')
+        sheet.write(0, 4, 'Fecha entrega')
+        sheet.write(0, 5, 'Notas')
         row = 1
         _logger.critical('DATA'+str(data))
         _logger.critical('OBJECTS'+str(objects))
         for i in data:
             sheet.write(row, 0, i['product_code'])
             sheet.write(row, 1, i['product_name'])
-            sheet.write(row, 2, 0.00)
+            sheet.write(row, 2, i['qty'])
+            sheet.write(row, 3, 0.00)
+            sheet.write(row, 5, i['description'])
             row += 1
 
 class PurchaseRequisition(models.Model):
@@ -169,7 +173,9 @@ class PurchaseRequisition(models.Model):
             for r in self.line_ids:
                 product = {
                     'product_code': r.product_id.id,
-                    'product_name': r.product_id.display_name
+                    'product_name': r.product_id.display_name,
+                    'description': r.product_description_variants,
+                    'qty': r.qty_ordered,
                 }
                 product_list.append(product)
         generated_report = report._render_xlsx(report.id, self.id, product_list)
