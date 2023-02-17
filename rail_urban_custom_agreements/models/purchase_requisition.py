@@ -174,8 +174,8 @@ class PurchaseRequisition(models.Model):
                 product = {
                     'product_code': r.product_id.id,
                     'product_name': r.product_id.display_name,
-                    'description': r.product_description_variants,
-                    'qty': r.qty_ordered,
+                    'description': r.product_description_variants if r.product_description_variants else '',
+                    'qty': r.product_qty,
                 }
                 product_list.append(product)
         generated_report = report._render_xlsx(report.id, self.id, product_list)
