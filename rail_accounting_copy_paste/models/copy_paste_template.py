@@ -27,7 +27,6 @@ class CopyPasteTemplate(models.Model):
         move_object = self.env['account.move']
         company_id = self.company_id
         for c in self.source_company_ids:
-
             domain = [
                     ('company_id','=', c.id),
                     ('not_sync','=', False),
@@ -104,9 +103,20 @@ class CopyPasteTemplate(models.Model):
             ma_list = []
             for r in missing_accounts:
                 ma_list.append(r.display_name)
-            raise ValidationError(_('Cant continue with the process, missing accounts in matrix company:' + ', '.join(ma_list)))
+            raise ValidationError(_('No se puede continuar con el proceso, las siguientes cuentas no se encuentran creadas en: '+ self.company_id.disply_name + '\n' \
+                + ', '.join(ma_list)))
         else:
-            self._get_account_moves_to_matrix()
+            try:
+                self._get_account_moves_to_matrix()
+                return {
+                    'effect':{
+                        'fadeout': 'slow',
+                        'message': 'El proceso de sincronizacion ha finalizado satisfactoriamente',
+                        'type': 'rainbow_man',
+                    }
+                }
+            except:
+                raise ValidationError("Algo a salido mal con  la sincronizacion por favor contacta a soporte")       
             
 
             
