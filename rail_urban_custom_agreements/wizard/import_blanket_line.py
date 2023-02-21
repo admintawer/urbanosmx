@@ -41,16 +41,16 @@ class ImportBlanket(models.TransientModel):
                             'partner_id': self.vendor_id.id,
                             'product_id': product.id,
                         })
-                        if sheet.cell(r, 3).value not in (None, ""):
-                            price_unit = sheet.cell(r,3).value
+                        if sheet.cell(r, 4).value not in (None, ""):
+                            price_unit = sheet.cell(r,4).value
                             blanket_vals.update({
                                 'price_unit': price_unit
                             })
                         else:
                             error = True
                             skipped_line_no[str(ncounter)] = " - Hay un error en el precio unitario, por favor revisar"
-                        if sheet.cell(r, 4).value not in (None, ""): 
-                            d = sheet.cell(r,4).value
+                        if sheet.cell(r, 5).value not in (None, ""): 
+                            d = sheet.cell(r,5).value
                             #schedule_date = str(datetime.strftime(schedule_date, '%Y-%m-%d').date())
                             year, month, day, hour, minutes, seconds = xlrd.xldate_as_tuple(d, workbook.datemode)
                             schedule_date = "{0}-{1}-{2}".format(year, month, day)
