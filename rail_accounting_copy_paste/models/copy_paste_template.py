@@ -27,13 +27,27 @@ class CopyPasteTemplate(models.Model):
         move_object = self.env['account.move']
         company_id = self.company_id
         for c in self.source_company_ids:
+            domain = [
+                    ('company_id','=', c.id),
+                    ('not_sync','=', False),
+                    ('synced','=',False),
+                    ('state','=','posted'),
+                    ('date','>=',self.date_start)]
+            journal_types = []
+            if self.sale_journal_id:
+                journal_types.append('sale')
+            if self.purchase_journal_id:
+                journal_types.append('purchase')
+            if self.bank_journal_id:
+                journal_types.append('bank')
+            if self.cash_journal_id:
+                journal_types.append('cash')
+            if self.general_journal_id:
+                journal_types.append('general')
 
-            moves = self.env['account.move'].sudo().search([
-                                                        ('company_id','=', c.id),
-                                                        ('not_sync','=', False),
-                                                        ('synced','=',False),
-                                                        ('state','=','posted'),
-                                                        ('date','>=',self.date_start)])
+            domain.append(('journal_id.type','in', journal_types))
+                
+            moves = self.env['account.move'].sudo().search(domain)
             if moves:
                 for m in moves:
                     if m.journal_id.type == 'sale':
@@ -89,9 +103,20 @@ class CopyPasteTemplate(models.Model):
             ma_list = []
             for r in missing_accounts:
                 ma_list.append(r.display_name)
-            raise ValidationError(_('Cant continue with the process, missing accounts in matrix company:' + ', '.join(ma_list)))
+            raise ValidationError(_('No se puede continuar con el proceso, las siguientes cuentas no se encuentran creadas en: '+ self.company_id.disply_name + '\n' \
+                + ', '.join(ma_list)))
         else:
-            self._get_account_moves_to_matrix()
+            try:
+                self._get_account_moves_to_matrix()
+                return {
+                    'effect':{
+                        'fadeout': 'slow',
+                        'message': 'El proceso de sincronizacion ha finalizado satisfactoriamente',
+                        'type': 'rainbow_man',
+                    }
+                }
+            except:
+                raise ValidationError("Algo a salido mal con  la sincronizacion por favor contacta a soporte")       
             
 
             

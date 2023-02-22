@@ -1,0 +1,177 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* rail_accounting_copy_paste
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e-20221202\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-10 21:02+0000\n"
+"PO-Revision-Date: 2023-02-14 12:16-0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_MX\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#. module: rail_accounting_copy_paste
+#: model:ir.model,name:rail_accounting_copy_paste.model_copy_paste_template
+msgid "Accounting copy paste template"
+msgstr "Plantilla de sincronizacion"
+
+#. module: rail_accounting_copy_paste
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_copy_paste_template__bank_journal_id
+msgid "Bank Journal"
+msgstr "Transacciones bancarias"
+
+#. module: rail_accounting_copy_paste
+#. odoo-python
+#: code:addons/rail_accounting_copy_paste/models/copy_paste_template.py:0
+#, python-format
+msgid "Cant continue with the process, missing accounts in matrix company:, "
+msgstr "No se puede continuar con el proceso, las siguientes cuentas no existen en la compañía matriz:"
+
+#. module: rail_accounting_copy_paste
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_copy_paste_template__cash_journal_id
+msgid "Cash Journal"
+msgstr "Transacciones de efectivo"
+
+#. module: rail_accounting_copy_paste
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_copy_paste_template__company_id
+msgid "Company"
+msgstr "Compañia"
+
+#. module: rail_accounting_copy_paste
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_copy_paste_template__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: rail_accounting_copy_paste
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_account_bank_statement_line__from_sync
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_account_move__from_sync
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_account_payment__from_sync
+msgid "Created from sync"
+msgstr "Creado desde sync."
+
+#. module: rail_accounting_copy_paste
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_copy_paste_template__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: rail_accounting_copy_paste
+#: model_terms:ir.ui.view,arch_db:rail_accounting_copy_paste.copy_paste_view_form
+msgid "Destino"
+msgstr "Destino"
+
+#. module: rail_accounting_copy_paste
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_copy_paste_template__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: rail_accounting_copy_paste
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_copy_paste_template__general_journal_id
+msgid "General Journal"
+msgstr "Transacciones generales"
+
+#. module: rail_accounting_copy_paste
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_copy_paste_template__id
+msgid "ID"
+msgstr "ID"
+
+#. module: rail_accounting_copy_paste
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_copy_paste_template__date_start
+msgid "Initial day for syncing"
+msgstr "Dia inicial para sincronizacion"
+
+#. module: rail_accounting_copy_paste
+#: model:ir.model,name:rail_accounting_copy_paste.model_account_move
+msgid "Journal Entry"
+msgstr "Asiento de diario"
+
+#. module: rail_accounting_copy_paste
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_copy_paste_template____last_update
+msgid "Last Modified on"
+msgstr "Ultima modificación el"
+
+#. module: rail_accounting_copy_paste
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_copy_paste_template__write_uid
+msgid "Last Updated by"
+msgstr "Ultima actualización por"
+
+#. module: rail_accounting_copy_paste
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_copy_paste_template__write_date
+msgid "Last Updated on"
+msgstr "Ultima actualización en"
+
+#. module: rail_accounting_copy_paste
+#: model_terms:ir.ui.view,arch_db:rail_accounting_copy_paste.copy_paste_view_form
+msgid "Mapeo diarios"
+msgstr "Mapa de diarios"
+
+#. module: rail_accounting_copy_paste
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_account_bank_statement_line__matrix_ref
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_account_move__matrix_ref
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_account_payment__matrix_ref
+msgid "Matrix ref"
+msgstr "Referencia Origen"
+
+#. module: rail_accounting_copy_paste
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_account_bank_statement_line__synced
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_account_move__synced
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_account_payment__synced
+msgid "Matrix synced"
+msgstr "Sincronizado"
+
+#. module: rail_accounting_copy_paste
+#: model_terms:ir.ui.view,arch_db:rail_accounting_copy_paste.copy_paste_view_form
+msgid "Multi company accounting sync"
+msgstr "Sincronización contable multi-compañia"
+
+#. module: rail_accounting_copy_paste
+#: model:ir.actions.act_window,name:rail_accounting_copy_paste.copy_paste_view_action
+#: model:ir.ui.menu,name:rail_accounting_copy_paste.copy_paste_view_menu
+msgid "Multi company sync"
+msgstr "Sincronizacion multi-compañia"
+
+#. module: rail_accounting_copy_paste
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_copy_paste_template__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: rail_accounting_copy_paste
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_account_bank_statement_line__not_sync
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_account_move__not_sync
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_account_payment__not_sync
+msgid "Not sync to matrix"
+msgstr "No sincronizar a matriz"
+
+#. module: rail_accounting_copy_paste
+#: model_terms:ir.ui.view,arch_db:rail_accounting_copy_paste.copy_paste_view_form
+msgid "Origen"
+msgstr "Origen"
+
+#. module: rail_accounting_copy_paste
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_copy_paste_template__purchase_journal_id
+msgid "Purchase Journal"
+msgstr "Transacciones de compra"
+
+#. module: rail_accounting_copy_paste
+#: model_terms:ir.ui.view,arch_db:rail_accounting_copy_paste.copy_paste_view_form
+msgid "Run"
+msgstr "Ejecutar"
+
+#. module: rail_accounting_copy_paste
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_copy_paste_template__sale_journal_id
+msgid "Sale Journal"
+msgstr "Transacciones de venta"
+
+#. module: rail_accounting_copy_paste
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_account_bank_statement_line__source_company_id
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_account_move__source_company_id
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_account_payment__source_company_id
+#: model:ir.model.fields,field_description:rail_accounting_copy_paste.field_copy_paste_template__source_company_ids
+msgid "Source Company"
+msgstr "Compañía origen"

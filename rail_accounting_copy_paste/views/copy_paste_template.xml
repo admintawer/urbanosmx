@@ -36,15 +36,15 @@
                     <group string="Mapeo diarios" col="3">
                         <group>
                             <field name="sale_journal_id" required="1"/>
-                            <field name="purchase_journal_id" required="1"/>
+                            <field name="purchase_journal_id"/>
                         </group>
                         <group>
-                            <field name="bank_journal_id" required="1"/>
-                            <field name="cash_journal_id" required="1"/>
+                            <field name="bank_journal_id"/>
+                            <field name="cash_journal_id"/>
                         </group>
                         <group>
-                            <field name="general_journal_id" required="1"/>
-                            <field name="date_start" required="1"/>
+                            <field name="general_journal_id"/>
+                            <field name="date_start"/>
                         </group>
                     </group>
                 </sheet>

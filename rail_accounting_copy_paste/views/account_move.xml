@@ -7,8 +7,8 @@
         <field name="arch" type="xml">
             <field name="ref" position="after">
                 <field name="not_sync" widget="boolean_toggle"/>
-                <field name="synced"/>
-                <field name="matrix_ref"/>
+                <field name="synced" groups="base.group_no_one"/>
+                <field name="matrix_ref" readonly="1" force_save="1"/>
             </field>
         </field>
     </record>
