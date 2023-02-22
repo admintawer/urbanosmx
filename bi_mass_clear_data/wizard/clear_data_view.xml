@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem id="menu_clear_data_root"
+        name="Clear Data"
+        sequence="270"
+        parent="base.menu_administration"
+        groups="base.group_no_one"/>
+
+    <record id="view_clear_data" model="ir.ui.view">
+        <field name="name">clear.data.form</field>
+        <field name="model">clear.data</field>
+        <field name="arch" type="xml">
+            <form string="Mass Clear Data">
+                <group string="All data">
+                    <field name="all_data"/>
+                </group>
+                <group col="2">
+                    <group string="Sale">
+                        <field name="sale_and_transfer"/>
+                    </group>
+                    <group string="Purchase">
+                        <field name="purchase_and_transfer"/>
+                    </group>
+                </group>
+                <group col="2">
+                    <group string="Inventory">
+                        <field name="transfer"/>
+                    </group>
+                    <group string="Project">
+                        <field name="project_task_timesheet"/>
+                        <field name="task_timesheet"/>
+                    </group>
+                </group>
+                <group col="2">
+                    <group string="Contacts">
+                        <field name="customer_vendor"/>
+                    </group>
+                    <group string="Manufacturing">
+                        <field name="bom_mrp_order"/>
+                        <field name="mrp_order"/>
+                    </group>
+                </group>
+                <group col="2">
+                    <group string="Accounting">
+                        <field name="invoice_payment_journal"/>
+                        <field name="journal_entry"/>
+                        <field name="all_accounting_data"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="clear_data" string="Clear Data" type="object"  class="btn-primary" />
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_clear_data" model="ir.actions.act_window">
+        <field name="name">Clear Data</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">clear.data</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_clear_data" 
+            name="Clear Data"
+            parent="bi_mass_clear_data.menu_clear_data_root" 
+            sequence="4" 
+            groups="base.group_no_one" 
+            action="bi_mass_clear_data.action_clear_data"/>
+    
+</odoo>
