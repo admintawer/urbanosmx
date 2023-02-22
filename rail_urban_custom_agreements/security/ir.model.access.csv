@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+pr_blanket_lines_access,pr.blanket.lines.access,model_pr_blanket_lines,,1,1,1,1
+pr_blanket_import_wiz,pr.blanket.import.wizard.access,model_import_blanket_wizard,,1,1,1,1

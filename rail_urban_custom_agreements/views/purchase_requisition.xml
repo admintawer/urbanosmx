@@ -1,0 +1,73 @@
+<odoo>
+  <!--XLSX report action-->
+  <record id="action_bl_xlsx" model="ir.actions.report">
+      <field name="name">Report BL Xlsx</field>
+      <field name="model">purchase.requisition</field>
+      <field name="report_type">xlsx</field>
+      <field name="report_name">rail_urban_custom_agreements.report_xlsx</field>
+      <field name="report_file">rail_urban_agreement.report_xlsx</field>
+      <field name="print_report_name">'BL Xlsx'</field>
+  </record>
+  <!--Form inherit-->
+  <record model="ir.ui.view" id="rail_urban_agreement">
+    <field name="name">rail.urban.agreement</field>
+    <field name="model">purchase.requisition</field>
+    <field name="inherit_id" ref="purchase_requisition.view_purchase_requisition_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//header/button[@name='action_in_progress']" position="attributes">
+        <attribute name="states">sent</attribute>
+      </xpath>
+      <xpath expr="//header" position="inside">
+        <!--button name="action_email_send" type="object" string="ENVIAR POR EMAIL"/-->
+        <button name="send_email_with_xlsx" type="object" string="ENVIAR CORREO ELECTRONICO"
+          attrs="{'invisible': [('state','not in',['draft','ongoing','sent'])]}"/>
+        <button 
+          type="action" 
+          name="%(rail_urban_custom_agreements.import_blanket_action)d" 
+          string="Import"
+          context="{'default_vendor_ids': vendor_ids, 'default_requisition_id': id}"
+          states = "draft,sent"
+        />
+        <button name="button_automatic_aproval" type="object" string="Asignacion Autom." 
+          attrs="{'invisible':['|',('manual_aproval','=',True),('state','not in',['draft','ongoing','sent'])]}"/>
+        <button name="button_manual_aproval" type="object" string="Asignacion Manual" 
+          attrs="{'invisible': [('manual_aproval','=',False),('state','not in',['draft','ongoing','sent'])]}"/>
+      </xpath>
+      <xpath expr="//header/field[@name='state']" position="attributes">
+        <attribute name="statusbar_visible">draft,sent,in_progress,open,done</attribute>
+      </xpath>
+      <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+          <button name="%(action_blanket_list)d" type="action" class="oe_stat_button" icon="fa-usd"
+              attrs="{'invisible': [('state', '=', 'draft')]}">
+              <field name="bl_count" widget="statinfo" string="BLs"/>
+          </button>
+      </xpath>
+      <field name="vendor_id" position="replace">
+        <field name="vendor_id" invisible="1"/>
+        <field name="vendor_ids" attrs="{'readonly': [('state', '!=', 'draft')]}" required="1" widget="many2many_tags"/>
+        <field name="vendor_emails" invisible="1"/>
+        <field name="manual_aproval" readonly="1"/>
+      </field>
+      <field name="origin" position="replace">
+        <field name="origin" placeholder="e.g. PO0025" attrs="{'readonly': [('state', '!=', 'draft')]}" required="1"/>
+      </field>
+      <field name="type_id" position="after">
+        <field name="subtype" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+      </field>
+      <xpath expr="//field[@name='line_ids']/tree/field[@name='schedule_date']" position="before">
+        <field name="manual_aproval" invisible="1"/>
+        <field name="company_id" invisible="1"/>
+      </xpath>
+      <xpath expr="//field[@name='line_ids']/tree/field[@name='schedule_date']" position="attributes">
+        <attribute name="attrs">{'readonly':[('manual_aproval','=',False)]}</attribute>
+      </xpath>
+      <xpath expr="//field[@name='line_ids']/tree/field[@name='price_unit']" position="attributes">
+        <attribute name="attrs">{'readonly':[('manual_aproval','=',False)]}</attribute>
+      </xpath>
+      <xpath expr="//field[@name='line_ids']/tree/field[@name='schedule_date']" position="after">
+        <field name="vendor_id" attrs="{'readonly':[('manual_aproval','=',False)]}"/>
+        <field name="purchase_id" readonly="1"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

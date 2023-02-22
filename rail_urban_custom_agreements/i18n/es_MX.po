@@ -1,0 +1,411 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* rail_urban_custom_agreements
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e-20221202\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-31 13:51+0000\n"
+"PO-Revision-Date: 2023-01-31 07:58-0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.2\n"
+
+#. module: rail_urban_custom_agreements
+#. odoo-python
+#: code:addons/rail_urban_custom_agreements/models/purchase_requisition.py:0
+#, python-format
+msgid "%(amount)s due %(date)s"
+msgstr "%(amount)s vencimiento%(date)s"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.actions.report,print_report_name:rail_urban_custom_agreements.action_bl_xlsx
+msgid "'BL Xlsx'"
+msgstr "'BL Xlsx'"
+
+#. module: rail_urban_custom_agreements
+#: model:mail.template,body_html:rail_urban_custom_agreements.email_template_rail_urban_bl
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                        Dear \n"
+"                        <br/>\n"
+"                        Here is in attachment a request for quotation \n"
+"                        <t t-if=\"object.origin\">\n"
+"                            with reference: <t t-out=\"object.origin or ''\">REF_XXX</t>\n"
+"                        </t>\n"
+"                        from <t t-out=\"object.company_id.name or ''\">YourCompany</t>.\n"
+"                        <br/><br/>\n"
+"                        If you have any questions, please do not hesitate to contact us.\n"
+"                        <br/><br/>\n"
+"                        Best regards,\n"
+"                        <t t-if=\"not is_html_empty(object.user_id.signature)\">\n"
+"                            <br/><br/>\n"
+"                            <t t-out=\"object.user_id.signature or ''\">--<br/>Mitchell Admin</t>\n"
+"                        </t>\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                        Estimado proveedor \n"
+"                        Adjunto encontrara listado de productos licitados \n"
+"                        <t t-if=\"object.origin\">\n"
+"                            con referncia: <t t-out=\"object.origin or ''\">REF_XXX</t>\n"
+"                        </t>\n"
+"                        de <t t-out=\"object.company_id.name or ''\">YourCompany</t>.\n"
+"                        Cualquier duda no dude en contactarnos.\n"
+"                        Muchas gracias,\n"
+"                        <t t-if=\"not is_html_empty(object.user_id.signature)\">\n"
+"                            <t t-out=\"object.user_id.signature or ''\">--<br/>Mitchell Admin</t>\n"
+"                        </t>\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+
+#. module: rail_urban_custom_agreements
+#: model:purchase.requisition.type,name:rail_urban_custom_agreements.type_single
+msgid "Adjudicacion directa"
+msgstr "Adjudicacion directa"
+
+#. module: rail_urban_custom_agreements
+#: model_terms:ir.ui.view,arch_db:rail_urban_custom_agreements.rail_urban_agreement
+msgid "Asignacion Autom."
+msgstr "Asignacion Autom."
+
+#. module: rail_urban_custom_agreements
+#: model_terms:ir.ui.view,arch_db:rail_urban_custom_agreements.rail_urban_agreement
+msgid "Asignacion Manual"
+msgstr "Asignacion manual"
+
+#. module: rail_urban_custom_agreements
+#: model:mail.message.subtype,name:rail_urban_custom_agreements.mt_bl_approved
+msgid "BL Approved"
+msgstr "Bl aprovado"
+
+#. module: rail_urban_custom_agreements
+#: model:mail.message.subtype,name:rail_urban_custom_agreements.mt_bl_confirmed
+msgid "BL Confirmed"
+msgstr "BL Confirmado"
+
+#. module: rail_urban_custom_agreements
+#: model:mail.message.subtype,name:rail_urban_custom_agreements.mt_bl_done
+msgid "BL Done"
+msgstr "BL Hecho"
+
+#. module: rail_urban_custom_agreements
+#: model:mail.message.subtype,name:rail_urban_custom_agreements.mt_bl_sent
+msgid "BL Sent"
+msgstr "BL Enviado"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model,name:rail_urban_custom_agreements.model_report_rail_urban_custom_agreements_report_xlsx
+msgid "BL xlsx"
+msgstr "BL xlsx"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.actions.act_window,name:rail_urban_custom_agreements.action_blanket_list
+#: model_terms:ir.ui.view,arch_db:rail_urban_custom_agreements.purchase_requisition_bl_pivot
+#: model_terms:ir.ui.view,arch_db:rail_urban_custom_agreements.rail_urban_agreement
+msgid "BLs"
+msgstr "Bls"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_purchase_requisition__blanket_ids
+msgid "Blanket"
+msgstr "Licitacion"
+
+#. module: rail_urban_custom_agreements
+#: model_terms:ir.ui.view,arch_db:rail_urban_custom_agreements.import_blanket_wizard_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_purchase_requisition__vendor_qty
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_purchase_requisition_type__vendor_qty
+msgid "Cnt. min. proveedores"
+msgstr "Cnt. minima proveedores"
+
+#. module: rail_urban_custom_agreements
+#. odoo-python
+#: code:addons/rail_urban_custom_agreements/models/purchase_requisition.py:0
+#, python-format
+msgid "Compose Email"
+msgstr "Enviar email"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_import_blanket_wizard__create_uid
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_pr_blanket_lines__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_import_blanket_wizard__create_date
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_pr_blanket_lines__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_purchase_requisition__subtype
+msgid "Criterio"
+msgstr "Criterio"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_import_blanket_wizard__display_name
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_pr_blanket_lines__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: rail_urban_custom_agreements
+#: model_terms:ir.ui.view,arch_db:rail_urban_custom_agreements.rail_urban_agreement
+msgid "ENVIAR CORREO ELECTRONICO"
+msgstr "ENVIAR CORREO ELECTRONICO"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model,name:rail_urban_custom_agreements.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr "Asistente de redacción de correo electrónico"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields.selection,name:rail_urban_custom_agreements.selection__purchase_requisition__state__sent
+#: model:ir.model.fields.selection,name:rail_urban_custom_agreements.selection__purchase_requisition__state_blanket_order__sent
+msgid "Enviado"
+msgstr "Enviado"
+
+#. module: rail_urban_custom_agreements
+#: model:mail.template,description:rail_urban_custom_agreements.email_template_rail_urban_bl
+msgid "Enviar solicitud de licitacion a competidores"
+msgstr "Enviar solicitud de licitacion a competidores"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_import_blanket_wizard__xlsx_file
+msgid "File"
+msgstr "Archivo"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_import_blanket_wizard__id
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_pr_blanket_lines__id
+msgid "ID"
+msgstr "ID"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.actions.act_window,name:rail_urban_custom_agreements.import_blanket_action
+#: model_terms:ir.ui.view,arch_db:rail_urban_custom_agreements.import_blanket_wizard_view
+#: model_terms:ir.ui.view,arch_db:rail_urban_custom_agreements.rail_urban_agreement
+msgid "Import"
+msgstr "Importar"
+
+#. module: rail_urban_custom_agreements
+#: model_terms:ir.ui.view,arch_db:rail_urban_custom_agreements.import_blanket_wizard_view
+msgid "Import XLSX"
+msgstr "IMportar XLSX"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model,name:rail_urban_custom_agreements.model_import_blanket_wizard
+msgid "Import vendors agreement offers"
+msgstr "Importar ofertas"
+
+#. module: rail_urban_custom_agreements
+#: model:purchase.requisition.type,name:rail_urban_custom_agreements.type_multiple
+msgid "Invitacion a cuando menos 3"
+msgstr "Invitacon a cuando menos 3"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_import_blanket_wizard____last_update
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_pr_blanket_lines____last_update
+msgid "Last Modified on"
+msgstr "Ultima modificacion el"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_import_blanket_wizard__write_uid
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_pr_blanket_lines__write_uid
+msgid "Last Updated by"
+msgstr "Ultima actualizacion por"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_import_blanket_wizard__write_date
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_pr_blanket_lines__write_date
+msgid "Last Updated on"
+msgstr "Ultima actualizacion el"
+
+#. module: rail_urban_custom_agreements
+#. odoo-python
+#: code:addons/rail_urban_custom_agreements/models/purchase_requisition.py:0
+#, python-format
+msgid "Licitacion aprobada"
+msgstr "Licitacion aprobada"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_purchase_requisition__manual_aproval
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_purchase_requisition_line__manual_aproval
+msgid "Manual Aproval"
+msgstr "Aprobacion manual"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields.selection,name:rail_urban_custom_agreements.selection__purchase_requisition__subtype__price
+msgid "Mejor precio"
+msgstr "Mejor precio"
+
+#. module: rail_urban_custom_agreements
+#. odoo-python
+#: code:addons/rail_urban_custom_agreements/models/purchase_requisition.py:0
+#, python-format
+msgid "Need comply with the vendor qty required for the agreement type"
+msgstr "Necesitas completar la cantidad de proveedores establecida en el tipo de licitacion"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_purchase_requisition__bl_count
+msgid "Number of BLs"
+msgstr "Numero de Bls"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_pr_blanket_lines__partner_id
+msgid "Partner"
+msgstr "Proveedor"
+
+#. module: rail_urban_custom_agreements
+#. odoo-python
+#: code:addons/rail_urban_custom_agreements/models/purchase_requisition.py:0
+#, python-format
+msgid "Por favor agregue al menos un proveedor para procesar las ordenes de compra!"
+msgstr "Por favor agregue al menos un proveedor para procesar las ordenes de compra!"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_pr_blanket_lines__price_unit
+msgid "Price Unit"
+msgstr "Precio unitario"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_pr_blanket_lines__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_purchase_requisition_line__purchase_id
+msgid "Purchase"
+msgstr "Compra"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model,name:rail_urban_custom_agreements.model_purchase_requisition
+msgid "Purchase Requisition"
+msgstr "Solicitud de compra"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model,name:rail_urban_custom_agreements.model_purchase_requisition_line
+msgid "Purchase Requisition Line"
+msgstr "Línea solicitud de compra"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model,name:rail_urban_custom_agreements.model_purchase_requisition_type
+msgid "Purchase Requisition Type"
+msgstr "Tipo de contrato"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_pr_blanket_lines__qty
+msgid "Qty"
+msgstr "Cantidad"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.actions.report,name:rail_urban_custom_agreements.action_bl_xlsx
+msgid "Report BL Xlsx"
+msgstr "BL Xlsx"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_import_blanket_wizard__requisition_id
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_pr_blanket_lines__requisition_id
+msgid "Requisition"
+msgstr "Licitacion"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_pr_blanket_lines__requisition_line_id
+msgid "Requisition Line"
+msgstr "Linea licitacion"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_pr_blanket_lines__schedule_date
+msgid "Schedule Date"
+msgstr "Fecha planificada"
+
+#. module: rail_urban_custom_agreements
+#. odoo-python
+#: code:addons/rail_urban_custom_agreements/models/purchase_requisition.py:0
+#: model:mail.template,name:rail_urban_custom_agreements.email_template_rail_urban_bl
+#, python-format
+msgid "Solicitud de licitacion"
+msgstr "Solicitud de licitacion"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_purchase_requisition__state_blanket_order
+msgid "State Blanket Order"
+msgstr "Estado de la órden abierta"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_purchase_requisition__state
+msgid "Status"
+msgstr "Estado"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields.selection,name:rail_urban_custom_agreements.selection__purchase_requisition__subtype__time
+msgid "Tiempo de entrega"
+msgstr "Tiempo de entrega"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_import_blanket_wizard__vendor_id
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_import_blanket_wizard__vendor_ids
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_purchase_requisition__vendor_ids
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_purchase_requisition_line__vendor_id
+msgid "Vendor"
+msgstr "Proveedor"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_import_blanket_wizard__vendor_domain
+msgid "Vendor Domain"
+msgstr "Dominio proveedor"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model.fields,field_description:rail_urban_custom_agreements.field_purchase_requisition__vendor_emails
+msgid "Vendor Emails"
+msgstr "Emails"
+
+#. module: rail_urban_custom_agreements
+#. odoo-python
+#: code:addons/rail_urban_custom_agreements/models/purchase_requisition.py:0
+#, python-format
+msgid "You cannot confirm agreement '%s' because there is no product line."
+msgstr "No puedes confirmar la licitacion '%s' debido a que no hay ningun producto seleccionado"
+
+#. module: rail_urban_custom_agreements
+#. odoo-python
+#: code:addons/rail_urban_custom_agreements/models/purchase_requisition.py:0
+#, python-format
+msgid "You cannot confirm the blanket order without price."
+msgstr "No puedes confirmar una licitacion sin precios"
+
+#. module: rail_urban_custom_agreements
+#. odoo-python
+#: code:addons/rail_urban_custom_agreements/models/purchase_requisition.py:0
+#, python-format
+msgid "You cannot confirm the blanket order without quantity."
+msgstr "No puedes confirmar una licictacion sin cantidades"
+
+#. module: rail_urban_custom_agreements
+#: model_terms:ir.ui.view,arch_db:rail_urban_custom_agreements.rail_urban_agreement
+msgid "e.g. PO0025"
+msgstr "e.j. PO0025"
+
+#. module: rail_urban_custom_agreements
+#: model:ir.model,name:rail_urban_custom_agreements.model_pr_blanket_lines
+msgid "pr.blanket.lines"
+msgstr "pr.blanket.lines"
+
+#. module: rail_urban_custom_agreements
+#: model:mail.template,subject:rail_urban_custom_agreements.email_template_rail_urban_bl
+msgid "{{ object.company_id.name }} BL (Ref {{ object.origin or 'n/a' }})"
+msgstr "{{ object.company_id.name }} BL (Ref {{ object.origin or 'n/a' }})"

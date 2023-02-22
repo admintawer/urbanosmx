@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="copy_paste_account_move_form" model="ir.ui.view">
+        <field name="name">copy.paste.account.move.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <field name="ref" position="after">
+                <field name="not_sync" widget="boolean_toggle"/>
+                <field name="synced"/>
+                <field name="matrix_ref"/>
+            </field>
+        </field>
+    </record>
+</odoo>
