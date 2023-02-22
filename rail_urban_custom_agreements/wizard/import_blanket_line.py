@@ -2,7 +2,7 @@
 
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
-import base64, xlrd
+import base64, xlrd, time
 from collections import Counter
 from datetime import datetime,date
 
@@ -12,8 +12,8 @@ class ImportBlanket(models.TransientModel):
 
     requisition_id = fields.Many2one('purchase.requisition')
     vendor_domain = fields.Char()
-    vendor_ids = fields.Many2many('res.partner', string="Vendor", domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
-    vendor_id = fields.Many2one('res.partner')
+    vendor_ids = fields.Many2many('res.partner', string="Proveedores", domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
+    vendor_id = fields.Many2one('res.partner', string='Proveedor')
     xlsx_file = fields.Binary('File')
 
     def import_bl_xlsx(self):
@@ -41,17 +41,19 @@ class ImportBlanket(models.TransientModel):
                             'partner_id': self.vendor_id.id,
                             'product_id': product.id,
                         })
-                        if sheet.cell(r, 2).value not in (None, ""):
-                            price_unit = sheet.cell(r,2).value
+                        if sheet.cell(r, 4).value not in (None, ""):
+                            price_unit = sheet.cell(r,4).value
                             blanket_vals.update({
                                 'price_unit': price_unit
                             })
                         else:
                             error = True
                             skipped_line_no[str(ncounter)] = " - Hay un error en el precio unitario, por favor revisar"
-                        if sheet.cell(r, 3).value not in (None, ""): 
-                            schedule_date = sheet.cell(r,3).value
-                            schedule_date = str(datetime.strptime(schedule_date, '%Y-%m-%d').date())
+                        if sheet.cell(r, 5).value not in (None, ""): 
+                            d = sheet.cell(r,5).value
+                            #schedule_date = str(datetime.strftime(schedule_date, '%Y-%m-%d').date())
+                            year, month, day, hour, minutes, seconds = xlrd.xldate_as_tuple(d, workbook.datemode)
+                            schedule_date = "{0}-{1}-{2}".format(year, month, day)
                             blanket_vals.update({
                                 'schedule_date': schedule_date,
                             })

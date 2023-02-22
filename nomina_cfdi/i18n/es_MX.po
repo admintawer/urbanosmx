@@ -1,0 +1,3524 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* nomina_cfdi
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-11 19:14+0000\n"
+"PO-Revision-Date: 2022-10-11 13:52-0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_MX\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: nomina_cfdi
+#: model:mail.template,body_html:nomina_cfdi.email_template_payroll
+msgid ""
+"\n"
+"<p>Dear ${object.employee_id.name}\n"
+"\n"
+"\n"
+"<p>You can reply to this email if you have any questions.</p>\n"
+"<p>Thank you,</p>\n"
+"\n"
+"<p style=\"color:#eeeeee;\">\n"
+"% if object.company_id and object.company_id.signature:\n"
+"    ${object.company_id.signature | safe}\n"
+"% endif\n"
+"</p>\n"
+msgstr ""
+"\n"
+"<p>Estimado ${object.employee_id.name}\n"
+"\n"
+"\n"
+"<p>Puede responder a este correo electrónico si tiene alguna pregunta.</p>\n"
+"<p>Gracias,</p>\n"
+"\n"
+"<p style=\"color:#eeeeee;\">\n"
+"% if object.company_id and object.company_id.signature:\n"
+"    ${object.company_id.signature | safe}\n"
+"% endif\n"
+"</p>\n"
+
+#. module: nomina_cfdi
+#: model:mail.template,report_name:nomina_cfdi.email_template_payroll
+msgid "${object.name.replace('/', '_') + '.pdf'}"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__funcion_dias
+#, python-format
+msgid "% a repartir en función de los días trabajados"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__funcion_ingresos
+#, python-format
+msgid "% a repartir en función de los ingresos"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#, python-format
+msgid "%s (copy)"
+msgstr "%s (Copiar)"
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.cfdi_payroll_layout
+msgid "&amp;bull;"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__contrato__01
+msgid "01 - Contrato de trabajo por tiempo indeterminado"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__jornada__01
+msgid "01 - Diurna"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__contrato__02
+msgid "02 - Contrato de trabajo para obra determinada"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__jornada__02
+msgid "02 - Nocturna"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__contrato__03
+msgid "03 - Contrato de trabajo por tiempo determinado"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__jornada__03
+msgid "03 - Mixta"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__contrato__04
+msgid "04 - Contrato de trabajo por temporada"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__jornada__04
+msgid "04 - Por hora"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__contrato__05
+msgid "05 - Contrato de trabajo sujeto a prueba"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__jornada__05
+msgid "05 - Reducida"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__jornada__06
+msgid "06 - Continuada"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__contrato__06
+msgid "06 - Contrato de trabajo con capacitación inicial"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__contrato__07
+msgid "07 - Modalidad de contratación por pago de hora laborada"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__jornada__07
+msgid "07 - Partida"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__contrato__08
+msgid "08 - Modalidad de trabajo por comisión laboral"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__jornada__08
+msgid "08 - Por turnos"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__contrato__09
+msgid "09 - Modalidades de contratación donde no existe relación de trabajo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__contrato__10
+msgid "10 - Jubilación, pensión, retiro"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__tablas_vacaciones_line__ano__2018
+msgid "2018"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__tablas_vacaciones_line__ano__2019
+msgid "2019"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__tablas_vacaciones_line__ano__2020
+msgid "2020"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__tablas_vacaciones_line__ano__2021
+msgid "2021"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__jornada__99
+msgid "99 - Otra Jornada"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__contrato__99
+msgid "99 - Otro contrato"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__forma_pago__99
+msgid "99 - Por definir"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong> Nombre</strong>:"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong> Puesto</strong>:"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>CURP</strong>:"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Cadena Original del Complemento digital del SAT</strong>"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Datos de la nómina</strong>"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Depto.</strong>:"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid ""
+"<strong>ESTE DOCUMENTO ES UNA REPRESENTACIÓN IMPRESA DE UN CFDI</strong>"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Emisor</strong>"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Fecha de ingreso</strong>:"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Fecha emisión: </strong>"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Fecha y Hora de Certificación</strong>"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Firma del empleado</strong>"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Folio fiscal</strong><br/>"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Folio:</strong>"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Forma de pago</strong><br/>"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Jornada</strong>:"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Lugar de expedición: </strong>"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Método de pago</strong><br/>"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>No. de Serie del Certificado Emisor</strong>"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>No. de Serie del Certificado del SAT</strong>"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Número de empleado</strong>:"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Periodicidad de pago</strong>:"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Periodo: </strong>"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>RFC</strong>:"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Receptor</strong>"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Registro Patronal</strong>:"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Seguro social</strong>:"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Sello del SAT</strong>"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Sello digital del CFDI</strong>"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Sueldo diario</strong>:"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Tipo de comprobante</strong><br/>"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Total de días laborados</strong>:"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "<strong>Uso CFDI(cliente)</strong><br/>"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__mes__04
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__tablas_periodo_mensual__mes__04
+msgid "Abril"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__message_needaction
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__message_needaction
+msgid "Action Needed"
+msgstr "Acción requerida"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__622
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__regimen_fiscal__622
+msgid "Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_hr_payslip_form
+msgid "Acumulados (mensual)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__mes__08
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__tablas_periodo_mensual__mes__08
+msgid "Agosto"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_antiguedades_line__aguinaldo
+msgid "Aguinaldo/Días"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_configuracion_nomina__isr_ajustar
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__isr_ajustar
+msgid "Ajustar ISR en cada nómina"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_run__isr_ajustar
+msgid "Ajustar ISR en nómina"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_contract__tipo_prima_vacacional__01
+msgid "Al cumplir el año"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__alimentacion
+msgid "Alimentación"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__antiguedad_anos
+msgid "Antiguedad"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_antiguedades_line__antiguedad
+msgid "Antigüedad/Años"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__apotacion_infonavit
+#, python-format
+msgid "Aportación al Infonavit (%)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__606
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__regimen_fiscal__606
+msgid "Arrendamiento"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+msgid "Asegurado"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__message_attachment_count
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__message_attachment_count
+msgid "Attachment Count"
+msgstr "Número de archivos adjuntos"
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/contract.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidioacreditable_line__ano
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_vacaciones_line__ano
+#, python-format
+msgid "Año"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__antiguedad_anos
+msgid "Años de antiguedad"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__calculo_liquidaciones__tipo_de_baja__02
+msgid "Baja"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_employee__banco
+msgid "Banco empleado"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_res_bank
+msgid "Bank"
+msgstr "Banco"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__configuracion_nomina__periodicidad_pago__06
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_contract__periodicidad_pago__06
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip_run__periodicidad_pago__06
+msgid "Bimensual"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__bono_asistencia
+msgid "Bono asistencia"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__bono_productividad
+msgid "Bono productividad"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__bono_puntualidad
+msgid "Bono puntualidad"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__horas_nomina__state__draft
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_horas_nomina_view
+msgid "Borrador"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.Partner_form
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_contract_view_form_nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_salary_rule_form_inherit
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_hr_payslip_form
+msgid "CFDI 3.3"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_employee_form_inherit
+msgid "CFDI 4.0"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__uuid_relacionado
+#, python-format
+msgid "CFDI Relacionado"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_hr_payslip_form
+msgid "CFDI Relacionados"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/employee.py:0
+#: code:addons/nomina_cfdi/models/res_company.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_employee__curp
+#: model:ir.model.fields,field_description:nomina_cfdi.field_res_company__curp
+#, python-format
+msgid "CURP"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__cadena_origenal
+#, python-format
+msgid "Cadena Origenal del Complemento digital de SAT"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__caja_ahorro
+msgid "Caja de ahorro"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.wizard_liquidacion_form_view
+msgid "Calcular"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/wizard/hr_payroll_liquidacion.py:0
+#, python-format
+msgid "Calculo Liquidaciones"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.actions.act_window,name:nomina_cfdi.action_wizard_liquidacion
+msgid "Calculo liquidaciones"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_semanal__form_id
+msgid "Calendario semanal"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__horas_nomina__state__cancel
+msgid "Cancelado"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_horas_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.wizard_liquidacion_form_view
+msgid "Cancelar"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_hr_payslip_form
+msgid "Cancelar CFDI"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_salary_rule__category_code
+msgid "Category Code"
+msgstr "Código de la categoría"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__configuracion_nomina__periodicidad_pago__03
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_contract__periodicidad_pago__03
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip_run__periodicidad_pago__03
+msgid "Catorcenal"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.Partner_form
+msgid "Certificado Digital"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__pat_cesantia_vejez
+msgid "Cesantia y vejez"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__emp_cesantia_vejez
+msgid "Cesantia y vejez."
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__cesantia_vejez_e
+#, python-format
+msgid "Cesantía y vejez E (%)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__cesantia_vejez_p
+#, python-format
+msgid "Cesantía y vejez P (%)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__cetificaso_sat
+#, python-format
+msgid "Cetificao SAT"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__tipo_pago__cheque
+msgid "Cheque"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__tipo_cuenta__cheques
+msgid "Cheques"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__rt_clase1
+#, python-format
+msgid "Clase 1"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__rt_clase2
+#, python-format
+msgid "Clase 2"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__rt_clase3
+#, python-format
+msgid "Clase 3"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__rt_clase4
+#, python-format
+msgid "Clase 4"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__rt_clase5
+#, python-format
+msgid "Clase 5"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_contract__riesgo_puesto__1
+msgid "Clase I"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_contract__riesgo_puesto__2
+msgid "Clase II"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_contract__riesgo_puesto__3
+msgid "Clase III"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_contract__riesgo_puesto__4
+msgid "Clase IV"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_contract__riesgo_puesto__5
+msgid "Clase V"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_deduccion__clave
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_otropago__clave
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_percepcion__clave
+msgid "Clave"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_res_bank__c_banco
+msgid "Clave de Banco"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_otras_entradas__codigo
+msgid "Codigo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/employee.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_employee__zip
+#, python-format
+msgid "Codigo Postal"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__configuracion_nomina__periodicidad_pago__08
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_contract__periodicidad_pago__08
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip_run__periodicidad_pago__08
+msgid "Comisión"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_res_company
+msgid "Companies"
+msgstr "Empresas"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#, python-format
+msgid "Compose Email"
+msgstr "Redactar correo electrónico"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_contract__tipo_prima_vacacional__02
+msgid "Con día de vacaciones"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.wizard_liquidacion_form_view
+msgid "Conceptos ordinarios"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__concepto_periodico
+msgid "Conceptos periodicos"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_configuracion_nomina_form
+msgid "Configuación"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_configuracion_nomina
+msgid "ConfiguracionNomina"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_run__tipo_configuracion
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.Partner_form
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_contract_view_form_nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_payslip_run_form_nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_configuracion_nomina_form
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.wizard_liquidacion_form_view
+msgid "Configuración"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__609
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__regimen_fiscal__609
+msgid "Consolidación"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/contract.py:0
+#: code:addons/nomina_cfdi/models/hr_payslip_run.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_configuracion_nomina__tipo_pago
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__tipo_pago
+#, python-format
+msgid "Conteo de días"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.actions.server,name:nomina_cfdi.ir_cron_contract_warning_mail_ir_actions_server
+#: model:ir.cron,cron_name:nomina_cfdi.ir_cron_contract_warning_mail
+#: model:ir.cron,name:nomina_cfdi.ir_cron_contract_warning_mail
+msgid "Contract Warning Mail"
+msgstr "Correo de advertencia de contrato"
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/employee.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__contract_id
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_employee__contrato
+#, python-format
+msgid "Contrato"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__624
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__regimen_fiscal__624
+msgid "Coordinados"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.cfdi_payroll_layout
+msgid "Correo Electrónico:"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/employee.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_employee__correo_electronico
+#, python-format
+msgid "Correo electrónico"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__imss_dias
+msgid "Cotizar en el IMSS"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.wizard_liquidacion_form_view
+msgid "Crear"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_configuracion_nomina__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_horas_nomina__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_deduccion__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_otropago__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_percepcion__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_otras_entradas__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_antiguedades_line__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_general_line__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_isr_anual__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_bimestral__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_mensual__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_semanal__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidio2_line__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidio_line__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidioacreditable_line__create_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_vacaciones_line__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_configuracion_nomina__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_horas_nomina__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_deduccion__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_otropago__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_percepcion__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_otras_entradas__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_antiguedades_line__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_general_line__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_isr_anual__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_bimestral__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_mensual__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_semanal__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidio2_line__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidio_line__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidioacreditable_line__create_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_vacaciones_line__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__tipo_cuenta__c_ahorro
+msgid "Cuenta de ahorro"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_employee__diario_pago
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_salary_rule__cuenta_especie
+msgid "Cuenta de pago"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_general_line__c_fija
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_isr_anual__c_fija
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidio2_line__c_fija
+msgid "Cuota fija"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__enf_mat_cuota_fija
+#, python-format
+msgid "Cuota fija (%)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__pat_cuota_fija_pat
+msgid "Cuota fija patronal"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+msgid "Cálculo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_hr_payslip_form
+msgid "Cálculos IMSS"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_salary_rule_form_inherit
+msgid "Código SAT"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_hr_payslip_form
+msgid "Datos CFDI"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__629
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__regimen_fiscal__629
+msgid ""
+"De los Regímenes Fiscales Preferentes y de las Empresas Multinacionales"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__deduccion_adicional
+msgid "Deduccion adicional"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "Deducciones"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_contract_view_form_nomina_cfdi
+msgid "Deducciones adicionales"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__608
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__regimen_fiscal__608
+msgid "Demás ingresos"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_run__concepto_periodico
+msgid "Desactivar conceptos periódicos"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_otras_entradas__descripcion
+msgid "Descripcion"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_deduccion__descripcion
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_otropago__descripcion
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_percepcion__descripcion
+msgid "Descripción"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__descuento
+msgid "Descuento"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_hr_payslip_form
+msgid "Detalles de Factura"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_employee_form_inherit
+msgid "Detalles de Pago"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_configuracion_nomina__isr_devolver
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__isr_devolver
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_run__isr_devolver
+msgid "Devolver ISR"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__configuracion_nomina__periodicidad_pago__01
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_contract__periodicidad_pago__01
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip_run__periodicidad_pago__01
+msgid "Diario"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_payslip_run_form_nomina_cfdi
+msgid "Diario de Nómina"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_hr_payslip_form
+msgid "Dias"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_payslip_run_form_nomina_cfdi
+msgid "Dias a cotizar IMSS"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__imss_mes
+msgid "Dias a cotizar en el mes"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_configuracion_nomina__imss_dias
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_run__imss_dias
+msgid "Dias a cotizar en la nómina"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_run__dias_pagar
+msgid "Dias a pagar"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_vacaciones_line__dias
+msgid "Dias disponibles"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_configuracion_nomina__imss_mes
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_run__imss_mes
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_mensual__no_dias
+msgid "Dias en el mes"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__dias_periodo
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_bimestral__no_dias
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_semanal__no_dias
+#, python-format
+msgid "Dias en el periodo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_configuracion_nomina__fijo_imss
+msgid "Dias fijos"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__dias_min_trabajados
+#, python-format
+msgid "Dias mínimos trabajados en empleados eventuales"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/employee.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_employee__dias_utilidad
+#, python-format
+msgid "Dias para cálculo de Utilidad"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__mes__12
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__tablas_periodo_mensual__mes__12
+msgid "Diciembre"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi.field_configuracion_nomina__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi.field_horas_nomina__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_deduccion__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_otropago__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_percepcion__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi.field_otras_entradas__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_antiguedades_line__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_general_line__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_isr_anual__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_bimestral__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_mensual__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_semanal__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidio2_line__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidio_line__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidioacreditable_line__display_name
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_vacaciones_line__display_name
+msgid "Display Name"
+msgstr "Nombre"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__horas_nomina__tipo_de_hora__2
+msgid "Doble"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "Días"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__dias_aguinaldo
+msgid "Días aguinaldo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__prima_vac
+msgid "Días aguinaldo prima vacacional"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__dias_base
+msgid "Días base"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__dias_pendientes_pagar
+msgid "Días de nómina a pagar"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__dias_vacaciones
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_contract_view_form_nomina_cfdi
+msgid "Días de vacaciones"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__dias_x_ano
+msgid "Días por cada año trabajado"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__dias_prima_vac
+msgid "Días prima vacacional"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__tipo_pago__efectivo
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_salary_rule__forma_pago__001
+msgid "Efectivo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_mail_template
+msgid "Email Templates"
+msgstr "Plantillas de correo electrónico"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_horas_nomina__employee_id
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_hr_payslip_form
+msgid "Empleado"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_hr_employee
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__employee_id
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__employee_id
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_hr_contract
+msgid "Employee Contract"
+msgstr "Contrato de empleado"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__630
+msgid "Enajenación de acciones en bolsa de valores"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__mes__01
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__tablas_periodo_mensual__mes__01
+msgid "Enero"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_payslip_run_form_nomina_cfdi
+msgid "Enviar Nomina"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_payslip_run_form_nomina_cfdi
+msgid "Enviar PreNomina"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_hr_payslip_form
+msgid "Enviar por correo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:mail.template,name:nomina_cfdi.email_template_payroll
+msgid "Envío de nómina por mail"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#, python-format
+msgid "Error para timbrar factura, Factura ya generada y cancelada."
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#, python-format
+msgid "Error para timbrar factura, Factura ya generada."
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_salary_rule__forma_pago__002
+msgid "Especie"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_horas_nomina__state
+msgid "Estado"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_hr_payslip_tree
+msgid "Estado CFDI"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__estado_factura
+#, python-format
+msgid "Estado de factura"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_run__estructura
+msgid "Estructura"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__estructura
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.wizard_liquidacion_form_view
+msgid "Estructura ordinaria"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__enf_mat_excedente_e
+#, python-format
+msgid "Excedente de 3 UMA E (%)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__enf_mat_excedente_p
+#, python-format
+msgid "Excedente de 3 UMA P (%)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_salary_rule__variable_imss_tipo__003
+msgid "Excedente del (% de SBC)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_salary_rule__variable_imss_tipo__002
+msgid "Excedente del (% de UMA)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__pat_exedente_smg
+msgid "Exedente 3 SMGDF"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__emp_exedente_smg
+msgid "Exedente 3 SMGDF."
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_salary_rule_form_inherit
+msgid "Exención de ISR"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_salary_rule__integrar_al_ingreso__003
+msgid "Extraordinaria anual"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_salary_rule__integrar_al_ingreso__002
+msgid "Extraordinaria mensual"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__factor_dias
+#, python-format
+msgid "Factor por dias trabajados"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__factor_sueldo
+#, python-format
+msgid "Factor por sueldo percibido"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+msgid "Factores IMSS"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__estado_factura__factura_cancelada
+msgid "Factura cancelada"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__estado_factura__factura_correcta
+msgid "Factura correcta"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__estado_factura__factura_no_generada
+msgid "Factura no generada"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#, python-format
+msgid "Falta la ruta del archivo .cer"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#, python-format
+msgid "Falta la ruta del archivo .key"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__septimo_dia
+msgid "Falta proporcional septimo día"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__mes__02
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__tablas_periodo_mensual__mes__02
+msgid "Febrero"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_horas_nomina__fecha
+msgid "Fecha"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__fecha_factura
+#, python-format
+msgid "Fecha Factura"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_employee__fecha_utilidad_fin
+msgid "Fecha Utilidad Fin"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_employee__fecha_utilidad_inicio
+msgid "Fecha Utilidad Inicio"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: code:addons/nomina_cfdi/models/hr_payslip_run.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__fecha_pago
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_run__fecha_pago
+#, python-format
+msgid "Fecha de pago"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__fecha_fin
+msgid "Fecha fin"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__fecha_inicio
+msgid "Fecha inicio"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__fecha_inicio
+msgid "Fecha inicio último periodo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__fecha_liquidacion
+msgid "Fecha liquidacion"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__fecha_certificacion
+#, python-format
+msgid "Fecha y Hora Certificación"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__folio
+#, python-format
+msgid "Folio"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__folio_fiscal
+#, python-format
+msgid "Folio Fiscal"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__message_follower_ids
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__message_partner_ids
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (socios)"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__fondo_ahorro
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__acum_fondo_ahorro
+msgid "Fondo ahorro"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/employee.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__fondo_ahorro
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_employee__fondo_ahorro
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_salary_rule__fondo_ahorro_aux
+#, python-format
+msgid "Fondo de ahorro"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_otras_entradas__form_id
+msgid "Form"
+msgstr "Formulario"
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__forma_pago
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_salary_rule__forma_pago
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_salary_rule_form_inherit
+#, python-format
+msgid "Forma de pago"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payslip_run.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_run__periodicidad_pago
+#, python-format
+msgid "Frecuencia de pago"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/wizard/hr_payroll_payslips_by_employees.py:0
+#, python-format
+msgid "From %s to %s"
+msgstr "De %s para %s"
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__enf_mat_gastos_med_e
+#, python-format
+msgid "Gastos médicos personales E (%)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__enf_mat_gastos_med_p
+#, python-format
+msgid "Gastos médicos personales P (%)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.ui.menu,name:nomina_cfdi.menu_genera_liquidaciones
+msgid "Genera liquidaciones"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_calculo_liquidaciones
+msgid "GeneraLiquidaciones"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__sbcm_general
+#, python-format
+msgid "General (UMA)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__601
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__regimen_fiscal__601
+msgid "General de Ley Personas Morales"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.wizard_liquidacion_form_view
+msgid "Generales"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_hr_payslip_form
+msgid "Generar CFDI"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_hr_payslip_employees
+msgid "Generate payslips for all selected employees"
+msgstr "Generar los recibos de nómina para todos los empleados seleccionados"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__pat_guarderias
+msgid "Guarderias y PS"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__guarderia_p
+#, python-format
+msgid "Guardería y prestaciones sociales (%)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__has_message
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__has_message
+msgid "Has Message"
+msgstr "Tiene un mensaje"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__horas_nomina__state__done
+msgid "Hecho"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__628
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__regimen_fiscal__628
+msgid "Hidrocarburos"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.cfdi_payroll_layout
+msgid "Hoja: <span class=\"page\"/> / <span class=\"topage\"/>"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.actions.act_window,name:nomina_cfdi.action_tree_horas_nomina
+#: model:ir.model.fields,field_description:nomina_cfdi.field_horas_nomina__horas
+msgid "Horas"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.ui.menu,name:nomina_cfdi.menu_action_tree_horas_nomina
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_horas_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.search_horas_nomina_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.tree_horas_nomina_view
+msgid "Horas extras"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_horas_nomina
+msgid "HorasNomina"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__id
+#: model:ir.model.fields,field_description:nomina_cfdi.field_configuracion_nomina__id
+#: model:ir.model.fields,field_description:nomina_cfdi.field_horas_nomina__id
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__id
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_deduccion__id
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_otropago__id
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_percepcion__id
+#: model:ir.model.fields,field_description:nomina_cfdi.field_otras_entradas__id
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_antiguedades_line__id
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__id
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_general_line__id
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_isr_anual__id
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_bimestral__id
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_mensual__id
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_semanal__id
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidio2_line__id
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidio_line__id
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidioacreditable_line__id
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_vacaciones_line__id
+msgid "ID"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_configuracion_nomina_form
+msgid "IMSS"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__pat_total
+msgid "IMSS patron"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__emp_total
+msgid "IMSS trabajador"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__pat_infonavit
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+msgid "INFONAVIT"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__acum_isr
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_payslip_run_form_nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_configuracion_nomina_form
+msgid "ISR"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_isr_anual__form_id
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+msgid "ISR Anual"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_general_line__form_id
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+msgid "ISR Mensual Art. 113 LISR"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__acum_isr_antes_subem
+msgid "ISR antes de SUBEM"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,help:nomina_cfdi.field_hr_payslip__message_needaction
+#: model:ir.model.fields,help:nomina_cfdi.field_hr_payslip__message_unread
+#: model:ir.model.fields,help:nomina_cfdi.field_hr_payslip_mail__message_needaction
+#: model:ir.model.fields,help:nomina_cfdi.field_hr_payslip_mail__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+"Si se encuentra seleccionado, hay nuevos mensajes que requieren su atención."
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,help:nomina_cfdi.field_hr_payslip__message_has_error
+#: model:ir.model.fields,help:nomina_cfdi.field_hr_payslip__message_has_sms_error
+#: model:ir.model.fields,help:nomina_cfdi.field_hr_payslip_mail__message_has_error
+#: model:ir.model.fields,help:nomina_cfdi.field_hr_payslip_mail__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si se encuentra seleccionado, algunos mensajes tienen error de envío."
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__importe_utilidades
+#, python-format
+msgid "Importe a repartir a todos los empleados"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.actions.report,name:nomina_cfdi.report_payslips
+msgid "Imprimir Nomina"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__incapa_sept_dia
+msgid "Incapacidad para cálculo 7mo día"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__621
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__regimen_fiscal__621
+msgid "Incorporación Fiscal"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__monto_indemnizacion
+msgid "Indemnizacion"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.wizard_liquidacion_form_view
+msgid "Indemnización"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/contract.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__infonavit_porc
+#, python-format
+msgid "Infonavit (%)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/contract.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__infonavit_fijo
+#, python-format
+msgid "Infonavit (fijo)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/contract.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__infonavit_vsm
+#, python-format
+msgid "Infonavit (vsm)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_hr_payslip_form
+msgid "Información adicional"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_employee_form_inherit
+msgid "Información fiscal"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__611
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__regimen_fiscal__611
+msgid "Ingresos por Dividendos (socios y accionistas)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__614
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__regimen_fiscal__614
+msgid "Ingresos por intereses"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_salary_rule__integrar_al_ingreso
+#, python-format
+msgid "Integrar al ingreso gravable como percepción"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_salary_rule__integrar_ptu
+msgid "Integrar para el PTU"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_salary_rule__integrar_estatal
+msgid "Integrar para el impuesto estatal"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__pat_invalidez_vida
+msgid "Invalidez y Vida"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__emp_invalidez_vida
+msgid "Invalidez y Vida."
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__inv_vida_e
+#, python-format
+msgid "Invalidez y vida E (%)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__inv_vida_p
+#, python-format
+msgid "Invalidez y vida P (%)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__message_is_follower
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__message_is_follower
+msgid "Is Follower"
+msgstr "Es un seguidor"
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/employee.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_employee__jornada
+#, python-format
+msgid "Jornada"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_run__journal_id
+msgid "Journal"
+msgstr "Diario"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__mes__07
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__tablas_periodo_mensual__mes__07
+msgid "Julio"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__mes__06
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__tablas_periodo_mensual__mes__06
+msgid "Junio"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/employee.py:0
+#, python-format
+msgid "La longitud del RFC es incorrecto"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/employee.py:0
+#, python-format
+msgid "La longitud del número de seguro social es incorrecto"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/employee.py:0
+#, python-format
+msgid "La longitud del registro patronal es incorrecto"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#, python-format
+msgid "La nómina no tiene nombre"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi.field_configuracion_nomina____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi.field_horas_nomina____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_deduccion____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_otropago____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_percepcion____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi.field_otras_entradas____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_antiguedades_line____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_general_line____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_isr_anual____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_bimestral____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_mensual____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_semanal____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidio2_line____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidio_line____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidioacreditable_line____last_update
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_vacaciones_line____last_update
+msgid "Last Modified on"
+msgstr "Modificado por última vez el"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_configuracion_nomina__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_horas_nomina__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_deduccion__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_otropago__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_percepcion__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_otras_entradas__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_antiguedades_line__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_general_line__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_isr_anual__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_bimestral__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_mensual__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_semanal__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidio2_line__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidio_line__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidioacreditable_line__write_uid
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_vacaciones_line__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_configuracion_nomina__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_horas_nomina__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_deduccion__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_otropago__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_nomina_percepcion__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_otras_entradas__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_antiguedades_line__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_general_line__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_isr_anual__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_bimestral__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_mensual__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_semanal__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidio2_line__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidio_line__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidioacreditable_line__write_date
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_vacaciones_line__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_hr_payslip_form
+msgid "Liquidacion"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.wizard_liquidacion_form_view
+msgid "Liquidacion / Compensación"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.ui.menu,name:nomina_cfdi.genera_liquidaciones_root
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.wizard_liquidacion_form_view
+msgid "Liquidaciones"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_employee__estado
+msgid "Lugar donde labora (estado)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_general_line__lim_inf
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_isr_anual__lim_inf
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidio2_line__lim_inf
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidio_line__lim_inf
+msgid "Límite inferior"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__message_main_attachment_id
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Archivo adjunto principal"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__mes__03
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__tablas_periodo_mensual__mes__03
+msgid "Marzo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__mes__05
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__tablas_periodo_mensual__mes__05
+msgid "Mayo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__configuracion_nomina__periodicidad_pago__05
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_contract__periodicidad_pago__05
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip_run__periodicidad_pago__05
+msgid "Mensual"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_mensual__mes
+#, python-format
+msgid "Mes"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__mes
+#, python-format
+msgid "Mes de la nómina"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__configuracion_nomina__tipo_pago__03
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_contract__tipo_pago__03
+msgid "Mes proporcional"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__message_has_error
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de envío de mensaje"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__message_ids
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__moneda
+#, python-format
+msgid "Moneda"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_salary_rule__variable_imss_monto
+#: model:ir.model.fields,field_description:nomina_cfdi.field_otras_entradas__monto
+msgid "Monto"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__alimentacion_amount
+msgid "Monto alimentación"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__bono_asistencia_amount
+msgid "Monto bono asistencia"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__bono_productividad_amount
+msgid "Monto bono productividad"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__bono_puntualidad_amount
+msgid "Monto bono puntualidad"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__caja_ahorro_amount
+msgid "Monto caja de ahorro"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__deduccion_adicional_amount
+msgid "Monto deduccion adicional"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__fondo_ahorro_amount
+msgid "Monto fondo de ahorro"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__percepcion_adicional_amount
+msgid "Monto percepcion adicional"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__vale_despensa_amount
+msgid "Monto vale de despensa"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.wizard_liquidacion_form_view
+msgid "Montos pendientes a pagar"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.ui.menu,name:nomina_cfdi.menu_main_movimivientos
+msgid "Movimientos"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__methodo_pago
+#, python-format
+msgid "Método de pago"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_horas_nomina__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "Neto a pagar:"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/horas_extras.py:0
+#, python-format
+msgid "New"
+msgstr "Nuevo"
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/wizard/hr_payroll_liquidacion.py:0
+#: code:addons/nomina_cfdi/wizard/hr_payroll_payslips_by_employees.py:0
+#, python-format
+msgid "New Payslip"
+msgstr "Nuevo Recibo de nómina"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_contract__riesgo_puesto__99
+msgid "No aplica"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#, python-format
+msgid ""
+"No están configurados correctamente los periodos semanales en las tablas "
+"CFDI"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__number_folio
+#, python-format
+msgid "No. Folio"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/employee.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_employee__no_cuenta
+#, python-format
+msgid "No. cuenta empleado"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payslip_run.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_run__no_nomina
+#, python-format
+msgid "No. de nómina en el mes / periodo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_semanal__no_periodo
+msgid "No. periodo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_configuracion_nomina__name
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__name
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_configuracion_nomina_form
+msgid "Nombre"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__payslip_id
+msgid "Nomina"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.Partner_form
+msgid "Nomina 3.3"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__nomina_cfdi
+msgid "Nomina CFDI"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_hr_payslip_mail
+#: model:ir.model.fields,field_description:nomina_cfdi.field_res_company__nomina_mail
+msgid "Nomina Mail"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__nom_liquidacion
+msgid "Nomina de liquidacion"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_payslip_run_form_nomina_cfdi
+msgid "Nominas"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__mes__11
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__tablas_periodo_mensual__mes__11
+msgid "Noviembre"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__message_needaction_counter
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de acciones"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__message_has_error_counter
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de errores"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,help:nomina_cfdi.field_hr_payslip__message_needaction_counter
+#: model:ir.model.fields,help:nomina_cfdi.field_hr_payslip_mail__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Número de mensajes que requieren una acción"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,help:nomina_cfdi.field_hr_payslip__message_has_error_counter
+#: model:ir.model.fields,help:nomina_cfdi.field_hr_payslip_mail__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensajes con error de envío"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,help:nomina_cfdi.field_hr_payslip__message_unread_counter
+#: model:ir.model.fields,help:nomina_cfdi.field_hr_payslip_mail__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Número de mensajes sin leer"
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__numero_cetificado
+#, python-format
+msgid "Numero de cetificado"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__tipo_comprobante__n
+msgid "Nómina"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__no_nomina
+#, python-format
+msgid "Nómina del mes"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__tipo_nomina__e
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip_run__tipo_nomina__e
+msgid "Nómina extraordinaria"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__tipo_nomina__o
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip_run__tipo_nomina__o
+msgid "Nómina ordinaria"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_run__nominas_mes
+msgid "Nóminas a pagar en el mes"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/employee.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_employee__no_empleado
+#, python-format
+msgid "Número de empleado"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__mes__10
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__tablas_periodo_mensual__mes__10
+msgid "Octubre"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__623
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__regimen_fiscal__623
+msgid "Opcional para Grupos de Sociedades"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_salary_rule__integrar_al_ingreso__001
+msgid "Ordinaria"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__configuracion_nomina__periodicidad_pago__99
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_contract__periodicidad_pago__99
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip_run__periodicidad_pago__99
+msgid "Otra periodicidad"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_payslip_run_form_nomina_cfdi
+msgid "Otras Entradas"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_payslip_run_form_nomina_cfdi
+msgid "Otras entradas"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_otras_entradas
+msgid "OtrasEntradas"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_salary_rule_form_inherit
+msgid "Otros"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_salary_rule__tipo_cotro_pago
+msgid "Otros Pagos"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "Otros pagos"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__pat_esp_pens
+msgid "P. Esp. Desp"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__emp_esp_pens
+msgid "P. Esp. Desp."
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__antiguedad
+msgid "Pagar antiguedad"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__dias_pagar
+msgid "Pagar en la nomina"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__indemnizacion
+msgid "Pagar indemnización"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__methodo_pago__pue
+#, python-format
+msgid "Pago en una sola exhibición"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__configuracion_nomina__periodicidad_pago__10
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_contract__periodicidad_pago__10
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip_run__periodicidad_pago__10
+msgid "Pago por consignación"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__pago_separacion
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.wizard_liquidacion_form_view
+msgid "Pago por separación"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__tope_prima
+msgid "Para calculo topado usar"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__sbcm_inv_inf
+#, python-format
+msgid "Para invalidez e Infonavit (UMA)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_salary_rule__parte_exenta
+msgid "Parte exenta"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_salary_rule__integrar_al_ingreso__004
+msgid "Parte exenta por día"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_salary_rule__parte_gravada
+msgid "Parte gravada"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_hr_payslip_form
+msgid "Patrón"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_hr_payslip
+msgid "Pay Slip"
+msgstr "Recibo de nómina"
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_hr_payslip_run
+msgid "Payslip Batches"
+msgstr "Lotes de recibos de nómina"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_run__all_payslip_generated
+msgid "Payslip Generated"
+msgstr "Recibo de nómina generado"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_run__all_payslip_generated_draft
+msgid "Payslip Generated draft"
+msgstr "Borrador de recibo de nómina generado"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__name
+msgid "Payslip Name"
+msgstr "Nombre del recibo de nómina"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__pens_alim
+msgid "Pensión alimienticia (%)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__percepcion_adicional
+msgid "Percepcion adicional"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_salary_rule_form_inherit
+msgid "Percepcion variable para el IMSS"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "Percepciones"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_contract_view_form_nomina_cfdi
+msgid "Percepciones adicionales"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__acum_per_grav
+msgid "Percepciones gravadas"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__acum_per_totales
+msgid "Percepciones totales"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_salary_rule__exencion
+msgid "Percepción con exención de ISR"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_salary_rule__variable_imss
+msgid "Percepción variable para el IMSS"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/contract.py:0
+#: code:addons/nomina_cfdi/models/hr_payslip_run.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_configuracion_nomina__periodicidad_pago
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__periodicidad_pago
+#, python-format
+msgid "Periodicidad de pago CFDI"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_payslip_run_form_nomina_cfdi
+msgid "Periodo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_bimestral__form_id
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+msgid "Periodo bimestral"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_mensual__form_id
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+msgid "Periodo mensual"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__imss_mes
+msgid "Periodo mensual nómina (dias)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+msgid "Periodo nómina"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+msgid "Periodo semanal"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+msgid "Periodos"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__612
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__regimen_fiscal__612
+msgid "Personas Físicas con Actividades Empresariales y Profesionales"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__603
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__regimen_fiscal__603
+msgid "Personas Morales con Fines no Lucrativos"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__uso_cfdi__p01
+#, python-format
+msgid "Por definir"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__configuracion_nomina__tipo_pago__02
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_contract__tipo_pago__02
+msgid "Por día"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__configuracion_nomina__tipo_pago__01
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_contract__tipo_pago__01
+msgid "Por periodo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__configuracion_nomina__periodicidad_pago__09
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_contract__periodicidad_pago__09
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip_run__periodicidad_pago__09
+msgid "Precio alzado"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__emp_prest_dinero
+msgid "Prest en dinero"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__pat_prest_dinero
+msgid "Prest. en dinero"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__enf_mat_prestaciones_e
+#, python-format
+msgid "Prestaciones en dinero E (%)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__enf_mat_prestaciones_p
+#, python-format
+msgid "Prestaciones en dinero P (%)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__prestamo_fonacot
+msgid "Prestamo FONACOT"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__monto_prima_antiguedad
+msgid "Prima antiguedad"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.wizard_liquidacion_form_view
+msgid "Prima de antiguedad"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__prima_dominical
+msgid "Prima dominical"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/contract.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__tipo_prima_vacacional
+#, python-format
+msgid "Prima vacacional"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_antiguedades_line__prima_vac
+msgid "Prima vacacional (%)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_semanal__dia_inicio
+msgid "Primer día del peridoo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_bimestral__dia_inicio
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_mensual__dia_inicio
+msgid "Primer día del periodo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__estado_factura__problemas_factura
+msgid "Problemas con la factura"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_hr_payslip_form
+msgid "Procesamiento"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.cfdi_payroll_layout
+msgid "Página web:"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__qr_value
+#, python-format
+msgid "QR Code Value"
+msgstr "Valor del código QR"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__qrcode_image
+msgid "QRCode"
+msgstr "Código QR"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__configuracion_nomina__periodicidad_pago__04
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_contract__periodicidad_pago__04
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip_run__periodicidad_pago__04
+msgid "Quincenal"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/employee.py:0
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_employee__rfc
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__rfc_emisor
+#, python-format
+msgid "RFC"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_payslip_run_form_nomina_cfdi
+msgid "Recalcular nómina"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "Recibo de nómina"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid ""
+"Recibí de esta empresa la cantidad que señala este recibo de pago, estando "
+"conforme con las\n"
+"                    percepciones y las retenciones descritas, por lo que "
+"certifico que no se me adeuda cantidad alguna\n"
+"                    por ningún concepto. <br/> <br/>"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:mail.template,subject:nomina_cfdi.email_template_payroll
+msgid "Ref: ${object.name or 'n/a' }"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#, python-format
+msgid "Reference with same name already exist."
+msgstr "Ya existe una referencia con el mismo nombre."
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/employee.py:0
+#: code:addons/nomina_cfdi/models/res_company.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_employee__registro_patronal
+#: model:ir.model.fields,field_description:nomina_cfdi.field_res_company__registro_patronal
+#, python-format
+msgid "Registro patronal"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_employee_form_inherit
+msgid "Registros"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_employee_form_inherit
+msgid "Reparto de utilidades"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__610
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__regimen_fiscal__610
+msgid "Residentes en el Extranjero sin Establecimiento Permanente en México"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__pat_retiro
+msgid "Retiro"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__retiro_p
+#, python-format
+msgid "Retiro (%)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.Partner_form
+msgid "Revisar saldo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__pat_riesgo_trabajo
+msgid "Riegso de trabajo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+msgid "Riesgo de trabajo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/contract.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__riesgo_puesto
+#, python-format
+msgid "Riesgo del puesto"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/employee.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_employee__regimen
+#, python-format
+msgid "Régimen"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__626
+msgid "Régimen Simplificado de Confianza - RESICO"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__607
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__regimen_fiscal__607
+msgid "Régimen de Enajenación o Adquisición de Bienes"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__625
+msgid ""
+"Régimen de las Actividades Empresariales con ingresos a través de "
+"Plataformas Tecnológicas"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__615
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__regimen_fiscal__615
+msgid "Régimen de los ingresos por obtención de premios"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__message_has_sms_error
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Error de entrega de SMS"
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__salario_minimo
+#, python-format
+msgid "Salario mínimo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+msgid "Salarios mínimos y UMA"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_hr_salary_rule
+msgid "Salary Rule"
+msgstr "Regla salarial"
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/employee.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_employee__segurosocial
+#, python-format
+msgid "Seguro social"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+msgid "Seguro social e Infonavit"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__selo_digital_cdfi
+#, python-format
+msgid "Selo Digital del CDFI"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__selo_sat
+#, python-format
+msgid "Selo del SAT"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__semana_inglesa
+msgid "Semana inglesa"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__configuracion_nomina__periodicidad_pago__02
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_contract__periodicidad_pago__02
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip_run__periodicidad_pago__02
+msgid "Semanal"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__calculo_liquidaciones__tipo_de_baja__01
+msgid "Separación voluntaria"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__mes__09
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__tablas_periodo_mensual__mes__09
+msgid "Septiembre"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__serie_emisor
+#, python-format
+msgid "Serie"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/res_company.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_res_company__serie_nomina
+#, python-format
+msgid "Serie nomina"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__proveedor_timbrado__multifactura
+msgid "Servidor 1"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__proveedor_timbrado__gecoerp
+msgid "Servidor 2"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__proveedor_timbrado__multifactura2
+msgid "Servidor 3"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__horas_nomina__tipo_de_hora__1
+msgid "Simple"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__616
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__regimen_fiscal__616
+msgid "Sin obligaciones fiscales"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_general_line__s_excedente
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_isr_anual__s_excedente
+msgid "Sobre excedente (%)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidio2_line__s_imp_marginal
+msgid "Sobre imp. marginal (%)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__620
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__regimen_fiscal__620
+msgid ""
+"Sociedades Cooperativas de Producción que optan por diferir sus ingresos"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/wizard/hr_payroll_payslips_by_employees.py:0
+#, python-format
+msgid "Some work entries could not be validated."
+msgstr "Algunas entradas no pudieron ser validadas."
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidio_line__form_id
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+msgid "Subem mensual/CAS Mensual"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidioacreditable_line__s_mensual
+msgid "Subsidio (%)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidio2_line__form_id
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+msgid "Subsidio Mensual Art. 114 LISR"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidioacreditable_line__form_id
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+msgid "Subsidio acreditable"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__acum_subsidio_aplicado
+msgid "Subsidio aplicado"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_subsidio_line__s_mensual
+msgid "Subsidio mensual"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__subtotal
+msgid "Subtotal"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__acum_sueldo
+msgid "Sueldo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__sueldo_base_cotizacion
+msgid "Sueldo base cotización (IMSS)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__sueldo_calculo_monto
+msgid "Sueldo calculo monto"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__sueldo_diario
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__calculo_liquidaciones__sueldo_calculo__01
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__calculo_liquidaciones__tope_prima__01
+msgid "Sueldo diario"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__sueldo_diario_integrado
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__calculo_liquidaciones__sueldo_calculo__02
+msgid "Sueldo diario integrado"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/employee.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_employee__sueldo_utilidad
+#, python-format
+msgid "Sueldo para cálculo de Utilidad"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__sueldo_calculo
+msgid "Sueldo para cálculos"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__sueldo_hora
+msgid "Sueldo por hora"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__regimen__605
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__res_company__regimen_fiscal__605
+msgid "Sueldos y Salarios e Ingresos Asimilados a Salarios"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip__tipo_relacion__04
+msgid "Sustitución de los CFDI previos"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__sept_dia
+msgid "Séptimo día separado"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__tabla_antiguedades
+msgid "Tabla Antiguedades"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__tabla_bimestral
+msgid "Tabla Bimestral"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__tablas_cfdi_id
+msgid "Tabla CFDI"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__tabla_ISR_anual
+msgid "Tabla Isr Anual"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__tabla_LISR
+msgid "Tabla Lisr"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__tabla_mensual
+msgid "Tabla Mensual"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_run__tabla_otras_entradas
+msgid "Tabla Otras Entradas"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__tabla_semanal
+msgid "Tabla Semanal"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__tabla_subem
+msgid "Tabla Subem"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__tabla_subsidio
+msgid "Tabla Subsidio"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__tabla_subsidio_acreditable
+msgid "Tabla Subsidio Acreditable"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__tabla_vacaciones
+msgid "Tabla Vacaciones"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+msgid "Tabla de antigüedades y vacaciones"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.actions.act_window,name:nomina_cfdi.action_tree_tablas_cfdi
+#: model:ir.ui.menu,name:nomina_cfdi.menu_action_tree_tablas_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.tree_tablas_cfdi_view
+msgid "Tablas CFDI"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_tablas_cfdi_view
+msgid "Tablas Nomina"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.search_tablas_cfdi_view
+msgid "Tablas Nomina SAT"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_tablas_antiguedades_line
+msgid "TablasAntiguedadesLine"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_tablas_isr_anual
+msgid "TablasAnualISR"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_tablas_cfdi
+msgid "TablasCFDI"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_tablas_general_line
+msgid "TablasGeneralLine"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_tablas_periodo_bimestral
+msgid "TablasPeriodoBimestrallLine"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_tablas_periodo_mensual
+msgid "TablasPeriodoMensuallLine"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_tablas_periodo_semanal
+msgid "TablasPeriodoSemanalLine"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_tablas_subsidio2_line
+msgid "TablasSubsidio2lLine"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_tablas_subsidioacreditable_line
+msgid "TablasSubsidioAcreditablelLine"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_tablas_subsidio_line
+msgid "TablasSubsidiolLine"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__tipo_cuenta__t_credito
+msgid "Tarjeta de crédito"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__tipo_cuenta__t_debido
+msgid "Tarjeta de débito"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.cfdi_payroll_layout
+msgid "Teléfono:"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_payslip_run_form_nomina_cfdi
+msgid "Timbrar Nomina"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/wizard/hr_payroll_payslips_by_employees.py:0
+#, python-format
+msgid "Time intervals to look for:%s"
+msgstr "Intervalos de tiempo a buscar:%s"
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_salary_rule__variable_imss_tipo
+#, python-format
+msgid "Tipo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/employee.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_employee__tipo_pago
+#, python-format
+msgid "Tipo de Pago"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__tipo_de_baja
+msgid "Tipo de baja"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__tipo_comprobante
+#, python-format
+msgid "Tipo de comprobante"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/employee.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_employee__tipo_cuenta
+#, python-format
+msgid "Tipo de cuenta"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_salary_rule__tipo_cdeduccion
+msgid "Tipo de deducción"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_horas_nomina__tipo_de_hora
+msgid "Tipo de hora extra"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: code:addons/nomina_cfdi/models/hr_payslip_run.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__tipo_nomina
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_run__tipo_nomina
+#, python-format
+msgid "Tipo de nómina"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_salary_rule__tipo_cpercepcion
+msgid "Tipo de percepción"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__tipo_relacion
+#, python-format
+msgid "Tipo relación"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__tipocambio
+#, python-format
+msgid "TipoCambio"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_nomina_deduccion
+msgid "TipoDeduccion"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_nomina_otropago
+msgid "TipoOtroPago"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_nomina_percepcion
+msgid "TipoPercepcion"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_salary_rule__variable_imss_tipo__001
+msgid "Todo el monto"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__tope_prima_monto
+msgid "Tope prima monto"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "Total"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.hr_contract_view_form_nomina_cfdi
+msgid "Total Dias"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__total_nomina
+msgid "Total a pagar"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "Total de deducciones:"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_calculo_liquidaciones__dias_totales
+msgid "Total de días"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__total_dias_trabajados
+#, python-format
+msgid "Total de días trabajados"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "Total de otros pagos:"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "Total de percepciones:"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__total_sueldo_percibido
+#, python-format
+msgid "Total de sueldo percibido"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "Total:"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_employee__tipo_pago__transferencia
+msgid "Transferencia"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__horas_nomina__tipo_de_hora__3
+msgid "Triple"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__uma
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__calculo_liquidaciones__tope_prima__02
+#, python-format
+msgid "UMA"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/tablas_nomina.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_cfdi__umi
+#, python-format
+msgid "UMI (Unidad Mixta INFONAVIT)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_semanal__dia_fin
+msgid "Ultímo día del peridoo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_bimestral__dia_fin
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_periodo_mensual__dia_fin
+msgid "Ultímo día del periodo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__configuracion_nomina__periodicidad_pago__07
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_contract__periodicidad_pago__07
+#: model:ir.model.fields.selection,name:nomina_cfdi.selection__hr_payslip_run__periodicidad_pago__07
+msgid "Unidad obra"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__message_unread
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__message_unread
+msgid "Unread Messages"
+msgstr "Mensajes sin leer"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__message_unread_counter
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Número de mensajes sin leer"
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__uso_cfdi
+#, python-format
+msgid "Uso CFDI (cliente)"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_vacaciones_line__form_id
+msgid "Vacaciones"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_antiguedades_line__form_id
+msgid "Vacaciones y aguinaldos"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_tablas_antiguedades_line__vacaciones
+msgid "Vacaciones/Días"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_contract__vale_despensa
+msgid "Vale de despensa"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_horas_nomina_view
+msgid "Validar"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__version
+#, python-format
+msgid "Version"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__website_message_ids
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes del sitio web"
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,help:nomina_cfdi.field_hr_payslip__website_message_ids
+#: model:ir.model.fields,help:nomina_cfdi.field_hr_payslip_mail__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicaciones del sitio web"
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__xml_nomina_link
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip_mail__xml_nomina_link
+#, python-format
+msgid "XML link"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/wizard/hr_payroll_payslips_by_employees.py:0
+#, python-format
+msgid "You must select employee(s) to generate payslip(s)."
+msgstr "Debe seleccionar empleado(s) para generar los recibos de nómina(s)."
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.report_payslip_document
+msgid "__________________________"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__invoice_datetime
+#, python-format
+msgid "fecha factura"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__importe_imss
+msgid "importe_imss"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__importe_isr
+msgid "importe_isr"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__isr_periodo
+msgid "isr_periodo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__periodicidad
+msgid "periodicidad"
+msgstr ""
+
+#. module: nomina_cfdi
+#: code:addons/nomina_cfdi/models/hr_payroll.py:0
+#, python-format
+msgid "problemas_message"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__retencion_subsidio_pagado
+msgid "retencion_subsidio_pagado"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model.fields,field_description:nomina_cfdi.field_hr_payslip__subsidio_periodo
+msgid "subsidio_periodo"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model:ir.model,name:nomina_cfdi.model_tablas_vacaciones_line
+msgid "tablas vacaciones"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.view_hr_payslip_form
+msgid "¿Esta seguro que quiere cancelar la factura?"
+msgstr ""
+
+#. module: nomina_cfdi
+#: model_terms:ir.ui.view,arch_db:nomina_cfdi.form_horas_nomina_view
+msgid "¿Seguro que quiere cancelar el registro?"
+msgstr ""
