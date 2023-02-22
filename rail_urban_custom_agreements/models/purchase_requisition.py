@@ -25,26 +25,32 @@ class ExcelReport(models.AbstractModel):
         }) """
 
         #Write XLSX
-        sheet.write(0, 0, 'Product code')
-        sheet.write(0, 1, 'Product name')
-        sheet.write(0, 2, 'Price')
-        sheet.write(0, 3, 'Schedule date')
+        sheet.write(0, 0, 'Codigo')
+        sheet.write(0, 1, 'Producto')
+        sheet.write(0, 2, 'Cantidad')
+        sheet.write(0, 3, 'UdM')
+        sheet.write(0, 4, 'Precio')
+        sheet.write(0, 5, 'Fecha entrega')
+        sheet.write(0, 6, 'Notas')
         row = 1
         _logger.critical('DATA'+str(data))
         _logger.critical('OBJECTS'+str(objects))
         for i in data:
             sheet.write(row, 0, i['product_code'])
             sheet.write(row, 1, i['product_name'])
-            sheet.write(row, 2, 0.00)
+            sheet.write(row, 2, i['qty'])
+            sheet.write(row, 3, i['product_uom'])
+            sheet.write(row, 4, 0.00)
+            sheet.write(row, 6, i['description'])
             row += 1
 
 class PurchaseRequisition(models.Model):
     _name = 'purchase.requisition'
     _inherit = 'purchase.requisition'
 
-    subtype = fields.Selection(string="Criterio", selection=[('time','Tiempo de entrega'),('price','Mejor precio')])
+    subtype = fields.Selection(string="Criterio", selection=[('time','Tiempo de entrega'),('price','Mejor precio'),('time_price', 'Tiempo + Precio')])
     vendor_qty = fields.Integer(string="Cnt. min. proveedores", related='type_id.vendor_qty')
-    vendor_ids = fields.Many2many('res.partner', string="Vendor", domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
+    vendor_ids = fields.Many2many('res.partner', string="Proveedores", domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
     bl_count = fields.Integer(compute='_compute_blanket_number', string='Number of BLs')
     blanket_ids = fields.One2many('pr.blanket.lines', 'requisition_id')
     state = fields.Selection(selection_add=[('sent','Enviado'),('in_progress',)], ondelete={'sent': 'set default'})
@@ -56,11 +62,12 @@ class PurchaseRequisition(models.Model):
     def _compute_vendor_emails(self):
         for r in self:
             emails = []
-            ids = []
             if r.vendor_ids:
                 for v in r.vendor_ids:
-                    emails.append(v.email)
-                    ids.append(str(v.id).replace('NewId_',''))
+                    if v.email:
+                        emails.append(v.email)
+                    else:
+                        raise ValidationError("No puedes agregar un proveedor sin email, por favor primero registra un correo electronico valido")
                 r.vendor_emails = ','.join(emails)
             else:
                 r.vendor_emails = ''
@@ -168,7 +175,10 @@ class PurchaseRequisition(models.Model):
             for r in self.line_ids:
                 product = {
                     'product_code': r.product_id.id,
-                    'product_name': r.product_id.display_name
+                    'product_name': r.product_id.display_name,
+                    'description': r.product_description_variants if r.product_description_variants else '',
+                    'qty': r.product_qty,
+                    'product_uom': r.product_uom_id.display_name
                 }
                 product_list.append(product)
         generated_report = report._render_xlsx(report.id, self.id, product_list)
@@ -184,8 +194,7 @@ class PurchaseRequisition(models.Model):
             'res_model': 'purchase.requisition'
         }
         attachment = self.env['ir.attachment'].sudo().create(ir_values)
-        #raise ValidationError(attachment)
-        email_template = self.env.ref('rail_urban_custom_agreements.email_template_rail_urban_bl')
+        email_template = self.env.ref('rail_urban_custom_agreements.email_template_rail_urban_bl').sudo()
         if email_template:
             email_values = {
                 'email_to': self.vendor_emails,
@@ -242,6 +251,18 @@ class PurchaseRequisition(models.Model):
                         'schedule_date': bl_price.schedule_date,
                         'price_unit': bl_price.price_unit
                     })
+            elif r.subtype == 'time_price':
+                for l in r.line_ids:
+                    bl_timeprice = bl_object.search([('requisition_id','=',r.id),
+                                                ('product_id','=',l.product_id.id)],order='score asc', limit=1)
+                    bl_timeprice.update({
+                        'requisition_line_id': l.id,
+                    })
+                    l.update({
+                        'vendor_id': bl_timeprice.partner_id,
+                        'schedule_date': bl_timeprice.schedule_date,
+                        'price_unit': bl_timeprice.price_unit
+                    })
 
     def button_manual_aproval(self):
         for r in self:
@@ -263,9 +284,6 @@ class PurchaseRequisition(models.Model):
             self.write({'state': 'ongoing'})
         else:
             self.write({'state': 'in_progress'})
-        # Set the sequence number regarding the requisition type
-        if self.name == 'New':
-            self.name = self.env['ir.sequence'].next_by_code('purchase.requisition.blanket.order')
         
         # Create PO
         vendors = self.line_ids.mapped('vendor_id.id')
@@ -274,11 +292,10 @@ class PurchaseRequisition(models.Model):
 
         for vendor_id in vendors:
             partner_id = self.env['res.partner'].browse(vendor_id)
-            lines = self.line_ids.filtered(lambda l: l.partner_id.id == vendor_id and l.purchase_id == False)
-
+            lines = self.line_ids.filtered(lambda l: l.vendor_id.id == vendor_id and not l.purchase_id)
             order_line = []
             for line_id in lines:
-                if line_id.purchase_id == False:
+                if  not line_id.purchase_id:
                     order_line.append((0, 0, {
                         'date_planned': line_id.schedule_date,
                         'product_id': line_id.product_id.id,
@@ -286,18 +303,25 @@ class PurchaseRequisition(models.Model):
                         'price_unit': line_id.price_unit,
                         'product_qty': line_id.product_qty,
                         'product_uom': line_id.product_uom_id.id or False,
+                        'taxes_id': [(6, 0, line_id.product_id.supplier_taxes_id.ids)],
                     }))
 
             purchase = self.env['purchase.order'].create({
                 'partner_id': partner_id.id,
-                'date_order': line_id.schedule_date,
+                'date_order': datetime.now(),
                 'origin':self.name,
                 'requisition_id': self.id,
                 'order_line':order_line,
                 })
             for line in lines:
-                line.purchase_id = purchase
+                line.purchase_id = purchase.id
 
+    @api.model
+    def create(self,vals):
+        if vals.get("name", _("New")) == _("New"):
+            # Set the sequence number regarding the requisition type
+            vals['name'] = self.env['ir.sequence'].next_by_code('purchase.requisition.blanket.order')
+        return super(PurchaseRequisition, self).create(vals)
 
 class PurchaseRequisitionLine(models.Model):
     _inherit = 'purchase.requisition.line'
@@ -313,6 +337,7 @@ class PurchaseRequisitionType(models.Model):
 
 class PurchaseRequisitionRfqs(models.Model):
     _name = 'pr.blanket.lines'
+    _description = 'Blanket agreements analysis'
 
     partner_id = fields.Many2one('res.partner')
     requisition_line_id = fields.Many2one('purchase.requisition.line')
@@ -321,3 +346,16 @@ class PurchaseRequisitionRfqs(models.Model):
     price_unit = fields.Float()
     qty = fields.Float()
     schedule_date = fields.Date()
+    ordering_date = fields.Date(related='requisition_id.ordering_date')
+    score = fields.Float(compute = '_compute_score')
+
+    @api.depends('schedule_date')
+    def _compute_score(self):
+        for r in self:
+            if r.schedule_date and r.ordering_date:
+                if r.schedule_date < r.ordering_date:
+                    raise ValidationError('La fecha de entrega no puede ser menor a la fecha de pedido, revisa los datos por favor')
+                else:
+                    r.score = (r.schedule_date - r.ordering_date).days + r.price_unit
+            else:
+                r.score = 0
