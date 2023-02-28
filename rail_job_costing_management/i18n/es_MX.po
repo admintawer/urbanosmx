@@ -1,0 +1,1730 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* rail_job_costing_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e-20221202\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-26 00:39+0000\n"
+"PO-Revision-Date: 2023-02-25 20:15-0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.2.2\n"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_task__stock_moves_count
+msgid "# of Stock Moves"
+msgstr "# de albaranes"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_const_project_note_note_kanban
+msgid "<i class=\"fa fa-check\" title=\"Check\"/>"
+msgstr "<i class=\"fa fa-check\" title=\"Check\"/>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_const_project_note_note_kanban
+msgid "<i class=\"fa fa-undo\" title=\"Undo\"/>"
+msgstr "<i class=\"fa fa-undo\" title=\"Atras\"/>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_const_project_note_note_kanban
+msgid "<span class=\"fa fa-bars fa-lg\" title=\"Dropdown\"/>"
+msgstr "<span class=\"fa fa-bars fa-lg\" title=\"Desplegar\"/>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.proejct_subtask_user_form_view
+msgid ""
+"<span class=\"o_form_label\">This wizard will create subtasks of current "
+"task.</span>"
+msgstr ""
+"<span class=\"o_form_label\">Este asistente creara una subtarea de la tarea "
+"en curso.</span>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "<strong>Analytic Account </strong>"
+msgstr "<strong>Cuenta analitica </strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "<strong>Closed Date </strong>"
+msgstr "<strong>Fecha cierre </strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "<strong>Company </strong>"
+msgstr "<strong>Compañia </strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.purchase_requisition_inherit_project
+msgid "<strong>Construction Project</strong>"
+msgstr "<strong>Construccion</strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.project_report_id
+msgid "<strong>Construction Site Detail:</strong>"
+msgstr "<strong>Detalles sitio construccion:</strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "<strong>Create Date </strong>"
+msgstr "<strong>Fecha creacion </strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "<strong>Created By </strong>"
+msgstr "<strong>Creado por</strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "<strong>Currency </strong>"
+msgstr "<strong>Moneda </strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "<strong>Customer </strong>"
+msgstr "<strong>Ciente </strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.project_report_id
+msgid "<strong>Customer</strong>"
+msgstr "<strong>Cliente</strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "<strong>Description </strong>"
+msgstr "<strong>Descripcion </strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "<strong>Issue </strong>"
+msgstr "<strong>Asunto </strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "<strong>Job Order </strong>"
+msgstr "<strong>Orden de trabajo </strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.project_report_id
+msgid "<strong>Location</strong>"
+msgstr "<strong>Ubicacion</strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "<strong>Name </strong>"
+msgstr "<strong>Nombre </strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "<strong>Project </strong>"
+msgstr "<strong>Proyecto </strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.project_report_id
+msgid "<strong>Project Manager</strong>"
+msgstr "<strong>Encargado proyecto</strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.note_report_id
+msgid "<strong>Project</strong>"
+msgstr "<strong>Proyecto</strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.note_report_id
+msgid "<strong>Respnosible User</strong>"
+msgstr "<strong>Usuario responsable</strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "<strong>SO Number </strong>"
+msgstr "<strong>Pedido venta </strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.purchase_requisition_inherit_project
+msgid "<strong>Task / Job Order User</strong>"
+msgstr "<strong>Usuario tarea / orden de trabajo</strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.purchase_requisition_inherit_project
+msgid "<strong>Task / Job Order</strong>"
+msgstr "<strong>Tarea / Orden de trabajo</strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.note_report_id
+msgid "<strong>Task</strong>"
+msgstr "<strong>Tarea</strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.project_report_id
+msgid "<strong>Tasks:</strong>"
+msgstr "<strong>Tareas:</strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "<strong>Total Cost</strong>"
+msgstr "<strong>Total Costo</strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "<strong>Total Labour Cost</strong>"
+msgstr "<strong>Total Mano de obra</strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "<strong>Total Material Cost</strong>"
+msgstr "<strong>Total Materiales</strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "<strong>Total Overhead Cost</strong>"
+msgstr "<strong>Total Costo indirecto</strong>"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.project_report_id
+msgid "<strong>Types of Construction</strong>"
+msgstr "<strong>Tipos de construccion</strong>"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__access_warning
+msgid "Access warning"
+msgstr "Alerta de acceso"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__account_invoice_line_ids
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__account_invoice_line_ids
+msgid "Account Invoice Line"
+msgstr "Linea factura"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__account_invoice_line_count
+msgid "Account Invoice Line Count"
+msgstr "Conteo linea de factura"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__message_needaction
+msgid "Action Needed"
+msgstr "Accion necesaria"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_project_note_note_filter
+msgid "Active"
+msgstr "Activo"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Excepción de la actividad"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__activity_state
+msgid "Activity State"
+msgstr "Estado actividad"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Icono tipo actividad"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Actual Invoice Quantity"
+msgstr "Cantidad facturado"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__actual_quantity
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Actual Purchased Quantity"
+msgstr "Cantidad comprado"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__actual_hour
+msgid "Actual Timesheet Hours"
+msgstr "Cantidad horas"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Actual Timesheet hours"
+msgstr "Cantidad horas"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__actual_invoice_quantity
+msgid "Actual Vendor Bill Quantity"
+msgstr "Cantidad facturas proveedor"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__project_project__type_of_construction__agricultural
+msgid "Agricultural"
+msgstr "Agricultura"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__analytic_id
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__analytic_id
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Analytic Account"
+msgstr "Cuenta analitica"
+
+#. module: rail_job_costing_management
+#: model:ir.model,name:rail_job_costing_management.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Línea analítica"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Applied Overhead"
+msgstr "Costos indirectos"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_form_view
+msgid "Approve"
+msgstr "Aprobar"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__job_costing__state__approve
+msgid "Approved"
+msgstr "Aprobado"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_search
+msgid "Approved Job Costing"
+msgstr "Costeo aprobado"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_project_note_note_filter
+msgid "Archive"
+msgstr "Archivado"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.project_report_id
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Assigned To"
+msgstr "Asignado a"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Assignees"
+msgstr "Asignaciones"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.project_report_id
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Assigning Date"
+msgstr "Fecha asignacion"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__message_attachment_count
+msgid "Attachment Count"
+msgstr "Conteo adjuntos"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_product_product__boq_type
+msgid "BOQ Type"
+msgstr "Tipo Requisicion"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__basis
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Basis"
+msgstr "Base"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_project_note_note_filter
+msgid "By sticky note Category"
+msgstr "Nota adhesiva"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_form_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_search
+msgid "Cancel Job Costing"
+msgstr "Cancelar costeo"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__job_costing__state__cancel
+msgid "Canceled"
+msgstr "Cancelado"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_task__child_task_ids
+msgid "Child Tasks"
+msgstr "Sub-tareas"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.actions.act_window,help:rail_job_costing_management.action_picking_tree_all_const
+msgid "Click here to create a new transfer."
+msgstr "Click para crear una nueva requisición"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.actions.act_window,help:rail_job_costing_management.action_partner_contractor_form
+msgid "Click to add a contact in your address book."
+msgstr "Click para crear un contacto"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.actions.act_window,help:rail_job_costing_management.purchase_rfq_construction
+msgid "Click to create a request for quotation."
+msgstr "Crear solicitud de presupuesto"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__complete_date
+msgid "Closed Date"
+msgstr "Fecha cierre"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_type__code
+msgid "Code"
+msgstr "Codigo"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__project_project__type_of_construction__commercial
+msgid "Commercial"
+msgstr "Vendedor"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__company_id
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_search
+msgid "Company"
+msgstr "Compañia"
+
+#. module: rail_job_costing_management
+#: model:ir.ui.menu,name:rail_job_costing_management.menu_job_cost_configuration
+msgid "Configuration"
+msgstr "Configuracion"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_form_view
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_search
+msgid "Confirm Job Costing"
+msgstr "Confirmar costeo"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__job_costing__state__confirm
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_material_purchase_requisition__project_id
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_note_note__project_id
+msgid "Construction Project"
+msgstr "Proyecto construccion"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.edit_project_inherit_construction
+msgid "Construction Site Detail"
+msgstr "Detalles sitio construccion"
+
+#. module: rail_job_costing_management
+#: model:ir.model,name:rail_job_costing_management.model_consumed_material
+msgid "Consumed Material"
+msgstr "Material consumido"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_consumed_material__consumed_task_material_id
+msgid "Consumed Material Plan Task"
+msgstr "Planificación de material"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_task__consumed_material_ids
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_task_form2_inherit_picking
+msgid "Consumed Materials"
+msgstr "Materiales consumidos"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__contract_date
+msgid "Contract Date"
+msgstr "Fecha contrato"
+
+#. module: rail_job_costing_management
+#: model:ir.actions.act_window,name:rail_job_costing_management.action_partner_contractor_form
+msgid "Contractors"
+msgstr "Contratistas"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__cost_price
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Cost / Unit"
+msgstr "Costo / unidad"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_form_view
+msgid "Cost Lines"
+msgstr "Lineas de costeo"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__total_cost
+msgid "Cost Price Sub Total"
+msgstr "Subtotal costo"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.proejct_subtask_user_form_view
+msgid "Create"
+msgstr "Crear"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__start_date
+msgid "Create Date"
+msgstr "Fecha creacion"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_task_form2_inherit_subtask
+msgid "Create Subtasks"
+msgstr "Crear sub-tareas"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.actions.act_window,help:rail_job_costing_management.open_view_project_job_all_config
+msgid "Create a new Construction project."
+msgstr "Crear un nuevo proyecto de construccion"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__user_id
+msgid "Created By"
+msgstr "Creado por"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_consumed_material__create_uid
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__create_uid
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__create_uid
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_type__create_uid
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_material_plan__create_uid
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_user_subtask__create_uid
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_user_subtask__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_consumed_material__create_date
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__create_date
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__create_date
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_type__create_date
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_material_plan__create_date
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_user_subtask__create_date
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_user_subtask__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__currency_id
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__partner_id
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_search
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,help:rail_job_costing_management.field_job_costing__access_url
+msgid "Customer Portal URL"
+msgstr "URL para cliente"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__date
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Date"
+msgstr "Fecha"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.project_report_id
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Deadline"
+msgstr "Limite"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_const_project_note_note_kanban
+msgid "Delete"
+msgstr "Borrar"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_consumed_material__description
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__description
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__description
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_material_plan__description
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Description"
+msgstr "Descripcion"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Destination Location Zone"
+msgstr "Ubicacion destino"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Direct Labour"
+msgstr "Mano de obra"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__job_labour_line_ids
+msgid "Direct Labours"
+msgstr "Mano de obra"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__job_cost_line_ids
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Direct Materials"
+msgstr "Materiales"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__job_overhead_line_ids
+msgid "Direct Overheads"
+msgstr "Costos indirectos"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Discount"
+msgstr "Descuento"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_consumed_material__display_name
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__display_name
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__display_name
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_type__display_name
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_material_plan__display_name
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_user_subtask__display_name
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_user_subtask__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__job_costing__state__done
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_form_view
+msgid "Done"
+msgstr "Hecho"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_search
+msgid "Done Job Costing"
+msgstr "Hecho"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__job_costing__state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Duration"
+msgstr "Duracion"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Effective Hours"
+msgstr "Horas efectivas"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_account_analytic_line__end_time
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "End Time"
+msgstr "Fecha fin"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__project_project__type_of_construction__environmental
+msgid "Environmental"
+msgstr "Ambiental"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_material_purchase_requisition__equipment_machine_total
+msgid "Equipment / Machinery Cost"
+msgstr "Costo equipo/maquinaria"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores(Contactos)"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,help:rail_job_costing_management.field_job_costing__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Font awesome iconos ejemplo: fa-tasks"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_search
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_project_note_note_filter
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_form_view
+msgid "HR Timesheet Lines"
+msgstr "Control de horas"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__has_message
+msgid "Has Message"
+msgstr "Tiene mensaje"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__project_project__type_of_construction__heavy_civil
+msgid "Heavy civil"
+msgstr "Civil"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__hours
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Hours"
+msgstr "Horas"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_consumed_material__id
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__id
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__id
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_type__id
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_material_plan__id
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_user_subtask__id
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_user_subtask__id
+msgid "ID"
+msgstr "ID"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__activity_exception_icon
+msgid "Icon"
+msgstr "Icono"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,help:rail_job_costing_management.field_job_costing__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icono para indicar una actividad de excepción."
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,help:rail_job_costing_management.field_job_costing__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Si esta marcado, nuevos mensajes requieren tu atencion"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,help:rail_job_costing_management.field_job_costing__message_has_error
+#: model:ir.model.fields,help:rail_job_costing_management.field_job_costing__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si esta marcado, algunos mensajes tienen error de entrega"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__project_project__type_of_construction__industrial
+msgid "Industrial"
+msgstr "Industrial"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Initially Planned Hours"
+msgstr "Horas planificadas"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__project_project__type_of_construction__institutional
+msgid "Institutional"
+msgstr "Institucional"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Intially Planned Hours"
+msgstr "Horas planificadas"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__message_is_follower
+msgid "Is Follower"
+msgstr "Es Seguidor"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_note_note__is_task
+msgid "Is Job Order?"
+msgstr "Orden de trabajo?"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_note_note__is_project
+msgid "Is Project?"
+msgstr "Proyecto?"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_sale_order__job_id
+msgid "Job"
+msgstr "Costeos"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_project__job_cost_ids
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_task__job_cost_ids
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Job Cost"
+msgstr "Costeos"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_account_analytic_line__job_cost_id
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_account_move_line__job_cost_id
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_purchase_order_line__job_cost_id
+msgid "Job Cost Center"
+msgstr "Centro de costeo"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_project__job_cost_count
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_task__job_cost_count
+msgid "Job Cost Count"
+msgstr "Conteo costeos"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__notes_job
+msgid "Job Cost Details"
+msgstr "Detalles costeo"
+
+#. module: rail_job_costing_management
+#: model:ir.model,name:rail_job_costing_management.model_job_cost_line
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_account_analytic_line__job_cost_line_id
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_account_move_line__job_cost_line_id
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_purchase_order_line__job_cost_line_id
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Job Cost Line"
+msgstr "Linea costeo"
+
+#. module: rail_job_costing_management
+#: model:ir.actions.act_window,name:rail_job_costing_management.action_job_cost_line_custom
+msgid "Job Cost Sheet Lines"
+msgstr "Lineas hoja de costeo"
+
+#. module: rail_job_costing_management
+#: model:ir.actions.act_window,name:rail_job_costing_management.action_job_costing
+#: model:ir.ui.menu,name:rail_job_costing_management.menu_sub_job_costing
+msgid "Job Cost Sheets"
+msgstr "Hojas de costeo"
+
+#. module: rail_job_costing_management
+#: model:ir.actions.report,name:rail_job_costing_management.job_costing_report
+#: model:ir.model,name:rail_job_costing_management.model_job_costing
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__direct_id
+msgid "Job Costing"
+msgstr "Costeos"
+
+#. module: rail_job_costing_management
+#: model:ir.module.category,name:rail_job_costing_management.module_category_construction
+msgid "Job Costing Contracting Managements"
+msgstr "Manejo de contratos"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_form_view
+msgid "Job Costing form"
+msgstr "Formulario costeo"
+
+#. module: rail_job_costing_management
+#: model:ir.ui.menu,name:rail_job_costing_management.menu_job_cost_managmt
+msgid "Job Costs"
+msgstr "Costeo"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__job_costsheet_line_count
+msgid "Job Costsheet Line Count"
+msgstr "Conteo linea hoja de costeo"
+
+#. module: rail_job_costing_management
+#: model:ir.ui.menu,name:rail_job_costing_management.notes_job_cost_task_menu
+msgid "Job Notes"
+msgstr "Notas"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_task__job_number
+msgid "Job Number"
+msgstr "Numero"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__task_id
+msgid "Job Order"
+msgstr "Orden"
+
+#. module: rail_job_costing_management
+#: model:ir.actions.act_window,name:rail_job_costing_management.action_view_job_orders
+#: model:ir.ui.menu,name:rail_job_costing_management.menu_job_cost_order
+#: model:ir.ui.menu,name:rail_job_costing_management.menu_job_cost_orders
+msgid "Job Orders"
+msgstr "Ordenes"
+
+#. module: rail_job_costing_management
+#: model:ir.actions.act_window,name:rail_job_costing_management.action_job_type
+#: model:ir.model,name:rail_job_costing_management.model_job_type
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__job_type_id
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Job Type"
+msgstr "Tipo"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_type_form_view
+msgid "Job Type form"
+msgstr "Formulario tipo"
+
+#. module: rail_job_costing_management
+#: model:ir.ui.menu,name:rail_job_costing_management.menu_job_type
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_type_tree_view
+msgid "Job Types"
+msgstr "Tipos"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_cost_project_form_view
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_cost_task_form_view
+msgid "Jobcosts"
+msgstr "Costeos"
+
+#. module: rail_job_costing_management
+#: model:ir.ui.menu,name:rail_job_costing_management.menu_job_managmt
+msgid "Jobs"
+msgstr "Costeo"
+
+#. module: rail_job_costing_management
+#: model:ir.model,name:rail_job_costing_management.model_account_move_line
+msgid "Journal Item"
+msgstr "Apunte de diario"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__job_cost_line__job_type__labour
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__job_type__job_type__labour
+msgid "Labour"
+msgstr "Mano de obra"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_form_view
+msgid "Labours"
+msgstr "Mano de obra"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_consumed_material____last_update
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line____last_update
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing____last_update
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_type____last_update
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_material_plan____last_update
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_user_subtask____last_update
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_user_subtask____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_consumed_material__write_uid
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__write_uid
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__write_uid
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_type__write_uid
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_material_plan__write_uid
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_user_subtask__write_uid
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_user_subtask__write_uid
+msgid "Last Updated by"
+msgstr "Ulima actualizacion por"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_consumed_material__write_date
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__write_date
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__write_date
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_type__write_date
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_material_plan__write_date
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_user_subtask__write_date
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_user_subtask__write_date
+msgid "Last Updated on"
+msgstr "Última actualización"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_project__location_id
+msgid "Location"
+msgstr "Ubicacion"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__product_product__boq_type__eqp_machine
+msgid "Machinery / Equipment"
+msgstr "Maquinaria/Equipo"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Adjunto principal"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__job_cost_line__job_type__material
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__job_type__job_type__material
+msgid "Material"
+msgstr "Materiales"
+
+#. module: rail_job_costing_management
+#: model:ir.model,name:rail_job_costing_management.model_material_plan
+msgid "Material Plan"
+msgstr "Planificacion materiales"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_material_plan__material_task_id
+msgid "Material Plan Task"
+msgstr "Planificacion materiales"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_task__material_plan_ids
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_task_form2_inherit_picking
+msgid "Material Plannings"
+msgstr "Planificaciones materiales"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_task_form2_inherit_picking
+msgid "Material Requisitions"
+msgstr "Requisiciones materiales"
+
+#. module: rail_job_costing_management
+#: model:ir.actions.act_window,name:rail_job_costing_management.action_picking_tree_all_const
+msgid "Material Requisitions / BOQ"
+msgstr "Requisiciones materiales / LdC"
+
+#. module: rail_job_costing_management
+#: model:ir.actions.act_window,name:rail_job_costing_management.action_material_purchase_requisition_job_costing
+#: model:ir.ui.menu,name:rail_job_costing_management.menu_job_cost_mat_req
+msgid "Material Requisitions/ BOQ"
+msgstr "Requisicion materiales / LdC"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Material Requistions"
+msgstr "Requisicion materiales"
+
+#. module: rail_job_costing_management
+#: model:ir.ui.menu,name:rail_job_costing_management.menu_job_cost_material
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_form_view
+msgid "Materials"
+msgstr "Materiales"
+
+#. module: rail_job_costing_management
+#: model:ir.ui.menu,name:rail_job_costing_management.menu_materials
+msgid "Materials / BOQ "
+msgstr "Materiales / LdC"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.material_purchase_requisition_form_view_inherit_materials
+msgid "Materials / BOQ Cost"
+msgstr "Materiales / Costo LdC"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de entrega"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.actions.act_window,help:rail_job_costing_management.purchase_rfq_construction
+msgid ""
+"Most propositions of purchase orders are created automatically\n"
+"                by Odoo based on inventory needs."
+msgstr ""
+"Mayormente las propuestas de pedidos de compra son creadas automáticamente\n"
+"               por Odoo basado en las necesidades de inventario."
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_task__move_ids
+msgid "Move"
+msgstr "Movimiento"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Limite mis actividades"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__name
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_type__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Siguiente actividad calendarizada"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Siguiente limite actividad"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__activity_summary
+msgid "Next Activity Summary"
+msgstr "Resumen siguiente actividad"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__activity_type_id
+msgid "Next Activity Type"
+msgstr "Siguiente tipo actividad"
+
+#. module: rail_job_costing_management
+#: model:ir.model,name:rail_job_costing_management.model_note_note
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_project_note_note_filter
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_project_note_note_form
+msgid "Note"
+msgstr "Nota"
+
+#. module: rail_job_costing_management
+#: model:ir.actions.act_window,name:rail_job_costing_management.action_project_note_note
+#: model:ir.actions.act_window,name:rail_job_costing_management.action_task_note_note
+#: model:ir.actions.report,name:rail_job_costing_management.print_note_report
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_project__notes_count
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_task__notes_count
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.edit_project_inherit_construction
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_project_note_note_filter
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_task_form2_inherit_picking
+msgid "Notes"
+msgstr "Notas"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_project__notes_ids
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_task__notes_ids
+msgid "Notes Id"
+msgstr "ID notas"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__number
+msgid "Number"
+msgstr "Numero"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Numero de acciones"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de errores"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,help:rail_job_costing_management.field_job_costing__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Numero de mensajes que requieren una accion"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,help:rail_job_costing_management.field_job_costing__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Numero de mensajes con error de entrega"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.actions.act_window,help:rail_job_costing_management.action_partner_contractor_form
+msgid ""
+"Odoo helps you easily track all activities related to\n"
+"            a supplier: discussions, history of purchases,\n"
+"            documents, etc."
+msgstr ""
+"Odoo te ayuda a rastrear fácilmente todas las actividades relacionadas a\n"
+"           un proveedor: seguimiento, historial de compras,\n"
+"           documentos, etc."
+
+#. module: rail_job_costing_management
+#: model_terms:ir.actions.act_window,help:rail_job_costing_management.action_view_job_orders
+msgid ""
+"Odoo's Job Orders management allows you to manage the pipeline of your Jobs "
+"efficiently. You can track progress, discuss on jobs, attach documents, etc."
+msgstr ""
+"El manejo de ordenes de trabajo de odoo permite manejar la linea de trabajo "
+"eficientemente. Puedes rastrear el pregreso, discusiones, adjuntar "
+"documentos, etc."
+
+#. module: rail_job_costing_management
+#: model_terms:ir.actions.act_window,help:rail_job_costing_management.action_view_task_subtask
+msgid ""
+"Odoo's project management allows you to manage the pipeline of your tasks "
+"efficiently. You can track progress, discuss on tasks, attach documents, "
+"etc."
+msgstr ""
+"El manejo de proyectos te permite administrar la linea de tareas de manera "
+"eficiente. Puedes rastrear el progreso, mensajes y adjuntar documentos, etc."
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Order"
+msgstr "Pedido"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Order Date"
+msgstr "Fecha"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.actions.act_window,help:rail_job_costing_management.open_view_project_job_all_config
+msgid ""
+"Organize your activities (plan tasks, track issues, invoice timesheets) for "
+"internal, personal or customer construction projects."
+msgstr ""
+"Organiza tus actividades (planea tareas, sigue asuntos, factura horas) para "
+"uso interno, personal o para el manejo de los proyectos de tus clientes"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__job_cost_line__job_type__overhead
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__job_type__job_type__overhead
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_form_view
+msgid "Overhead"
+msgstr "Costo indirecto"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_task_search_form_inherit_parenttask
+msgid "Parent Task"
+msgstr "Tarea padre"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_user_subtask__planned_hours
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.project_report_id
+msgid "Planned Hours"
+msgstr "Horas planificadas"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__product_qty
+msgid "Planned Qty"
+msgstr "Cantidad planificada"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__access_url
+msgid "Portal Access URL"
+msgstr "URL de acceso al portal"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.proejct_subtask_user_form_view
+msgid "Prject Subtask"
+msgstr "Sub-tarea"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_consumed_material__product_id
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__product_id
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_material_plan__product_id
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: rail_job_costing_management
+#: model:ir.model,name:rail_job_costing_management.model_product_product
+msgid "Product Variant"
+msgstr "Variante de producto"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.proejct_subtask_user_form_view
+msgid "Proejct Subtask"
+msgstr "Sub-tarea"
+
+#. module: rail_job_costing_management
+#: model:ir.model,name:rail_job_costing_management.model_project_project
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__project_id
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_search
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_project_note_note_filter
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: rail_job_costing_management
+#: model:ir.ui.menu,name:rail_job_costing_management.notes_job_project_menu
+msgid "Project Notes"
+msgstr "Notas"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_task__parent_task_id
+msgid "Project Parent Task"
+msgstr "Tarea padre"
+
+#. module: rail_job_costing_management
+#: model:ir.actions.report,name:rail_job_costing_management.project_report
+msgid "Project Report"
+msgstr "Reporte de proyecto"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_user_subtask__subtask_user_ids
+msgid "Project Subtask User"
+msgstr "Usuario sub-tarea"
+
+#. module: rail_job_costing_management
+#: model:ir.actions.act_window,name:rail_job_costing_management.action_proejct_subtask_user_wizard
+#: model:ir.model,name:rail_job_costing_management.model_project_user_subtask
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_user_subtask__subtask_id
+msgid "Project User Subtask"
+msgstr "Usuario sub-tarea"
+
+#. module: rail_job_costing_management
+#: model:ir.actions.act_window,name:rail_job_costing_management.open_view_project_job_all_config
+#: model:ir.ui.menu,name:rail_job_costing_management.menu_job_cost_project
+#: model:ir.ui.menu,name:rail_job_costing_management.menu_job_projects
+msgid "Projects"
+msgstr "Proyectos"
+
+#. module: rail_job_costing_management
+#: model:ir.actions.act_window,name:rail_job_costing_management.purchase_rfq_construction
+#: model:ir.model,name:rail_job_costing_management.model_purchase_order
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_material_purchase_requisition__purchase_order_id
+msgid "Purchase Order"
+msgstr "Orden de compra"
+
+#. module: rail_job_costing_management
+#: model:ir.model,name:rail_job_costing_management.model_purchase_order_line
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__purchase_order_line_ids
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__purchase_order_line_ids
+msgid "Purchase Order Line"
+msgstr "Línea de orden de compra"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__purchase_order_line_count
+msgid "Purchase Order Line Count"
+msgstr "Conteo líneas de compra"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_form_view
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Purchase Order Lines"
+msgstr "Lineas de compra"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_material_purchase_requisition__purchase_order_ids
+msgid "Purchase Orders"
+msgstr "Pedidos de compra"
+
+#. module: rail_job_costing_management
+#: model:ir.model,name:rail_job_costing_management.model_material_purchase_requisition
+msgid "Purchase Requisition"
+msgstr "Requisicion de compra"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_consumed_material__product_uom_qty
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_material_plan__product_uom_qty
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__reference
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.project_report_id
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Remaining Hours"
+msgstr "Horas restantes"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Requisition Date"
+msgstr "Fecha reaquisicion"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Requisition Type"
+msgstr "Tipo requisicion"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_form_view
+msgid "Reset to Draft"
+msgstr "Regresa a borrador"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__project_project__type_of_construction__residential
+msgid "Residential"
+msgstr "Residencial"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__activity_user_id
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_project_note_note_form
+msgid "Responsible User"
+msgstr "Usuario responsable"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Error entrega SMS"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__so_number
+msgid "Sale reference"
+msgstr "Referencia venta"
+
+#. module: rail_job_costing_management
+#: model:ir.model,name:rail_job_costing_management.model_sale_order
+msgid "Sales Order"
+msgstr "Orden de venta"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_search
+msgid "Search Job Coasting"
+msgstr "Buscar costeo"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__access_token
+msgid "Security Token"
+msgstr "Ficha de seguridad"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_form_view
+msgid "Setup default Job Details or Technical contents."
+msgstr "Configurar detalles o contenido tecnico"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Signature:____________________"
+msgstr "Firma:_________________________"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.project_report_id
+msgid "Spent Hours"
+msgstr "Horas usadas"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.project_report_id
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_project_note_note_filter
+msgid "Stage"
+msgstr "Etapa"
+
+#. module: rail_job_costing_management
+#: model:ir.ui.menu,name:rail_job_costing_management.menu_stages
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_project_note_note_tree
+msgid "Stages"
+msgstr "Etapas"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_search
+msgid "Start Date"
+msgstr "Fecha inicio"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_account_analytic_line__start_time
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Start Time"
+msgstr "Hora inicio"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__state
+msgid "State"
+msgstr "Estado"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Status"
+msgstr "Estado"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,help:rail_job_costing_management.field_job_costing__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Estado basado en actividades\n"
+"Vencido: la fecha tope ya ha pasado\n"
+"Hoy: La fecha tope es hoy\n"
+"Planificado: futuras actividades."
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_task_form2_inherit_picking
+msgid "Stock Moves"
+msgstr "Movimientos inventario"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_purchase_order__picking_id
+msgid "Stock Picking"
+msgstr "Albaran"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_task__picking_ids
+msgid "Stock Pickings"
+msgstr "Albaranes"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Stocks"
+msgstr "Inventarios"
+
+#. module: rail_job_costing_management
+#: model:ir.ui.menu,name:rail_job_costing_management.menu_item_contractors
+msgid "Sub Contractors"
+msgstr "Sub contratistas"
+
+#. module: rail_job_costing_management
+#: model:ir.ui.menu,name:rail_job_costing_management.job_cost_sub_contractors
+msgid "Sub Contractors "
+msgstr "Sub contratistas"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__product_product__boq_type__subcontract
+msgid "Subcontract"
+msgstr "Subcontrato"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_material_purchase_requisition__subcontract_total
+msgid "Subcontract Cost"
+msgstr "Costo Subcontratistas"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_task_form2_inherit_subtask
+msgid "Subtasks"
+msgstr "Sub-tareas"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.note_report_id
+msgid "Tag Notes :"
+msgstr "Etiqueta notas:"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_project_note_note_form
+msgid "Tags"
+msgstr "Etiquetas"
+
+#. module: rail_job_costing_management
+#: model:ir.model,name:rail_job_costing_management.model_project_task
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_project_note_note_filter
+msgid "Task"
+msgstr "Tarea"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_material_purchase_requisition__task_id
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_note_note__task_id
+msgid "Task / Job Order"
+msgstr "Tarea / Orden costeo"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_material_purchase_requisition__task_user_id
+msgid "Task / Job Order User"
+msgstr "Usuario Tarea / Orden de trabajo"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_user_subtask__description
+msgid "Task Description"
+msgstr "Descripción"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_user_subtask__name
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.project_report_id
+msgid "Task Name"
+msgstr "Nombre"
+
+#. module: rail_job_costing_management
+#: model:ir.actions.report,name:rail_job_costing_management.task_report
+msgid "Task Report"
+msgstr "Reporte"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Task Title"
+msgstr "Titulo"
+
+#. module: rail_job_costing_management
+#: model:ir.actions.act_window,name:rail_job_costing_management.action_view_task_subtask
+msgid "Tasks"
+msgstr "Tareas"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.actions.act_window,help:rail_job_costing_management.purchase_rfq_construction
+msgid ""
+"The quotation contains the history of the discussion/negotiation\n"
+"                you had with your vendor. Once confirmed, a request for\n"
+"                quotation is converted into a purchase order."
+msgstr ""
+"El presupuesto contiene el historia de comunicación/negociación\n"
+"            que has tenido con el proveedor. Una vez confirmado, una "
+"solicitud de presupuesto\n"
+"            se convierte en un pedido de compra."
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Timesheet"
+msgstr "Control de horas"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__timesheet_line_ids
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__timesheet_line_ids
+msgid "Timesheet Line"
+msgstr "Linea control de horas"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__timesheet_line_count
+msgid "Timesheet Line Count"
+msgstr "Conteo líneas horas"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Timesheet Lines"
+msgstr "Lineas control de horas"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_form_view
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Total"
+msgstr "Total"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Total Amount"
+msgstr "Monto total"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__jobcost_total
+msgid "Total Cost"
+msgstr "Total costo"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__labor_total
+msgid "Total Labour Cost"
+msgstr "Total mano de obra"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__material_total
+msgid "Total Material Cost"
+msgstr "Total materiales"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__overhead_total
+msgid "Total Overhead Cost"
+msgstr "Total costo indirecto"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__job_type
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_type__job_type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,help:rail_job_costing_management.field_job_costing__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo de actividad de excepción registrada."
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_project_project__type_of_construction
+msgid "Types of Construction"
+msgstr "Tipos de construccion"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Unit Price"
+msgstr "Precio unitario"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_consumed_material__product_uom
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_material_plan__product_uom
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "Unit of Measure"
+msgstr "Unidad de medida"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_cost_line__uom_id
+msgid "Uom"
+msgstr "UdM"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_user_subtask__user_id
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_search
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.task_report_id
+msgid "User"
+msgstr "Usuario"
+
+#. module: rail_job_costing_management
+#: model:ir.model,name:rail_job_costing_management.model_user_subtask
+msgid "User Subtask"
+msgstr "Usuario sub-tarea"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Vendor"
+msgstr "Proveedor"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.job_costing_form_view
+msgid "Vendor Invoice Lines"
+msgstr "Lineas factura proveedor"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.report_job_costing
+msgid "Vendors Invoice Lines"
+msgstr "Lineas factura proveedor"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_job_costing__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes web"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,help:rail_job_costing_management.field_job_costing__website_message_ids
+msgid "Website communication history"
+msgstr "Historial comunicación web"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_material_purchase_requisition__work_cost_package_total
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__product_product__boq_type__work_cost_package
+msgid "Work Cost Package"
+msgstr "Paquete costo trabajo"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__product_product__boq_type__worker_resource
+msgid "Worker / Resource"
+msgstr "Empleado / Recurso"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields,field_description:rail_job_costing_management.field_material_purchase_requisition__worker_resource_total
+msgid "Worker / Resource Cost"
+msgstr "Costo empleado/recurso"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.actions.act_window,help:rail_job_costing_management.action_picking_tree_all_const
+msgid ""
+"You can either do it immediately or mark it as Todo for future processing. "
+"Use your scanner to validate the transferred quantity quicker."
+msgstr ""
+"Puede hacerlo inmediatamente o marcarlo como Por Realizar para un "
+"procesamiento futuro. Utilice su escáner para validar la cantidad "
+"transferida más rápido."
+
+#. module: rail_job_costing_management
+#. odoo-python
+#: code:addons/rail_job_costing_management/models/job_costing.py:0
+#, python-format
+msgid "You can not delete Job Cost Sheet which is not draft or cancelled."
+msgstr ""
+"No puedes eliminar una hoja de costeo que no esta en estado borrador o "
+"cancelado"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.proejct_subtask_user_form_view
+msgid "_Cancel"
+msgstr "_Cancelar"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.view_const_project_note_note_kanban
+msgid "kanban_img1"
+msgstr "kanban_img1"
+
+#. module: rail_job_costing_management
+#: model_terms:ir.ui.view,arch_db:rail_job_costing_management.proejct_subtask_user_form_view
+msgid "or"
+msgstr "or"
+
+#. module: rail_job_costing_management
+#: model:ir.model.fields.selection,name:rail_job_costing_management.selection__project_project__type_of_construction__other
+msgid "other"
+msgstr "other"
