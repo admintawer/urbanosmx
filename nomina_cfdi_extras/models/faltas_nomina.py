@@ -2,7 +2,6 @@
 from odoo import models, fields, _, api
 import pytz
 from odoo.exceptions import UserError
-from .tzlocal import get_localzone
 from datetime import datetime
 from odoo import tools
 

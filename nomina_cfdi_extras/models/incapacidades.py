@@ -4,7 +4,6 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import pytz
 from odoo.exceptions import UserError
-from .tzlocal import get_localzone
 from odoo import tools
 
 class IncapacidadesNomina(models.Model):

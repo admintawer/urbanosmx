@@ -5,7 +5,6 @@ from dateutil.relativedelta import relativedelta
 from odoo.exceptions import Warning, UserError
 import pytz
 from odoo import tools
-from .tzlocal import get_localzone
 
 class VacacionesNomina(models.Model):
     _name = 'vacaciones.nomina'
