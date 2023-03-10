@@ -5,7 +5,7 @@
         <record id="jobcosting_seq" model="ir.sequence">
             <field name="name">Job Costing Sequence</field>
             <field name="code">job.costing</field>
-            <field name="prefix">COST-SHEET/</field>
+            <field name="prefix">COST-/</field>
             <field name="padding">5</field>
         </record>
         

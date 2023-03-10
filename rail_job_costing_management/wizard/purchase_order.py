@@ -17,11 +17,30 @@ class PurchaseOrderWizard(models.TransientModel):
     )
     product_line_ids = fields.One2many(
         'product.lines',
-        'product_line_id',
-        'Product Lines'
+        'wizard_id',
+        string='Product Lines',
     )
 
     @api.model
+    def default_get(self, fields):
+        rec = super(PurchaseOrderWizard, self).default_get(fields)
+        active_id = self.env.context.get('active_id')
+        job = self.env['job.costing'].browse(active_id)
+        vals = []
+        for line in job.job_cost_line_ids.filtered(lambda x: x.to_purchase == True):
+            vals.append((0,0,{
+                            'product_id': line.product_id.id,
+                            'description': line.description,
+                            'quantity': line.remain_quantity,
+                            'product_uom': line.uom_id.id,
+                            'qty_available': line.product_id.qty_available,
+                            'price_unit': line.cost_price,
+                            'job_cost_line_id': line.id
+                              }))
+        rec.update({'product_line_ids': vals})
+        return rec
+
+    """ @api.model
     def default_get(self, fields):
         rec = super(PurchaseOrderWizard, self).default_get(fields)
         context = dict(self._context or {})
@@ -29,56 +48,68 @@ class PurchaseOrderWizard(models.TransientModel):
         active_ids = context.get('active_ids')
         picking = self.env[active_model].browse(active_ids)
         vals = []
-        for line in picking.move_lines:
-            vals.append((0,0,{'product_id': line.product_id.id,
-                             'quantity': line.product_uom_qty,
-                             'product_uom': line.product_uom.id,
-                             'qty_available': line.product_id.qty_available,
+        for line in picking.job_cost_line_ids.filtered(lambda x: x.to_purchase == True):
+            vals.append((0,0,{
+                            'product_id': line.product_id.id,
+                            'description': line.description,
+                            'quantity': line.product_qty,
+                            'product_uom': line.uom_id.id,
+                            'qty_available': line.product_id.qty_available,
+                            'price_unit': line.cost_price,
+                            'job_cost_line_id': line.id
                               }))
         rec.update({'product_line_ids': vals})
-        return rec
+        return rec """
 
-    def _prepare_purchase_order(self, vendor):
-        self.ensure_one()
-        stock_pick_obj = self.env['stock.picking'].browse(self._context.get('active_ids', []))
-        
-        fpos = self.env['account.fiscal.position'].with_context(\
-                company_id=vendor.company_id.id).get_fiscal_position(vendor.id)
-        
-        purchase_req_vals = {
-            'partner_id': vendor.id,
-            'company_id': vendor.company_id.id,
-            'currency_id': vendor.property_purchase_currency_id.id \
-                            or self.env.user.company_id.currency_id.id,
-            'origin': stock_pick_obj.name,
-            'payment_term_id': vendor.property_supplier_payment_term_id.id,
-            'fiscal_position_id': fpos,
-        }
-        return purchase_req_vals
 
     def create_purchase_requistion(self):
-        picking = self.env['stock.picking'].browse(self._context.get('active_ids', []))
-        purchase_obj = self.env['purchase.order']
-        order_lines = self.env['purchase.order.line']
-        order_ids = []
-        date_planned = datetime.today()
-        for rec in self.supplier_ids:
-            purchase_order = self._prepare_purchase_order(rec)
-            purchase = purchase_obj.sudo().create(purchase_order)
-            order_ids.append(purchase.id)
-            for line in self.product_line_ids:
-                line_vals =  {
-                         'product_id': line.product_id.id,
-                         'name':line.product_id.name,
-                         'product_qty': line.quantity,
-                         'product_uom': line.product_uom.id,
-                         'date_planned': datetime.today(),
-                         'price_unit': line.product_id.standard_price,
-                         'order_id': purchase.id,
-                         }
-                purchase_order_line = order_lines.sudo().create(line_vals)
-                purchase_order_line.order_id = purchase.id
-        picking[0].purchase_order_ids = order_ids
+        active_id = self.env.context.get('active_id')
+        job = self.env['job.costing'].browse(active_id)
+
+        for vendor_id in self.supplier_ids:
+            partner_id = vendor_id
+            lines = self.product_line_ids
+
+            order_line = []
+            for line_id in lines:
+                order_line.append((0, 0, {
+                    'date_planned': datetime.now(),
+                    'product_id': line_id.product_id.id,
+                    'name': line_id.description,
+                    'price_unit': line_id.price_unit,
+                    'product_qty': line_id.quantity,
+                    'product_uom': line_id.product_uom.id or False,
+                    'job_cost_id': job.id,
+                    'job_cost_line_id': line_id.job_cost_line_id.id,
+                }))
+
+            order = self.env['purchase.order'].create({'partner_id': partner_id.id,
+                                               'date_order': datetime.now(),
+                                               'origin': job.name,
+                                               'order_line': order_line,
+                                               'company_id': job.company_id.id
+                                               })
+
+
+        for l in job.job_cost_line_ids.filtered(lambda x: x.to_purchase == True):
+            l.update({
+                'to_purchase': False,
+            })
+        
+        """ return {
+            'type': 'ir.actions.act_window',
+            'res_model': 'purchase.order',
+            'view_mode': 'form',
+            'res_id': order.id,
+            'target': 'current',
+        } """
+        
+    def cancel_close(self):
+        picking = self.env['job.costing'].browse(self._context.get('active_ids', [])) 
+        for l in picking.job_cost_line_ids.filtered(lambda x: x.to_purchase == True):
+            l.update({
+                'to_purchase': False,
+            })       
 
 class ProductLines(models.TransientModel):
     _name = 'product.lines'
@@ -87,7 +118,10 @@ class ProductLines(models.TransientModel):
         'product.product',
         string='Product'
     )
-    quantity = fields.Integer(
+    description = fields.Text(
+        'Descripcion'
+    )
+    quantity = fields.Float(
         'Quantity'
     )
     product_uom = fields.Many2one(
@@ -97,7 +131,12 @@ class ProductLines(models.TransientModel):
     qty_available = fields.Float(
         'Quantity On Hand',
     )
-    product_line_id = fields.Many2one(
-        'purchase.order.wizard'
-        'Purchase Order wizard'
+    price_unit = fields.Float(
+        'Precio'
+    )
+    wizard_id = fields.Many2one(
+        'purchase.order.wizard',
+    )
+    job_cost_line_id = fields.Many2one(
+        'job.cost.line'
     )
