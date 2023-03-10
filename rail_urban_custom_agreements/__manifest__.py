@@ -20,6 +20,7 @@
 
     # always loaded
     'data': [
+        'views/mail_view.xml',
         'security/ir.model.access.csv',
         'data/purchase_requisition_data.xml',
         'data/bl_email_template.xml',

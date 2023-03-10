@@ -116,58 +116,10 @@ class PurchaseRequisition(models.Model):
         return super(PurchaseRequisition, self)._track_subtype(init_values)
 
 
-    def action_email_send(self):
-        self.ensure_one()
-        ir_model_data = self.env['ir.model.data']
-        try:
-            template_id = ir_model_data._xmlid_lookup('rail_urban_custom_agreements.email_template_rail_urban_bl')[2]
-        except ValueError:
-            template_id = False
-        try:
-            compose_form_id = ir_model_data._xmlid_lookup('mail.email_compose_message_wizard_form')[2]
-        except ValueError:
-            compose_form_id = False
-        ctx = dict(self.env.context or {})
-        ctx.update({
-            'default_model': 'purchase.requisition',
-            'active_model': 'purchase.requisition',
-            'active_id': self.ids[0],
-            'default_res_id': self.ids[0],
-            'default_use_template': bool(template_id),
-            'default_template_id': template_id,
-            'default_composition_mode': 'comment',
-            'default_email_layout_xmlid': "mail.mail_notification_layout_with_responsible_signature",
-            'force_email': True,
-            'mark_bl_as_sent': True,
-        })
-
-        lang = self.env.context.get('lang')
-        if {'default_template_id', 'default_model', 'default_res_id'} <= ctx.keys():
-            template = self.env['mail.template'].browse(ctx['default_template_id'])
-            if template and template.lang:
-                lang = template._render_lang([ctx['default_res_id']])[ctx['default_res_id']]
-
-        self = self.with_context(lang=lang)
-        if self.state in ['draft', 'sent']:
-            ctx['model_description'] = _('Solicitud de licitacion')
-        else:
-            ctx['model_description'] = _('Licitacion aprobada')
-
-        return {
-            'name': _('Compose Email'),
-            'type': 'ir.actions.act_window',
-            'view_mode': 'form',
-            'res_model': 'mail.compose.message',
-            'views': [(compose_form_id, 'form')],
-            'view_id': compose_form_id,
-            'target': 'new',
-            'context': ctx,
-        }
-
-
     def send_email_with_xlsx(self):
+        self.ensure_one()
+        lang = self.env.context.get('lang')
         report = self.env.ref('rail_urban_custom_agreements.action_bl_xlsx')
-        #raise UserError(report)
         product_list = []
         if not self.line_ids:
             raise ValidationError("Primero debes agregar productos a la licitacion")
@@ -185,27 +137,50 @@ class PurchaseRequisition(models.Model):
 
         data_record = base64.b64encode(generated_report[0])
         ir_values = {
-            'name': 'Licitacion.xlsx',
+            'name': 'Licitacion'+self.name+'.xlsx',
             'type': 'binary',
             'datas': data_record,
             'store_fname': data_record,
-            #'mimetype': 'application/vnd.ms-excel',
             'mimetype': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
             'res_model': 'purchase.requisition'
         }
         attachment = self.env['ir.attachment'].sudo().create(ir_values)
         email_template = self.env.ref('rail_urban_custom_agreements.email_template_rail_urban_bl').sudo()
-        if email_template:
+        if email_template and email_template.lang:
+            lang = email_template._render_lang(self.ids)[self.id]
             email_values = {
-                'email_to': self.vendor_emails,
-                'email_from': self.user_id.email,
+            'email_to': self.user_id.email,
+            #'email_bcc': self.vendor_emails,
+            'email_from': self.user_id.email,
             }
+            email_template.email_bcc = self.vendor_emails
             email_template.attachment_ids = [4, attachment.id]
             email_template.send_mail(self.id, email_values=email_values)
-            email_template.attachment_ids = [(5,0,0)]
-            self.update({
-                'state': 'sent',
-            })
+
+        ctx = {
+            'default_model': 'purchase.requisition',
+            'default_res_id': self.id,
+            'default_use_template': bool(email_template),
+            'default_template_id': email_template.id if email_template else None,
+            'default_composition_mode': 'comment',
+            'default_email_layout_xmlid': 'mail.mail_notification_layout_with_responsible_signature',
+            'force_email': True,
+            'model_description':'Solicitud de licitacion',
+        }
+        #email_template.attachment_ids = [(5,0,0)]
+        self.update({
+            'state': 'sent',
+        })
+        return {
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'mail.compose.message',
+            'views': [(False, 'form')],
+            'view_id': False,
+            'target': 'new',
+            'context': ctx,
+        }
+
             
     @api.depends('blanket_ids')
     def _compute_blanket_number(self):

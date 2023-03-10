@@ -25,7 +25,7 @@
           type="action" 
           name="%(rail_urban_custom_agreements.import_blanket_action)d" 
           string="Import"
-          context="{'default_vendor_ids': vendor_ids, 'default_requisition_id': id}"
+          context="{'default_vendor_ids': vendor_ids, 'default_requisition_id': id, 'default_subtype': subtype}"
           states = "draft,sent"
         />
         <button name="button_automatic_aproval" type="object" string="Asignacion Autom." 

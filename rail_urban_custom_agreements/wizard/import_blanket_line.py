@@ -10,6 +10,7 @@ class ImportBlanket(models.TransientModel):
     _name = 'import.blanket.wizard'
     _description = 'Import vendors agreement offers'
 
+    subtype = fields.Selection(string="Criterio", selection=[('time','Tiempo de entrega'),('price','Mejor precio'),('time_price', 'Tiempo + Precio')])
     requisition_id = fields.Many2one('purchase.requisition')
     vendor_domain = fields.Char()
     vendor_ids = fields.Many2many('res.partner', string="Proveedores", domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
@@ -49,18 +50,19 @@ class ImportBlanket(models.TransientModel):
                         else:
                             error = True
                             skipped_line_no[str(ncounter)] = " - Hay un error en el precio unitario, por favor revisar"
-                        if sheet.cell(r, 5).value not in (None, ""): 
-                            d = sheet.cell(r,5).value
-                            #schedule_date = str(datetime.strftime(schedule_date, '%Y-%m-%d').date())
-                            year, month, day, hour, minutes, seconds = xlrd.xldate_as_tuple(d, workbook.datemode)
-                            schedule_date = "{0}-{1}-{2}".format(year, month, day)
-                            blanket_vals.update({
-                                'schedule_date': schedule_date,
-                            })
-                        else:
-                            error = True
-                            skipped_line_no[str(ncounter)] = " - Hay un error en la fecha de entrega, por favor revisar"
-                        blanket = self.env['pr.blanket.lines'].create(blanket_vals)
+                        if self.subtype in ('time','time_price'):
+                            if sheet.cell(r, 5).value not in (None, ""): 
+                                d = sheet.cell(r,5).value
+                                #schedule_date = str(datetime.strftime(schedule_date, '%Y-%m-%d').date())
+                                year, month, day, hour, minutes, seconds = xlrd.xldate_as_tuple(d, workbook.datemode)
+                                schedule_date = "{0}-{1}-{2}".format(year, month, day)
+                                blanket_vals.update({
+                                    'schedule_date': schedule_date,
+                                })
+                            else:
+                                error = True
+                                skipped_line_no[str(ncounter)] = " - Hay un error en la fecha de entrega, por favor revisar"
+                            blanket = self.env['pr.blanket.lines'].create(blanket_vals)
                     else:
                         skipped_line_no[str(ncounter)] = " - El codigo del producto no se encuentra, por favor revisar"
                         

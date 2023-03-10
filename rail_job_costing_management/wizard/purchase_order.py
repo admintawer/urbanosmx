@@ -26,8 +26,9 @@ class PurchaseOrderWizard(models.TransientModel):
         rec = super(PurchaseOrderWizard, self).default_get(fields)
         active_id = self.env.context.get('active_id')
         job = self.env['job.costing'].browse(active_id)
+        job_lines = self.env['job.cost.line'].search([('direct_id','=', active_id)])
         vals = []
-        for line in job.job_cost_line_ids.filtered(lambda x: x.to_purchase == True):
+        for line in job_lines:
             vals.append((0,0,{
                             'product_id': line.product_id.id,
                             'description': line.description,
@@ -39,28 +40,6 @@ class PurchaseOrderWizard(models.TransientModel):
                               }))
         rec.update({'product_line_ids': vals})
         return rec
-
-    """ @api.model
-    def default_get(self, fields):
-        rec = super(PurchaseOrderWizard, self).default_get(fields)
-        context = dict(self._context or {})
-        active_model = context.get('active_model')
-        active_ids = context.get('active_ids')
-        picking = self.env[active_model].browse(active_ids)
-        vals = []
-        for line in picking.job_cost_line_ids.filtered(lambda x: x.to_purchase == True):
-            vals.append((0,0,{
-                            'product_id': line.product_id.id,
-                            'description': line.description,
-                            'quantity': line.product_qty,
-                            'product_uom': line.uom_id.id,
-                            'qty_available': line.product_id.qty_available,
-                            'price_unit': line.cost_price,
-                            'job_cost_line_id': line.id
-                              }))
-        rec.update({'product_line_ids': vals})
-        return rec """
-
 
     def create_purchase_requistion(self):
         active_id = self.env.context.get('active_id')
@@ -81,6 +60,7 @@ class PurchaseOrderWizard(models.TransientModel):
                     'product_uom': line_id.product_uom.id or False,
                     'job_cost_id': job.id,
                     'job_cost_line_id': line_id.job_cost_line_id.id,
+                    'taxes_id': [(6,0, line_id.product_id.supplier_taxes_id.ids)],
                 }))
 
             order = self.env['purchase.order'].create({'partner_id': partner_id.id,
