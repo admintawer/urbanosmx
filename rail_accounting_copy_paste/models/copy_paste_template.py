@@ -48,6 +48,10 @@ class CopyPasteTemplate(models.Model):
             domain.append(('journal_id.type','in', journal_types))
                 
             moves = self.env['account.move'].sudo().search(domain)
+            analytic_accounts = []
+            #for a in moves:
+            #    for aml in a.line_ids:
+
             if moves:
                 for m in moves:
                     if m.journal_id.type == 'sale':
