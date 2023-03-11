@@ -26,7 +26,7 @@ class PurchaseOrderWizard(models.TransientModel):
         rec = super(PurchaseOrderWizard, self).default_get(fields)
         active_id = self.env.context.get('active_id')
         job = self.env['job.costing'].browse(active_id)
-        job_lines = self.env['job.cost.line'].search([('direct_id','=', active_id)])
+        job_lines = self.env['job.cost.line'].search([('direct_id','=', active_id),('to_purchase','=',True)])
         vals = []
         for line in job_lines:
             vals.append((0,0,{
