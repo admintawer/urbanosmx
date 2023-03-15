@@ -2,7 +2,8 @@
 
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError, ValidationError
-import logging
+import logging, json
+from datetime import datetime
 _logger = logging.getLogger(__name__)
 
 class CopyPasteTemplate(models.Model):
@@ -26,13 +27,16 @@ class CopyPasteTemplate(models.Model):
     def _get_account_moves_to_matrix(self):
         move_object = self.env['account.move']
         company_id = self.company_id
+        date_end = datetime.today().date()
         for c in self.source_company_ids:
             domain = [
                     ('company_id','=', c.id),
                     ('not_sync','=', False),
                     ('synced','=',False),
                     ('state','=','posted'),
-                    ('date','>=',self.date_start)]
+                    ('date','>=',self.date_start),
+                    ('date','<=', date_end)]
+            
             journal_types = []
             if self.sale_journal_id:
                 journal_types.append('sale')
@@ -48,9 +52,6 @@ class CopyPasteTemplate(models.Model):
             domain.append(('journal_id.type','in', journal_types))
                 
             moves = self.env['account.move'].sudo().search(domain)
-            analytic_accounts = []
-            #for a in moves:
-            #    for aml in a.line_ids:
 
             if moves:
                 for m in moves:
@@ -77,6 +78,18 @@ class CopyPasteTemplate(models.Model):
                     m_lines = []
                     for ml in m.line_ids:
                         matrix_account = self.env['account.account'].sudo().search([('code','=',ml.account_id.code),('company_id','=', company_id.id)])
+                        dist_dict = {}
+                        for al in ml.analytic_line_ids:                            
+                            matrix_analytic = self.env['account.analytic.account'].sudo().search([('name','=',al.account_id.name),('company_id','=', company_id.id)], limit=1)
+                            if ml.debit == 0:
+                                dist_total = ml.credit
+                            else:
+                                dist_total = ml.debit
+                            
+                            dist_percentage = abs(round((al.amount / dist_total) * 100, ml.analytic_precision))
+                            dist_dict.update({
+                                str(matrix_analytic.id): dist_percentage,
+                            })
                         m_line = (0,0, {
                             'name': ml.name,
                             'partner_id': ml.partner_id.id,
@@ -88,6 +101,7 @@ class CopyPasteTemplate(models.Model):
                             'debit': ml.debit,
                             'credit': ml.credit,
                             'company_id': company_id.id,
+                            'analytic_distribution': dist_dict,
                         })
                         m_lines.append(m_line)
                     move_dict['line_ids'] = m_lines
@@ -97,17 +111,27 @@ class CopyPasteTemplate(models.Model):
 
     def compare_accounts(self):
         source_accounts = self.env['account.account'].search([('company_id','=', self.company_id.id)])
+        source_analytic = self.env['account.analytic.account'].search([('company_id','=', self.company_id.id)])
         missing_accounts = False
+        missing_analytic = False
+        #Cuentas contables
         if source_accounts:
             sa_list = []
             for a in source_accounts:
                 sa_list.append(a.code)
-            missing_accounts = self.env['account.account'].search([('company_id','in', self.source_company_ids.ids),('code','not in', sa_list)])
-        if missing_accounts:
+            missing_accounts = self.env['account.account'].sudo().search([('company_id','in', self.source_company_ids.ids),('code','not in', sa_list)])
+        if source_analytic:
+            sac_list = []
+            for ac in source_analytic:
+                sac_list.append(ac.name)
+            missing_analytic = self.env['account.analytic.account'].sudo().search([('company_id','in', self.source_company_ids.ids),('name','not in', sac_list)])
+        if missing_accounts or missing_analytic:
             ma_list = []
             for r in missing_accounts:
                 ma_list.append(r.display_name)
-            raise ValidationError(_('No se puede continuar con el proceso, las siguientes cuentas no se encuentran creadas en: '+ self.company_id.disply_name + '\n' \
+            for p in missing_analytic:
+                ma_list.append(p.display_name)
+            raise ValidationError(_('No se puede continuar con el proceso, las siguientes cuentas no se encuentran creadas en: '+ self.company_id.display_name + '\n' \
                 + ', '.join(ma_list)))
         else:
             try:
@@ -119,8 +143,9 @@ class CopyPasteTemplate(models.Model):
                         'type': 'rainbow_man',
                     }
                 }
-            except:
-                raise ValidationError("Algo a salido mal con  la sincronizacion por favor contacta a soporte")       
+            except Exception as e:
+                raise ValidationError("Algo a salido mal con  la sincronizacion por favor contacta a soporte \n"\
+                                      + str(e))       
             
 
             

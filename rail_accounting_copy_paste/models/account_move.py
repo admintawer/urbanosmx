@@ -31,12 +31,12 @@ class AccountMove(models.Model):
                     raise ValidationError("Ya estan establecidos los impuestos locales.\n"\
                                         +"Antes de calcular el ISERTP debes remover dichos impuestos de todas las lineas implicadas")
                 else:
-                    isertp = self.env['account.tax'].search([('name','=','3.0% ISERTP')])
+                    isertp = self.env['account.tax'].search([('name','=','3.0% ISERTP'),('company_id','=',self.company_id.id)])
                     if isertp:
                         isertp.update({
                             'amount': self.isertp_amount * -1,
                         })
-                        local_tax = self.env['account.tax'].search([('name','=','Impuestos Locales')])
+                        local_tax = self.env['account.tax'].search([('name','=','Impuestos Locales'),('company_id','=',self.company_id.id)])
                         if local_tax:
                             for il in r.invoice_line_ids:
                                 il.write({
