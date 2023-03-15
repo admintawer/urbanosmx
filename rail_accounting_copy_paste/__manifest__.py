@@ -19,6 +19,7 @@
 
     # always loaded
     'data': [
+        'data/cron.xml',
         'security/ir.model.access.csv',
         'security/security.xml',
         'views/copy_paste_template.xml',

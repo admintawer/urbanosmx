@@ -13,8 +13,8 @@
                         <button name="action_approve" type="object" string="Approve" states="confirm" class="btn-primary"/>
                         <button name="action_done" type="object" string="Done" states="approve" class="btn-primary"/>
                         <button name="action_cancel" type="object" string="Cancel" states="draft,confirm,approve"/>
-                        
-                            <field name="state" widget="statusbar" statusbar_visible="draft,confirm,approve,done"/>
+                        <button type="action" name="%(action_purchase_requistion)d" string="Crear compra" states="confirm"/>                
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,approve,done"/>
                     </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
@@ -22,25 +22,25 @@
                                 type="object"
                                 class="oe_stat_button"
                                 icon="fa-pencil-square-o">
-                                <field string="Purchase Order Lines" name="purchase_order_line_count" widget="statinfo"/>
+                                <field string="Detalle compra" name="purchase_order_line_count" widget="statinfo"/>
                             </button>
                             <button name="action_view_hr_timesheet_line"
                                 type="object"
                                 class="oe_stat_button"
                                 icon="fa-book">
-                                <field string="HR Timesheet Lines" name="timesheet_line_count" widget="statinfo"/>
+                                <field string="Detalle horas" name="timesheet_line_count" widget="statinfo"/>
                             </button>
                             <button name="action_view_vendor_bill_line"
                                 type="object"
                                 class="oe_stat_button"
                                 icon="fa-bars">
-                                <field string="Vendor Invoice Lines" name="account_invoice_line_count" widget="statinfo"/>
+                                <field string="Detalle factura" name="account_invoice_line_count" widget="statinfo"/>
                             </button>
                             <button name="action_view_jobcost_sheet_lines"
                                 type="object"
                                 class="oe_stat_button"
                                 icon="fa-pencil-square-o">
-                                <field string="Cost Lines" name="job_costsheet_line_count" widget="statinfo"/>
+                                <field string="Resumen" name="job_costsheet_line_count" widget="statinfo"/>
                             </button>
                     </div>
                     <div class="oe_title">
@@ -53,8 +53,8 @@
                             <field name="name" attrs="{'readonly' : [('state','in',('approve','done','cancel'))]}"/>
                             <field name="project_id" attrs="{'readonly' : [('state','in',('approve','done','cancel'))]}"/>
                             <field name="analytic_id" attrs="{'readonly' : [('state','in',('approve','done','cancel'))]}"/>
-                            <field name="task_id" attrs="{'readonly' : [('state','in',('approve','done','cancel'))]}"/>
-                            <field name="partner_id" attrs="{'readonly' : [('state','in',('approve','done','cancel'))]}" required="1"/>
+                            <field name="task_id" attrs="{'readonly' : [('state','in',('approve','done','cancel'))]}" string="Tarea"/>
+                            <field name="partner_id" attrs="{'readonly' : [('state','in',('approve','done','cancel'))]}"/>
                         </group>
                         <group>
                             <field name="start_date"/>
@@ -68,7 +68,6 @@
                                 attrs="{'readonly' : [('state','in',('approve','done','cancel'))]}"
                                 domain="[('state','in',['sale','done']),('job_sheet_id','=',False),('partner_id','=',partner_id)]"
                                 context="{'default_partner_id': partner_id, 'default_job_sheet_id': id, 'default_analytic_account_id': analytic_id}"
-                                required="1"
                             />
                         </group>
                     </group>
@@ -76,16 +75,18 @@
                         <page string="Materials" name="job_cost_material_page">
                             <field name="job_cost_line_ids" nolabel="1" context="{'default_analytic_id':analytic_id,'default_job_type':'material'}" attrs="{'readonly' : [('state','in',('cancel'))]}">
                                 <tree editable="bottom">
+                                    <field name="to_purchase" nolabel="1" attrs="{'column_invisible': [('parent.state','!=','confirm')]}"/>
                                     <field name="date"/>
                                     <field name="job_type" invisible="1"/>
                                     <field name="job_type_id" domain="[('job_type','=',job_type)]"/>
                                     <field name="product_id"/>
                                     <field name="description"/>
                                     <field name="reference"/>
-                                    <field name="product_qty" sum="Total"/>
                                     <field name="uom_id"/>
                                     <field name="cost_price" sum="Total"/>
+                                    <field name="product_qty" sum="Total"/>
                                     <field name="actual_quantity" sum="Total"/>
+                                    <field name="remain_quantity" sum="Total"/>
                                     <field name="actual_invoice_quantity" sum="Total"/>
                                     <field name="total_cost" widget="monetary" sum="Total"/>
                                     <field name="currency_id" invisible="1"/>
@@ -96,6 +97,7 @@
                         <page string="Labours" name="job_cost_labour_page">
                             <field name="job_labour_line_ids" nolabel="1" context="{'default_analytic_id':analytic_id,'default_job_type':'labour'}" attrs="{'readonly' : [('state','in',('cancel'))]}">
                                 <tree editable="bottom">
+                                    <field name="to_purchase" nolabel="1" attrs="{'column_invisible': [('parent.state','!=','confirm')]}"/>
                                     <field name="date"/>
                                     <field name="job_type" invisible="1"/>
                                     <field name="job_type_id" domain="[('job_type','=',job_type)]"/>
@@ -114,16 +116,18 @@
                         <page string="Overhead" name="job_cost_overhead_page">
                             <field name="job_overhead_line_ids" nolabel="1" context="{'default_analytic_id':analytic_id,'default_job_type':'overhead'}" attrs="{'readonly' : [('state','in',('cancel'))]}">
                                 <tree editable="bottom">
+                                    <field name="to_purchase" nolabel="1" attrs="{'column_invisible': [('parent.state','!=','confirm')]}"/>
                                     <field name="date"/>
                                     <field name="job_type" invisible="1"/>
                                     <field name="job_type_id" domain="[('job_type','=',job_type)]"/>
                                     <field name="product_id"/>
                                     <field name="description"/>
                                     <field name="reference"/>
-                                    <field name="product_qty" sum="Total"/>
                                     <field name="uom_id"/>
                                     <field name="cost_price" sum="Total"/>
+                                    <field name="product_qty" sum="Total"/>
                                     <field name="actual_quantity" sum="Total"/>
+                                    <field name="remain_quantity" sum="Total"/>
                                     <field name="actual_invoice_quantity" sum="Total"/>
                                     <field name="total_cost" widget="monetary" sum="Total"/>
                                     <field name="currency_id" invisible="1"/>
@@ -220,7 +224,6 @@
                 <field name="product_id"/>
                 <field name="description" optional="hide"/>
                 <field name="reference"/>
-                <field name="purchase_id"/>
                 <field name="job_type_id" domain="[('job_type','=',job_type)]"/>
                 <field name="product_qty" attrs="{'invisible':[('job_type','=','labour')]}"/>
                 <field name="uom_id" attrs="{'invisible':[('job_type','=','labour')]}" optional="hide"/>

@@ -5,26 +5,23 @@
             <field name="name">Purchase Order Wizard</field>
             <field name="model">purchase.order.wizard</field>
             <field name="arch" type="xml">
-                <form string="Create Purchase Order">
-                    <p>This Wizard will Create Purchase Order for Selected Vendors / Suppliers.</p>
-                    <notebook>
-                        <page string="Vendors / Suppliers">
-                            <field name="supplier_ids" domain="[('supplier','=',True)]"></field>
-                        </page>
-                        <page string="Select Products">
-                            <field name="product_line_ids" nolabel="1">
-                                <tree editable="bottom">
-                                    <field name="product_id"/>
-                                    <field name="quantity"/>
-                                    <field name="qty_available" readonly="1"/>
-                                    <field name="product_uom"/>
-                                </tree>
-                            </field>
-                        </page>
-                    </notebook>
+                <form string="Crear Compra">
+                    <label for="supplier_ids" string="Proveedores"/>
+                    <field name="supplier_ids" widget="many2many_tags" required="1"/>
+                    <field name="product_line_ids" nolabel="1">
+                        <tree editable="bottom" create="0">
+                            <field name="job_cost_line_id" readonly="1" force_save="1" string="Linea costeo"/>
+                            <field name="product_id" readonly="1" force_save="1" string="Producto"/>
+                            <field name="description" string="Descripcion"/>
+                            <field name="quantity" string="Cantidad"/>
+                            <field name="qty_available" readonly="1" force_save="1" string="En stock"/>
+                            <field name="product_uom" readonly="1" force_save="1" string="UdM"/>
+                            <field name="price_unit" readonly="1" force_save="1" string="Costo U"/>
+                        </tree>
+                    </field>
                     <footer>
-                        <button name="create_purchase_requistion"  type="object"  string="Create" default_focus="1" class="btn-primary"/>
-                        <button string="_Cancel" class="btn-default" special="cancel" />
+                        <button name="create_purchase_requistion"  type="object"  string="Crear" default_focus="1" class="btn-primary"/>
+                        <button string="Cancelar" class="btn-default" name="cancel_close" type="object" />
                     </footer>
                 </form>
             </field>
@@ -34,7 +31,6 @@
             <field name="name">Purchase Order Wizard</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">purchase.order.wizard</field>
-            <field name="view_type">form</field>
             <field name="view_mode">form</field>
             <field name="view_id" ref="view_purchase_requistion_form"/>
             <field name="target">new</field>

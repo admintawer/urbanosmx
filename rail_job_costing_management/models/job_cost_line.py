@@ -30,6 +30,7 @@ class JobCostLine(models.Model):
     def _compute_actual_quantity(self):
         for rec in self:
             rec.actual_quantity = sum([p.order_id.state in ['purchase', 'done'] and p.product_qty for p in rec.purchase_order_line_ids])
+            rec.remain_quantity = rec.product_qty - sum([p.order_id.state in ['purchase', 'done'] and p.product_qty for p in rec.purchase_order_line_ids])
             
     @api.depends('timesheet_line_ids','timesheet_line_ids.unit_amount')
     def _compute_actual_hour(self):
@@ -48,93 +49,100 @@ class JobCostLine(models.Model):
     
     direct_id = fields.Many2one(
         'job.costing',
-        string='Job Costing'
+        string='Hoja de costeo'
+    )
+    to_purchase = fields.Boolean(
+        string="A comprar"
     )
     product_id = fields.Many2one(
         'product.product',
-        string='Product',
+        string='Producto',
         copy=False,
         required=True,
     )
     description = fields.Char(
-        string='Description',
+        string='Descripcion',
         copy=False,
     )
     reference = fields.Char(
-        string='Reference',
+        string='Referencia',
         copy=False,
     )
     date = fields.Date(
-        string='Date',
+        string='Fecha',
         required=True,
         copy=False,
     )
     product_qty = fields.Float(
-        string='Planned Qty',
+        string='Planeado',
         copy=False,
     )
     uom_id = fields.Many2one(
         'uom.uom',
-        string='Uom',
+        string='UdM',
     )
     cost_price = fields.Float(
-        string='Cost / Unit',
+        string='Costo U.',
         copy=False,
     )
     total_cost = fields.Float(
-        string='Cost Price Sub Total',
+        string='Sub Total',
         compute='_compute_total_cost',
         store=True,
     )
     analytic_id = fields.Many2one(
         'account.analytic.account',
-        string='Analytic Account',
+        string='Analitica',
     )
     currency_id = fields.Many2one(
         'res.currency', 
-        string='Currency', 
+        string='Moneda', 
         default=lambda self: self.env.user.company_id.currency_id, 
         readonly=True
     )
     job_type_id = fields.Many2one(
         'job.type',
-        string='Job Type',
+        string='Tipo',
     )
     job_type = fields.Selection(
         selection=[('material','Material'),
                     ('labour','Labour'),
                     ('overhead','Overhead')
                 ],
-        string="Type",
+        string="Subtipo",
         required=True,
     )
     hours = fields.Float(
-        string='Hours'
-    )
-    purchase_id = fields.Many2one(
-        'purchase.order'
+        string='Horas'
     )
     purchase_order_line_ids = fields.One2many(
         'purchase.order.line',
         'job_cost_line_id',
+        string="Detalle compras"
     )
     timesheet_line_ids = fields.One2many(
         'account.analytic.line',
         'job_cost_line_id',
+        string="Detalle horas"
     )
     account_invoice_line_ids = fields.One2many(
         'account.move.line',
         'job_cost_line_id',
+        string="Detalle facturas"
     )
     actual_quantity = fields.Float(
-        string='Actual Purchased Quantity',
+        string='Comprado',
+        compute='_compute_actual_quantity',
+    )
+    remain_quantity = fields.Float(
+        string='Remanente',
         compute='_compute_actual_quantity',
     )
     actual_invoice_quantity = fields.Float(
-        string='Actual Vendor Bill Quantity',
+        string='Facturado',
         compute='_compute_actual_invoice_quantity',
     )
     actual_hour = fields.Float(
-        string='Actual Timesheet Hours',
+        string='Horas',
         compute='_compute_actual_hour',
     )

@@ -234,7 +234,8 @@ class JobCosting(models.Model):
         'account.move.line',
         'job_cost_id',
     )
-    
+
+
     @api.onchange('so_number')
     def onchange_so_number(self):
         if self.so_number:
