@@ -91,6 +91,7 @@ class CopyPasteTemplate(models.Model):
                                 str(matrix_analytic.id): dist_percentage,
                             })
                         m_line = (0,0, {
+                            'display_type': ml.display_type,
                             'name': ml.name,
                             'partner_id': ml.partner_id.id,
                             'account_id': matrix_account.id,
