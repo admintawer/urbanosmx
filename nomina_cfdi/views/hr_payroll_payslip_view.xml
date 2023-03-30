@@ -5,6 +5,9 @@
             <field name="model">hr.payslip</field>
             <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
             <field name="arch" type="xml">
+              <xpath expr="//field[@name='worked_days_line_ids']/tree" position="attributes">
+                <attribute name="delete">1</attribute>
+              </xpath>             
               <button name="action_print_payslip" position="after">
                 <button type="action" string="Recibo CFDI" name="%(report_payslip)d" icon="fa-print" 
                         attrs="{'invisible': [('estado_factura','!=','factura_correcta')]}"/>
@@ -175,7 +178,7 @@
                     <field name="all_payslip_generated_draft" invisible="1" />
                     <button string="Timbrar Nomina" name="timbrar_nomina" type="object" attrs="{'invisible':[('all_payslip_generated','=',True)]}" class="oe_highlight"/>
                     <button string="Enviar Nomina" name="enviar_nomina" confirm="Se va a realizar el envío de todo el lote." type="object" attrs="{'invisible':[('all_payslip_generated','!=',True)]}" class="oe_highlight"/>
-                    <button string="Enviar PreNomina" name="enviar_prenomina" type="object" attrs="{'invisible':[('all_payslip_generated_draft','!=',True)]}" class="oe_highlight"/>
+                    <button string="Enviar PreNomina" name="enviar_prenomina" type="object"  class="oe_highlight"/>
                     <button string="Recalcular nómina" name="recalcular_nomina_payslip_batch" type="object" states='draft' class="oe_highlight"/>
                 </button>
             </field>
