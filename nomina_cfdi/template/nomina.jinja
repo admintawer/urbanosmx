@@ -51,7 +51,7 @@
             TotalPercepciones="{{ data['Nomina']['TotalPercepciones'] }}" 
             TotalDeducciones="{{ data['Nomina']['TotalDeducciones'] }}"
             TotalOtrosPagos="{{ data['Nomina']['TotalOtrosPagos'] }}">
-            <nomina12:Emisor RegistroPatronal="{{ data['NEmisor']['RegistroPatronal'] }}" 
+            <nomina12:Emisor  {% if data['NEmisor']['RegistroPatronal'] %} RegistroPatronal="{{ data['NEmisor']['RegistroPatronal'] }}" {% endif %}
                              {% if data['NEmisor']['RfcPatronOrigen'] %} RfcPatronOrigen="{{ data['NEmisor']['RfcPatronOrigen'] }}" /> {% endif %}/>
             <nomina12:Receptor 
                 Curp="{{ data['NReceptor']['Curp'] }}" 

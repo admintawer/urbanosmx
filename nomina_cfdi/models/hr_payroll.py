@@ -1230,8 +1230,8 @@ class HrPayslip(models.Model):
                 'TotalOtrosPagos': str(round(payslip_total_TOP,2)),
             },
             'NEmisor': {
-                'RegistroPatronal': self.employee_id.registro_patronal or '',
-                'RfcPatronOrigen' : '', ##NECESITAMOS ESTE DATO CONFORME A LA DOCUMENTACION DEL SAT
+                'RegistroPatronal': self.employee_id.registro_patronal if not self.struct_id.asimilados else '',
+                'RfcPatronOrigen' : self.company_id.vat if self.struct_id.asimilados else '', ##NECESITAMOS ESTE DATO CONFORME A LA DOCUMENTACION DEL SAT
             },
             'NReceptor': {
                 'Curp': self.employee_id.curp or '',

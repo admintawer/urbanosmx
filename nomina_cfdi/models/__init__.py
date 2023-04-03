@@ -3,6 +3,7 @@
 from . import hr_payroll
 from . import employee
 from . import contract
+from . import hr_payroll_structure
 from . import tablas_nomina
 from . import res_company
 from . import hr_payslip_run 
