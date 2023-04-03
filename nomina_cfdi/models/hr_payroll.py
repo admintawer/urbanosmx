@@ -1614,7 +1614,7 @@ class HrPayslip(models.Model):
                     payslip.nomina_cfdi = True
                     payslip.action_payslip_paid()
                 else:
-                    raise ValidationError("Algo fallo en el timbrado. \n Mensaje: " + resultadoJson)
+                    raise ValidationError("Algo fallo en el timbrado. \n Mensaje: " + str(resultadoJson))
 
     ##METODO PARA CANCELAR
     def cfdi_etree(self):
