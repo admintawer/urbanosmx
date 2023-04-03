@@ -43,6 +43,11 @@ class HrPayslipRun(models.Model):
     )
     fecha_pago = fields.Date(string=_('Fecha de pago'), required=True)
 
+    def compute_sheets(self):
+        for r in self:
+            for l in r.slip_ids:
+                l.compute_sheet()
+
     @api.onchange('tipo_configuracion')
     def _set_periodicidad(self):
         if self.tipo_configuracion:
