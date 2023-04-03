@@ -1434,8 +1434,11 @@ class HrPayslip(models.Model):
                 tree, pretty_print=False,
                 xml_declaration=False, encoding='UTF-8')
         
-        with open('/mnt/extra-addons/nomina_cfdi.xml', 'w') as f:
-            f.write(xml.decode('utf8'))
+        try:
+            with open('/mnt/extra-addons/nomina_cfdi.xml', 'w') as f:
+                f.write(xml.decode('utf8'))
+        except:
+            pass
 
 
         #-----------
