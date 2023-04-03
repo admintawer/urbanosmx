@@ -1229,9 +1229,10 @@ class HrPayslip(models.Model):
                 'TotalDeducciones': str(round(self.descuento,2)) or '',
                 'TotalOtrosPagos': str(round(payslip_total_TOP,2)),
             },
+
             'NEmisor': {
-                'RegistroPatronal': self.employee_id.registro_patronal if not self.struct_id.asimilados else '',
-                'RfcPatronOrigen' : self.company_id.vat if self.struct_id.asimilados else '', ##NECESITAMOS ESTE DATO CONFORME A LA DOCUMENTACION DEL SAT
+                'RegistroPatronal': self.employee_id.registro_patronal or '',
+                'RfcPatronOrigen' : self.company_id.vat or '', ##NECESITAMOS ESTE DATO CONFORME A LA DOCUMENTACION DEL SAT
             },
             'NReceptor': {
                 'Curp': self.employee_id.curp or '',
@@ -1321,23 +1322,49 @@ class HrPayslip(models.Model):
             'TotalDeducciones': str(round(self.descuento,2)) or '',
             'TotalOtrosPagos': str(round(payslip_total_TOP,2)),
         })
-        n12emisor = SubElement(nomina12,'nomina12:Emisor',{'RegistroPatronal': self.employee_id.registro_patronal or ''})
-        n12receptor = SubElement(nomina12,'nomina12:Receptor',{
-            'Curp': self.employee_id.curp or '',
-            'NumSeguridadSocial': self.employee_id.segurosocial or '',
-            'FechaInicioRelLaboral': fields.Date.to_string(self.contract_id.date_start) or '',
-            'Antigüedad': 'P' + f'{antiguedad:.0f}' + 'W',
-            'TipoContrato': contrato or '',
-            #'Sindicalizado': "No",
-            'TipoJornada': str(self.employee_id.jornada),
-            'TipoRegimen': '02',
-            'NumEmpleado': self.employee_id.no_empleado or '',
-            'RiesgoPuesto': str(self.contract_id.riesgo_puesto) or '',
-            'PeriodicidadPago': str(self.contract_id.periodicidad_pago) or '',
-            'SalarioBaseCotApor': str(round(self.contract_id.sueldo_base_cotizacion,2)) or '',
-            'SalarioDiarioIntegrado': str(round(self.contract_id.sueldo_diario_integrado,2)) or '',
-            'ClaveEntFed': self.employee_id.estado.code or '',
-        })
+        if self.struct_id.asimilados:
+            n12emisor = SubElement(nomina12,'nomina12:Emisor',{
+                'RegistroPatronal': self.employee_id.registro_patronal or '',
+                'RfcPatronOrigen': self.company_id.vat or ''
+                })
+        else:
+           n12emisor = SubElement(nomina12,'nomina12:Emisor',{
+                'RegistroPatronal': self.employee_id.registro_patronal or '',
+                }) 
+        if self.struct_id.asimilados:
+           n12receptor = SubElement(nomina12,'nomina12:Receptor',{
+                'Curp': self.employee_id.curp or '',
+                #'NumSeguridadSocial': self.employee_id.segurosocial or '',
+                #'FechaInicioRelLaboral': fields.Date.to_string(self.contract_id.date_start) or '',
+                #'Antigüedad': 'P' + f'{antiguedad:.0f}' + 'W',
+                'TipoContrato': contrato or '',
+                #'Sindicalizado': "No",
+                #'TipoJornada': str(self.employee_id.jornada),
+                'TipoRegimen': '02',
+                'NumEmpleado': self.employee_id.no_empleado or '',
+                #'RiesgoPuesto': str(self.contract_id.riesgo_puesto) or '',
+                'PeriodicidadPago': str(self.contract_id.periodicidad_pago) or '',
+                #'SalarioBaseCotApor': str(round(self.contract_id.sueldo_base_cotizacion,2)) or '',
+                #'SalarioDiarioIntegrado': str(round(self.contract_id.sueldo_diario_integrado,2)) or '',
+                'ClaveEntFed': self.employee_id.estado.code or '',
+            }) 
+        else:
+            n12receptor = SubElement(nomina12,'nomina12:Receptor',{
+                'Curp': self.employee_id.curp or '',
+                'NumSeguridadSocial': self.employee_id.segurosocial or '',
+                'FechaInicioRelLaboral': fields.Date.to_string(self.contract_id.date_start) or '',
+                'Antigüedad': 'P' + f'{antiguedad:.0f}' + 'W',
+                'TipoContrato': contrato or '',
+                #'Sindicalizado': "No",
+                'TipoJornada': str(self.employee_id.jornada),
+                'TipoRegimen': '02',
+                'NumEmpleado': self.employee_id.no_empleado or '',
+                'RiesgoPuesto': str(self.contract_id.riesgo_puesto) or '',
+                'PeriodicidadPago': str(self.contract_id.periodicidad_pago) or '',
+                'SalarioBaseCotApor': str(round(self.contract_id.sueldo_base_cotizacion,2)) or '',
+                'SalarioDiarioIntegrado': str(round(self.contract_id.sueldo_diario_integrado,2)) or '',
+                'ClaveEntFed': self.employee_id.estado.code or '',
+            })
         n12percepciones = SubElement(nomina12,'nomina12:Percepciones',{
             'TotalSueldos': str(round(payslip_total_PERG + payslip_total_PERE,2)),
             'TotalGravado': str(round(payslip_total_PERG,2)),
