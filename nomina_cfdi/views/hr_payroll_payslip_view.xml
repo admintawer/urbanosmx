@@ -113,8 +113,8 @@
             <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//header" position="inside">
-                    <button string="Calcular hojas" name="compute_sheets" type="object" attrs="{'invisible': ['|', ('state', '!=', 'draft')]}" class="oe_highlight" help="Recompute the payslip lines only, not the worked days / input lines"/>
-                <button string="Calcular hojas" name="compute_sheets" type="object" attrs="{'invisible': ['|', ('state', '!=', 'verify')]}" help="Recompute the payslip lines only, not the worked days / input lines"/>
+                    <button string="Calcular hojas" name="compute_sheets" type="object" attrs="{'invisible': [('state', '!=', 'draft')]}" class="oe_highlight" help="Recompute the payslip lines only, not the worked days / input lines"/>
+                <button string="Calcular hojas" name="compute_sheets" type="object" attrs="{'invisible': [('state', '!=', 'verify')]}" help="Recompute the payslip lines only, not the worked days / input lines"/>
                 </xpath>
                 <xpath expr="//sheet" position="replace">
                     <sheet>
