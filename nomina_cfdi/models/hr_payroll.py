@@ -1614,57 +1614,7 @@ class HrPayslip(models.Model):
                     payslip.nomina_cfdi = True
                     payslip.action_payslip_paid()
                 else:
-                    raise ValidationError("Mensaje: " + resultadoJson['error'])
-
-    """ def _set_data_from_xml(self, xml_invoice):
-        if not xml_invoice:
-            return None
-        NSMAP = {
-                 'xsi':'http://www.w3.org/2001/XMLSchema-instance',
-                 'cfdi':'http://www.sat.gob.mx/cfd/3', 
-                 'tfd': 'http://www.sat.gob.mx/TimbreFiscalDigital',
-                 }
-
-        xml_data = etree.fromstring(xml_invoice)
-        Emisor = xml_data.find('cfdi:Emisor', NSMAP)
-        RegimenFiscal = Emisor.find('cfdi:RegimenFiscal', NSMAP)
-        Complemento = xml_data.find('cfdi:Complemento', NSMAP)
-        TimbreFiscalDigital = Complemento.find('tfd:TimbreFiscalDigital', NSMAP)
-        
-        self.rfc_emisor = Emisor.attrib['Rfc']
-        self.name_emisor = Emisor.attrib['Nombre']
-        self.tipocambio = xml_data.attrib['TipoCambio']
-        #  self.tipo_comprobante = xml_data.attrib['TipoDeComprobante']
-        self.moneda = xml_data.attrib['Moneda']
-        self.numero_cetificado = xml_data.attrib['NoCertificado']
-        self.cetificaso_sat = TimbreFiscalDigital.attrib['NoCertificadoSAT']
-        self.fecha_certificacion = TimbreFiscalDigital.attrib['FechaTimbrado']
-        self.selo_digital_cdfi = TimbreFiscalDigital.attrib['SelloCFD']
-        self.selo_sat = TimbreFiscalDigital.attrib['SelloSAT']
-        self.folio_fiscal = TimbreFiscalDigital.attrib['UUID']
-        if self.number:
-            self.folio = xml_data.attrib['Folio']
-        if self.company_id.serie_nomina:
-            self.serie_emisor = xml_data.attrib['Serie']
-        self.invoice_datetime = xml_data.attrib['Fecha']
-        self.version = TimbreFiscalDigital.attrib['Version']
-        self.cadena_origenal = '||%s|%s|%s|%s|%s||' % (self.version, self.folio_fiscal, self.fecha_certificacion, 
-                                                         self.selo_digital_cdfi, self.cetificaso_sat)
-        
-        options = {'width': 275 * mm, 'height': 275 * mm}
-        amount_str = str(self.total_nomina).split('.')
-        #print 'amount_str, ', amount_str
-        qr_value = 'https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?&id=%s&re=%s&rr=%s&tt=%s.%s&fe=%s' % (self.folio_fiscal,
-                                                 self.company_id.rfc, 
-                                                 self.employee_id.rfc,
-                                                 amount_str[0].zfill(10),
-                                                 amount_str[1].ljust(6, '0'),
-                                                 self.selo_digital_cdfi[-8:],
-                                                 )
-        self.qr_value = qr_value
-        ret_val = createBarcodeDrawing('QR', value=qr_value, **options)
-        self.qrcode_image = base64.encodestring(ret_val.asString('jpg')) """
-
+                    raise ValidationError("Algo fallo en el timbrado. \n Mensaje: " + resultadoJson)
 
     ##METODO PARA CANCELAR
     def cfdi_etree(self):
