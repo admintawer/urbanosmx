@@ -1018,12 +1018,13 @@ class HrPayslip(models.Model):
         request_params = {'percepciones': percepcion}
 
         #****** OTROS PAGOS ******
+        subsidio_empleado = False
         otrospagos_lines = self.env['hr.payslip.line'].search([('category_id.code','=','ALW3'),('slip_id','=',self.id),('total','>',0)])
         auxiliar_lines = self.env['hr.payslip.line'].search([('category_id.code','=','AUX'),('slip_id','=',self.id),('total','>',0)])
         lineas_de_otros = []
         if otrospagos_lines:
             for line in otrospagos_lines:
-                if line.salary_rule_id.tipo_cotro_pago.clave == '002': # and line.total > 0:
+                if line.salary_rule_id.tipo_cotro_pago.clave == '002' : # and line.total > 0:
                     self.subsidio_periodo = 0
                     payslip_total_TOP += line.total
 
@@ -1031,19 +1032,30 @@ class HrPayslip(models.Model):
                         if aux.code == 'SUB':
                             self.subsidio_periodo = aux.total
                     #_logger.info('subsidio aplicado %s importe excento %s', self.subsidio_periodo, line.total)
-                    lineas_de_otros.append({'TipoOtrosPagos': line.salary_rule_id.tipo_cotro_pago.clave,
-                    'Clave': line.code,
-                    'Concepto': line.salary_rule_id.name,
-                    'ImporteGravado': '0',
-                    'ImporteExento': round(line.total,2),
-                    'SubsidioCausado': self.subsidio_periodo})
+                    lineas_de_otros.append({
+                        'TipoOtrosPagos': line.salary_rule_id.tipo_cotro_pago.clave,
+                        'Clave': line.code,
+                        'Concepto': line.salary_rule_id.name,
+                        'ImporteGravado': '0',
+                        'ImporteExento': round(line.total,2),
+                        'SubsidioCausado': self.subsidio_periodo
+                    })
                 else:
                     payslip_total_TOP += line.total
-                    lineas_de_otros.append({'TipoOtrosPagos': line.salary_rule_id.tipo_cotro_pago.clave,
+                    lineas_de_otros.append({
+                        'TipoOtrosPagos': line.salary_rule_id.tipo_cotro_pago.clave,
                         'Clave': line.code,
                         'Concepto': line.salary_rule_id.name,
                         'ImporteGravado': '0',
                         'ImporteExento': round(line.total,2)})
+        if self.employee_id.contrato == '02' and not self.struct_id.asimilados:
+            lineas_de_otros.append({
+                'TipoOtrosPago': "002",
+                'Clave': "002",
+                'Concepto': "Subsidio para el empleado",
+                'Importe': "0.00"
+            })
+            subsidio_empleado = True
         otrospagos = {
             'otrospagos': {
                     'Totalotrospagos': payslip_total_TOP,
@@ -1231,8 +1243,8 @@ class HrPayslip(models.Model):
             },
 
             'NEmisor': {
-                'RegistroPatronal': self.employee_id.registro_patronal or '',
-                'RfcPatronOrigen' : self.company_id.vat or '', ##NECESITAMOS ESTE DATO CONFORME A LA DOCUMENTACION DEL SAT
+                'RegistroPatronal': self.employee_id.registro_patronal if not self.struct_id.asimilados else '',
+                'RfcPatronOrigen' : self.company_id.vat if self.struct_id.asimilados else '', ##NECESITAMOS ESTE DATO CONFORME A LA DOCUMENTACION DEL SAT
             },
             'NReceptor': {
                 'Curp': self.employee_id.curp or '',
@@ -1241,7 +1253,7 @@ class HrPayslip(models.Model):
                 'Antigüedad': 'P' + f'{antiguedad:.0f}' + 'W',
                 'TipoContrato': contrato or '',
                 'TipoJornada': str(self.employee_id.jornada),
-                'TipoRegimen': '02',
+                'TipoRegimen': str(self.employee_id.contrato),
                 'NumEmpleado': self.employee_id.no_empleado or '',
                 'Departamento': '',##NECESITAMOS ESTE DATO CONFORME A LA DOCUMENTACION DEL SAT
                 'Puesto': '',##NECESITAMOS ESTE DATO CONFORME A LA DOCUMENTACION DEL SAT
@@ -1324,7 +1336,7 @@ class HrPayslip(models.Model):
         })
         if self.struct_id.asimilados:
             n12emisor = SubElement(nomina12,'nomina12:Emisor',{
-                'RegistroPatronal': self.employee_id.registro_patronal or '',
+                #'RegistroPatronal': self.employee_id.registro_patronal or '',
                 'RfcPatronOrigen': self.company_id.vat or ''
                 })
         else:
@@ -1340,7 +1352,7 @@ class HrPayslip(models.Model):
                 'TipoContrato': contrato or '',
                 #'Sindicalizado': "No",
                 #'TipoJornada': str(self.employee_id.jornada),
-                'TipoRegimen': '02',
+                'TipoRegimen': self.employee_id.contrato,
                 'NumEmpleado': self.employee_id.no_empleado or '',
                 #'RiesgoPuesto': str(self.contract_id.riesgo_puesto) or '',
                 'PeriodicidadPago': str(self.contract_id.periodicidad_pago) or '',
@@ -1357,7 +1369,7 @@ class HrPayslip(models.Model):
                 'TipoContrato': contrato or '',
                 #'Sindicalizado': "No",
                 'TipoJornada': str(self.employee_id.jornada),
-                'TipoRegimen': '02',
+                'TipoRegimen': str(self.employee_id.contrato),
                 'NumEmpleado': self.employee_id.no_empleado or '',
                 'RiesgoPuesto': str(self.contract_id.riesgo_puesto) or '',
                 'PeriodicidadPago': str(self.contract_id.periodicidad_pago) or '',
@@ -1406,6 +1418,7 @@ class HrPayslip(models.Model):
             })
 
         n12otrospagos = SubElement(nomina12,'nomina12:OtrosPagos')
+        #raise ValidationError(str(lineas_de_otros))
         for o in lineas_de_otros:
             n12otr = SubElement(n12otrospagos,'nomina12:OtroPago',{
                 'TipoOtroPago': o['TipoOtrosPagos'] or '',
@@ -1413,11 +1426,15 @@ class HrPayslip(models.Model):
                 'Concepto': o['Concepto'] or '',
                 'Importe': str(o['ImporteExento']) or ''
             })
-            if o['TipoOtrosPagos'] == '002':
+            if o['TipoOtrosPagos'] == '002' and subsidio_empleado:
                 subs = SubElement(n12otr,'nomina12:SubsidioAlEmpleo',{
                     'SubsidioCausado': str(o['ImporteExento']) or ''
                 })
-        
+        try:
+            with open('/mnt/extra-addons/nomina_cfdi_sin_jinja.xml', 'w') as f:
+                f.write(tostring(comprobante).decode('utf8'))
+        except:
+            pass
         env = Environment(
             loader=FileSystemLoader(
                 os.path.join(
@@ -1641,7 +1658,9 @@ class HrPayslip(models.Model):
                     payslip.nomina_cfdi = True
                     payslip.action_payslip_paid()
                 else:
-                    raise ValidationError("Algo fallo en el timbrado. \n Mensaje: " + str(resultadoJson))
+                    raise ValidationError("Algo fallo en el timbrado. \n" \
+                                            +"Nomina: " + self.employee_id.name \
+                                            +"\n Mensaje: " + str(resultadoJson))
 
     ##METODO PARA CANCELAR
     def cfdi_etree(self):
@@ -1668,19 +1687,47 @@ class HrPayslip(models.Model):
     def action_cfdi_cancel(self):
         msg = ''
         folio_cancel = ''
-        
-        if self.company_id.l10n_mx_edi_pac_test_env:
-            pac_url = "https://testing.solucionfactible.com/ws/services/Timbrado?wsdl"
-            pac_usr = 'testing@solucionfactible.com'
-            pac_pwd = 'timbrado.SF.16672'
-        else:
-            pac_url = 'https://solucionfactible.com/ws/services/Timbrado?wsdl'
-            pac_usr = self.company_id.l10n_mx_edi_pac_username
-            pac_pwd = self.company_id.l10n_mx_edi_pac_password
+        company = self.company_id
+
+        if company.l10n_mx_edi_pac == 'solfact':
+            pac = 'solfact'
+            if self.company_id.l10n_mx_edi_pac_test_env:
+                pac_url = "https://testing.solucionfactible.com/ws/services/Timbrado?wsdl"
+                pac_usr = 'testing@solucionfactible.com'
+                pac_pwd = 'timbrado.SF.16672'
+            else:
+                pac_url = 'https://solucionfactible.com/ws/services/Timbrado?wsdl'
+                pac_usr = self.company_id.l10n_mx_edi_pac_username
+                pac_pwd = self.company_id.l10n_mx_edi_pac_password
+        elif company.l10n_mx_edi_pac == 'sw':
+            pac = 'sw'
+            if not company.l10n_mx_edi_pac_username or not company.l10n_mx_edi_pac_password:
+                return {
+                    'errors': [_("The username and/or password are missing.")]
+                }
+            credentials = {
+                'username': company.l10n_mx_edi_pac_username,
+                'password': company.l10n_mx_edi_pac_password,
+            }
+            if company.l10n_mx_edi_pac_test_env:
+                credentials.update({
+                    'login_url': 'https://services.test.sw.com.mx/security/authenticate',
+                    'sign_url': 'https://services.test.sw.com.mx/cfdi33/stamp/json/v4',
+                    'cancel_url': 'https://services.test.sw.com.mx/cfdi33/cancel/csd',
+                })
+            else:
+                credentials.update({
+                    'login_url': 'https://services.sw.com.mx/security/authenticate',
+                    'sign_url': 'https://services.sw.com.mx/cfdi33/stamp/json/v4',
+                    'cancel_url': 'https://services.sw.com.mx/cfdi33/cancel/csd',
+                })
+
+            # Retrieve a valid token.
+            credentials.update(self._l10n_mx_edi_get_sw_token(credentials))
     
         certificate_id = self.company_id.l10n_mx_edi_certificate_ids
-        cer_pem = certificate_id.get_pem_cer(certificate_id.content)
-        key_pem = certificate_id.get_pem_key(
+        cer_pem = certificate_id._get_pem_cer(certificate_id.content)
+        key_pem = certificate_id._get_pem_key(
             certificate_id.key, certificate_id.password)
         xml = self.cfdi_etree()
         tfd_node = self._get_stamp_data(xml)
@@ -1688,37 +1735,71 @@ class HrPayslip(models.Model):
             u_cancel = self.uuid_replace_cancel
         else:
             u_cancel = ""
-        #folio_cancel = tfd_node.get('UUID') + "|" + self.type_cancel + "|" + u_cancel
         if self.type_cancel:
-            if tfd_node:
-                folio_cancel = tfd_node.get('UUID') + "|" + self.type_cancel + "|" + u_cancel
-            else:
-                folio_cancel = self.folio_fiscal + "|" + self.type_cancel + "|" + u_cancel
-            #raise UserError(folio_cancel)
-            uuids = [folio_cancel]
-            try:
-                transport = Transport(timeout=20)
-                client = Client(pac_url, transport=transport)
-                result = client.service.cancelar(
-                    pac_usr, pac_pwd, uuids, cer_pem, key_pem, certificate_id.password)
-            except Exception as e:
-                self.message_post(body=_(
-                    'Revisa tu conexion a internet y los datos del PAC'))
-                return False
-            res = result.resultados
-            code = getattr(res[0], 'statusUUID', None) if res else getattr(
-                response, 'status', None)
-            cancelled = code in ('201', '202')
-            msg = '' if cancelled else getattr(
-                res[0] if res else response, 'mensaje', None)
-            code = '' if cancelled else code
-            if cancelled:
-                self.message_post(
-                    body=_('\n- El proceso de cancelación se ha completado correctamente.'))
-                self.estado_factura = 'factura_cancelada'
-                self.state = 'done'
-            else:
-                self.message_post(body=_('Mensaje %s\nCode: %s') % (msg, code))
+            if pac == 'solfact':
+                if tfd_node:
+                    folio_cancel = tfd_node.get('UUID') + "|" + self.type_cancel + "|" + u_cancel
+                else:
+                    folio_cancel = self.folio_fiscal + "|" + self.type_cancel + "|" + u_cancel
+                uuids = [folio_cancel]
+                try:
+                    transport = Transport(timeout=20)
+                    client = Client(pac_url, transport=transport)
+                    result = client.service.cancelar(
+                        pac_usr, pac_pwd, uuids, cer_pem, key_pem, certificate_id.password)
+                except Exception as e:
+                    self.message_post(body=_(
+                        'Revisa tu conexion a internet y los datos del PAC'))
+                    return False
+                res = result.resultados
+                code = getattr(res[0], 'statusUUID', None) if res else getattr(
+                    response, 'status', None)
+                cancelled = code in ('201', '202')
+                msg = '' if cancelled else getattr(
+                    res[0] if res else response, 'mensaje', None)
+                code = '' if cancelled else code
+                if cancelled:
+                    self.message_post(
+                        body=_('\n- El proceso de cancelación se ha completado correctamente.'))
+                    self.estado_factura = 'factura_cancelada'
+                    self.state = 'done'
+                else:
+                    self.message_post(body=_('Mensaje %s\nCode: %s') % (msg, code))
+            elif pac == 'sw':
+                certificates = self.company_id.l10n_mx_edi_certificate_ids
+                certificate = certificates.sudo()._get_valid_certificate()
+                headers = {
+                    'Authorization': 'Bearer '+ credentials['token'],
+                    'Content-Type': 'application/json'
+                }
+                payload_dict = {
+                    'rfc': company.vat,
+                    'b64Cer': certificate.content.decode('UTF-8'),
+                    'b64Key': certificate.key.decode('UTF-8'),
+                    'password': certificate.password,
+                    'uuid': self.folio_fiscal,
+                    'motivo': self.type_cancel
+                }
+                payload = json.dumps(payload_dict)
+                response = requests.request("POST", credentials['cancel_url'], headers=headers, data=payload.encode('UTF-8'))
+                
+                #Get the SW results to store in the record
+                if response.status_code == 200:
+                    resultadoJson =json.loads(response.text)
+                    #raise ValidationError(str(resultadoJson))
+                    res = resultadoJson['data']
+                    cancelled = resultadoJson['status']
+                    acuse = res['acuse']
+                    if cancelled == 'success':
+                        self.message_post(
+                            body=_('\n- El proceso de cancelación se ha completado correctamente.'))
+                        self.estado_factura = 'factura_cancelada'
+                        self.state = 'done'
+                    else:
+                        raise ValidationError('El proceso de cancelacion no se ha completado, error: \n' + str(res))
+                else:
+                    resultadoJson = response.json()
+                    raise ValidationError("Algao salio mal al cancelar este comprobante:\n" + str(resultadoJson))
         else:
             raise ValidationError('Para cancelar debe elegir primero un tipo de cancelacion')        
 
