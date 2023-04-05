@@ -1047,13 +1047,15 @@ class HrPayslip(models.Model):
                         'Clave': line.code,
                         'Concepto': line.salary_rule_id.name,
                         'ImporteGravado': '0',
-                        'ImporteExento': round(line.total,2)})
-        if self.employee_id.contrato == '02' and not self.struct_id.asimilados:
+                        'ImporteExento': round(line.total,2)
+                        })
+        if self.employee_id.contrato != '09' and not self.struct_id.asimilados:
             lineas_de_otros.append({
-                'TipoOtrosPago': "002",
+                'TipoOtrosPagos': "002",
                 'Clave': "002",
                 'Concepto': "Subsidio para el empleado",
-                'Importe': "0.00"
+                'ImporteExento': "0.00",
+                'SubsidioCausado': "0.00",
             })
             subsidio_empleado = True
         otrospagos = {
@@ -1061,6 +1063,7 @@ class HrPayslip(models.Model):
                     'Totalotrospagos': payslip_total_TOP,
             },
         }
+        #raise ValidationError(str(lineas_de_otros))
         otrospagos.update({'otros_pagos': lineas_de_otros, 'no_otros_pagos': len(otrospagos_lines)})
         request_params.update({'otros_pagos': otrospagos})
 
@@ -1241,7 +1244,6 @@ class HrPayslip(models.Model):
                 'TotalDeducciones': str(round(self.descuento,2)) or '',
                 'TotalOtrosPagos': str(round(payslip_total_TOP,2)),
             },
-
             'NEmisor': {
                 'RegistroPatronal': self.employee_id.registro_patronal if not self.struct_id.asimilados else '',
                 'RfcPatronOrigen' : self.company_id.vat if self.struct_id.asimilados else '', ##NECESITAMOS ESTE DATO CONFORME A LA DOCUMENTACION DEL SAT
@@ -1253,7 +1255,7 @@ class HrPayslip(models.Model):
                 'Antigüedad': 'P' + f'{antiguedad:.0f}' + 'W',
                 'TipoContrato': contrato or '',
                 'TipoJornada': str(self.employee_id.jornada),
-                'TipoRegimen': str(self.employee_id.contrato),
+                'TipoRegimen': self.employee_id.contrato,
                 'NumEmpleado': self.employee_id.no_empleado or '',
                 'Departamento': '',##NECESITAMOS ESTE DATO CONFORME A LA DOCUMENTACION DEL SAT
                 'Puesto': '',##NECESITAMOS ESTE DATO CONFORME A LA DOCUMENTACION DEL SAT
@@ -1418,7 +1420,6 @@ class HrPayslip(models.Model):
             })
 
         n12otrospagos = SubElement(nomina12,'nomina12:OtrosPagos')
-        #raise ValidationError(str(lineas_de_otros))
         for o in lineas_de_otros:
             n12otr = SubElement(n12otrospagos,'nomina12:OtroPago',{
                 'TipoOtroPago': o['TipoOtrosPagos'] or '',
@@ -1430,11 +1431,7 @@ class HrPayslip(models.Model):
                 subs = SubElement(n12otr,'nomina12:SubsidioAlEmpleo',{
                     'SubsidioCausado': str(o['ImporteExento']) or ''
                 })
-        try:
-            with open('/mnt/extra-addons/nomina_cfdi_sin_jinja.xml', 'w') as f:
-                f.write(tostring(comprobante).decode('utf8'))
-        except:
-            pass
+
         env = Environment(
             loader=FileSystemLoader(
                 os.path.join(
@@ -1443,10 +1440,13 @@ class HrPayslip(models.Model):
             undefined=StrictUndefined, autoescape=True,
         )
         template = env.get_template('nomina.jinja')
-        xml_j = template.render(data=data).encode('utf-8')
-        #_logger.info("xml")
-        #_logger.info(xml_j)
-
+        xml_j = template.render(data=data).encode('UTF-8')
+        #raise ValidationError(str(xml_j))
+        try:
+            with open('/mnt/extra-addons/nomina_cfdi_con_jinja.xml', 'w') as f:
+                f.write(tostring(xml_j).decode('UTF-8'))
+        except:
+            pass
         xml_comp = ElementTree(comprobante)
         f = BytesIO()
         xml_comp.write(f, encoding='UTF-8', xml_declaration=False) 
