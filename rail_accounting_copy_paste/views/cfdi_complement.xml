@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="local_taxes" inherit_id="l10n_mx_edi_40.cfdiv40">
+        <xpath expr="*" position="inside">
+            <t t-if="record.use_isertp">
+                <cfdi:Complemento>
+                    <implocal:ImpuestosLocales
+                        version="1.1"
+                        t-att-TotaldeRetenciones="record.company_id.leyenda"
+                        t-att-TotaldeTraslados="record.company_id.fechaautorizacion">
+                        
+                    </implocal:ImpuestosLocales>
+                </cfdi:Complemento>
+            </t>
+        </xpath>
+    </template>
+</odoo>
