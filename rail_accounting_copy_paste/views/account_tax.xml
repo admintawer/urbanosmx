@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="copy_paste_account_tax_form" model="ir.ui.view">
+        <field name="name">copy.paste.account.tax.form</field>
+        <field name="model">account.tax</field>
+        <field name="inherit_id" ref="account.view_tax_form"/>
+        <field name="arch" type="xml">
+            <field name="amount_type" position="after">
+                <field name="local_tax" widget="boolean_toggle" attrs="{'invisible':[('amount','>=',0)]}"/>
+            </field>
+            <xpath expr="//notebook" position="inside">
+                <page name="local_tax" string="Impuestos locales" attrs="{'invisible':[('local_tax','=',False)]}">
+                    <group>
+                        <group>
+                            <field name="local_tax_name"/>
+                        </group>
+                        <group>
+                            <field name="local_amount_type" attrs="{'required':[('local_tax','=',True)]}"/> 
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
