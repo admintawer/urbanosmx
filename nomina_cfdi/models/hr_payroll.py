@@ -1467,7 +1467,7 @@ class HrPayslip(models.Model):
         certificate_ids = self.company_id.l10n_mx_edi_certificate_ids
         certificate_id = certificate_ids.sudo()._get_valid_certificate()
         if not certificate_id:
-            return cfdi
+            raise ValidationError("No se encuentra ningun certificado valido")
         sello = certificate_id.sudo()._get_encrypted_cadena(cadena)
 
         tree = objectify.fromstring(xml_j)
