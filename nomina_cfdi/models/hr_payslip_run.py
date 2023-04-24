@@ -43,6 +43,11 @@ class HrPayslipRun(models.Model):
     )
     fecha_pago = fields.Date(string=_('Fecha de pago'), required=True)
 
+    def compute_sheets(self):
+        for r in self:
+            for l in r.slip_ids:
+                l.compute_sheet()
+
     @api.onchange('tipo_configuracion')
     def _set_periodicidad(self):
         if self.tipo_configuracion:
@@ -133,14 +138,8 @@ class HrPayslipRun(models.Model):
                 if self.periodicidad_pago == '02':
                     batch.nominas_mes = 4
                 if self.periodicidad_pago == '04':
-                    batch.nominas_mes = 2
+                    batch.nominas_mes = 2 
 
-    def recalcular_nomina_payslip_batch(self):
-        for batch in self:
-            for l in batch.slip_ids:
-                l.compute_sheet()            
-
-     
     @api.depends('slip_ids.state','slip_ids.nomina_cfdi')
     def _compute_payslip_cgdi_generated(self):
         cfdi_generated = True

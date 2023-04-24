@@ -112,6 +112,15 @@
             <field name="priority">50</field>
             <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>
             <field name="arch" type="xml">
+                <button name="action_draft" position="after">
+                    <field name="all_payslip_generated" invisible="1" />
+                    <field name="all_payslip_generated_draft" invisible="1" />
+                    <button string="Timbrar Nomina" name="timbrar_nomina" type="object" attrs="{'invisible':[('all_payslip_generated','=',True)]}" class="oe_highlight"/>
+                    <button string="Enviar Nomina" name="enviar_nomina" confirm="Se va a realizar el envío de todo el lote." type="object" attrs="{'invisible':[('all_payslip_generated','!=',True)]}" class="oe_highlight"/>
+                    <!--button string="Enviar PreNomina" name="enviar_prenomina" type="object"  class="oe_highlight"/-->
+                    <button string="Calcular hojas" name="compute_sheets" type="object" attrs="{'invisible': [('state', '!=', 'draft')]}" class="oe_highlight" help="Recompute the payslip lines only, not the worked days / input lines"/>
+                    <button string="Calcular hojas" name="compute_sheets" type="object" attrs="{'invisible': [('state', '!=', 'verify')]}" help="Recompute the payslip lines only, not the worked days / input lines"/>
+                </button>
                 <xpath expr="//sheet" position="replace">
                     <sheet>
                         <label for="name" class="oe_edit_only"/>
@@ -173,14 +182,6 @@
 		                </notebook>
             		</sheet>
             	</xpath>
-                <button name="action_draft" position="after">
-                    <field name="all_payslip_generated" invisible="1" />
-                    <field name="all_payslip_generated_draft" invisible="1" />
-                    <button string="Timbrar Nomina" name="timbrar_nomina" type="object" attrs="{'invisible':[('all_payslip_generated','=',True)]}" class="oe_highlight"/>
-                    <button string="Enviar Nomina" name="enviar_nomina" confirm="Se va a realizar el envío de todo el lote." type="object" attrs="{'invisible':[('all_payslip_generated','!=',True)]}" class="oe_highlight"/>
-                    <button string="Enviar PreNomina" name="enviar_prenomina" type="object"  class="oe_highlight"/>
-                    <button string="Recalcular nómina" name="recalcular_nomina_payslip_batch" type="object" states='draft' class="oe_highlight"/>
-                </button>
             </field>
        </record> 
 

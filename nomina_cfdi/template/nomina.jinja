@@ -51,8 +51,8 @@
             TotalPercepciones="{{ data['Nomina']['TotalPercepciones'] }}" 
             TotalDeducciones="{{ data['Nomina']['TotalDeducciones'] }}"
             TotalOtrosPagos="{{ data['Nomina']['TotalOtrosPagos'] }}">
-            <nomina12:Emisor RegistroPatronal="{{ data['NEmisor']['RegistroPatronal'] }}" 
-                             {% if data['NEmisor']['RfcPatronOrigen'] %} RfcPatronOrigen="{{ data['NEmisor']['RfcPatronOrigen'] }}" /> {% endif %}/>
+            <nomina12:Emisor {% if data['NEmisor']['RegistroPatronal'] %} RegistroPatronal="{{ data['NEmisor']['RegistroPatronal'] }}" {% endif %}
+                             {% if data['NEmisor']['RfcPatronOrigen'] %} RfcPatronOrigen="{{ data['NEmisor']['RfcPatronOrigen'] }}" {% endif %}/>
             <nomina12:Receptor 
                 Curp="{{ data['NReceptor']['Curp'] }}" 
                 NumSeguridadSocial="{{ data['NReceptor']['NumSeguridadSocial'] }}" 
@@ -103,10 +103,10 @@
                             Importe="{{ Deduccion['Importe'] }}"/>
                     {% endfor %}
             </nomina12:Deducciones>
-            <nomina12:OtrosPagos>
-                {% if data['OtrosPagos'] %}
+            {% if data['OtrosPagos'] %}
+                <nomina12:OtrosPagos>
                     {% for OtrosPagos in data['OtrosPagos'] %}
-                        <nomina12:OtroPago 
+                        <nomina12:OtroPago
                             TipoOtroPago="{{ OtrosPagos['TipoOtrosPagos'] }}" 
                             Clave="{{ OtrosPagos['Clave'] }}" 
                             Concepto="{{ OtrosPagos['Concepto'] }}" 
@@ -116,16 +116,8 @@
                             {% endif %}
                         </nomina12:OtroPago>
                     {% endfor %}
-                {% else %}
-                    <nomina12:OtroPago 
-                        TipoOtroPago="002" 
-                        Clave="002" 
-                        Concepto="Subsidio para el Empleado" 
-                        Importe="0.0">
-                            <nomina12:SubsidioAlEmpleo SubsidioCausado="0.0"/>
-                    </nomina12:OtroPago>
-                {% endif %}
-            </nomina12:OtrosPagos>
+                </nomina12:OtrosPagos>
+            {% endif %}
         </nomina12:Nomina>
     </cfdi:Complemento>
 </cfdi:Comprobante>

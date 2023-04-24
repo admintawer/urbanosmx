@@ -135,14 +135,11 @@
                   <div class="col-4 pull-right">
                      <div>
                         <strong>Folio:</strong>
-                        <strong>
-                           <span t-if="not o.company_id.serie_nomina=='false'" t-field="o.company_id.serie_nomina" />
-                        </strong>
-                        <span t-field="o.folio" />
+                        <span t-field="o.folio_fiscal" />
                      </div>
                      <div>
                         <strong>Fecha emisión:</strong>
-                        <span t-field="o.invoice_datetime" />
+                        <span t-field="o.fecha_factura" />
                      </div>
                      <div>
                         <strong>Lugar de expedición:</strong>
@@ -421,7 +418,7 @@
                </table>
                <div class="row" style="page-break-inside: avoid">
                   <div class="col-3">
-                     <img t-if="o.qrcode_image" t-att-src="'data:image/png;base64,%s' % to_text(o.qrcode_image)" style="height: 190;width: 190;padding-left:10px;" />
+                     <span t-field="o.qrcode_image" t-options="{&quot;widget&quot;: &quot;image&quot;}" style="height: 190;width: 190;padding-left:10px;"/>
                   </div>
                   <div class="col-9 pull-right" style="font-size:12px;">
                      <div>

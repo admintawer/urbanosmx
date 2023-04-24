@@ -27,6 +27,7 @@
         'views/tablas_cfdi_view.xml',
         'views/res_company_view.xml',
         'views/res_bank_view.xml',
+        'views/hr_payroll_structure.xml',
         'data/mail_template_data.xml',
         'security/ir.model.access.csv',
         'data/res.bank.csv',
