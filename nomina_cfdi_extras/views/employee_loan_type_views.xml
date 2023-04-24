@@ -27,8 +27,8 @@ For Module Support : devintelle@gmail.com  or Skype : devintelle
                     </group>
                     <group>
                     	<group>
-                    		<field name="loan_account" attrs="{'invisible':[('tipo_deduccion','!=','1')]}"/>
-                    		<field name="interest_account" attrs="{'invisible':[('tipo_deduccion','!=','1')]}"/>
+                    		<field name="loan_account" attrs="{'invisible':[('tipo_deduccion','!=','1')], 'required':[('tipo_deduccion','=','1')]}"/>
+                    		<field name="interest_account" attrs="{'invisible':[('tipo_deduccion','!=','1')], 'required':[('tipo_deduccion','=','1'),('is_apply_interest','=',True)]}"/>
                     	</group>
                     	<group>
                     		<field name="journal_id" attrs="{'invisible':[('tipo_deduccion','!=','1')]}"/>

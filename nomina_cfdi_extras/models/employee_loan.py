@@ -98,6 +98,10 @@ class employee_loan(models.Model):
     notes = fields.Text('Razón', required="1")
     is_close = fields.Boolean('Esta cerrado',compute='is_ready_to_close')
     move_id = fields.Many2one('account.move',string='Diario')
+    company_id = fields.Many2one(
+        comodel_name='res.company',
+        required=True, index=True,
+        default=lambda self: self.env.company)
 
 #     @api.onchange('loan_type_id') #,'term','interest_rate','interest_type'
 #     def onchange_term_interest_type(self):
@@ -341,7 +345,7 @@ class employee_loan(models.Model):
                'date':self.date,
                'ref':self.name,
                'journal_id':self.loan_type_id.journal_id and self.loan_type_id.journal_id.id,
-               'company_id':self.env.user.company_id.id
+               'company_id':self.company_id.id
            }
            acc_move_id = self.env['account.move'].create(vals)
            lst = []
@@ -381,7 +385,7 @@ class employee_loan(models.Model):
            self.state = 'paid'
 
 
-    def view_journal_entry(self):
+    """ def view_journal_entry(self):
         if self.move_id:
             return {
                 'view_mode': 'form',
@@ -389,7 +393,7 @@ class employee_loan(models.Model):
                 'res_model': 'account.move',
                 'view_mode': 'form',
                 'type': 'ir.actions.act_window',
-            }
+            } """
 
     def action_done_loan(self):
         self.state = 'done'

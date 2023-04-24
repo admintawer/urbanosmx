@@ -20,6 +20,10 @@ class installment_line(models.Model):
     payslip_id = fields.Many2one('hr.payslip',string='Boleta de pago')
     is_skip = fields.Boolean('Skip Installment')
     tipo_deduccion = fields.Selection([('1','Préstamo'), ('2','Descuento periodico 1'), ('3','Descuento periodico 2')], string='Tipo de deducción')
+    company_id = fields.Many2one(
+        comodel_name='res.company',
+        required=True, index=True,
+        default=lambda self: self.env.company)
 
     @api.depends('installment_amt','ins_interest')
     def get_total_installment(self):

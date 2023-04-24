@@ -41,7 +41,7 @@
                    <field name="fondo_ahorro"/>
                 </group>
                 <group string="Estructura ordinaria">
-                   <field name="estructura"/>
+                   <field name="estructura" required="1"/>
                 </group>
             </group>
             <footer>

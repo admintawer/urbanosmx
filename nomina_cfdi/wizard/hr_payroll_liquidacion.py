@@ -6,7 +6,7 @@ from datetime import datetime
 from datetime import date
 
 import time
-from odoo.exceptions import Warning
+from odoo.exceptions import ValidationError
 import logging
 _logger = logging.getLogger(__name__)
 
@@ -47,7 +47,7 @@ class GeneraLiquidaciones(models.TransientModel):
     def calculo_create(self):
         employee = self.employee_id
         if not employee:
-            raise Warning("Seleccione primero al empleado.")
+            raise ValidationError("Seleccione primero al empleado.")
         payslip_batch_nm = 'Liquidacion ' +employee.name
         date_from = self.fecha_inicio
         date_to = self.fecha_liquidacion
@@ -66,9 +66,8 @@ class GeneraLiquidaciones(models.TransientModel):
         #Creación de nomina ordinaria
         #payslip_vals = {**payslip_onchange_vals.get('value',{})} #TO copy dict to new dict. 
         
-        structure = self.estructura #self.env['hr.payroll.structure'].search([('name','=','Liquidación - Ordinario')], limit=1)
-        #if structure: 
-        #    payslip_vals['struct_id'] = structure.id
+        structure = self.estructura
+        
         
         contract_id = self.contract_id.id
         #if not contract_id:
@@ -79,7 +78,7 @@ class GeneraLiquidaciones(models.TransientModel):
         if not contract_id:
             contract_id = employee.contract_id.id
         if not contract_id:
-            raise Warning("No se encontró contrato para %s en el periodo de tiempo."%(employee.name))
+            raise ValidationError("No se encontró contrato para %s en el periodo de tiempo."%(employee.name))
         
         worked_days = [(5,0,0)]
         pvc_type = self.env['hr.work.entry.type'].search([('code','=','PVC')],limit=1)
@@ -154,11 +153,11 @@ class GeneraLiquidaciones(models.TransientModel):
                 'journal_id': journal.id,
                 #'no_nomina': '1',
                 'fecha_pago' : date_to,
-                'worked_days_line_ids': worked_days,
-                'input_line_ids': inputs,
+                'worked_days_line_ids': worked_days2,
+                'input_line_ids': other_inputs,
                 })
             payslip_vals2.append(values2)
-            payslips2 = Payslip.with_context(tracking_disable=True).create(payslip_vals)
+            payslips2 = Payslip.with_context(tracking_disable=True).create(payslip_vals2)
             payslips2._compute_name()
             for r2 in payslips2:
                 r2.compute_sheet()
