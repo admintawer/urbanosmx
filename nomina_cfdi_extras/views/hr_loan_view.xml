@@ -40,9 +40,9 @@
 					<field name="state" widget="statusbar" statusbar_visible="draft,hr_approval,done"/>
 				</header>
 				<sheet>
-                    <div class="oe_button_box" name="button_box">
+                    <!--div class="oe_button_box" name="button_box">
                         <b><button name="view_journal_entry" type="object"  class="oe_stat_button" icon="fa-external-link" string="Diario" groups="hr.group_hr_manager" attrs="{'invisible':[('state','not in',['done','paid'])]}"/></b>
-                    </div>
+                    </div-->
                 	<label for="name" class="oe_edit_only"/>
                 	<h1><field name="name" readonly="1"/></h1>
                     
@@ -50,6 +50,7 @@
                         <group>
                             <field name="employee_id" attrs="{'readonly':[('state','!=','draft')]}"/>
                             <field name="department_id" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="company_id" readonly="1" force_save="1"/>
                             <!--<field name="manager_id" attrs="{'readonly':[('state','!=','draft')]}"/>-->
                         </group>
                         <group>
@@ -76,6 +77,7 @@
                             <field name="start_date" attrs="{'readonly':[('state','!=','draft')]}"/>
                             <field name="term" attrs="{'readonly':[('state','!=','draft')]}"/>
                             <field name="end_date"/>
+                            <field name="move_id" readonly="1"/>
                             <field name="interest_rate" attrs="{'invisible':[('is_apply_interest','!=',True)],'readonly':[('state','!=','draft')]}"/>
                             <field name="interest_type" attrs="{'invisible':[('is_apply_interest','!=',True)],'readonly':[('state','!=','draft')]}"/>
                         </group>
