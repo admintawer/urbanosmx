@@ -26,6 +26,6 @@ class AccountEdiFormat(models.Model):
         _logger.critical('IMPUESTOS LOCALES')
         _logger.critical(vals['tax_details_local_withholding']['tax_details'])
         _logger.critical('RETENCIONES')
-        _logger.critical(vals['tax_detail_withholding']['tax_details'])
+        _logger.critical(vals['tax_details_withholding']['tax_details_per_record']['line'])
 
         return vals
