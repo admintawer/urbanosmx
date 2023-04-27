@@ -24,5 +24,6 @@ class AccountEdiFormat(models.Model):
         vals['tax_details_local_withholding'] = invoice._prepare_edi_tax_details (filter_to_apply=filter_tax_local_withholding, filter_invl_to_apply=filter_void_tax_line)
 
         _logger.critical(vals['tax_details_local_withholding'])
+        _logger.critical(vals['tax_rate_withholding'])
 
         return vals
