@@ -21,6 +21,7 @@ class CopyPasteTemplate(models.Model):
     bank_journal_id = fields.Many2one('account.journal', domain=[('type','=','general')])
     cash_journal_id = fields.Many2one('account.journal', domain=[('type','=','general')])
     general_journal_id = fields.Many2one('account.journal', domain=[('type','=','general')])
+    error = fields.Text("Error")
 
     date_start = fields.Date('Initial day for syncing')
     
@@ -109,6 +110,16 @@ class CopyPasteTemplate(models.Model):
                     move = move_object.create(move_dict)
                     move._post()
                     m.sudo().write({'matrix_ref': move.name, 'synced': True,})
+                    
+    def action_send_email(self):
+        mail_template = self.env.ref('rail_accounting_copy_paste.error_sync_email_template')
+        mail_template.send_mail(self.id, force_send=True)
+
+    def run_from_cron(self):
+        templates = self.env['copy.paste.template'].search([])
+        if templates:
+            for t in templates:
+                t.compare_accounts()
 
     def compare_accounts(self):
         source_accounts = self.env['account.account'].search([('company_id','=', self.company_id.id)])
@@ -132,8 +143,11 @@ class CopyPasteTemplate(models.Model):
                 ma_list.append(r.display_name)
             for p in missing_analytic:
                 ma_list.append(p.display_name)
-            raise ValidationError(_('No se puede continuar con el proceso, las siguientes cuentas no se encuentran creadas en: '+ self.company_id.display_name + '\n' \
-                + ', '.join(ma_list)))
+            body_error = 'No se puede continuar con el proceso, las siguientes cuentas no se encuentran creadas en: '+ self.company_id.display_name + '\n' \
+                            + ', '.join(ma_list)
+            self.error = body_error
+            self.action_send_email()
+            raise ValidationError(body_error)
         else:
             try:
                 self._get_account_moves_to_matrix()
