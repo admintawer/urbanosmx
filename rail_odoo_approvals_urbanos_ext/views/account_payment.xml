@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="aprrovals_vendor_payment_urbanos_inherit" model="ir.ui.view">
+        <field name="name">approvals.vendor.payment.urbanos.inherit</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_post']" position="replace">
+                <button name="action_post" string="Confirmar" type="object" class="oe_highlight" attrs="{'invisible': ['|',('state', 'in', 'draft'),('payment_type','=','outbound')]}" data-hotkey="v"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,1530 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* rail_odoo_approvals
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e-20221202\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-19 14:28+0000\n"
+"PO-Revision-Date: 2023-05-19 08:52-0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.2.2\n"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval_type_config.py:0
+#, python-format
+msgid ""
+"\n"
+"Approval Type is not configured properly, contact your administrator for help!\n"
+msgstr ""
+"\n"
+"El tipo de aprobación no está configurado correctamente, comuníquese con su "
+"administrador para obtener ayuda!\n"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form_inherit
+msgid ""
+"<code style=\"white-space: pre-wrap\">\n"
+"partner_name = record.name + '_code'\n"
+"env['res.partner'].create({'name': partner_name})\n"
+"</code>"
+msgstr ""
+"<code style=\"white-space: pre-wrap\">\n"
+"partner_name = record.name + '_code'\n"
+"env['res.partner'].create({'name': partner_name})\n"
+"</code>"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form_inherit
+msgid "<code>UserError</code>: UserError Exception to use with <code>raise</code>"
+msgstr "<code>UserError</code>: UserError Exception to use with <code>raise</code>"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form_inherit
+msgid "<code>env</code>: Odoo Environment on which the action is triggered"
+msgstr "<code>env</code>: Odoo Environment on which the action is triggered"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form_inherit
+msgid ""
+"<code>log(message, level='info')</code>:logging function to record debug "
+"information in <code>ir.logging</code> table"
+msgstr ""
+"<code>log(message, level='info')</code>:logging function to record debug "
+"information in <code>ir.logging</code> table"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form_inherit
+msgid ""
+"<code>model</code>: Odoo Model of the record on which the action is triggered; is "
+"a void recordset"
+msgstr ""
+"<code>model</code>: Odoo Model of the record on which the action is triggered; is "
+"a void recordset"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form_inherit
+msgid "<code>record</code>: record on which the action is triggered; may be be void"
+msgstr "<code>record</code>: record on which the action is triggered; may be be void"
+
+#. module: rail_odoo_approvals
+#: model:mail.template,body_html:rail_odoo_approvals.email_template_approved_request
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"        Dear  <t t-out=\"object.user_id.name or ''\"/>,\n"
+"        <br/><br/>\n"
+"        Your request <t t-out=\"object.display_name or ''\"/> has been approved on "
+"<t t-out=\"format_date(object.complete_date) or ''\"/>\n"
+"        <br/><br/>\n"
+"        Regards,\n"
+"    </p>\n"
+"</div>\n"
+"            "
+msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"        Estimado(a)  <t t-out=\"object.user_id.name or ''\"/>,\n"
+"        <br/><br/>\n"
+"        Tu solicitud<t t-out=\"object.display_name or ''\"/> ha sido aprobada el: "
+"<t t-out=\"format_date(object.complete_date) or ''\"/>\n"
+"        <br/><br/>\n"
+"        Saludos,\n"
+"    </p>\n"
+"</div>\n"
+"            "
+
+#. module: rail_odoo_approvals
+#: model:mail.template,body_html:rail_odoo_approvals.email_template_refused_request
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"        Dear  <t t-out=\"object.user_id.name or ''\"/>,\n"
+"        <br/><br/>\n"
+"        Your request <t t-out=\"object.display_name or ''\"/> has been refused on "
+"<t t-out=\"format_date(object.complete_date) or ''\"/>\n"
+"        <br/><br/>\n"
+"        Regards,\n"
+"    </p>\n"
+"</div>\n"
+"            "
+msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"        Estimado(a)  <t t-out=\"object.user_id.name or ''\"/>,\n"
+"        <br/><br/>\n"
+"        Tu solicitud <t t-out=\"object.display_name or ''\"/> ha sido rechazada "
+"el<t t-out=\"format_date(object.complete_date) or ''\"/>\n"
+"        <br/><br/>\n"
+"        Saludos,\n"
+"    </p>\n"
+"</div>\n"
+"            "
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_kanban
+msgid "<i class=\"fa fa-edit\" role=\"img\" aria-label=\"Manage\" title=\"Manage\"/>"
+msgstr ""
+"<i class=\"fa fa-edit\" role=\"img\" aria-label=\"Manage\" title=\"Manage\"/>"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_form
+msgid "<span>From: </span>"
+msgstr "<span>De: </span>"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_form
+msgid "<span>to: </span>"
+msgstr "<span>Para: </span>"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__message_needaction
+msgid "Action Needed"
+msgstr "Accion necesaria"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Excepción de la actividad"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__activity_notification
+msgid "Activity Notification"
+msgstr "Icono para indicar una actividad"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__activity_state
+msgid "Activity State"
+msgstr "Estado actividad"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Icono tipo actividad"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.actions.act_window,help:rail_odoo_approvals.multi_approval_action
+#: model_terms:ir.actions.act_window,help:rail_odoo_approvals.multi_approval_approval_action
+#: model_terms:ir.actions.act_window,help:rail_odoo_approvals.multi_approval_request_action
+msgid "Add a new approval request"
+msgstr "Agregar nueva solicitud"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.actions.act_window,help:rail_odoo_approvals.multi_approval_type_action
+msgid "Add a new approval type"
+msgstr "Agregar nuevo tipo"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__amount
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__amount_opt
+msgid "Amount"
+msgstr "Monto"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__amount_opt
+msgid "Amount opt"
+msgstr "Monto opcional"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__apply_for_model
+msgid "Apply for Model?"
+msgstr "Aplica a modelo"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_line__approval_id
+msgid "Approval"
+msgstr "Aprobacion"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_kanban
+msgid "Approval Image"
+msgstr "Imagen aprobacion"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_kanban
+msgid "Approval Type Image"
+msgstr "Imagen tipo aprobacion"
+
+#. module: rail_odoo_approvals
+#: model:ir.actions.act_window,name:rail_odoo_approvals.multi_approval_type_action
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_tree
+msgid "Approval Types"
+msgstr "Tipos de aprobaciones"
+
+#. module: rail_odoo_approvals
+#: model:mail.template,name:rail_odoo_approvals.email_template_approved_request
+msgid "Approval: approved case"
+msgstr "Aprobacion: Aprobado"
+
+#. module: rail_odoo_approvals
+#: model:mail.template,name:rail_odoo_approvals.email_template_refused_request
+msgid "Approval: refused case"
+msgstr "Aprobacion: Rechazado"
+
+#. module: rail_odoo_approvals
+#: model:ir.actions.act_window,name:rail_odoo_approvals.multi_approval_action
+#: model:ir.module.category,name:rail_odoo_approvals.rail_odoo_approvals
+#: model:ir.ui.menu,name:rail_odoo_approvals.menu_multi_approval
+#: model:ir.ui.menu,name:rail_odoo_approvals.menu_rail_odoo_approvals_root
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_filter
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_tree
+msgid "Approvals"
+msgstr "Aprobaciones"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form
+msgid "Approvals Type"
+msgstr "Tipo aprobacion"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_form
+msgid "Approve"
+msgstr "Aprobar"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval__state__approved
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_line__state__approved
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__test_approval__state__approve
+msgid "Approved"
+msgstr "Aprobado"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__approve_python_code
+msgid "Approved Action"
+msgstr "Acción aprobada"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__pic_id
+msgid "Approver"
+msgstr "Aprobador"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_form
+msgid "Approver(s)"
+msgstr "Aprobador(es)"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__line_ids
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form
+msgid "Approvers"
+msgstr "Aprobadores"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form
+msgid "Archived"
+msgstr "Archivado"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.rework_approval_view_form
+msgid "Are you sure you want to rework this document ?"
+msgstr "Estas seguro de rehacer este documento?"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_form
+msgid "Attach Document"
+msgstr "Adjuntar documento"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__message_attachment_count
+msgid "Attachment Count"
+msgstr "Conteo adjuntos"
+
+#. module: rail_odoo_approvals
+#: model:ir.model,name:rail_odoo_approvals.model_base
+msgid "Base"
+msgstr "Base"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form_popup
+msgid ""
+"Can not detect a state (or stage or status) field in Domain ! Please select it."
+msgstr ""
+"No se puede detectar un campo estado en la condición! Por favor selecciónalo."
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval__state__cancel
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_line__state__cancel
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_form
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.refused_reason_view_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: rail_odoo_approvals
+#: model:ir.actions.act_window,name:rail_odoo_approvals.cancel_approval_action
+#: model:ir.model,name:rail_odoo_approvals.model_cancel_approval
+msgid "Cancel Approval"
+msgstr "Cancelar aprobacion"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.cancel_approval_view_form
+msgid "Cancel Request"
+msgstr "Cancelar solicitud"
+
+#. module: rail_odoo_approvals
+#: model:ir.actions.act_window,name:rail_odoo_approvals.change_approver_action
+#: model:ir.model,name:rail_odoo_approvals.model_change_approver
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_form_inherit
+msgid "Change Approver"
+msgstr "Cambiar aprobador"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.cancel_approval_view_form
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.change_approver_view_form
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.request_approval_view_form
+msgid "Close"
+msgstr "Cerrado"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__code
+msgid "Code"
+msgstr "Código"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__company_id
+msgid "Company"
+msgstr "Compañia"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__complete_date
+msgid "Complete Date"
+msgstr "Fecha completa"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form_popup
+msgid "Configure"
+msgstr "Configurar"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__is_configured
+msgid "Configured?"
+msgstr "Configurado?"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__contact_id
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__contact_opt
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__contact_opt
+msgid "Contact opt"
+msgstr "Contacto opcional"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_kanban
+msgid "Create New Request"
+msgstr "Crear nueva solicitud"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_cancel_approval__create_uid
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_change_approver__create_uid
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__create_uid
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_line__create_uid
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__create_uid
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type_line__create_uid
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_refused_reason__create_uid
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_request_approval__create_uid
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_rework_approval__create_uid
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_test_approval__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_cancel_approval__create_date
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_change_approver__create_date
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__create_date
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_line__create_date
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__create_date
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type_line__create_date
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_refused_reason__create_date
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_request_approval__create_date
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_rework_approval__create_date
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_test_approval__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: rail_odoo_approvals
+#: model:ir.ui.menu,name:rail_odoo_approvals.menu_rail_odoo_approvals_type
+msgid "Dashboard"
+msgstr "Panel"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/wizard/request_approval.py:0
+#: code:addons/rail_odoo_approvals/wizard/rework_approval.py:0
+#, python-format
+msgid "Data is changed! Please refresh your browser in order to continue !"
+msgstr ""
+"La información a cambiado! Por favor refresca tu explorador para poder continuar!"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__date
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__date_opt
+msgid "Date"
+msgstr "Fecha"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__date_opt
+msgid "Date opt"
+msgstr "Fecha opcional"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__deadline
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_line__deadline
+msgid "Deadline"
+msgstr "Fecha Limite"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_change_approver__group_ids
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type_line__group_ids
+msgid "Deputy Groups"
+msgstr "Grupos suplentes"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__description
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__description
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_request_approval__description
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_form
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.request_approval_view_form
+msgid "Description"
+msgstr "Descripcion"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form_inherit
+msgid "Description Template"
+msgstr "Descripción plantilla"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form_popup
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.rework_approval_view_form
+msgid "Discard"
+msgstr "Descartar"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_cancel_approval__display_name
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_change_approver__display_name
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__display_name
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_line__display_name
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__display_name
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type_line__display_name
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_refused_reason__display_name
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_request_approval__display_name
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_rework_approval__display_name
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_test_approval__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__document_opt
+msgid "Document"
+msgstr "Documento"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval.py:0
+#, python-format
+msgid "Document is required !"
+msgstr "Documento es obligatorio!"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__document_opt
+msgid "Document opt"
+msgstr "Documento opcional"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__attachment_ids
+msgid "Documents"
+msgstr "Documentos"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__domain
+msgid "Domain"
+msgstr "Condicion"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval_type_config.py:0
+#, python-format
+msgid "Domain is required !"
+msgstr "Condicion es requerida!"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval_type_config.py:0
+#, python-format
+msgid "Domain of an Approval type is not set properly!"
+msgstr "La condicion para el tipo de aprovacion no esta configurada apropiadamente!"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval__state__draft
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_line__state__draft
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__test_approval__state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.constraint,message:rail_odoo_approvals.constraint_multi_approval_type_line_name_uniq
+msgid "Each name must be unique."
+msgstr "Cada nombre debe de ser único."
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__date_end
+msgid "End Date"
+msgstr "Fecha final"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form_inherit
+msgid "Example of Python code"
+msgstr "Ejemplo de código python"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__view_id
+msgid "Extension View"
+msgstr "Extension de la vista"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_form
+msgid "Fields"
+msgstr "Campos"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores(Contactos)"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__follower
+msgid "Following Users"
+msgstr "Siguiendo"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,help:rail_odoo_approvals.field_multi_approval__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Ejemplo font awesome iconos: e.j. fa-tasks"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__is_free_create
+msgid "Free Create?"
+msgstr "Creación libre?"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_filter
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__group_ids
+msgid "Groups"
+msgstr "Grupos"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__has_message
+msgid "Has Message"
+msgstr "Tiene mensaje"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form_inherit
+msgid "Help"
+msgstr "Ayuda"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form_inherit
+msgid "Help with Python expressions"
+msgstr "Ayuda con expresiones python"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__hide_button
+msgid "Hide Buttons from Model View?"
+msgstr "Ocultar botones de vista origen?"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval__priority__2
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__request_approval__priority__2
+msgid "High"
+msgstr "Alto"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval.py:0
+#, python-format
+msgid "I approved"
+msgstr "Aprobado por mi"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval.py:0
+#, python-format
+msgid "I refused due to this reason: {}"
+msgstr "Ha sido rechazado por esta razón: {}"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_cancel_approval__id
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_change_approver__id
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__id
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_line__id
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__id
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type_line__id
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_refused_reason__id
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_request_approval__id
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_rework_approval__id
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_test_approval__id
+msgid "ID"
+msgstr "ID"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__activity_exception_icon
+msgid "Icon"
+msgstr "Icono"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,help:rail_odoo_approvals.field_multi_approval__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icono para indicar una actividad de excepción."
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,help:rail_odoo_approvals.field_multi_approval__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Si esta marcado, nuevos mensajes requieren tu atencion"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,help:rail_odoo_approvals.field_multi_approval__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si esta marcado, algunos mensajes tienen error de entrega"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__image
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__image
+msgid "Image"
+msgstr "Imagen"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval_type_config.py:0
+#, python-format
+msgid "Invalid python syntax"
+msgstr "Sintaxis python invalida"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__message_is_follower
+msgid "Is Follower"
+msgstr "Es Seguidor"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__is_global
+msgid "Is Global"
+msgstr "Es global"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__is_pic
+msgid "Is Pic"
+msgstr "Es img"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__item_id
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__item_opt
+msgid "Item"
+msgstr "Item"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__item_opt
+msgid "Item opt"
+msgstr "Item opcional"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__item_ids
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_form
+msgid "Items"
+msgstr "Items"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_cancel_approval____last_update
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_change_approver____last_update
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval____last_update
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_line____last_update
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type____last_update
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type_line____last_update
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_refused_reason____last_update
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_request_approval____last_update
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_rework_approval____last_update
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_test_approval____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_cancel_approval__write_uid
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_change_approver__write_uid
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__write_uid
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_line__write_uid
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__write_uid
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type_line__write_uid
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_refused_reason__write_uid
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_request_approval__write_uid
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_rework_approval__write_uid
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_test_approval__write_uid
+msgid "Last Updated by"
+msgstr "Ultima actualizacion por"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_cancel_approval__write_date
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_change_approver__write_date
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__write_date
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_line__write_date
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__write_date
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type_line__write_date
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_refused_reason__write_date
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_request_approval__write_date
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_rework_approval__write_date
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_test_approval__write_date
+msgid "Last Updated on"
+msgstr "Ultima actualizacion el"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,help:rail_odoo_approvals.field_multi_approval_type__approve_mail_template_id
+#: model:ir.model.fields,help:rail_odoo_approvals.field_multi_approval_type__refuse_mail_template_id
+msgid "Let it empty if don't want notify"
+msgstr "Deja en blanco si no requires notificar"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,help:rail_odoo_approvals.field_multi_approval_type__mail_template_id
+msgid "Let it empty if you want to send the description of the request"
+msgstr "Deja en blanco si deseas enviar la descripcion de la solicitud"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__line_id
+msgid "Line"
+msgstr "Linea"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__line_ids
+msgid "Lines"
+msgstr "Lienas"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__location
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__location_opt
+msgid "Location"
+msgstr "Ubicacion"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__location_opt
+msgid "Location opt"
+msgstr "Ubicación opcional"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__mail_notification
+msgid "Mail Notification"
+msgstr "Notificacion por email"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Adjunto principal"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval__priority__1
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__request_approval__priority__1
+msgid "Medium"
+msgstr "Medio"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de entrega"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__approval_minimum
+msgid "Minimum Approvers"
+msgstr "Aprobadores minimos"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__model_id
+msgid "Model"
+msgstr "Modelo"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form_inherit
+msgid "Model Settings"
+msgstr "Opciones de modelo"
+
+#. module: rail_odoo_approvals
+#: model:ir.model,name:rail_odoo_approvals.model_multi_approval_type
+msgid "Multi Approval Type"
+msgstr "Tipo multi aprobacion"
+
+#. module: rail_odoo_approvals
+#: model:ir.model,name:rail_odoo_approvals.model_multi_approval
+msgid "Multi Aproval"
+msgstr "Multi aprobacion"
+
+#. module: rail_odoo_approvals
+#: model:ir.model,name:rail_odoo_approvals.model_multi_approval_line
+msgid "Multi Aproval Line"
+msgstr "Lineas multi aprobacion"
+
+#. module: rail_odoo_approvals
+#: model:ir.model,name:rail_odoo_approvals.model_multi_approval_type_line
+msgid "Multi Aproval Type Lines"
+msgstr "Lineas multi aprobacion"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__multi_items_opt
+msgid "Multi Items"
+msgstr "Multi items"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__multi_items_opt
+msgid "Multi Items opt"
+msgstr "Multi items opc"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Limite mis actividades"
+
+#. module: rail_odoo_approvals
+#: model:ir.actions.act_window,name:rail_odoo_approvals.multi_approval_approval_action
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_filter
+msgid "My Approvals"
+msgstr "Mis aprobaciones"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_filter
+msgid "My Request"
+msgstr "Mi solicitud"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/wizard/request_approval.py:0
+#: model:ir.actions.act_window,name:rail_odoo_approvals.multi_approval_request_action
+#: model:ir.ui.menu,name:rail_odoo_approvals.menu_multi_request_approval
+#, python-format
+msgid "My Requests"
+msgstr "Mis solicitudes"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__name
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_test_approval__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval.py:0
+#, python-format
+msgid "New"
+msgstr "Nuevo"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_change_approver__new_pic_id
+msgid "New Approver"
+msgstr "Nuevo aprobador"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval_type.py:0
+#, python-format
+msgid "New Request"
+msgstr "Nueva solicitud"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Siguiente limite actividad"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__activity_summary
+msgid "Next Activity Summary"
+msgstr "Resumen siguiente actividad"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__activity_type_id
+msgid "Next Activity Type"
+msgstr "Siguiente tipo actividad"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__amount_opt__none
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__contact_opt__none
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__date_opt__none
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__item_opt__none
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__location_opt__none
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__multi_items_opt__none
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__payment_opt__none
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__period_opt__none
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__quantity_opt__none
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__reference_opt__none
+msgid "None"
+msgstr "Nada"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval__priority__0
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__request_approval__priority__0
+msgid "Normal"
+msgstr "Normal"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/wizard/change_approver.py:0
+#, python-format
+msgid "Not a Deputy user"
+msgstr "No usuario suplente"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval_type_config.py:0
+#, python-format
+msgid "Not found the action !"
+msgstr "No se encuentra la acción !"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Numero de acciones"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__attachment_number
+msgid "Number of Attachments"
+msgstr "Numero de adjuntos"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__message_has_error_counter
+msgid "Number of errors"
+msgstr "Numero de errores"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,help:rail_odoo_approvals.field_multi_approval__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Numero de mensajes que requieren una accion"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,help:rail_odoo_approvals.field_multi_approval__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Numero de mensajes con error de entrega"
+
+#. module: rail_odoo_approvals
+#: model:ir.actions.server,name:rail_odoo_approvals.action_open_request
+msgid "Open My Approval Requests"
+msgstr "Abrir mis solicitudes de aprobacion"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_line__require_opt__optional
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__amount_opt__optional
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__contact_opt__optional
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__date_opt__optional
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__document_opt__optional
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__item_opt__optional
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__location_opt__optional
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__multi_items_opt__optional
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__payment_opt__optional
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__period_opt__optional
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__quantity_opt__optional
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__reference_opt__optional
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type_line__require_opt__optional
+msgid "Optional"
+msgstr "Opcional"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_form
+msgid "Options"
+msgstr "Opciones"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__origin_ref
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_request_approval__origin_ref
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_rework_approval__origin_ref
+msgid "Origin"
+msgstr "Origen"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form
+msgid "Other Information"
+msgstr "Otra información"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__payment
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__payment_opt
+msgid "Payment"
+msgstr "Pago"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__payment_opt
+msgid "Payment opt"
+msgstr "Pagos opc"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__period_opt
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_form
+msgid "Period"
+msgstr "Periodo"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__period_opt
+msgid "Period opt"
+msgstr "Periodo opc"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__priority
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__priority
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_request_approval__priority
+msgid "Priority"
+msgstr "Prioridad"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form_inherit
+msgid "Python code"
+msgstr "Codigo python"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__quantity
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__quantity_opt
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__quantity_opt
+msgid "Quantity opt"
+msgstr "Cantidad opt"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_cancel_approval__reason
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_change_approver__reason
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_refused_reason__reason
+msgid "Reason"
+msgstr "Razon"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__reference
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__reference_opt
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__reference_opt
+msgid "Reference opt"
+msgstr "Referencia opc"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_form
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.refused_reason_view_form
+msgid "Refuse"
+msgstr "Rechazar"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval__state__refused
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_line__state__refused
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__test_approval__state__refuse
+msgid "Refused"
+msgstr "Rechazado"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__refuse_python_code
+msgid "Refused Action"
+msgstr "Acción de rechazo"
+
+#. module: rail_odoo_approvals
+#: model:ir.actions.act_window,name:rail_odoo_approvals.refused_reason_action
+#: model:ir.model,name:rail_odoo_approvals.model_refused_reason
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_line__refused_reason
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.refused_reason_view_form
+msgid "Refused Reason"
+msgstr "Razón rechazo"
+
+#. module: rail_odoo_approvals
+#: model:ir.actions.act_window,name:rail_odoo_approvals.request_approval_action
+#: model:ir.model,name:rail_odoo_approvals.model_request_approval
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.approval_view_20230519142505
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.request_approval_view_form
+msgid "Request Approval"
+msgstr "Solicitud aprobacion"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__request_date
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_request_approval__request_date
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_filter
+msgid "Request Date"
+msgstr "Fecha aprobacion"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__request_tmpl
+msgid "Request Tmpl"
+msgstr "Plantilla solicitud"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/wizard/request_approval.py:0
+#, python-format
+msgid "Request approval for {}"
+msgstr "Solicitud aprobación para {}"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__user_id
+msgid "Request by"
+msgstr "Solicitado por"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/wizard/request_approval.py:0
+#, python-format
+msgid "Request has been created before !"
+msgstr "La solicidud ha sido creada antes!"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval.py:0
+#: code:addons/rail_odoo_approvals/tests/test_approval.py:0
+#, python-format
+msgid "Request the approval for: {request_name}"
+msgstr "Agregar nueva solicitud"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_line__require_opt__required
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__amount_opt__required
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__contact_opt__required
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__date_opt__required
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__document_opt__required
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__item_opt__required
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__location_opt__required
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__multi_items_opt__required
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__payment_opt__required
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__period_opt__required
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__quantity_opt__required
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type__reference_opt__required
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_type_line__require_opt__required
+msgid "Required"
+msgstr "Requerido"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__activity_user_id
+msgid "Responsible User"
+msgstr "Usuario responsable"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.approval_view_20230519142505
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.rework_approval_view_form
+msgid "Rework"
+msgstr "Rehacer"
+
+#. module: rail_odoo_approvals
+#: model:ir.actions.act_window,name:rail_odoo_approvals.rework_approval_action
+#: model:ir.model,name:rail_odoo_approvals.model_rework_approval
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.rework_approval_view_form
+msgid "Rework Approval"
+msgstr "Rehacer aprobacion"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form_inherit
+msgid "Security"
+msgstr "Seguridad"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval_type_config.py:0
+#, python-format
+msgid "Select State Field"
+msgstr "Seleccionar campo estado"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_line__sequence
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type_line__sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: rail_odoo_approvals
+#: model:res.groups,name:rail_odoo_approvals.group_approval_manager
+msgid "Settings"
+msgstr "Ajustes"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval.py:0
+#, python-format
+msgid "Something goes wrong!"
+msgstr "Algo salio mal!"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval_type_config.py:0
+#, python-format
+msgid "Something is wrong !"
+msgstr "Algo esta mal!"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval_type_config.py:0
+#, python-format
+msgid "Something wrong !"
+msgstr "Algo esta mal!"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__date_start
+msgid "Start Date"
+msgstr "Fecha inicio"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__state
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_line__state
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_test_approval__state
+msgid "State"
+msgstr "Estado"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form_popup
+msgid "State (or stage or status) field is required in Domain !"
+msgstr "Estado es requerido en la condición!"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__state_field_id
+msgid "State / Stage Field"
+msgstr "Campo estado"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__state_field
+msgid "State Field"
+msgstr "Campo estado"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_filter
+msgid "Status"
+msgstr "Estatus"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,help:rail_odoo_approvals.field_multi_approval__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Estado basado en actividades\n"
+"Atrasado: la fecha de vencimiento ya pasó\n"
+"Hoy: la fecha de la actividad es hoy\n"
+"Planeado: Actividades futuras."
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_form
+msgid "Submit"
+msgstr "Enviar"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.request_approval_view_form
+msgid "Submit Request"
+msgstr "Enviar solicitud"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval__state__submitted
+msgid "Submitted"
+msgstr "Enviado"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval_type.py:0
+#: code:addons/rail_odoo_approvals/models/multi_approval_type_config.py:0
+#, python-format
+msgid "Submitted Requests"
+msgstr "Solicitudes enviadas"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__mail_template_id
+msgid "Template for the request"
+msgstr "Plantilla para la solicitud"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__approve_mail_template_id
+msgid "Template of `Approved` Case"
+msgstr "Plantilla para solicitudes aprobadas"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__refuse_mail_template_id
+msgid "Template of `Refused` Case"
+msgstr "Plantilla para solicitudes rechazadas"
+
+#. module: rail_odoo_approvals
+#: model:ir.model,name:rail_odoo_approvals.model_test_approval
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.test_approval_view_form
+msgid "Test Approval"
+msgstr "Aprobacion de prueba"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval.py:0
+#, python-format
+msgid "The request {code} need to be reviewed"
+msgstr "La solicitud {code} necesita ser revisada"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval.py:0
+#, python-format
+msgid "There is no approver of the type \"{}\" !"
+msgstr "No hay aprobadores para el tipo \"{}\"!"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.approval_view_20230519142505
+msgid "This document has been approved !"
+msgstr "Este documento ha sido aprobado!"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.approval_view_20230519142505
+msgid "This document has been refused !"
+msgstr "Este documento ha sido rechazado!"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval_type_config.py:0
+#, python-format
+msgid "This document has been refused by manager !"
+msgstr "Este documento a sido rechazado por un administrador!"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.approval_view_20230519142505
+msgid "This document need to be approved !"
+msgstr "Este documento necesita ser aprobado!"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval_type_config.py:0
+#, python-format
+msgid "This document need to be approved by manager !"
+msgstr "Este documento necesita ser aprobado por un administrador!"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval_type_config.py:0
+#, python-format
+msgid "This model has no form view !"
+msgstr "Este modelo no tiene formulario!"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form_inherit
+msgid "This type has been configured!"
+msgstr "Este tipo ha sido configurado!"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__name
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_line__name
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type_line__name
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_request_approval__name
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_form
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.request_approval_view_form
+msgid "Title"
+msgstr "Titulo"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__test_approval__state__to_approve
+msgid "To Approved"
+msgstr "Por aprobar"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__test_approval__state__to_approve_2
+msgid "To Approved 2"
+msgstr "Por aprobar 2"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type__submitted_nb
+#: model:ir.ui.menu,name:rail_odoo_approvals.menu_multi_approval_approval
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_filter
+msgid "To Review"
+msgstr "Por revisar"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_kanban
+msgid "To Review:"
+msgstr "Por revisar:"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form_inherit
+msgid "To return an action, assign: <code>action = {...}</code>"
+msgstr "To return an action, assign: <code>action = {...}</code>"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval__type_id
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type_line__type_id
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_request_approval__type_id
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_rework_approval__type_id
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_filter
+msgid "Type"
+msgstr "Tipo"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_line__require_opt
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type_line__require_opt
+msgid "Type of Approval"
+msgstr "Tipo aprobacion"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields,help:rail_odoo_approvals.field_multi_approval__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo de actividad de excepción registrada."
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.change_approver_view_form
+msgid "Update"
+msgstr "Actualizar"
+
+#. module: rail_odoo_approvals
+#: model:ir.model,name:rail_odoo_approvals.model_res_users
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_line__user_id
+#: model:ir.model.fields,field_description:rail_odoo_approvals.field_multi_approval_type_line__user_id
+#: model:res.groups,name:rail_odoo_approvals.group_approval_user
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_view_filter
+msgid "User"
+msgstr "Usuario"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.multi_approval_type_view_form_inherit
+msgid ""
+"Various fields may use Python code or Python expressions. The following variables "
+"can <code>only</code> be used:"
+msgstr ""
+"Varios campos pueden usar código python o expresiones python. Las siguientes "
+"variables pueden <code>unicamente</code> usadas:"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval__priority__3
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__request_approval__priority__3
+msgid "Very High"
+msgstr "Muy alto"
+
+#. module: rail_odoo_approvals
+#: model:ir.model,name:rail_odoo_approvals.model_ir_ui_view
+msgid "View"
+msgstr "Ver"
+
+#. module: rail_odoo_approvals
+#: model_terms:ir.ui.view,arch_db:rail_odoo_approvals.approval_view_20230519142505
+msgid "View Approval"
+msgstr "Ver aprobacion"
+
+#. module: rail_odoo_approvals
+#: model:ir.model.fields.selection,name:rail_odoo_approvals.selection__multi_approval_line__state__waiting_for_approval
+msgid "Waiting for Approval"
+msgstr "Esperando aprobacion"
+
+#. module: rail_odoo_approvals
+#: model:mail.template,subject:rail_odoo_approvals.email_template_approved_request
+msgid "Your request {{ object.display_name }} has been approved"
+msgstr "Su solicitud {{ object.display_name }} ha sido aprobada"
+
+#. module: rail_odoo_approvals
+#: model:mail.template,subject:rail_odoo_approvals.email_template_refused_request
+msgid "Your request {{ object.display_name }} has been refused"
+msgstr "Su solicitud {{ object.display_name }} ha sido rechazada"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/wizard/request_approval.py:0
+#, python-format
+msgid "this object"
+msgstr "this object"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval.py:0
+#, python-format
+msgid "{} do not have the authority to approve this request !"
+msgstr "{} no tiene los permisos para aprobar esta solicitud !"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval_config.py:0
+#, python-format
+msgid "{} has approved this document !"
+msgstr "{} ha aprobado este documento!"
+
+#. module: rail_odoo_approvals
+#. odoo-python
+#: code:addons/rail_odoo_approvals/models/multi_approval_config.py:0
+#, python-format
+msgid "{} has refused this document due to this reason: {}"
+msgstr "{} ha rechazado este documento debido a la siguiente razón: {}"

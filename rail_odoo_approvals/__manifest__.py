@@ -4,7 +4,7 @@
     'version': '16.0.1.0',
     'category': 'Approvals',
     
-    'summary': '''
+    'description': '''
     Create and validate approval requests. Each request can be approved by many levels of different managers
     ''',
     'author': 'Rail / Kevin Lopez',
