@@ -5,7 +5,9 @@ import werkzeug.urls
 import urllib.parse
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
+import logging
 
+_logger = logging.getLogger(__name__)
 
 class RequestApproval(models.TransientModel):
     _name = 'request.approval'
@@ -38,7 +40,11 @@ class RequestApproval(models.TransientModel):
             'model': obj._name,
             'id': obj.id
         }
+        _logger.critical("BASE: " + base)
+        _logger.critical("FRAGMENT: " + str(fragment))
         url = base + werkzeug.urls.url_encode(fragment)
+        _logger.critical("URL: " + str(url))
+        _logger.critical("WEB.BASE.URL: "+ str(self.env['ir.config_parameter'].sudo().get_param('web.base.url')))
         return "%s/%s" % (
             self.env['ir.config_parameter'].sudo().get_param('web.base.url'),
             url
@@ -70,6 +76,7 @@ class RequestApproval(models.TransientModel):
         record_url = self._get_obj_url(record)
         if approval_type.request_tmpl:
             request_tmpl= werkzeug.urls.url_unquote(_(approval_type.request_tmpl))
+            _logger.critical("REQUEST_TMPL: " + str(request_tmpl))
             descr = request_tmpl.format(
                 record_url=record_url,
                 record_name=record_name,
