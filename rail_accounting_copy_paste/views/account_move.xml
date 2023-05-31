@@ -21,4 +21,21 @@
             </xpath>
         </field>
     </record>
+    <record id="copy_paste_account_search" model="ir.ui.view">
+        <field name="name">copy.paste.account.search</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_move_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='to_check']" position="after">
+                <filter string="Sincronizado" name="synced" domain="[('synced', '=', True)]"/>
+                <filter string="No Sincronizado" name="not_synced" domain="[('synced', '=', False)]"/>
+                <separator/>
+            </xpath>
+            <xpath expr="//filter[@name='by_company']" position="after">
+                <separator/>
+                <filter string="Sincronizado" name="by_synced" context="{'group_by': 'synced'}"/>
+                <filter string="Compañia origen" name="source_company" context="{'group_by': 'source_company_id'}"/>
+            </xpath>
+        </field>
+    </record>
 </odoo>

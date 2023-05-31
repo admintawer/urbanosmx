@@ -21,7 +21,7 @@ class AccountEdiFormat(models.Model):
             return tax.amount < 0.0 and tax.local_tax
 
         vals['tax_details_withholding'] = invoice._prepare_edi_tax_details(filter_to_apply=filter_tax_withholding, filter_invl_to_apply=filter_void_tax_line)
-        vals['tax_details_local_withholding'] = invoice._prepare_edi_tax_details (filter_to_apply=filter_tax_local_withholding, filter_invl_to_apply=filter_void_tax_line)
+        vals['tax_details_local_withholding'] = invoice._prepare_edi_tax_details(filter_to_apply=filter_tax_local_withholding, filter_invl_to_apply=filter_void_tax_line)
 
         _logger.critical('IMPUESTOS LOCALES')
         _logger.critical(vals['tax_details_local_withholding']['tax_details'])
