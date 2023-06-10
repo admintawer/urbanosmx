@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_rail_patches_rail_patches,rail_patches.rail_patches,model_rail_patches_rail_patches,base.group_user,1,1,1,1
