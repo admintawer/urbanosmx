@@ -1,0 +1,14 @@
+<odoo>
+  <data>
+    <record id="account_move_normal_draft_button" model="ir.ui.view">
+      <field name="name">account.move.normal.draft.button</field>
+      <field name="model">account.move</field>
+      <field name="inherit_id" ref="account.view_move_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//button[@name='button_draft']" position="replace">
+          <button name="button_draft" string="Regresar a borrador" type="object" groups="account.group_account_invoice" states="posted,cancel" data-hotkey="q"/>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>
