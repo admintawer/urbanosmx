@@ -221,6 +221,10 @@
                             
                                 <div class="o_kanban_record_bottom">
                                     <div class="oe_kanban_bottom_left">
+                                        Fecha solicitud:<field name="request_date"/>
+                                        <br/>
+                                        Fecha limite:<field name="deadline"/>
+                                        <br/>
                                         <button name="action_approve" type="object"
                                             string="APROBAR"
                                             attrs="{'invisible': ['|', ('is_pic', '=', False), ('state', '!=', 'Submitted')]}"
@@ -230,10 +234,6 @@
                                             string="RECHAZAR" 
                                             class="btn btn-danger" 
                                             confirm="Esta seguro(a) de rechazar esta solicitud"/>
-                                    </div>
-                                    <div class="oe_kanban_bootm_left">
-                                        <field name="request_date"/>
-                                        <field name="deadline"/>
                                     </div>
                                     <div class="oe_kanban_bottom_right">
                                         <field name="activity_ids" widget="kanban_activity"/>
