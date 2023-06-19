@@ -76,8 +76,9 @@ class RequestApproval(models.TransientModel):
         record_url = self._get_obj_url(record)
         if approval_type.request_tmpl:
             request_tmpl= werkzeug.urls.url_unquote(_(approval_type.request_tmpl))
-            _logger.critical("REQUEST_TMPL: " + str(request_tmpl))
+            #_logger.critical("REQUEST_TMPL: " + str(request_tmpl))
             descr = request_tmpl.format(
+                approval = self,
                 record_url=record_url,
                 record_name=record_name,
                 record=record

@@ -14,6 +14,15 @@
                 <field name="pic_id" />
                 <field name="deadline" />
                 <field name="state" />
+                <button name="action_approve" type="object"
+                    string="APROBAR"
+                    attrs="{'invisible': ['|', ('is_pic', '=', False), ('state', '!=', 'Submitted')]}"
+                    class="oe_highlight" />
+                <button name="%(rail_odoo_approvals.refused_reason_action)d" type="action"
+                    attrs="{'invisible': ['|', ('is_pic', '=', False), ('state', '!=', 'Submitted')]}"
+                    string="RECHAZAR" 
+                    class="btn btn-danger" 
+                    confirm="Esta seguro(a) de rechazar esta solicitud"/>
             </tree>
         </field>
     </record>
@@ -220,6 +229,10 @@
                                             string="RECHAZAR" 
                                             class="btn btn-danger" 
                                             confirm="Esta seguro(a) de rechazar esta solicitud"/>
+                                    </div>
+                                    <div class="oe_kanban_bootm_left">
+                                        <field name="request_date"/>
+                                        <field name="deadline"/>
                                     </div>
                                     <div class="oe_kanban_bottom_right">
                                         <field name="activity_ids" widget="kanban_activity"/>

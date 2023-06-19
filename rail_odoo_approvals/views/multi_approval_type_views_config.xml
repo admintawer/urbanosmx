@@ -40,7 +40,7 @@
             </xpath>
             <xpath expr="//notebook" position="inside">
                 <page string="Description Template" attrs="{'invisible': [('apply_for_model', '=', False)]}">
-                    <field name="request_tmpl"/>
+                    <field name="request_tmpl" options="{'style-inline': true, 'codeview': true, 'dynamic_placeholder': true}"/>
                 </page>
                 <page string="Security" attrs="{'invisible': [('apply_for_model', '=', False)]}">
                     <group>
