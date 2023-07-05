@@ -74,6 +74,17 @@ class RequestApproval(models.TransientModel):
         record_name = record.display_name or _('this object')
         title = _('Request approval for {}').format(record_name)
         record_url = self._get_obj_url(record)
+        account_analytic_obj = self.env['account.analytic.account']
+        analytic_str = ""
+        try:
+            for l in record.order_line:
+                analytic_list = list(l.analytic_distribution)
+                for a in analytic_list:
+                    analytic_id = account_analytic_obj.search([('id','=', a)])
+                    analytic_str += analytic_id.name + ","
+        except:
+            pass
+
         if approval_type.request_tmpl:
             request_tmpl= werkzeug.urls.url_unquote(_(approval_type.request_tmpl))
             #_logger.critical("REQUEST_TMPL: " + str(request_tmpl))
@@ -81,7 +92,8 @@ class RequestApproval(models.TransientModel):
                 approval = self,
                 record_url=record_url,
                 record_name=record_name,
-                record=record
+                record=record,
+                analytic_str=analytic_str
             )
         else:
             descr = ''
