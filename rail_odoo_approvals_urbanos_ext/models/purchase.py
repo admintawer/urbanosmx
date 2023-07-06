@@ -15,4 +15,5 @@ class PurchaseOrder(models.Model):
             or (self.company_id.po_double_validation == 'two_step'
                 and self.amount_total < self.env.company.currency_id._convert(
                     self.company_id.po_double_validation_amount, self.currency_id, self.company_id,
-                    self.date_order or fields.Date.today())))
+                    self.date_order or fields.Date.today()))
+            or self.state == 'to approve')
