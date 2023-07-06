@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Odoo Approval Urbanox MX',
-    'version': '16.0.1.0',
+    'version': '16.0.1.1',
     'category': 'Approvals',
     
     'description': '''
@@ -12,7 +12,7 @@
     'currency': 'USD',
     'license': 'OPL-1',
     'depends': [
-        'account','rail_odoo_approvals',
+        'account','rail_odoo_approvals','purchase',
     ],
     'data': [
         
