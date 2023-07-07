@@ -210,6 +210,14 @@
                                     <field name="state" widget="label_selection" options="{'classes': {'draft': 'default', 'cancel': 'warning', 'approved': 'success', 'refused': 'danger'}}"/>
                                 </strong>
                             </div>
+                            <div class="row mb4">
+                                <div class="col-6 o_kanban_record_headings">
+                                    <span>Solicitud:</span><field name="request_date" widget="date"/>
+                                </div>
+                                <div class="col-6 text-end">
+                                    <span>Limite:</span><field name="deadline"/>
+                                </div>
+                            </div>
                             <div class="oe_kanban_details d-flex flex-column justify-content-between">
                                 <p class="oe_module_name">
                                     <field name="name" />
@@ -221,10 +229,6 @@
                             
                                 <div class="o_kanban_record_bottom">
                                     <div class="oe_kanban_bottom_left">
-                                        Fecha solicitud:<field name="request_date"/>
-                                        <br/>
-                                        Fecha limite:<field name="deadline"/>
-                                        <br/>
                                         <button name="action_approve" type="object"
                                             string="APROBAR"
                                             attrs="{'invisible': ['|', ('is_pic', '=', False), ('state', '!=', 'Submitted')]}"
