@@ -16,7 +16,7 @@ class AccountMove(models.Model):
     # ISERTP WITHOLDING
     #-----------
 
-    use_isertp = fields.Boolean(string="Calcular ISERTP")
+    use_isertp = fields.Boolean(string="Impuestos locales")
 
     isertp_amount = fields.Float(string="ISERTP")
     servicio_control = fields.Float(string="Servicios de control")
