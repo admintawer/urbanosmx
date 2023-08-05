@@ -60,11 +60,12 @@
                             t-att-Descripcion="format_string(line.name, 1000)"
                             t-att-ValorUnitario="format_float(line_values['gross_price_total_unit'] if tax_objected == '02' else (line.price_total + line_values['price_discount']) / line.quantity, currency_precision)"
                             t-att-Importe="format_float(line_values['price_subtotal_before_discount'] if tax_objected == '02' else line.price_total + line_values['price_discount'], currency_precision)"
-                            t-att-ObjetoImp="'01' if tax_objected == '02' and line_values['price_discount'] == line_values['price_subtotal_before_discount'] else tax_objected"
+                            t-att-ObjetoImp="'01' if (line_values['price_discount'] == line_values['price_subtotal_before_discount'] or not line['tax_ids']) else tax_objected"
                             t-att-Descuento="format_float(line_values['price_discount'], currency_precision) if not record.currency_id.is_zero(line_values['price_discount']) else None">
                             <t t-set="tax_detail_transferred" t-value="tax_details_transferred['tax_details_per_record'][line]"/>
                             <t t-set="tax_detail_withholding" t-value="tax_details_withholding['tax_details_per_record'][line]"/>
                             <t t-if="tax_detail_transferred['tax_details'] or tax_detail_withholding['tax_details']">
+
                                 <cfdi:Impuestos t-if="tax_objected == '02' and line_values['price_discount'] != line_values['price_subtotal_before_discount']">
                                     <t t-if="tax_detail_transferred['tax_details']">
                                         <cfdi:Traslados>
@@ -99,89 +100,7 @@
                     </t>
                 </cfdi:Conceptos>
                 <t t-if="tax_details_transferred['tax_details'] or tax_details_withholding['tax_details']">
-                    <t t-if="record.use_isertp">
-                        <cfdi:Impuestos t-if="tax_objected == '02'"
-                            t-att-TotalImpuestosTrasladados="format_float(tax_details_transferred['tax_amount_currency'], currency_precision) if has_tax_details_transferred_no_exento else None">
-                            <cfdi:Retenciones t-if="tax_details_withholding['tax_details']">
-                                <t t-foreach="tax_details_withholding['tax_details'].values()" t-as="tax_detail_vals">
-                                    <t t-set="tax" t-value="tax_detail_vals['tax']"/>
-                                    <cfdi:Retencion
-                                        t-att-Importe="format_float(-1 * tax_detail_vals['tax_amount_currency'], currency_precision)"
-                                        t-att-Impuesto="get_tax_cfdi_name(tax_detail_vals)"/>
-                                </t>
-                            </cfdi:Retenciones>
-                            <cfdi:Traslados t-if="tax_details_transferred['tax_details']">
-                                <t t-foreach="tax_details_transferred['tax_details'].values()" t-as="tax_detail_vals">
-                                    <t t-set="tax" t-value="tax_detail_vals['tax']"/>
-                                    <cfdi:Traslado
-                                        t-att-Base="format_float(tax_detail_vals['base_amount_currency'], currency_precision)"
-                                        t-att-Importe="format_float(tax_detail_vals['tax_amount_currency'], currency_precision) if tax.l10n_mx_tax_type != 'Exento' else False"
-                                        t-att-Impuesto="get_tax_cfdi_name(tax_detail_vals)"
-                                        t-att-TipoFactor="tax.l10n_mx_tax_type"
-                                        t-att-TasaOCuota="format_float(tax_detail_vals['tax_rate_transferred'], 6)"/>
-                                </t>
-                            </cfdi:Traslados>
-                        </cfdi:Impuestos>
-                    </t>
-                    <t t-else="">
-                        <cfdi:Impuestos t-if="tax_objected == '02'"
-                            t-att-TotalImpuestosTrasladados="format_float(tax_details_transferred['tax_amount_currency'], currency_precision) if has_tax_details_transferred_no_exento else None"
-                            t-att-TotalImpuestosRetenidos="format_float(-1 * tax_details_withholding['tax_amount_currency'], currency_precision) if has_tax_details_withholding_no_exento else None">
-                            <cfdi:Retenciones t-if="tax_details_withholding['tax_details']">
-                                <t t-foreach="tax_details_withholding['tax_details'].values()" t-as="tax_detail_vals">
-                                    <t t-set="tax" t-value="tax_detail_vals['tax']"/>
-                                    <cfdi:Retencion
-                                        t-att-Importe="format_float(-1 * tax_detail_vals['tax_amount_currency'], currency_precision)"
-                                        t-att-Impuesto="get_tax_cfdi_name(tax_detail_vals)"/>
-                                </t>
-                            </cfdi:Retenciones>
-                            <cfdi:Traslados t-if="tax_details_transferred['tax_details']">
-                                <t t-foreach="tax_details_transferred['tax_details'].values()" t-as="tax_detail_vals">
-                                    <t t-set="tax" t-value="tax_detail_vals['tax']"/>
-                                    <cfdi:Traslado
-                                        t-att-Base="format_float(tax_detail_vals['base_amount_currency'], currency_precision)"
-                                        t-att-Importe="format_float(tax_detail_vals['tax_amount_currency'], currency_precision) if tax.l10n_mx_tax_type != 'Exento' else False"
-                                        t-att-Impuesto="get_tax_cfdi_name(tax_detail_vals)"
-                                        t-att-TipoFactor="tax.l10n_mx_tax_type"
-                                        t-att-TasaOCuota="format_float(tax_detail_vals['tax_rate_transferred'], 6)"/>
-                                </t>
-                            </cfdi:Traslados>
-                        </cfdi:Impuestos>
-                    </t>
-                </t>
-            </cfdi:Comprobante>
-        </xpath>
-
-        <!--xpath expr="//*[name()='cfdi:Impuestos']" position="replace">
-            <t t-if="tax_details_transferred['tax_details'] or tax_details_withholding['tax_details']">
-                <t t-if="record.use_isertp">
                     <cfdi:Impuestos t-if="tax_objected == '02'"
-                        xmlns:cfdi="http://www.sat.gob.mx/cfd/4"
-                        t-att-TotalImpuestosTrasladados="format_float(tax_details_transferred['tax_amount_currency'], currency_precision) if has_tax_details_transferred_no_exento else None">
-                        <cfdi:Retenciones t-if="tax_details_withholding['tax_details']">
-                            <t t-foreach="tax_details_withholding['tax_details'].values()" t-as="tax_detail_vals">
-                                <t t-set="tax" t-value="tax_detail_vals['tax']"/>
-                                <cfdi:Retencion
-                                    t-att-Importe="format_float(-1 * tax_detail_vals['tax_amount_currency'], currency_precision)"
-                                    t-att-Impuesto="get_tax_cfdi_name(tax_detail_vals)"/>
-                            </t>
-                        </cfdi:Retenciones>
-                        <cfdi:Traslados t-if="tax_details_transferred['tax_details']">
-                            <t t-foreach="tax_details_transferred['tax_details'].values()" t-as="tax_detail_vals">
-                                <t t-set="tax" t-value="tax_detail_vals['tax']"/>
-                                <cfdi:Traslado
-                                    t-att-Base="format_float(tax_detail_vals['base_amount_currency'], currency_precision)"
-                                    t-att-Importe="format_float(tax_detail_vals['tax_amount_currency'], currency_precision) if tax.l10n_mx_tax_type != 'Exento' else False"
-                                    t-att-Impuesto="get_tax_cfdi_name(tax_detail_vals)"
-                                    t-att-TipoFactor="tax.l10n_mx_tax_type"
-                                    t-att-TasaOCuota="format_float(tax_detail_vals['tax_rate_transferred'], 6)"/>
-                            </t>
-                        </cfdi:Traslados>
-                    </cfdi:Impuestos>
-                </t>
-                <t t-else="">
-                    <cfdi:Impuestos t-if="tax_objected == '02'"
-                        xmlns:cfdi="http://www.sat.gob.mx/cfd/4"
                         t-att-TotalImpuestosTrasladados="format_float(tax_details_transferred['tax_amount_currency'], currency_precision) if has_tax_details_transferred_no_exento else None"
                         t-att-TotalImpuestosRetenidos="format_float(-1 * tax_details_withholding['tax_amount_currency'], currency_precision) if has_tax_details_withholding_no_exento else None">
                         <cfdi:Retenciones t-if="tax_details_withholding['tax_details']">
@@ -205,15 +124,14 @@
                         </cfdi:Traslados>
                     </cfdi:Impuestos>
                 </t>
-            </t>
-        </xpath-->
+            </cfdi:Comprobante>
+        </xpath>
         <xpath expr="*" position="inside">
             <t t-if="record.use_isertp">
                 <cfdi:Complemento
                     xmlns:cfdi="http://www.sat.gob.mx/cfd/4"
                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                     <implocal:ImpuestosLocales
-                        xmlns:implocal="http://www.sat.gob.mx/implocal"
                         version="1.0"
                         t-att-TotaldeRetenciones="format_float(-1 * tax_details_local_withholding['tax_amount_currency'], currency_precision)"
                         TotaldeTraslados="0.00">
@@ -232,16 +150,6 @@
                                     t-att-Importe="format_float(local_tax_detail_vals['tax_amount_currency'] * -1, currency_precision)"/>
                             </t>
                         </t>
-                        <!--t t-foreach="tax_details_local_withholding['tax_details'].values().filtered(lambda x: x[tax].local_amount_type == 'fixed')" t-as="tax_local_line_fixed">
-                            <implocal:RetencionesLocales
-                                ImpLocRetenido=""
-                                TasadeRetencion="0.00"
-                                t-att-Importe="tax_local_line.debit"/>
-                        </t-->
-                        <!--implocal:RetencionesLocales ImpLocRetenido="ARTICULO 184 I" TasadeRetencion="1.50" Importe="20111.66"/>
-			            <implocal:RetencionesLocales ImpLocRetenido="ARTICULO 184 II" TasadeRetencion="2.00" Importe="201116.61"/>
-			            <implocal:RetencionesLocales ImpLocRetenido="" TasadeRetencion="0.00" Importe="50279.15"/>
-			            <implocal:RetencionesLocales ImpLocRetenido="" TasadeRetencion="0.00" Importe="22498.08"/-->
                     </implocal:ImpuestosLocales>
                 </cfdi:Complemento>
             </t>
