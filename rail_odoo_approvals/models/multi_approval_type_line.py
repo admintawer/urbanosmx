@@ -22,6 +22,9 @@ class MultiApprovalTypeLine(models.Model):
          ], string="Type of Approval", default='Required')
     type_id = fields.Many2one(
         string="Type", comodel_name="multi.approval.type")
+    
+    mail_notification = fields.Boolean("Notificacion por email")
+    activity_notification = fields.Boolean("Notificacion actividad")
 
     def get_user(self):
         self.ensure_one()

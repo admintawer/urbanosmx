@@ -290,7 +290,8 @@ class MultiApproval(models.Model):
     # 12.0.1.3
     def send_request_mail(self):
         requests = self.filtered(
-            lambda r: r.type_id.mail_notification and r.pic_id and
+            #lambda r: r.type_id.mail_notification and r.pic_id and #Changed to set condition by approver line
+            lambda r: r.mail_notification and r.pic_id and
                 r.state == 'Submitted'
         )
         for req in requests:
@@ -340,7 +341,7 @@ class MultiApproval(models.Model):
         notify_type = self.env.ref("mail.mail_activity_data_todo", False)
         if not notify_type:
             return
-        for req in requests:
+        for req in requests.filtered(lambda x: x.pic_id.activity_notification):
             summary = _("The request {code} need to be reviewed").format(
                 code=req.code
             )

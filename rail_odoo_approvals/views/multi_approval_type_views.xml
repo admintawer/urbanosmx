@@ -58,6 +58,8 @@
                                         <field name="name" />
                                         <field name="user_id" />
                                         <field name="require_opt" />
+                                        <field name="mail_notification" attrs="{'column_invisible': [('parent.mail_notification','=',False)]}"/>
+                                        <field name="activity_notification" attrs="{'column_invisible': [('parent.activity_notification','=',False)]}"/>
                                     </tree>
                                 </field>
                             </group>
