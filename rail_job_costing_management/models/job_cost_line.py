@@ -29,7 +29,9 @@ class JobCostLine(models.Model):
     @api.depends('purchase_order_line_ids', 'purchase_order_line_ids.product_qty', 'purchase_order_line_ids.order_id.state')
     def _compute_actual_quantity(self):
         for rec in self:
-            rec.actual_quantity = sum([p.order_id.state in ['purchase', 'done'] and p.product_qty for p in rec.purchase_order_line_ids])
+            actual_qty = sum([p.order_id.state in ['purchase', 'done'] and p.product_qty for p in rec.purchase_order_line_ids])
+            rec.actual_quantity = actual_qty
+            rec.actual_cost = actual_qty * rec.cost_price
             rec.remain_quantity = rec.product_qty - sum([p.order_id.state in ['purchase', 'done'] and p.product_qty for p in rec.purchase_order_line_ids])
             
     @api.depends('timesheet_line_ids','timesheet_line_ids.unit_amount')
@@ -133,6 +135,10 @@ class JobCostLine(models.Model):
     actual_quantity = fields.Float(
         string='Comprado',
         compute='_compute_actual_quantity',
+    )
+    actual_cost = fields.Float(
+        string='Valor comprado',
+        compute='_compute_actual_quantity'
     )
     remain_quantity = fields.Float(
         string='Remanente',

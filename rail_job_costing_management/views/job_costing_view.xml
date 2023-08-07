@@ -86,6 +86,7 @@
                                     <field name="cost_price" sum="Total"/>
                                     <field name="product_qty" sum="Total"/>
                                     <field name="actual_quantity" sum="Total"/>
+                                    <field name="actual_cost" sum="Total"/>
                                     <field name="remain_quantity" sum="Total"/>
                                     <field name="actual_invoice_quantity" sum="Total"/>
                                     <field name="total_cost" widget="monetary" sum="Total"/>
