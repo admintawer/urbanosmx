@@ -83,7 +83,7 @@ class HrPayslip(models.Model):
     xml_nomina_link = fields.Char(string=_('XML link'), readonly=True)
     nomina_cfdi = fields.Boolean('Nomina CFDI')
     cfdi_xml = fields.Binary("XML")
-    qrcode_image = fields.Binary("QRCode")
+    qrcode_image = fields.Binary("QRCode", copy=False)
     qr_value = fields.Char(string=_('QR Code Value'))
     numero_cetificado = fields.Char(string=_('Numero de cetificado'))
     cetificaso_sat = fields.Char(string=_('Cetificado SAT'))
@@ -1542,8 +1542,13 @@ class HrPayslip(models.Model):
             payload = json.dumps({
                 'data': xml.decode('UTF8')
             })
-            if not credentials['token']:
-                raise ValidationError('Se ha producido un error al obtener el token de transaccion, intenta de nuevo o comunicate a soporte')
+            #raise ValidationError(str(credentials))
+            try:
+                if not credentials['token']:
+                    raise ValidationError('Se ha producido un error al obtener el token de transaccion, intenta de nuevo o comunicate a soporte \n'
+                                        + str(credentials))
+            except:
+                raise ValidationError(str(credentials))
             token_sw = "Bearer %s" % credentials['token']
             files = []
 
@@ -1599,8 +1604,8 @@ class HrPayslip(models.Model):
                     payslip.selo_sat = resultadoTimbrado['selloSAT']
                     payslip.folio_fiscal = resultadoTimbrado['uuid']
                     payslip.version = resultadoTimbrado['versionTFD']
-
-                    payslip.qrcode_image = base64.b64encode(resultadoTimbrado['qrCode'])
+                    qr_str = resultadoTimbrado['qrCode'].encode('utf-8')
+                    payslip.qrcode_image = base64.b64encode(qr_str)
 
                     dict_data = dict(xmltodict.parse(resultadoTimbrado['cfdiTimbrado']).get('cfdi:Comprobante', {}))
                     tfd = dict_data
@@ -1641,9 +1646,12 @@ class HrPayslip(models.Model):
                     payslip.fecha_certificacion = datetime.datetime.strptime(resultadoTimbrado['fechaTimbrado'], '%Y-%m-%dT%H:%M:%S').date()
                     payslip.selo_sat = resultadoTimbrado['selloSAT']
                     payslip.folio_fiscal = resultadoTimbrado['uuid']
-                    #payslip.version = resultadoTimbrado['versionTFD']
-
-                    payslip.qrcode_image = base64.b64encode(resultadoTimbrado['qrCode'].encode('UTF-8'))
+                    qr_str = resultadoTimbrado['qrCode'].encode('utf-8')
+                    qr_decode = base64.b64decode(qr_str)
+                    qr = payslip.write({
+                        'qrcode_image': base64.b64encode(qr_decode),
+                    })
+                    _logger.critical(qr)
 
                     dict_data = dict(xmltodict.parse(resultadoTimbrado['cfdi']).get('cfdi:Comprobante', {}))
                     tfd = dict_data
