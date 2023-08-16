@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from ast import Bytes
-import base64, requests, xmltodict, os, io, datetime, math, pytz, random, string, json
+import base64, requests, xmltodict, os, io, datetime, math, pytz, random, string, json, qrcode
 from unittest import result
 from xml.dom import minidom
 from lxml import etree, objectify
@@ -25,6 +25,21 @@ import logging
 _logger = logging.getLogger(__name__)
 
 from collections import defaultdict, OrderedDict
+
+def generate_cfdi_qr_code(url):
+    qr = qrcode.QRCode(
+             version=1,
+             error_correction=qrcode.constants.ERROR_CORRECT_L,
+             box_size=20,
+             border=4,
+             )
+    qr.add_data(url)
+    qr.make(fit=True)
+    img = qr.make_image()
+    temp = BytesIO()
+    img.save(temp, format="PNG")
+    qr_img = base64.b64encode(temp.getvalue())
+    return qr_img
 
 class HrSalaryRule(models.Model):
     _inherit = 'hr.salary.rule'
@@ -63,6 +78,18 @@ class HrSalaryRule(models.Model):
 class HrPayslip(models.Model):
     _name = "hr.payslip"
     _inherit = ['hr.payslip','mail.thread']
+
+    def generate_qr_code(self):
+        for r in self:
+            #if r.folio and r.company_id.vat and r.employee_id.rfc and r.line_ids:
+            base_url = 'https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?&id=%s'
+            id = r.folio_fiscal + "&re=" + r.company_id.vat + "&rr=" + r.employee_id.rfc + "&tt="
+            mto = 0
+            for l in r.line_ids.filtered(lambda x: x.name == 'Sueldo neto en efectivo'):
+                mto += l.total
+            id += '{:020.6f}'.format(mto)
+            self.qrcode_image = generate_cfdi_qr_code(base_url % id)
+
 
 
     tipo_nomina = fields.Selection(
