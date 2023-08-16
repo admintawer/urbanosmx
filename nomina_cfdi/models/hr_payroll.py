@@ -1,24 +1,19 @@
 # -*- coding: utf-8 -*-
-
-from ast import Bytes
-import base64, requests, xmltodict, os, io, datetime, math, pytz, random, string, json, qrcode
-from unittest import result
-from xml.dom import minidom
+from odoo import api, fields, models, _
+import base64, requests, xmltodict, os, datetime, math, pytz, random, string, json, qrcode, urllib
 from lxml import etree, objectify
 from io import BytesIO
-from datetime import timedelta, date
+from datetime import timedelta
 from datetime import time as datetime_time
-from pytz import timezone
-from odoo import api, fields, models, _
 from odoo.exceptions import UserError,ValidationError
-from reportlab.graphics.barcode import createBarcodeDrawing #, getCodes
-from xml.etree.ElementTree import Element, ElementTree,  SubElement, Comment, parse, tostring, fromstring
+from xml.etree.ElementTree import Element, ElementTree,  SubElement, tostring
 from reportlab.lib.units import mm
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from odoo import tools
 from zeep import Client
 from zeep.transports import Transport
-from json.decoder import JSONDecodeError
+from urllib.parse import quote_plus
+
 
 
 import logging
@@ -83,12 +78,12 @@ class HrPayslip(models.Model):
         for r in self:
             #if r.folio and r.company_id.vat and r.employee_id.rfc and r.line_ids:
             base_url = 'https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?&id=%s'
-            id = r.folio_fiscal + "&re=" + r.company_id.vat + "&rr=" + r.employee_id.rfc + "&tt="
+            
             mto = 0
             for l in r.line_ids.filtered(lambda x: x.name == 'Sueldo neto en efectivo'):
                 mto += l.total
-            id += '{:020.6f}'.format(mto)
-            self.qrcode_image = generate_cfdi_qr_code(base_url % id)
+            id = r.folio_fiscal + "&re=" + r.company_id.vat + "&rr=" + r.employee_id.rfc + "&tt=" + '{:020.6f}'.format(mto) + "&fe=" + quote_plus(r.selo_sat[-8:]).replace('%2B', '+').replace('%3D','=')
+            self.qrcode_image = generate_cfdi_qr_code(base_url % id) 
 
 
 
