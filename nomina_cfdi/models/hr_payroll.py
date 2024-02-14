@@ -1071,7 +1071,7 @@ class HrPayslip(models.Model):
                         'ImporteGravado': '0',
                         'ImporteExento': round(line.total,2)
                         })
-        if self.employee_id.contrato != '09' and not self.struct_id.asimilados:
+        if self.employee_id.tipo_contrato != '09' and not self.struct_id.asimilados:
             lineas_de_otros.append({
                 'TipoOtrosPagos': "002",
                 'Clave': "002",
@@ -1195,8 +1195,8 @@ class HrPayslip(models.Model):
             regimen = '605'
             contrato = '99'
         else:
-            regimen = self.employee_id.regimen
-            contrato = self.employee_id.contrato
+            regimen = self.employee_id.tipo_regimen
+            contrato = self.employee_id.tipo_contrato
         cur_time = datetime.datetime.now(pytz.timezone(self.env.user.tz))
         cert = self.company_id.l10n_mx_edi_certificate_ids
         if not cert:
@@ -1275,9 +1275,9 @@ class HrPayslip(models.Model):
                 'NumSeguridadSocial': self.employee_id.segurosocial or '',
                 'FechaInicioRelLaboral': fields.Date.to_string(self.contract_id.date_start) or '',
                 'Antigüedad': 'P' + f'{antiguedad:.0f}' + 'W',
-                'TipoContrato': contrato or '',
+                'TipoContrato': contrato,
                 'TipoJornada': str(self.employee_id.jornada),
-                'TipoRegimen': self.employee_id.contrato,
+                'TipoRegimen': self.employee_id.tipo_regimen,
                 'NumEmpleado': self.employee_id.no_empleado or '',
                 'Departamento': '',##NECESITAMOS ESTE DATO CONFORME A LA DOCUMENTACION DEL SAT
                 'Puesto': '',##NECESITAMOS ESTE DATO CONFORME A LA DOCUMENTACION DEL SAT
@@ -1376,7 +1376,7 @@ class HrPayslip(models.Model):
                 'TipoContrato': contrato or '',
                 #'Sindicalizado': "No",
                 #'TipoJornada': str(self.employee_id.jornada),
-                'TipoRegimen': self.employee_id.contrato,
+                'TipoRegimen': self.employee_id.tipo_regimen,
                 'NumEmpleado': self.employee_id.no_empleado or '',
                 #'RiesgoPuesto': str(self.contract_id.riesgo_puesto) or '',
                 'PeriodicidadPago': str(self.contract_id.periodicidad_pago) or '',
@@ -1393,7 +1393,7 @@ class HrPayslip(models.Model):
                 'TipoContrato': contrato or '',
                 #'Sindicalizado': "No",
                 'TipoJornada': str(self.employee_id.jornada),
-                'TipoRegimen': str(self.employee_id.contrato),
+                'TipoRegimen': str(self.employee_id.tipo_regimen),
                 'NumEmpleado': self.employee_id.no_empleado or '',
                 'RiesgoPuesto': str(self.contract_id.riesgo_puesto) or '',
                 'PeriodicidadPago': str(self.contract_id.periodicidad_pago) or '',
@@ -1626,9 +1626,9 @@ class HrPayslip(models.Model):
                     payslip.selo_sat = resultadoTimbrado['selloSAT']
                     payslip.folio_fiscal = resultadoTimbrado['uuid']
                     payslip.version = resultadoTimbrado['versionTFD']
-                    qr_str = resultadoTimbrado['qrCode'].encode('utf-8')
-                    payslip.qrcode_image = base64.b64encode(qr_str)
-
+                    #qr_str = resultadoTimbrado['qrCode'].encode('utf-8') TODO Estos cambios se aplicaron por que no se guardaba el QR en urbanos
+                    #payslip.qrcode_image = base64.b64encode(qr_str) TODO Pero al parecer hay que regresarlo a como estaba
+                    payslip.qrcode_image = base64.b64encode(resultadoTimbrado['qrCode'])
                     dict_data = dict(xmltodict.parse(resultadoTimbrado['cfdiTimbrado']).get('cfdi:Comprobante', {}))
                     tfd = dict_data
 

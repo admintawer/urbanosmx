@@ -125,6 +125,9 @@
                     <button string="Calcular hojas" name="compute_sheets" type="object" attrs="{'invisible': [('state', '!=', 'draft')]}" class="oe_highlight" help="Recompute the payslip lines only, not the worked days / input lines"/>
                     <button string="Calcular hojas" name="compute_sheets" type="object" attrs="{'invisible': [('state', '!=', 'verify')]}" help="Recompute the payslip lines only, not the worked days / input lines"/>
                 </button>
+                <xpath expr="//button[@name='action_draft']" position="replace">
+                    <button string="Regresar a borrador" name="action_draft" type="object" confirm="Esta seguro(a) de continuar?" attrs="{'invisible':[('all_payslip_generated','=',True)]}"/>
+                </xpath>
                 <xpath expr="//sheet" position="replace">
                     <sheet>
                         <label for="name" class="oe_edit_only"/>
