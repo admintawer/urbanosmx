@@ -182,4 +182,10 @@ class TablasVacacioneslLine(models.Model):
 
     form_id = fields.Many2one('hr.contract', string='Vacaciones', required=True)
     dias = fields.Integer('Dias disponibles') 
-    ano = fields.Integer(string=_('Año'))
+    ano = fields.Selection(
+        selection=[('2018', '2018'),
+                   ('2019', '2019'),
+                   ('2020', '2020'),
+                   ('2021', '2021'),
+                   ],
+        string=_('Año'),)
