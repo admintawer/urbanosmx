@@ -17,13 +17,14 @@
                                 <field name="diario_pago" attrs="{'invisible':[('tipo_pago','not in',('transferencia','deposito'))]}"/>
                             </group>
                             <group string="Información fiscal">
-                                <field name="regimen"/>
-                                <field name="contrato"/>
+                                <field name="regimen" string="Regimen Fiscal"/>
+                                <field name="tipo_contrato" string="Tipo Contrato"/>
+                                <field name="tipo_regimen" string="Tipo Regimen"/>
                                 <field name="jornada"/>
                                 <field name="zip"/>
                             </group>
                         </group>
-                        <group cols="4">
+                        <group>
                             <group string="Registros">
                                 <field name="rfc"/>
                                 <field name="curp"/>
@@ -31,6 +32,16 @@
                                 <field name="correo_electronico"/>
                                 <field name="estado"/>
                                 <field name="registro_patronal"/>
+                            </group>
+                            <group>
+                                <div colspan="2">
+                                    <p style="color:red;">
+                                        Si el campo TipoContrato tiene una clave entre los valores 01 y 08 del catálogo 
+                                        TipoContrato publicado en el Portal del SAT, entonces este campo deber ser 02, 03 o 04.
+                                        Si el campo TipoContrato tiene un valor 09 o superior, entonces este campo debe 
+                                        contener algún valor del 05 hasta el 99.
+                                    </p>
+                                </div>
                             </group>
                         </group>
                 </page><!--
