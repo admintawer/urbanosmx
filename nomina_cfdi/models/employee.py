@@ -88,7 +88,20 @@ class Employee(models.Model):
             ('630', 'Enajenación de acciones en bolsa de valores')],
         string=_('Régimen'), default='605'
     )
-
+    contrato = fields.Selection(
+        selection=[('01', '01 - Contrato de trabajo por tiempo indeterminado'), 
+                   ('02', '02 - Contrato de trabajo para obra determinada'), 
+                   ('03', '03 - Contrato de trabajo por tiempo determinado'),
+                   ('04', '04 - Contrato de trabajo por temporada'), 
+                   ('05', '05 - Contrato de trabajo sujeto a prueba'),
+                   ('06', '06 - Contrato de trabajo con capacitación inicial'), 
+                   ('07', '07 - Modalidad de contratación por pago de hora laborada'), 
+                   ('08', '08 - Modalidad de trabajo por comisión laboral'), 
+                   ('09', '09 - Modalidades de contratación donde no existe relación de trabajo'), 
+                   ('10', '10 - Jubilación, pensión, retiro'), 
+                   ('99', '99 - Otro contrato'),],
+        string=_('Contrato'),
+    )
 
     jornada = fields.Selection(
         selection=[('01', '01 - Diurna'), 
