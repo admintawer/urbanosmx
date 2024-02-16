@@ -263,7 +263,7 @@ class GeneraLiquidaciones(models.TransientModel):
                 else:
                     ano_buscar = last_day.year
                 for lineas_vac in self.contract_id.tabla_vacaciones:
-                    if lineas_vac.ano == str(ano_buscar):
+                    if lineas_vac.ano == ano_buscar:
                         self.dias_vacaciones += lineas_vac.dias
 
             #fondo de ahorro (si hay)

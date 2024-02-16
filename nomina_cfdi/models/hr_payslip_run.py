@@ -289,6 +289,16 @@ class HrPayslipRun(models.Model):
                     'date_start': fecha_inicio
                 }
                 self.update(values)
+    
+    def action_draft(self):
+        for r in self:
+            r.write({
+                'state': 'draft'
+            })
+            for l in r.slip_ids:
+                l.write({
+                    'state': 'draft',
+                })
 
 
 class OtrasEntradas(models.Model):
