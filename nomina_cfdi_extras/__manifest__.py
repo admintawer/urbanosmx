@@ -4,11 +4,11 @@
     'name': 'Nomina CFDI Extras',
     'summary': '',
     'description': '''
-Create new module for Odoo 16 called nomina_cfdi_extras. 
+Create new module for Odoo 15 called nomina_cfdi_extras. 
 This new module will create 2 new models: incidencias and incapacidades, they will have a tree view and will be located on Employees view. For both create sequential numbers for each register. Will have only 2 states: draft and done.
     ''',
-    'author': 'Rail / Kevin Lopez',
-    'version': '16.0.1',
+    'author': 'IT Admin',
+    'version': '15.0.1',
     'category': 'Employees',
     'depends': [
         'hr','nomina_cfdi','hr_holidays',
