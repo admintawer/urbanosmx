@@ -30,7 +30,7 @@
     <record id="group_user_view_own_employee_loan" model="ir.rule">
         <field name="name">View Own Employee Loan Request</field>
         <field ref="model_employee_loan" name="model_id"/>
-        <field name="domain_force">['|',('manager_id.user_id','=',user.id),('manager_id','=',False)]</field>
+        <field name="domain_force">[('manager_id.user_id','=',user.id)]</field>
         <field name="groups" eval="[(4, ref('hr_payroll.group_hr_payroll_user'))]"/>
     </record>
 
