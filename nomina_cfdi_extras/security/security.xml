@@ -59,7 +59,7 @@
     <record id="group_view_own_employee_skip_installment" model="ir.rule">
         <field name="name">View Own Employee Skip Installment Request</field>
         <field ref="model_dev_skip_installment" name="model_id"/>
-        <field name="domain_force">['|',('manager_id.user_id','=',user.id),('manager_id','=',False)]</field>
+        <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
         <field name="groups" eval="[(4, ref('hr_payroll.group_hr_payroll_user'))]"/>
     </record>
 
