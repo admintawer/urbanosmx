@@ -47,8 +47,7 @@ class HrPayslipRun(models.Model):
         for r in self:
             for l in r.slip_ids:
                 l.compute_sheet()
-            if not r.slip_ids.filtered(lambda x:  x.state != "verify"):
-                r.state = "verify"
+
     @api.onchange('tipo_configuracion')
     def _set_periodicidad(self):
         if self.tipo_configuracion:
@@ -221,14 +220,41 @@ class HrPayslipRun(models.Model):
         return True
 
     def timbrar_nomina(self):
-        for payslip in self.slip_ids.filtered(lambda x: not x.nomina_cfdi):
-            if payslip.state in ['draft','verify']:
-                payslip.action_payslip_done()
-            payslip.action_cfdi_nomina_generate()
+        self.ensure_one()
+        #cr = self._cr
+        payslip_obj = self.env['hr.payslip']
+        for payslip_id in self.slip_ids.ids:
+                #cr.execute('SAVEPOINT model_payslip_confirm_cfdi_save')
+            with self.env.cr.savepoint():
+                payslip = payslip_obj.browse(payslip_id)
+                if payslip.state in ['draft','verify']:
+                    payslip.action_payslip_done()
+                if not payslip.nomina_cfdi:
+                    payslip.action_cfdi_nomina_generate()
+                #cr.execute('RELEASE SAVEPOINT model_payslip_confirm_cfdi_save')
+
+        """try:
+                #cr.execute('SAVEPOINT model_payslip_confirm_cfdi_save')
+                with self.env.cr.savepoint():
+                    payslip = payslip_obj.browse(payslip_id)
+                    if payslip.state in ['draft','verify']:
+                        payslip.action_payslip_done()
+                    if not payslip.nomina_cfdi:
+                        payslip.action_cfdi_nomina_generate()
+                #cr.execute('RELEASE SAVEPOINT model_payslip_confirm_cfdi_save')
+            except Exception as e:
+                #cr.execute('ROLLBACK TO SAVEPOINT model_payslip_confirm_cfdi_save')
+                pass """
+        return
 
     @api.onchange('periodicidad_pago', 'date_start')
     def _get_frecuencia_pago(self):
         values = {}
+        #if self.freq_pago:
+        #    values.update({
+        #        'dias_pagar': self.freq_pago.dias_pago,
+        #        #'imss_dias': self.freq_pago.dias_cotizar,
+        #        })
         if self.date_start and self.dias_pagar:
             fecha_fin = self.date_start + relativedelta(days=self.dias_pagar-1)
             if self.periodicidad_pago == '04':
@@ -263,16 +289,6 @@ class HrPayslipRun(models.Model):
                     'date_start': fecha_inicio
                 }
                 self.update(values)
-    
-    def action_draft(self):
-        for r in self:
-            r.write({
-                'state': 'draft'
-            })
-            for l in r.slip_ids:
-                l.write({
-                    'state': 'draft',
-                })
 
 
 class OtrasEntradas(models.Model):

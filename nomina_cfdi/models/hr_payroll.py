@@ -309,65 +309,56 @@ class HrPayslip(models.Model):
             if contract.periodicidad_pago == '02':
                 dias_pagar = 7
 
-            day_leave_intervals = contract.employee_id.list_leaves(
-                                    datetime.datetime.combine(fields.Date.from_string(date_from), datetime_time.min), 
-                                    datetime.datetime.combine(fields.Date.from_string(date_to), datetime_time.max), 
-                                    calendar=contract.resource_calendar_id)
-            for leave in day_leave_intervals:
-                for resource_leave in leave[2]:
-                    holiday = resource_leave.holiday_id
-                    if holiday:
-                        current_leave_struct = leaves.setdefault(holiday.holiday_status_id, {
-                            'name': holiday.holiday_status_id.name,
-                            'number_of_days': 0.0,
-                            'number_of_hours': 0.0,
-                        })
-                        leave_time = (holiday.number_of_days)/ 8
-                        #current_leave_struct['number_of_hours'] += leave_time
-                        work_data = contract.employee_id.with_context(no_tz_convert=True)._get_work_days_data_batch(
-                            datetime.datetime.combine(fields.Date.from_string(date_from), datetime_time.min), 
-                            datetime.datetime.combine(fields.Date.from_string(date_to), datetime_time.max), 
-                            calendar=contract.resource_calendar_id)
-                        for key, value in work_data.items():
-                            work_hours = value['hours']
-                        if work_hours and contract.septimo_dia:
-                            if contract.incapa_sept_dia:
-                                if holiday.holiday_status_id.name == 'FJS' or holiday.holiday_status_id.name == 'FI' or holiday.holiday_status_id.name == 'FR' or holiday.holiday_status_id.name == 'INC_EG' or holiday.holiday_status_id.name == 'INC_RT' or holiday.holiday_status_id.name == 'INC_MAT':
-                                    leave_days += (leave_time / work_hours)*factor
-                                    current_leave_struct['number_of_days'] += (leave_time / work_hours)*factor
-                                    if leave_days > dias_pagar:
-                                        leave_days = dias_pagar
-                                    if current_leave_struct['number_of_days'] > dias_pagar:
-                                        current_leave_struct['number_of_days'] = dias_pagar
-                                else:
-                                    if holiday.holiday_status_id.name != 'DFES' and holiday.holiday_status_id.name != 'DFES_3':
-                                        leave_days += leave_time / work_hours
-                                    current_leave_struct['number_of_days'] += leave_time / work_hours
-                            else:
-                                if holiday.holiday_status_id.name == 'FJS' or holiday.holiday_status_id.name == 'FI' or holiday.holiday_status_id.name == 'FR':
-                                    leave_days += (leave_time / work_hours)*factor
-                                    current_leave_struct['number_of_days'] += (leave_time / work_hours)*factor
-                                    if leave_days > dias_pagar:
-                                        leave_days = dias_pagar
-                                    if current_leave_struct['number_of_days'] > dias_pagar:
-                                        current_leave_struct['number_of_days'] = dias_pagar
-                                else:
-                                    if holiday.holiday_status_id.name != 'DFES' and holiday.holiday_status_id.name != 'DFES_3':
-                                        leave_days += leave_time / work_hours
-                                    current_leave_struct['number_of_days'] += leave_time / work_hours
-                        elif work_hours:
-                            if contract.incapa_sept_dia:
-                                if holiday.holiday_status_id.name == 'INC_EG' or holiday.holiday_status_id.name == 'INC_RT' or holiday.holiday_status_id.name == 'INC_MAT':
-                                    leave_days += (leave_time / work_hours)*factor
-                                    current_leave_struct['number_of_days'] += (leave_time / work_hours)*factor
-                                else:
-                                    if holiday.holiday_status_id.name != 'DFES' and holiday.holiday_status_id.name != 'DFES_3':
-                                        leave_days += leave_time / work_hours
-                                    current_leave_struct['number_of_days'] += leave_time / work_hours
-                            else:
-                                if holiday.holiday_status_id.name != 'DFES' and holiday.holiday_status_id.name != 'DFES_3':
-                                    leave_days += leave_time / work_hours
-                                current_leave_struct['number_of_days'] += leave_time / work_hours
+            day_leave_intervals = contract.employee_id.list_leaves(day_from, day_to, calendar=contract.resource_calendar_id)
+            for day_intervals in day_leave_intervals:
+                for interval in day_intervals:
+                    holiday = interval[2]['leaves'].holiday_id
+                    current_leave_struct = leaves.setdefault(holiday.holiday_status_id, {
+                        'name': holiday.holiday_status_id.name or 'GLOBAL',
+                        'number_of_days': 0.0,
+                        'number_of_hours': 0.0,
+                    })
+                    leave_time = (interval[1] - interval[0]).seconds / 3600
+                    #current_leave_struct['number_of_hours'] += leave_time
+                    work_hours = contract.employee_id.get_day_work_hours_count(interval[0].date(), calendar=contract.resource_calendar_id)
+                    if work_hours and contract.septimo_dia:
+                        if contract.incapa_sept_dia:
+                           if holiday.holiday_status_id.name == 'FJS' or holiday.holiday_status_id.name == 'FI' or holiday.holiday_status_id.name == 'FR' or holiday.holiday_status_id.name == 'INC_EG' or holiday.holiday_status_id.name == 'INC_RT' or holiday.holiday_status_id.name == 'INC_MAT':
+                              leave_days += (leave_time / work_hours)*factor
+                              current_leave_struct['number_of_days'] += (leave_time / work_hours)*factor
+                              if leave_days > dias_pagar:
+                                 leave_days = dias_pagar
+                              if current_leave_struct['number_of_days'] > dias_pagar:
+                                 current_leave_struct['number_of_days'] = dias_pagar
+                           else:
+                              if holiday.holiday_status_id.name != 'DFES' and holiday.holiday_status_id.name != 'DFES_3':
+                                 leave_days += leave_time / work_hours
+                              current_leave_struct['number_of_days'] += leave_time / work_hours
+                        else:
+                           if holiday.holiday_status_id.name == 'FJS' or holiday.holiday_status_id.name == 'FI' or holiday.holiday_status_id.name == 'FR':
+                              leave_days += (leave_time / work_hours)*factor
+                              current_leave_struct['number_of_days'] += (leave_time / work_hours)*factor
+                              if leave_days > dias_pagar:
+                                 leave_days = dias_pagar
+                              if current_leave_struct['number_of_days'] > dias_pagar:
+                                 current_leave_struct['number_of_days'] = dias_pagar
+                           else:
+                              if holiday.holiday_status_id.name != 'DFES' and holiday.holiday_status_id.name != 'DFES_3':
+                                 leave_days += leave_time / work_hours
+                              current_leave_struct['number_of_days'] += leave_time / work_hours
+                    elif work_hours:
+                        if contract.incapa_sept_dia:
+                           if holiday.holiday_status_id.name == 'INC_EG' or holiday.holiday_status_id.name == 'INC_RT' or holiday.holiday_status_id.name == 'INC_MAT':
+                              leave_days += (leave_time / work_hours)*factor
+                              current_leave_struct['number_of_days'] += (leave_time / work_hours)*factor
+                           else:
+                              if holiday.holiday_status_id.name != 'DFES' and holiday.holiday_status_id.name != 'DFES_3':
+                                 leave_days += leave_time / work_hours
+                              current_leave_struct['number_of_days'] += leave_time / work_hours
+                        else:
+                           if holiday.holiday_status_id.name != 'DFES' and holiday.holiday_status_id.name != 'DFES_3':
+                              leave_days += leave_time / work_hours
+                           current_leave_struct['number_of_days'] += leave_time / work_hours
             work_data = contract.employee_id.with_context(no_tz_convert=True)._get_work_days_data_batch(day_from, day_to, calendar=contract.resource_calendar_id)
             resource_days = nb_of_days
             number_of_days = 0
@@ -582,15 +573,21 @@ class HrPayslip(models.Model):
             else:
                 raise UserError(_('No están configurados correctamente los periodos semanales en las tablas CFDI'))
 
+    @api.model
+    def create(self, vals):
+        if not vals.get('fecha_pago') and vals.get('date_to'):
+            vals.update({'fecha_pago': vals.get('date_to')})
+            
+        res = super(HrPayslip, self).create(vals)
+        return res
     
     @api.depends('number')
     def _get_number_folio(self):
-        for r in self:
-            if r.number:
-                r.number_folio = r.number.replace('SLIP','').replace('/','')
-            else:
-                r.write({'number': self.env['ir.sequence'].next_by_code('numero.nomina')})
-                r.number_folio = r.number.replace('NOM','').replace('/','')
+        if self.number:
+            self.number_folio = self.number.replace('SLIP','').replace('/','')
+        else:
+            self.write({'number': self.env['ir.sequence'].next_by_code('numero.nomina')})
+            self.number_folio = self.number.replace('NOM','').replace('/','')
 
     @api.returns('self', lambda value: value.id)
     def copy(self, default=None):
@@ -611,7 +608,7 @@ class HrPayslip(models.Model):
                 #raise UserError(mes_actual)
                 date_start = mes_actual.dia_inicio # r.date_from
                 date_end = mes_actual.dia_fin #r.date_to
-                domain=[('state','in',['verify','done','paid'])]
+                domain=[('state','in',['done','paid'])]
                 if date_start:
                     domain.append(('date_from','>=',date_start))
                 if date_end:
@@ -1018,7 +1015,6 @@ class HrPayslip(models.Model):
         }
 
         #************ SEPARACION / INDEMNIZACION   ************#
-        separacion ={}
         if payslip_total_SEIN > 0:
             if payslip_total_PERG > self.contract_id.wage:
                 ingreso_acumulable = self.contract_id.wage
@@ -1029,13 +1025,15 @@ class HrPayslip(models.Model):
             else:
                 ingreso_no_acumulable = payslip_total_PERG - self.contract_id.wage
 
-            separacion = {
-                'TotalPagado': str(round(payslip_total_SEIN,2)),
-                'NumAniosServicio': int(self.contract_id.antiguedad_anos),
-                'UltimoSueldoMensOrd': str(round(self.contract_id.wage,2)),
-                'IngresoAcumulable': str(round(ingreso_acumulable,2)),
-                'IngresoNoAcumulable': str(round(ingreso_no_acumulable,2)),
-            }
+            percepcion.update({
+               'separacion': [{
+                        'TotalPagado': payslip_total_SEIN,
+                        'NumAñosServicio': self.contract_id.antiguedad_anos,
+                        'UltimoSueldoMensOrd': self.contract_id.wage,
+                        'IngresoAcumulable': ingreso_acumulable,
+                        'IngresoNoAcumulable': ingreso_no_acumulable,
+                }]
+            })
 
         percepcion.update({'lineas_de_percepcion_grabadas': lineas_de_percepcion, 'no_per_grabadas': len(percepciones_grabadas_lines)-percepciones_excentas_lines})
         percepcion.update({'lineas_de_percepcion_excentas': lineas_de_percepcion_exentas, 'no_per_excentas': percepciones_excentas_lines})
@@ -1046,30 +1044,23 @@ class HrPayslip(models.Model):
         otrospagos_lines = self.env['hr.payslip.line'].search([('category_id.code','=','ALW3'),('slip_id','=',self.id),('total','>',0)])
         auxiliar_lines = self.env['hr.payslip.line'].search([('category_id.code','=','AUX'),('slip_id','=',self.id),('total','>',0)])
         lineas_de_otros = []
-        subsidio_periodo = 0
         if otrospagos_lines:
             for line in otrospagos_lines:
                 if line.salary_rule_id.tipo_cotro_pago.clave == '002' : # and line.total > 0:
+                    self.subsidio_periodo = 0
                     payslip_total_TOP += line.total
-                    importe_exento = round(line.total,2)
-                    clave = line.code
+
                     for aux in auxiliar_lines:
                         if aux.code == 'SUB':
-                            subsidio_periodo += aux.total
-                    if line.code == 'SUB':
-                        subsidio_periodo += round(line.total,2)
-                        importe_exento = 0
-                        payslip_total_TOP -= round(line.total,2)
-                        clave = '002'
-                    self.subsidio_periodo = subsidio_periodo
+                            self.subsidio_periodo = aux.total
                     #_logger.info('subsidio aplicado %s importe excento %s', self.subsidio_periodo, line.total)
                     lineas_de_otros.append({
                         'TipoOtrosPagos': line.salary_rule_id.tipo_cotro_pago.clave,
-                        'Clave': clave,
+                        'Clave': line.code,
                         'Concepto': line.salary_rule_id.name,
                         'ImporteGravado': '0',
-                        'ImporteExento': importe_exento,
-                        'SubsidioCausado': subsidio_periodo
+                        'ImporteExento': round(line.total,2),
+                        'SubsidioCausado': self.subsidio_periodo
                     })
                 else:
                     payslip_total_TOP += line.total
@@ -1081,15 +1072,14 @@ class HrPayslip(models.Model):
                         'ImporteExento': round(line.total,2)
                         })
         if self.employee_id.tipo_contrato != '09' and not self.struct_id.asimilados:
-            subsidio_empleado = True
-        if subsidio_periodo == 0:
             lineas_de_otros.append({
                 'TipoOtrosPagos': "002",
                 'Clave': "002",
                 'Concepto': "Subsidio para el empleado",
                 'ImporteExento': "0.00",
                 'SubsidioCausado': "0.00",
-            }) 
+            })
+            subsidio_empleado = True
         otrospagos = {
             'otrospagos': {
                     'Totalotrospagos': payslip_total_TOP,
@@ -1216,14 +1206,16 @@ class HrPayslip(models.Model):
         #   XML CFDI 4.0  #
         ###################
         
-        Deducciones = {}
-        if payslip_total_TDED > 0:
-            if total_imp_ret > 0:
-                Deducciones['TotalOtrasDeducciones'] = str(round(payslip_total_TDED - total_imp_ret,2)) or ''
-                Deducciones['TotalImpuestosRetenidos'] =  str(total_imp_ret) or ''
-            else:
-                Deducciones['TotalOtrasDeducciones'] = str(round(payslip_total_TDED - total_imp_ret,2)) or ''
-                Deducciones['TotalImpuestosRetenidos'] = ''
+        if total_imp_ret > 0:
+            Deducciones = {
+                'TotalOtrasDeducciones': str(round(payslip_total_TDED - total_imp_ret,2)) or '',
+                'TotalImpuestosRetenidos': str(total_imp_ret) or ''
+            }
+        else:
+            Deducciones = {
+                'TotalOtrasDeducciones': str(round(payslip_total_TDED - total_imp_ret,2)) or '',
+                'TotalImpuestosRetenidos': ''
+            }
 
         data = {
             'Atributos': {
@@ -1298,15 +1290,13 @@ class HrPayslip(models.Model):
                 'ClaveEntFed': self.employee_id.estado.code or '',   
             },
             'Percepciones': {
-                'TotalSueldos': str(round(payslip_total_PERG + payslip_total_PERE - payslip_total_SEIN - payslip_total_JPRE,2)),
+                'TotalSueldos': str(round(payslip_total_PERG + payslip_total_PERE,2)),
                 'TotalGravado': str(round(payslip_total_PERG,2)),
                 'TotalExento': str(round(payslip_total_PERE,2)),
-                'TotalSeparacionIndemnizacion': str(round(payslip_total_SEIN,2))
             },
             'Percepcion':{
                 'Percepcion': lineas_de_percepcion,
                 'PercepcionExc': lineas_de_percepcion_exentas,
-                'Separacion': separacion,
             },
             'Deducciones': Deducciones,
             'Deduccion': lineas_deduccion,
@@ -1406,16 +1396,15 @@ class HrPayslip(models.Model):
                 'TipoRegimen': str(self.employee_id.tipo_regimen),
                 'NumEmpleado': self.employee_id.no_empleado or '',
                 'RiesgoPuesto': str(self.contract_id.riesgo_puesto) or '',
-                'PeriodicidadPago':str(self.payslip_run_id.periodicidad_pago) or str(self.contract_id.periodicidad_pago),
+                'PeriodicidadPago': str(self.payslip_run_id.periodicidad_pago) or str(self.contract_id.periodicidad_pago),
                 'SalarioBaseCotApor': str(round(self.contract_id.sueldo_base_cotizacion,2)) or '',
                 'SalarioDiarioIntegrado': str(round(self.contract_id.sueldo_diario_integrado,2)) or '',
                 'ClaveEntFed': self.employee_id.estado.code or '',
             })
         n12percepciones = SubElement(nomina12,'nomina12:Percepciones',{
-            'TotalSueldos': str(round(payslip_total_PERG + payslip_total_PERE - payslip_total_SEIN - payslip_total_JPRE,2)),
+            'TotalSueldos': str(round(payslip_total_PERG + payslip_total_PERE,2)),
             'TotalGravado': str(round(payslip_total_PERG,2)),
             'TotalExento': str(round(payslip_total_PERE,2)),
-            'TotalSeparacionINdemnizacion': str(round(payslip_total_SEIN,2)),
         })
 
         for l in lineas_de_percepcion:
@@ -1434,32 +1423,23 @@ class HrPayslip(models.Model):
                 'ImporteGravado': str(r['ImporteGravado']) or '',
                 'ImporteExento': str(r['ImporteExento']) or ''
             })
-        if payslip_total_SEIN > 0:
-            n12sein = SubElement(n12percepciones,'nomina12:SeparacionIndemnizacion',{
-                'TotalPagado': str(round(payslip_total_SEIN,2)),
-                'NumAñosServicio': str(round(self.contract_id.antiguedad_anos,2)),
-                'UltimoSueldoMensOrd': str(round(self.contract_id.wage,2)),
-                'IngresoAcumulable': str(round(ingreso_acumulable,2)),
-                'IngresoNoAcumulable': str(round(ingreso_no_acumulable,2)),
+        
+        if total_imp_ret > 0:
+            n12deducciones = SubElement(nomina12,'nomina12:Deducciones',{
+                'TotalOtrasDeducciones': str(round(payslip_total_TDED - total_imp_ret,2)) or '',
+                'TotalImpuestosRetenidos': str(round(total_imp_ret,2)) or ''
             })
-
-        if payslip_total_TDED > 0:
-            if total_imp_ret > 0:
-                n12deducciones = SubElement(nomina12,'nomina12:Deducciones',{
-                    'TotalOtrasDeducciones': str(round(payslip_total_TDED - total_imp_ret,2)) or '',
-                    'TotalImpuestosRetenidos': str(round(total_imp_ret,2)) or ''
-                })
-            else:
-                n12deducciones = SubElement(nomina12,'nomina12:Deducciones',{
-                    'TotalOtrasDeducciones': str(round(payslip_total_TDED - total_imp_ret,2)) or ''
-                })            
-            for d in lineas_deduccion:
-                n12ded = SubElement(n12deducciones,'nomina12:Deduccion',{
-                    'TipoDeduccion': d['TipoDeduccion'] or '',
-                    'Clave': d['Clave'] or '',
-                    'Concepto': d['Concepto'] or '',
-                    'Importe': str(d['Importe']) or ''
-                })
+        else:
+            n12deducciones = SubElement(nomina12,'nomina12:Deducciones',{
+                'TotalOtrasDeducciones': str(round(payslip_total_TDED - total_imp_ret,2)) or ''
+            })            
+        for d in lineas_deduccion:
+            n12ded = SubElement(n12deducciones,'nomina12:Deduccion',{
+                'TipoDeduccion': d['TipoDeduccion'] or '',
+                'Clave': d['Clave'] or '',
+                'Concepto': d['Concepto'] or '',
+                'Importe': str(d['Importe']) or ''
+            })
 
         n12otrospagos = SubElement(nomina12,'nomina12:OtrosPagos')
         for o in lineas_de_otros:
@@ -1471,7 +1451,7 @@ class HrPayslip(models.Model):
             })
             if o['TipoOtrosPagos'] == '002' and subsidio_empleado:
                 subs = SubElement(n12otr,'nomina12:SubsidioAlEmpleo',{
-                    'SubsidioCausado': str(o['SubsidioCausado']) or ''
+                    'SubsidioCausado': str(o['ImporteExento']) or ''
                 })
 
         env = Environment(
@@ -1517,7 +1497,7 @@ class HrPayslip(models.Model):
         #AÑADIMOS SELLO A NUESTRO XML
         tree.attrib['Sello'] = sello.decode("utf-8") 
         xml = etree.tostring(
-                tree, pretty_print=True,
+                tree, pretty_print=False,
                 xml_declaration=False, encoding='UTF-8')
         
         try:
@@ -1660,7 +1640,7 @@ class HrPayslip(models.Model):
                     ## MOD-2 MANDAMOS A PAGADO
                     payslip.nomina_cfdi = True
                     payslip.action_payslip_paid()
-                    self.env.cr.commit()
+
                 else:
                     raise UserError("Mensaje: " + resultadoTimbrado['mensaje'])
             elif pac == 'sw':
@@ -1707,7 +1687,6 @@ class HrPayslip(models.Model):
                     ## MOD-2 MANDAMOS A PAGADO
                     payslip.nomina_cfdi = True
                     payslip.action_payslip_paid()
-                    self.env.cr.commit()
                 else:
                     raise ValidationError("Algo fallo en el timbrado. \n" \
                                             +"Nomina: " + self.employee_id.name \

@@ -60,9 +60,20 @@ class GeneraLiquidaciones(models.TransientModel):
             'tipo_nomina': 'E',
             'fecha_pago' : date_to,
             })
+        # batch
+        #payslip_obj = self.env['hr.payslip']
+        #payslip_onchange_vals = payslip_obj.onchange_employee_id(date_from, date_to, employee_id=employee.id)
+        #Creación de nomina ordinaria
+        #payslip_vals = {**payslip_onchange_vals.get('value',{})} #TO copy dict to new dict. 
         
-        structure = self.estructura     
+        structure = self.estructura
+        
+        
         contract_id = self.contract_id.id
+        #if not contract_id:
+        #    contract_id = payslip_vals.get('contract_id')
+        #else:
+        #    payslip_vals['contract_id'] = contract_id 
         
         if not contract_id:
             contract_id = employee.contract_id.id
@@ -87,20 +98,10 @@ class GeneraLiquidaciones(models.TransientModel):
         Payslip = self.env['hr.payslip']
         default_values = Payslip.default_get(Payslip.fields_get())
         payslip_vals = []
-
-        #Creación de nomina extraordinaria
-        if self.tipo_de_baja == '02':
-            pda_type = self.env['hr.payslip.input.type'].search([('code','=','PDA')], limit=1)
-            ind_type = self.env['hr.payslip.input.type'].search([('code','=','IND')], limit=1)
-            pps_type = self.env['hr.payslip.input.type'].search([('code','=','PPS')], limit=1)
-            inputs.append((0,0,{'input_type_id': pda_type.id, 'name' :'[PDA] Prima antiguedad', 'amount': self.monto_prima_antiguedad}))
-            inputs.append((0,0,{'input_type_id': ind_type.id, 'name' :'[IND] Indemnizacion', 'amount': self.monto_indemnizacion}))
-            inputs.append((0,0,{'input_type_id': pps_type.id, 'name' :'[PPS] Pago por separacion', 'amount': self.pago_separacion}))
-        #raise ValidationError(str(worked_days))
         values = dict(default_values, **{
             'name': _('New Payslip'),
             'employee_id' : employee.id,
-            'tipo_nomina' : 'E',
+            'tipo_nomina' : 'O',
             'payslip_run_id' : batch.id,
             'date_from': date_from,
             'date_to': date_to,
@@ -117,11 +118,50 @@ class GeneraLiquidaciones(models.TransientModel):
             'input_line_ids': inputs,
             })
         payslip_vals.append(values)
+
         payslips = Payslip.with_context(tracking_disable=True).create(payslip_vals)
         payslips._compute_name()
         for r in payslips:
             r.compute_sheet()
-                    
+        
+        #Creación de nomina extraordinaria
+        if self.tipo_de_baja == '02':
+            #payslip_vals2 = {**payslip_onchange_vals.get('value',{})}
+            structure2 = self.env['hr.payroll.structure'].search([('name','=','Liquidación - indemnizacion/finiquito')], limit=1)
+            #if structure: 
+            #    payslip_vals2['struct_id'] = structure.id
+            pda_type = self.env['hr.payslip.input.type'].search([('code','=','PDA')], limit=1)
+            ind_type = self.env['hr.payslip.input.type'].search([('code','=','IND')], limit=1)
+            pps_type = self.env['hr.payslip.input.type'].search([('code','=','PPS')], limit=1)
+            other_inputs = []
+            other_inputs.append((0,0,{'input_type_id': pda_type.id, 'name' :'[PDA] Prima antiguedad', 'amount': self.monto_prima_antiguedad}))
+            other_inputs.append((0,0,{'input_type_id': ind_type.id, 'name' :'[IND] Indemnizacion', 'amount': self.monto_indemnizacion}))
+            other_inputs.append((0,0,{'input_type_id': pps_type.id, 'name' :'[PPS] Pago por separacion', 'amount': self.pago_separacion}))
+            worked_days2 = []
+            worked_days2.append((0,0,{'work_entry_type_id': 1,'name' :'Dias a pagar', 'code' : 'WORK100', 'number_of_days': 0}))
+
+            payslip_vals2 = []
+            values2 = dict(default_values, **{
+                'name': _('New Payslip'),
+                'employee_id' : employee.id,
+                'tipo_nomina' : 'E',
+                'payslip_run_id' : batch.id,
+                'date_from': date_from,
+                'date_to': date_to,
+                'contract_id' : contract_id,
+                'struct_id': structure2.id,
+                'journal_id': journal.id,
+                #'no_nomina': '1',
+                'fecha_pago' : date_to,
+                'worked_days_line_ids': worked_days2,
+                'input_line_ids': other_inputs,
+                })
+            payslip_vals2.append(values2)
+            payslips2 = Payslip.with_context(tracking_disable=True).create(payslip_vals2)
+            payslips2._compute_name()
+            for r2 in payslips2:
+                r2.compute_sheet()
+            
         return
     
     def calculo_liquidacion(self):
@@ -223,7 +263,7 @@ class GeneraLiquidaciones(models.TransientModel):
                 else:
                     ano_buscar = last_day.year
                 for lineas_vac in self.contract_id.tabla_vacaciones:
-                    if lineas_vac.ano == ano_buscar:
+                    if lineas_vac.ano == str(ano_buscar):
                         self.dias_vacaciones += lineas_vac.dias
 
             #fondo de ahorro (si hay)
