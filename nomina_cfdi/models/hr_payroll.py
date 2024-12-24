@@ -1206,16 +1206,14 @@ class HrPayslip(models.Model):
         #   XML CFDI 4.0  #
         ###################
         
-        if total_imp_ret > 0:
-            Deducciones = {
-                'TotalOtrasDeducciones': str(round(payslip_total_TDED - total_imp_ret,2)) or '',
-                'TotalImpuestosRetenidos': str(total_imp_ret) or ''
-            }
-        else:
-            Deducciones = {
-                'TotalOtrasDeducciones': str(round(payslip_total_TDED - total_imp_ret,2)) or '',
-                'TotalImpuestosRetenidos': ''
-            }
+        Deducciones = {}
+        if payslip_total_TDED > 0:
+            if total_imp_ret > 0:
+                Deducciones['TotalOtrasDeducciones'] = str(round(payslip_total_TDED - total_imp_ret,2)) or ''
+                Deducciones['TotalImpuestosRetenidos'] =  str(total_imp_ret) or ''
+            else:
+                Deducciones['TotalOtrasDeducciones'] = str(round(payslip_total_TDED - total_imp_ret,2)) or ''
+                Deducciones['TotalImpuestosRetenidos'] = ''
 
         data = {
             'Atributos': {
