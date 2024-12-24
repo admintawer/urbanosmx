@@ -123,7 +123,7 @@ class HrPayslipEmployeesExt(models.TransientModel):
                 'concepto_periodico': payslip_run.concepto_periodico,
             })
             payslips_vals.append(values)
-        #raise UserError(payslips_vals)
+        #raise UserError(str(payslips_vals))
         payslips = Payslip.with_context(tracking_disable=True).create(payslips_vals)
         payslips._compute_name()
         for r in payslips:

@@ -49,7 +49,7 @@
             FechaFinalPago="{{ data['Nomina']['FechaFinalPago'] }}" 
             NumDiasPagados="{{ data['Nomina']['NumDiasPagados'] }}" 
             TotalPercepciones="{{ data['Nomina']['TotalPercepciones'] }}" 
-            TotalDeducciones="{{ data['Nomina']['TotalDeducciones'] }}"
+            {% if data['Nomina']['TotalDeducciones']|float > 0 %} TotalDeducciones="{{ data['Nomina']['TotalDeducciones'] }}" {% endif %}
             TotalOtrosPagos="{{ data['Nomina']['TotalOtrosPagos'] }}">
             <nomina12:Emisor {% if data['NEmisor']['RegistroPatronal'] %} RegistroPatronal="{{ data['NEmisor']['RegistroPatronal'] }}" {% endif %}
                              {% if data['NEmisor']['RfcPatronOrigen'] %} RfcPatronOrigen="{{ data['NEmisor']['RfcPatronOrigen'] }}" {% endif %}/>
@@ -74,7 +74,10 @@
             <nomina12:Percepciones 
                 TotalSueldos="{{ data['Percepciones']['TotalSueldos'] }}" 
                 TotalGravado="{{ data['Percepciones']['TotalGravado'] }}" 
-                TotalExento="{{ data['Percepciones']['TotalExento'] }}">
+                TotalExento="{{ data['Percepciones']['TotalExento'] }}"
+                {% if data['Percepciones']['TotalSeparacionIndemnizacion']|float > 0 %} 
+                    TotalSeparacionIndemnizacion="{{ data['Percepciones']['TotalSeparacionIndemnizacion'] }}" 
+                {% endif %}>
                 {% for Percepcion in data['Percepcion']['Percepcion'] %}
                     <nomina12:Percepcion 
                         TipoPercepcion="{{ Percepcion['TipoPercepcion'] }}" 
@@ -91,18 +94,28 @@
                         ImporteGravado="{{ PercepcionExc['ImporteGravado'] }}" 
                         ImporteExento="{{ PercepcionExc['ImporteExento'] }}"/>
                 {% endfor %}
+                {% if data['Percepciones']['TotalSeparacionIndemnizacion']|float > 0 %}
+                    <nomina12:SeparacionIndemnizacion
+                        TotalPagado="{{data['Percepcion']['Separacion']['TotalPagado']}}"
+                        NumAñosServicio="{{data['Percepcion']['Separacion']['NumAniosServicio']}}"
+                        UltimoSueldoMensOrd="{{data['Percepcion']['Separacion']['UltimoSueldoMensOrd']}}"
+                        IngresoAcumulable="{{data['Percepcion']['Separacion']['IngresoAcumulable']}}"
+                        IngresoNoAcumulable="{{data['Percepcion']['Separacion']['IngresoNoAcumulable']}}"/>
+                {% endif %}
             </nomina12:Percepciones>
-            <nomina12:Deducciones 
-                TotalOtrasDeducciones="{{ data['Deducciones']['TotalOtrasDeducciones'] }}" 
-                {% if data['Deducciones']['TotalImpuestosRetenidos'] != '' %} TotalImpuestosRetenidos="{{ data['Deducciones']['TotalImpuestosRetenidos'] }}" {% endif %}> 
-                    {% for Deduccion in data['Deduccion'] %}
-                        <nomina12:Deduccion 
-                            TipoDeduccion="{{ Deduccion['TipoDeduccion'] }}" 
-                            Clave="{{ Deduccion['Clave'] }}" 
-                            Concepto="{{ Deduccion['Concepto'] }}" 
-                            Importe="{{ Deduccion['Importe'] }}"/>
-                    {% endfor %}
-            </nomina12:Deducciones>
+            {% if data['Deducciones'] %}
+                <nomina12:Deducciones 
+                    TotalOtrasDeducciones="{{ data['Deducciones']['TotalOtrasDeducciones'] }}" 
+                    {% if data['Deducciones']['TotalImpuestosRetenidos'] != '' %} TotalImpuestosRetenidos="{{ data['Deducciones']['TotalImpuestosRetenidos'] }}" {% endif %}> 
+                        {% for Deduccion in data['Deduccion'] %}
+                            <nomina12:Deduccion 
+                                TipoDeduccion="{{ Deduccion['TipoDeduccion'] }}" 
+                                Clave="{{ Deduccion['Clave'] }}" 
+                                Concepto="{{ Deduccion['Concepto'] }}" 
+                                Importe="{{ Deduccion['Importe'] }}"/>
+                        {% endfor %}
+                </nomina12:Deducciones>
+            {% endif %}
             {% if data['OtrosPagos'] %}
                 <nomina12:OtrosPagos>
                     {% for OtrosPagos in data['OtrosPagos'] %}
@@ -112,7 +125,7 @@
                             Concepto="{{ OtrosPagos['Concepto'] }}" 
                             Importe="{{ OtrosPagos['ImporteExento'] }}">
                             {% if OtrosPagos['TipoOtrosPagos'] == "002" %}
-                                <nomina12:SubsidioAlEmpleo SubsidioCausado="{{ OtrosPagos['ImporteExento'] }}"/>
+                                <nomina12:SubsidioAlEmpleo SubsidioCausado="{{ OtrosPagos['SubsidioCausado'] }}"/>
                             {% endif %}
                         </nomina12:OtroPago>
                     {% endfor %}
