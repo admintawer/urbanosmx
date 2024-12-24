@@ -1424,22 +1424,23 @@ class HrPayslip(models.Model):
                 'ImporteExento': str(r['ImporteExento']) or ''
             })
         
-        if total_imp_ret > 0:
-            n12deducciones = SubElement(nomina12,'nomina12:Deducciones',{
-                'TotalOtrasDeducciones': str(round(payslip_total_TDED - total_imp_ret,2)) or '',
-                'TotalImpuestosRetenidos': str(round(total_imp_ret,2)) or ''
-            })
-        else:
-            n12deducciones = SubElement(nomina12,'nomina12:Deducciones',{
-                'TotalOtrasDeducciones': str(round(payslip_total_TDED - total_imp_ret,2)) or ''
-            })            
-        for d in lineas_deduccion:
-            n12ded = SubElement(n12deducciones,'nomina12:Deduccion',{
-                'TipoDeduccion': d['TipoDeduccion'] or '',
-                'Clave': d['Clave'] or '',
-                'Concepto': d['Concepto'] or '',
-                'Importe': str(d['Importe']) or ''
-            })
+        if payslip_total_TDED > 0:
+            if total_imp_ret > 0:
+                n12deducciones = SubElement(nomina12,'nomina12:Deducciones',{
+                    'TotalOtrasDeducciones': str(round(payslip_total_TDED - total_imp_ret,2)) or '',
+                    'TotalImpuestosRetenidos': str(round(total_imp_ret,2)) or ''
+                })
+            else:
+                n12deducciones = SubElement(nomina12,'nomina12:Deducciones',{
+                    'TotalOtrasDeducciones': str(round(payslip_total_TDED - total_imp_ret,2)) or ''
+                })            
+            for d in lineas_deduccion:
+                n12ded = SubElement(n12deducciones,'nomina12:Deduccion',{
+                    'TipoDeduccion': d['TipoDeduccion'] or '',
+                    'Clave': d['Clave'] or '',
+                    'Concepto': d['Concepto'] or '',
+                    'Importe': str(d['Importe']) or ''
+                })
 
         n12otrospagos = SubElement(nomina12,'nomina12:OtrosPagos')
         for o in lineas_de_otros:

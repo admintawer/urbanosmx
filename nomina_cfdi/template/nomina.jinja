@@ -92,17 +92,19 @@
                         ImporteExento="{{ PercepcionExc['ImporteExento'] }}"/>
                 {% endfor %}
             </nomina12:Percepciones>
-            <nomina12:Deducciones 
-                TotalOtrasDeducciones="{{ data['Deducciones']['TotalOtrasDeducciones'] }}" 
-                {% if data['Deducciones']['TotalImpuestosRetenidos'] != '' %} TotalImpuestosRetenidos="{{ data['Deducciones']['TotalImpuestosRetenidos'] }}" {% endif %}> 
-                    {% for Deduccion in data['Deduccion'] %}
-                        <nomina12:Deduccion 
-                            TipoDeduccion="{{ Deduccion['TipoDeduccion'] }}" 
-                            Clave="{{ Deduccion['Clave'] }}" 
-                            Concepto="{{ Deduccion['Concepto'] }}" 
-                            Importe="{{ Deduccion['Importe'] }}"/>
-                    {% endfor %}
-            </nomina12:Deducciones>
+            {% if data['Deducciones'] %}
+                <nomina12:Deducciones 
+                    TotalOtrasDeducciones="{{ data['Deducciones']['TotalOtrasDeducciones'] }}" 
+                    {% if data['Deducciones']['TotalImpuestosRetenidos'] != '' %} TotalImpuestosRetenidos="{{ data['Deducciones']['TotalImpuestosRetenidos'] }}" {% endif %}> 
+                        {% for Deduccion in data['Deduccion'] %}
+                            <nomina12:Deduccion 
+                                TipoDeduccion="{{ Deduccion['TipoDeduccion'] }}" 
+                                Clave="{{ Deduccion['Clave'] }}" 
+                                Concepto="{{ Deduccion['Concepto'] }}" 
+                                Importe="{{ Deduccion['Importe'] }}"/>
+                        {% endfor %}
+                </nomina12:Deducciones>
+            {% endif %}
             {% if data['OtrosPagos'] %}
                 <nomina12:OtrosPagos>
                     {% for OtrosPagos in data['OtrosPagos'] %}
