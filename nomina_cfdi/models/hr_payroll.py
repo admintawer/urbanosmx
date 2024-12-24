@@ -1282,7 +1282,7 @@ class HrPayslip(models.Model):
                 'Departamento': '',##NECESITAMOS ESTE DATO CONFORME A LA DOCUMENTACION DEL SAT
                 'Puesto': '',##NECESITAMOS ESTE DATO CONFORME A LA DOCUMENTACION DEL SAT
                 'RiesgoPuesto': str(self.contract_id.riesgo_puesto) or '',
-                'PeriodicidadPago': str(self.contract_id.periodicidad_pago) or '',
+                'PeriodicidadPago': str(self.payslip_run_id.periodicidad_pago) or str(self.contract_id.periodicidad_pago),
                 'CuentaBancaria': '',##NECESITAMOS ESTE DATO CONFORME A LA DOCUMENTACION DEL SAT
                 'Banco': '',##NECESITAMOS ESTE DATO CONFORME A LA DOCUMENTACION DEL SAT
                 'SalarioBaseCotApor': str(round(self.contract_id.sueldo_base_cotizacion,2)) or '',
@@ -1379,7 +1379,7 @@ class HrPayslip(models.Model):
                 'TipoRegimen': self.employee_id.tipo_regimen,
                 'NumEmpleado': self.employee_id.no_empleado or '',
                 #'RiesgoPuesto': str(self.contract_id.riesgo_puesto) or '',
-                'PeriodicidadPago': str(self.contract_id.periodicidad_pago) or '',
+                'PeriodicidadPago': str(self.payslip_run_id.periodicidad_pago) or str(self.contract_id.periodicidad_pago),
                 #'SalarioBaseCotApor': str(round(self.contract_id.sueldo_base_cotizacion,2)) or '',
                 #'SalarioDiarioIntegrado': str(round(self.contract_id.sueldo_diario_integrado,2)) or '',
                 'ClaveEntFed': self.employee_id.estado.code or '',
@@ -1396,7 +1396,7 @@ class HrPayslip(models.Model):
                 'TipoRegimen': str(self.employee_id.tipo_regimen),
                 'NumEmpleado': self.employee_id.no_empleado or '',
                 'RiesgoPuesto': str(self.contract_id.riesgo_puesto) or '',
-                'PeriodicidadPago': str(self.contract_id.periodicidad_pago) or '',
+                'PeriodicidadPago': str(self.payslip_run_id.periodicidad_pago) or str(self.contract_id.periodicidad_pago),
                 'SalarioBaseCotApor': str(round(self.contract_id.sueldo_base_cotizacion,2)) or '',
                 'SalarioDiarioIntegrado': str(round(self.contract_id.sueldo_diario_integrado,2)) or '',
                 'ClaveEntFed': self.employee_id.estado.code or '',
