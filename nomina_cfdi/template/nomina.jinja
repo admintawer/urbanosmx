@@ -49,7 +49,7 @@
             FechaFinalPago="{{ data['Nomina']['FechaFinalPago'] }}" 
             NumDiasPagados="{{ data['Nomina']['NumDiasPagados'] }}" 
             TotalPercepciones="{{ data['Nomina']['TotalPercepciones'] }}" 
-            TotalDeducciones="{{ data['Nomina']['TotalDeducciones'] }}"
+            {% if data['Nomina']['TotalDeducciones']|float > 0 %} TotalDeducciones="{{ data['Nomina']['TotalDeducciones'] }}" {% endif %}
             TotalOtrosPagos="{{ data['Nomina']['TotalOtrosPagos'] }}">
             <nomina12:Emisor {% if data['NEmisor']['RegistroPatronal'] %} RegistroPatronal="{{ data['NEmisor']['RegistroPatronal'] }}" {% endif %}
                              {% if data['NEmisor']['RfcPatronOrigen'] %} RfcPatronOrigen="{{ data['NEmisor']['RfcPatronOrigen'] }}" {% endif %}/>
