@@ -1,13 +1,10 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'Nomina Electrónica para México CFDI v1.2',
-    'summary': 'Agrega funcionalidades para timbrar la nómina electrónica en México.',
-    'description': '''
-    Nomina CFDI Module
-    ''',
-    'author': 'IT Admin',
-    'version': '14.0.1',
+    'name': 'Nomina Electrónica para México CFDI v4',
+    'summary': 'Agrega funcionalidades para timbrar la nómina electrónica en México para cfdi v4.',
+    'author': 'Rail / Kevin Lopez',
+    'version': '16.0.1',
     'category': 'Employees',
     'depends': [
         'hr_payroll', 'l10n_mx_edi','hr_payroll_account'

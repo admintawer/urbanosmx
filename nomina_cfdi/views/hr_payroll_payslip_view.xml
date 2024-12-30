@@ -5,12 +5,16 @@
             <field name="model">hr.payslip</field>
             <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
             <field name="arch" type="xml">
+              <xpath expr="//div[@name='button_box']" position="after">
+                <field name="qrcode_image" widget="image" class="oe_avatar"/>
+              </xpath>
               <xpath expr="//field[@name='worked_days_line_ids']/tree" position="attributes">
                 <attribute name="delete">1</attribute>
               </xpath>             
               <button name="action_print_payslip" position="after">
                 <button type="action" string="Recibo CFDI" name="%(report_payslip)d" icon="fa-print" 
                         attrs="{'invisible': [('estado_factura','!=','factura_correcta')]}"/>
+                <button type="object" name="generate_qr_code" string="Generar QR" groups="base.group_no_one"/>
               </button>
               <field name="credit_note" position="after">
                     <field name="tipo_nomina" />

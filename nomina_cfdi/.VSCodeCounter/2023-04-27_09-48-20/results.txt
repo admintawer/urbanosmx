@@ -1,0 +1,76 @@
+Date : 2023-04-27 09:48:20
+Directory : d:\odoo_docker\addons16\nomina_cfdi
+Total : 39 files,  5653 codes, 446 comments, 456 blanks, all 6555 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Python   |         21 |      3,934 |        349 |        419 |      4,702 |
+| XML      |         16 |      1,331 |         41 |         29 |      1,401 |
+| XSL      |          1 |        332 |         48 |          0 |        380 |
+| HTML     |          1 |         56 |          8 |          8 |         72 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                           | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                              |         39 |      5,653 |        446 |        456 |      6,555 |
+| . (Files)                                                                      |          2 |         41 |          2 |          3 |         46 |
+| data                                                                           |          5 |        413 |         54 |          7 |        474 |
+| models                                                                         |         16 |      3,522 |        289 |        364 |      4,175 |
+| models (Files)                                                                 |         11 |      2,606 |        216 |        285 |      3,107 |
+| models\tzlocal                                                                 |          5 |        916 |         73 |         79 |      1,068 |
+| report                                                                         |          1 |        486 |          8 |          0 |        494 |
+| static                                                                         |          1 |         56 |          8 |          8 |         72 |
+| static\description                                                             |          1 |         56 |          8 |          8 |         72 |
+| views                                                                          |         10 |        689 |         27 |         19 |        735 |
+| wizard                                                                         |          4 |        446 |         58 |         55 |        559 |
++--------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                       | language | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| d:\odoo_docker\addons16\nomina_cfdi\__init__.py                                | Python   |          2 |          1 |          1 |          4 |
+| d:\odoo_docker\addons16\nomina_cfdi\__manifest__.py                            | Python   |         39 |          1 |          2 |         42 |
+| d:\odoo_docker\addons16\nomina_cfdi\data\cadenaoriginal_4_0.xslt               | XSL      |        332 |         48 |          0 |        380 |
+| d:\odoo_docker\addons16\nomina_cfdi\data\cron.xml                              | XML      |         16 |          0 |          1 |         17 |
+| d:\odoo_docker\addons16\nomina_cfdi\data\inputs.xml                            | XML      |         21 |          0 |          0 |         21 |
+| d:\odoo_docker\addons16\nomina_cfdi\data\mail_template_data.xml                | XML      |         20 |          3 |          4 |         27 |
+| d:\odoo_docker\addons16\nomina_cfdi\data\sequence_data.xml                     | XML      |         24 |          3 |          2 |         29 |
+| d:\odoo_docker\addons16\nomina_cfdi\models\__init__.py                         | Python   |         10 |          1 |          1 |         12 |
+| d:\odoo_docker\addons16\nomina_cfdi\models\contract.py                         | Python   |        171 |          4 |         16 |        191 |
+| d:\odoo_docker\addons16\nomina_cfdi\models\ctalogo_nomina.py                   | Python   |         19 |          1 |          7 |         27 |
+| d:\odoo_docker\addons16\nomina_cfdi\models\employee.py                         | Python   |         96 |          5 |          9 |        110 |
+| d:\odoo_docker\addons16\nomina_cfdi\models\horas_extras.py                     | Python   |         28 |          2 |          7 |         37 |
+| d:\odoo_docker\addons16\nomina_cfdi\models\hr_payroll.py                       | Python   |      1,724 |        153 |        157 |      2,034 |
+| d:\odoo_docker\addons16\nomina_cfdi\models\hr_payroll_structure.py             | Python   |          4 |          1 |          2 |          7 |
+| d:\odoo_docker\addons16\nomina_cfdi\models\hr_payslip_run.py                   | Python   |        265 |         39 |         30 |        334 |
+| d:\odoo_docker\addons16\nomina_cfdi\models\res_bank.py                         | Python   |          4 |          1 |          3 |          8 |
+| d:\odoo_docker\addons16\nomina_cfdi\models\res_company.py                      | Python   |         85 |          7 |          7 |         99 |
+| d:\odoo_docker\addons16\nomina_cfdi\models\tablas_nomina.py                    | Python   |        200 |          2 |         46 |        248 |
+| d:\odoo_docker\addons16\nomina_cfdi\models\tzlocal\__init__.py                 | Python   |          5 |          0 |          2 |          7 |
+| d:\odoo_docker\addons16\nomina_cfdi\models\tzlocal\tests.py                    | Python   |         87 |         16 |         32 |        135 |
+| d:\odoo_docker\addons16\nomina_cfdi\models\tzlocal\unix.py                     | Python   |         82 |         33 |         24 |        139 |
+| d:\odoo_docker\addons16\nomina_cfdi\models\tzlocal\win32.py                    | Python   |         57 |         21 |         18 |         96 |
+| d:\odoo_docker\addons16\nomina_cfdi\models\tzlocal\windows_tz.py               | Python   |        685 |          3 |          3 |        691 |
+| d:\odoo_docker\addons16\nomina_cfdi\report\report_payslip.xml                  | XML      |        486 |          8 |          0 |        494 |
+| d:\odoo_docker\addons16\nomina_cfdi\static\description\index.html              | HTML     |         56 |          8 |          8 |         72 |
+| d:\odoo_docker\addons16\nomina_cfdi\views\horas_extras_view.xml                | XML      |         76 |          0 |          5 |         81 |
+| d:\odoo_docker\addons16\nomina_cfdi\views\hr_contract_view.xml                 | XML      |         76 |          0 |          2 |         78 |
+| d:\odoo_docker\addons16\nomina_cfdi\views\hr_employee_view.xml                 | XML      |         48 |          5 |          1 |         54 |
+| d:\odoo_docker\addons16\nomina_cfdi\views\hr_payroll_payslip_view.xml          | XML      |        207 |         14 |          5 |        226 |
+| d:\odoo_docker\addons16\nomina_cfdi\views\hr_payroll_structure.xml             | XML      |         13 |          1 |          0 |         14 |
+| d:\odoo_docker\addons16\nomina_cfdi\views\hr_salary_view.xml                   | XML      |         42 |          0 |          1 |         43 |
+| d:\odoo_docker\addons16\nomina_cfdi\views\menu.xml                             | XML      |         10 |          0 |          0 |         10 |
+| d:\odoo_docker\addons16\nomina_cfdi\views\res_bank_view.xml                    | XML      |         13 |          1 |          0 |         14 |
+| d:\odoo_docker\addons16\nomina_cfdi\views\res_company_view.xml                 | XML      |         21 |          2 |          0 |         23 |
+| d:\odoo_docker\addons16\nomina_cfdi\views\tablas_cfdi_view.xml                 | XML      |        183 |          4 |          5 |        192 |
+| d:\odoo_docker\addons16\nomina_cfdi\wizard\__init__.py                         | Python   |          2 |          1 |          2 |          5 |
+| d:\odoo_docker\addons16\nomina_cfdi\wizard\hr_payroll_liquidacion.py           | Python   |        267 |         42 |         36 |        345 |
+| d:\odoo_docker\addons16\nomina_cfdi\wizard\hr_payroll_payslips_by_employees.py | Python   |        102 |         15 |         14 |        131 |
+| d:\odoo_docker\addons16\nomina_cfdi\wizard\wizard_liquidacion_view.xml         | XML      |         75 |          0 |          3 |         78 |
+| Total                                                                          |          |      5,653 |        446 |        456 |      6,555 |
++--------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

@@ -417,8 +417,8 @@
                   </tr>
                </table>
                <div class="row" style="page-break-inside: avoid">
-                  <div class="col-3">
-                     <span t-field="o.qrcode_image" t-options="{&quot;widget&quot;: &quot;image&quot;}" style="height: 190;width: 190;padding-left:10px;"/>
+                  <div class="col-3" style="padding-top:15px;">
+                     <span t-field="o.qrcode_image" t-options="{'widget':'image'}" style="height: 190;width: 190;"/>
                   </div>
                   <div class="col-9 pull-right" style="font-size:12px;">
                      <div>

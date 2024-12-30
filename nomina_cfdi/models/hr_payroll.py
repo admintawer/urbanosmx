@@ -1,30 +1,40 @@
 # -*- coding: utf-8 -*-
-
-from ast import Bytes
-import base64, requests, xmltodict, os, io, datetime, math, pytz, random, string, json
-from unittest import result
-from xml.dom import minidom
+from odoo import api, fields, models, _
+import base64, requests, xmltodict, os, datetime, math, pytz, random, string, json, qrcode, urllib
 from lxml import etree, objectify
 from io import BytesIO
-from datetime import timedelta, date
+from datetime import timedelta
 from datetime import time as datetime_time
-from pytz import timezone
-from odoo import api, fields, models, _
 from odoo.exceptions import UserError,ValidationError
-from reportlab.graphics.barcode import createBarcodeDrawing #, getCodes
-from xml.etree.ElementTree import Element, ElementTree,  SubElement, Comment, parse, tostring, fromstring
+from xml.etree.ElementTree import Element, ElementTree,  SubElement, tostring
 from reportlab.lib.units import mm
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from odoo import tools
 from zeep import Client
 from zeep.transports import Transport
-from json.decoder import JSONDecodeError
+from urllib.parse import quote_plus
+
 
 
 import logging
 _logger = logging.getLogger(__name__)
 
 from collections import defaultdict, OrderedDict
+
+def generate_cfdi_qr_code(url):
+    qr = qrcode.QRCode(
+             version=1,
+             error_correction=qrcode.constants.ERROR_CORRECT_L,
+             box_size=20,
+             border=4,
+             )
+    qr.add_data(url)
+    qr.make(fit=True)
+    img = qr.make_image()
+    temp = BytesIO()
+    img.save(temp, format="PNG")
+    qr_img = base64.b64encode(temp.getvalue())
+    return qr_img
 
 class HrSalaryRule(models.Model):
     _inherit = 'hr.salary.rule'
@@ -64,6 +74,18 @@ class HrPayslip(models.Model):
     _name = "hr.payslip"
     _inherit = ['hr.payslip','mail.thread']
 
+    def generate_qr_code(self):
+        for r in self:
+            #if r.folio and r.company_id.vat and r.employee_id.rfc and r.line_ids:
+            base_url = 'https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?&id=%s'
+            
+            mto = 0
+            for l in r.line_ids.filtered(lambda x: x.name == 'Sueldo neto en efectivo'):
+                mto += l.total
+            id = r.folio_fiscal + "&re=" + r.company_id.vat + "&rr=" + r.employee_id.rfc + "&tt=" + '{:020.6f}'.format(mto) + "&fe=" + quote_plus(r.selo_sat[-8:]).replace('%2B', '+').replace('%3D','=')
+            self.qrcode_image = generate_cfdi_qr_code(base_url % id) 
+
+
 
     tipo_nomina = fields.Selection(
         selection=[('O', 'Nómina ordinaria'), 
@@ -83,7 +105,7 @@ class HrPayslip(models.Model):
     xml_nomina_link = fields.Char(string=_('XML link'), readonly=True)
     nomina_cfdi = fields.Boolean('Nomina CFDI')
     cfdi_xml = fields.Binary("XML")
-    qrcode_image = fields.Binary("QRCode")
+    qrcode_image = fields.Binary("QRCode", copy=False)
     qr_value = fields.Char(string=_('QR Code Value'))
     numero_cetificado = fields.Char(string=_('Numero de cetificado'))
     cetificaso_sat = fields.Char(string=_('Cetificado SAT'))
@@ -1049,7 +1071,7 @@ class HrPayslip(models.Model):
                         'ImporteGravado': '0',
                         'ImporteExento': round(line.total,2)
                         })
-        if self.employee_id.contrato != '09' and not self.struct_id.asimilados:
+        if self.employee_id.tipo_contrato != '09' and not self.struct_id.asimilados:
             lineas_de_otros.append({
                 'TipoOtrosPagos': "002",
                 'Clave': "002",
@@ -1173,8 +1195,8 @@ class HrPayslip(models.Model):
             regimen = '605'
             contrato = '99'
         else:
-            regimen = self.employee_id.regimen
-            contrato = self.employee_id.contrato
+            regimen = self.employee_id.tipo_regimen
+            contrato = self.employee_id.tipo_contrato
         cur_time = datetime.datetime.now(pytz.timezone(self.env.user.tz))
         cert = self.company_id.l10n_mx_edi_certificate_ids
         if not cert:
@@ -1184,16 +1206,14 @@ class HrPayslip(models.Model):
         #   XML CFDI 4.0  #
         ###################
         
-        if total_imp_ret > 0:
-            Deducciones = {
-                'TotalOtrasDeducciones': str(round(payslip_total_TDED - total_imp_ret,2)) or '',
-                'TotalImpuestosRetenidos': str(total_imp_ret) or ''
-            }
-        else:
-            Deducciones = {
-                'TotalOtrasDeducciones': str(round(payslip_total_TDED - total_imp_ret,2)) or '',
-                'TotalImpuestosRetenidos': ''
-            }
+        Deducciones = {}
+        if payslip_total_TDED > 0:
+            if total_imp_ret > 0:
+                Deducciones['TotalOtrasDeducciones'] = str(round(payslip_total_TDED - total_imp_ret,2)) or ''
+                Deducciones['TotalImpuestosRetenidos'] =  str(total_imp_ret) or ''
+            else:
+                Deducciones['TotalOtrasDeducciones'] = str(round(payslip_total_TDED - total_imp_ret,2)) or ''
+                Deducciones['TotalImpuestosRetenidos'] = ''
 
         data = {
             'Atributos': {
@@ -1253,14 +1273,14 @@ class HrPayslip(models.Model):
                 'NumSeguridadSocial': self.employee_id.segurosocial or '',
                 'FechaInicioRelLaboral': fields.Date.to_string(self.contract_id.date_start) or '',
                 'Antigüedad': 'P' + f'{antiguedad:.0f}' + 'W',
-                'TipoContrato': contrato or '',
+                'TipoContrato': contrato,
                 'TipoJornada': str(self.employee_id.jornada),
-                'TipoRegimen': self.employee_id.contrato,
+                'TipoRegimen': self.employee_id.tipo_regimen,
                 'NumEmpleado': self.employee_id.no_empleado or '',
                 'Departamento': '',##NECESITAMOS ESTE DATO CONFORME A LA DOCUMENTACION DEL SAT
                 'Puesto': '',##NECESITAMOS ESTE DATO CONFORME A LA DOCUMENTACION DEL SAT
                 'RiesgoPuesto': str(self.contract_id.riesgo_puesto) or '',
-                'PeriodicidadPago': str(self.contract_id.periodicidad_pago) or '',
+                'PeriodicidadPago': str(self.payslip_run_id.periodicidad_pago) or str(self.contract_id.periodicidad_pago),
                 'CuentaBancaria': '',##NECESITAMOS ESTE DATO CONFORME A LA DOCUMENTACION DEL SAT
                 'Banco': '',##NECESITAMOS ESTE DATO CONFORME A LA DOCUMENTACION DEL SAT
                 'SalarioBaseCotApor': str(round(self.contract_id.sueldo_base_cotizacion,2)) or '',
@@ -1354,10 +1374,10 @@ class HrPayslip(models.Model):
                 'TipoContrato': contrato or '',
                 #'Sindicalizado': "No",
                 #'TipoJornada': str(self.employee_id.jornada),
-                'TipoRegimen': self.employee_id.contrato,
+                'TipoRegimen': self.employee_id.tipo_regimen,
                 'NumEmpleado': self.employee_id.no_empleado or '',
                 #'RiesgoPuesto': str(self.contract_id.riesgo_puesto) or '',
-                'PeriodicidadPago': str(self.contract_id.periodicidad_pago) or '',
+                'PeriodicidadPago': str(self.payslip_run_id.periodicidad_pago) or str(self.contract_id.periodicidad_pago),
                 #'SalarioBaseCotApor': str(round(self.contract_id.sueldo_base_cotizacion,2)) or '',
                 #'SalarioDiarioIntegrado': str(round(self.contract_id.sueldo_diario_integrado,2)) or '',
                 'ClaveEntFed': self.employee_id.estado.code or '',
@@ -1371,10 +1391,10 @@ class HrPayslip(models.Model):
                 'TipoContrato': contrato or '',
                 #'Sindicalizado': "No",
                 'TipoJornada': str(self.employee_id.jornada),
-                'TipoRegimen': str(self.employee_id.contrato),
+                'TipoRegimen': str(self.employee_id.tipo_regimen),
                 'NumEmpleado': self.employee_id.no_empleado or '',
                 'RiesgoPuesto': str(self.contract_id.riesgo_puesto) or '',
-                'PeriodicidadPago': str(self.contract_id.periodicidad_pago) or '',
+                'PeriodicidadPago': str(self.payslip_run_id.periodicidad_pago) or str(self.contract_id.periodicidad_pago),
                 'SalarioBaseCotApor': str(round(self.contract_id.sueldo_base_cotizacion,2)) or '',
                 'SalarioDiarioIntegrado': str(round(self.contract_id.sueldo_diario_integrado,2)) or '',
                 'ClaveEntFed': self.employee_id.estado.code or '',
@@ -1402,22 +1422,23 @@ class HrPayslip(models.Model):
                 'ImporteExento': str(r['ImporteExento']) or ''
             })
         
-        if total_imp_ret > 0:
-            n12deducciones = SubElement(nomina12,'nomina12:Deducciones',{
-                'TotalOtrasDeducciones': str(round(payslip_total_TDED - total_imp_ret,2)) or '',
-                'TotalImpuestosRetenidos': str(round(total_imp_ret,2)) or ''
-            })
-        else:
-            n12deducciones = SubElement(nomina12,'nomina12:Deducciones',{
-                'TotalOtrasDeducciones': str(round(payslip_total_TDED - total_imp_ret,2)) or ''
-            })            
-        for d in lineas_deduccion:
-            n12ded = SubElement(n12deducciones,'nomina12:Deduccion',{
-                'TipoDeduccion': d['TipoDeduccion'] or '',
-                'Clave': d['Clave'] or '',
-                'Concepto': d['Concepto'] or '',
-                'Importe': str(d['Importe']) or ''
-            })
+        if payslip_total_TDED > 0:
+            if total_imp_ret > 0:
+                n12deducciones = SubElement(nomina12,'nomina12:Deducciones',{
+                    'TotalOtrasDeducciones': str(round(payslip_total_TDED - total_imp_ret,2)) or '',
+                    'TotalImpuestosRetenidos': str(round(total_imp_ret,2)) or ''
+                })
+            else:
+                n12deducciones = SubElement(nomina12,'nomina12:Deducciones',{
+                    'TotalOtrasDeducciones': str(round(payslip_total_TDED - total_imp_ret,2)) or ''
+                })            
+            for d in lineas_deduccion:
+                n12ded = SubElement(n12deducciones,'nomina12:Deduccion',{
+                    'TipoDeduccion': d['TipoDeduccion'] or '',
+                    'Clave': d['Clave'] or '',
+                    'Concepto': d['Concepto'] or '',
+                    'Importe': str(d['Importe']) or ''
+                })
 
         n12otrospagos = SubElement(nomina12,'nomina12:OtrosPagos')
         for o in lineas_de_otros:
@@ -1542,8 +1563,13 @@ class HrPayslip(models.Model):
             payload = json.dumps({
                 'data': xml.decode('UTF8')
             })
-            if not credentials['token']:
-                raise ValidationError('Se ha producido un error al obtener el token de transaccion, intenta de nuevo o comunicate a soporte')
+            #raise ValidationError(str(credentials))
+            try:
+                if not credentials['token']:
+                    raise ValidationError('Se ha producido un error al obtener el token de transaccion, intenta de nuevo o comunicate a soporte \n'
+                                        + str(credentials))
+            except:
+                raise ValidationError(str(credentials))
             token_sw = "Bearer %s" % credentials['token']
             files = []
 
@@ -1599,9 +1625,9 @@ class HrPayslip(models.Model):
                     payslip.selo_sat = resultadoTimbrado['selloSAT']
                     payslip.folio_fiscal = resultadoTimbrado['uuid']
                     payslip.version = resultadoTimbrado['versionTFD']
-
+                    #qr_str = resultadoTimbrado['qrCode'].encode('utf-8') TODO Estos cambios se aplicaron por que no se guardaba el QR en urbanos
+                    #payslip.qrcode_image = base64.b64encode(qr_str) TODO Pero al parecer hay que regresarlo a como estaba
                     payslip.qrcode_image = base64.b64encode(resultadoTimbrado['qrCode'])
-
                     dict_data = dict(xmltodict.parse(resultadoTimbrado['cfdiTimbrado']).get('cfdi:Comprobante', {}))
                     tfd = dict_data
 
@@ -1641,9 +1667,12 @@ class HrPayslip(models.Model):
                     payslip.fecha_certificacion = datetime.datetime.strptime(resultadoTimbrado['fechaTimbrado'], '%Y-%m-%dT%H:%M:%S').date()
                     payslip.selo_sat = resultadoTimbrado['selloSAT']
                     payslip.folio_fiscal = resultadoTimbrado['uuid']
-                    #payslip.version = resultadoTimbrado['versionTFD']
-
-                    payslip.qrcode_image = base64.b64encode(resultadoTimbrado['qrCode'].encode('UTF-8'))
+                    qr_str = resultadoTimbrado['qrCode'].encode('utf-8')
+                    qr_decode = base64.b64decode(qr_str)
+                    qr = payslip.write({
+                        'qrcode_image': base64.b64encode(qr_decode),
+                    })
+                    _logger.critical(qr)
 
                     dict_data = dict(xmltodict.parse(resultadoTimbrado['cfdi']).get('cfdi:Comprobante', {}))
                     tfd = dict_data
