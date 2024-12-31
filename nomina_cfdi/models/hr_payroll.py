@@ -583,11 +583,12 @@ class HrPayslip(models.Model):
     
     @api.depends('number')
     def _get_number_folio(self):
-        if self.number:
-            self.number_folio = self.number.replace('SLIP','').replace('/','')
-        else:
-            self.write({'number': self.env['ir.sequence'].next_by_code('numero.nomina')})
-            self.number_folio = self.number.replace('NOM','').replace('/','')
+        for r in self:
+            if r.number:
+                r.number_folio = r.number.replace('SLIP','').replace('/','')
+            else:
+                r.write({'number': self.env['ir.sequence'].next_by_code('numero.nomina')})
+                r.number_folio = r.number.replace('NOM','').replace('/','')
 
     @api.returns('self', lambda value: value.id)
     def copy(self, default=None):
