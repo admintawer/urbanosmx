@@ -27,7 +27,7 @@
         'views/copy_paste_template.xml',
         'views/account_move.xml',
         'views/account_move_sync.xml',
-        'views/cfdi_complement.xml',
+        #'views/cfdi_complement.xml',
     ],
     'license': 'LGPL-3',
 }
