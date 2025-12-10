@@ -167,7 +167,7 @@
                             <t t-if="localtax.local_amount_type == 'percent'">
                                 <implocal:RetencionesLocales
                                     t-att-ImpLocRetenido="localtax.local_tax_name"
-                                    t-att-TasadeRetencion="localtax.amount * -1"
+                                    t-att-TasadeRetencion="'%.2f' % (localtax.amount * -1)"
                                     t-att-Importe="format_float(local_tax_detail_vals['tax_amount_currency'] * -1, currency_precision)"/>
                             </t>
                             <t t-else="localtax.local_amount_type == 'fixed'">
