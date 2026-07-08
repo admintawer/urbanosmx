@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sam_json_export_wizard,sam.json.export.wizard,model_sam_json_export_wizard,,1,1,1,1
+access_sam_json_import_wizard,sam.json.import.wizard,model_sam_json_import_wizard,,1,1,1,1
