@@ -4,27 +4,27 @@
         <field name="name">multi_approval_view_tree</field>
         <field name="model">multi.approval</field>
         <field name="arch" type="xml">
-            <tree string="Approvals" import="false">
+            <list string="Approvals" import="false">
                 <field name="priority" widget="priority" />
                 <field name="code"/>
                 <field name="name" />
-                <field name="description"/>
+                <field name="description" optional="show"/>
                 <field name="user_id" />
                 <field name="request_date" />
-                <field name="pic_id" />
+                <field name="pic_ids" widget="many2many_tags" />
                 <field name="deadline" />
                 <field name="state" />
                 <field name="is_pic" invisible="1"/>
                 <button name="action_approve" type="object"
                     string="APROBAR"
-                    attrs="{'invisible': ['|', ('is_pic', '=', False), ('state', '!=', 'Submitted')]}"
+                    invisible="is_pic == False or state != 'Submitted'"
                     class="oe_highlight" />
                 <button name="%(rail_odoo_approvals.refused_reason_action)d" type="action"
-                    attrs="{'invisible': ['|', ('is_pic', '=', False), ('state', '!=', 'Submitted')]}"
+                    invisible="is_pic == False or state != 'Submitted'"
                     string="RECHAZAR" 
                     class="btn btn-danger" 
                     confirm="Esta seguro(a) de rechazar esta solicitud"/>
-            </tree>
+            </list>
         </field>
     </record>
     <record id="multi_approval_view_filter" model="ir.ui.view">
@@ -37,13 +37,13 @@
                 <field name="code"/>
                 <field name="name"/>
                 <separator/>
-                <filter string="My Approvals" name="my_approval" domain="[('pic_id','=',uid)]"/>
-                <filter string="To Review" name="to_review" domain="[('pic_id','=', uid), ('state', '=', 'Submitted')]"/>
+                <filter string="My Approvals" name="my_approval" domain="[('pic_ids','in',[uid])]"/>
+                <filter string="To Review" name="to_review" domain="[('pic_ids','in', [uid]), ('state', '=', 'Submitted')]"/>
                 <separator/>
                 <field name="user_id" />
-                <field name="pic_id" />
+                <field name="pic_ids" />
                 <field name="type_id" />
-                <group expand="1" string="Group By">
+                <group>
                     <filter string="User" name='user' context="{'group_by':'user_id'}"/>
                     <filter string="Type" name="type_id" context="{'group_by':'type_id'}"/>
                     <filter string="Status" name="status" context="{'group_by':'state'}"/>
@@ -61,23 +61,30 @@
                 <header>
                     <field name='is_pic' invisible="1" />
                     <button name="action_submit" type="object"
-                            string="Submit" states="Draft"
+                            string="Submit" invisible="state != 'Draft'"
                             class="oe_highlight" />
                     <button name="action_approve" type="object"
                             string="Approve"
-                            attrs="{'invisible': ['|', ('is_pic', '=', False), ('state', '!=', 'Submitted')]}"
+                            invisible="is_pic == False or state != 'Submitted'"
                             class="oe_highlight" />
                     <button name="%(rail_odoo_approvals.refused_reason_action)d" type="action"
-                            attrs="{'invisible': ['|', ('is_pic', '=', False), ('state', '!=', 'Submitted')]}"
+                            invisible="is_pic == False or state != 'Submitted'"
                             string="Refuse"/>
                     <widget name="attach_document" string="Attach Document" action="message_post"
-                        attrs="{'invisible': ['|', ('attachment_number', '&lt;', 1), ('id','=',False)]}"/>
+                        invisible="attachment_number > 1 or id == False"/>
                     <widget name="attach_document" string="Attach Document" action="message_post"
-                        highlight="1" attrs="{'invisible': ['|',('attachment_number', '&gt;=', 1), ('id','=',False)]}"/>
+                        highlight="1" invisible="attachment_number > 1 or id == False"/>
                     <button name="action_cancel" type="object"
-                            string="Cancel" states="Draft"/>
+                            string="Cancel" invisible="state != 'Draft'"/>
                     <field name="state" widget="statusbar" statusbar_visible="Draft,Submitted,Approved,Cancel" />
                 </header>
+                <div class="alert alert-info" role="alert"
+                     invisible="state != 'Submitted' or current_line_progress == ''">
+                    <i class="fa fa-users me-2"/>
+                    <strong>Aprobación Múltiple:</strong>
+                    Esta línea requiere la aprobación de todos los usuarios.
+                    <field name="current_line_progress" readonly="1" class="ms-2 badge bg-primary"/>
+                </div>
                 <sheet>
                     <div class="oe_title">
                         <h1>
@@ -86,69 +93,101 @@
 
                         <label for="name" class="oe_edit_only" />
                         <h1>
-                            <field name="name" placeholder="Title" attrs="{'readonly': [('state', '!=', 'Draft')]}"/>
+                            <field name="name" placeholder="Title" readonly="state != 'Draft'"/>
                         </h1>
-                        <field name="priority" widget="priority" attrs="{'readonly': [('state', '!=', 'Draft')]}"/>
+                        <field name="priority" widget="priority" readonly="state != 'Draft'"/>
                     </div>
                     <div style="background: rgb(245, 245, 245);margin: 0px !important;padding: 0px 10px;border: 1px solid rgb(207, 207, 207);">
                         <group>
                             <group>
                                 <field name="user_id" readonly="1"/>
-                                <field name="request_date" attrs="{'readonly': [('state', '!=', 'Draft')]}"/>
-                                <field name="type_id" attrs="{'readonly': [('state', '!=', 'Draft')]}"
+                                <field name="request_date" readonly="state != 'Draft'"/>
+                                <field name="type_id" readonly="state != 'Draft'"
                                     options="{'no_create': True, 'no_open': True}"/>
                                 <field name="deadline" readonly="1"/>
-                                <field name="pic_id" readonly="1"/>
+                                <field name="pic_ids" readonly="1" widget="many2many_tags"/>
                             </group>
                             <group>
                                 <field name="contact_id"
-                                    attrs="{'invisible': [('contact_opt', 'in', ['None', False])], 'required': [('contact_opt', '=', 'Required')], 'readonly': [('state', '!=', 'Draft')]}"/>
+                                    invisible="contact_opt in ['None', False]"
+                                    required="contact_opt == 'Required'"
+                                    readonly="state != 'Draft'"/>
                                 <field name="date"
-                                    attrs="{'invisible': [('date_opt', 'in', ['None', False])], 'required': [('date_opt', '=', 'Required')], 'readonly': [('state', '!=', 'Draft')]}"/>
-                                <label for="date_start" string="Period" attrs="{'invisible':[('period_opt','in', ('None', False))]}"/>
-                                <div attrs="{'invisible':[('period_opt','in', ('None', False))]}">
+                                    invisible="date_opt in ['None', False]"
+                                    required="date_opt == 'Required'"
+                                    readonly="state != 'Draft'"/>
+                                <label for="date_start" string="Period" 
+                                    invisible="period_opt in ['None',False]"/>
+                                <div invisible="period_opt in ['None',False]">
                                     <div>
-                                    <span>From: </span><field name="date_start" class="oe_inline" attrs="{'required': [('period_opt','=','Required')], 'readonly': [('state', '!=', 'Draft')]}"/>
+                                    <span>From: </span><field name="date_start" class="oe_inline" 
+                                        required="period_opt == 'Required'"
+                                        reqdonly="state != 'Draft'"/>
                                     </div>
                                     <div>
-                                    <span>to: </span><field name="date_end" class="oe_inline" attrs="{'required': [('period_opt','=','Required')], 'readonly': [('state', '!=', 'Draft')]}"/>
+                                    <span>to: </span><field name="date_end" class="oe_inline" 
+                                        required="period_opt == 'Required'"
+                                        readonly="state != 'Draft'"/>
                                     </div>
                                 </div>
                                 <field name="item_id"
-                                    attrs="{'invisible': [('item_opt', 'in', ['None', False])], 'required': [('item_opt', '=', 'Required')], 'readonly': [('state', '!=', 'Draft')]}"/>
+                                    invisible="item_opt in ['None',False]"
+                                    required="item_opt == 'Required'"
+                                    readonly="state != 'Draft'"/>
                                 <field name="quantity"
-                                    attrs="{'invisible': [('quantity_opt', 'in', ['None', False])], 'required': [('quantity_opt', '=', 'Required')], 'readonly': [('state', '!=', 'Draft')]}"/>
+                                    invisible="quantity_opt in ['None',False]"
+                                    required="quantity_opt == 'Required'"
+                                    readonly="state != 'Draft'"/>
                                 <field name="amount"
-                                    attrs="{'invisible': [('amount_opt', 'in', ['None', False])], 'required': [('amount_opt', '=', 'Required')], 'readonly': [('state', '!=', 'Draft')]}"/>
+                                    invisible="amount_opt in ['None',False]"
+                                    required="amount_opt == 'Required'"
+                                    readonly="state != 'Draft'"/>
                                 <field name="payment"
-                                    attrs="{'invisible': [('payment_opt', 'in', ['None', False])], 'required': [('payment_opt', '=', 'Required')], 'readonly': [('state', '!=', 'Draft')]}"/>
+                                    invisible="payment_opt in ['None', False]"
+                                    required="payment_opt == 'Required'"
+                                    readonly="state != 'Draft'"/>
                                 <field name="reference"
-                                    attrs="{'invisible': [('reference_opt', 'in', ['None', False])], 'required': [('reference_opt', '=', 'Required')], 'readonly': [('state', '!=', 'Draft')]}"/>
+                                    invisible="reference_opt in ['None',False]"
+                                    required="reference_opt == 'Required'"
+                                    readonly="state != 'Draft'"/>
                                 <field name="location"
-                                    attrs="{'invisible': [('location_opt', 'in', ['None', False])], 'required': [('location_opt', '=', 'Required')], 'readonly': [('state', '!=', 'Draft')]}"/>
+                                    invisible="location_opt in ['None',False]"
+                                    required="location_opt == 'Required'"
+                                    readonly="state != 'Draft'"/>
                             </group>
                         </group>
-                        <group string="Items" attrs="{'invisible': [('multi_items_opt', 'in', ['None', False])], 'required': [('multi_items_opt', '=', 'Required')], 'readonly': [('state', '!=', 'Draft')]}">
+                        <group string="Items" 
+                            invisible="multi_items_opt in ['None',False]" 
+                            required="multi_items_opt == 'Required'"
+                            readonly="state != 'Draft'">
                             <field name="item_ids"
                                 nolabel="1"
                                 colspan="2"
-                                attrs="{'invisible': [('multi_items_opt', 'in', ['None', False])], 'required': [('multi_items_opt', '=', 'Required')], 'readonly': [('state', '!=', 'Draft')]}"/>
+                                invisible="multi_items_opt in ['None',False]"
+                                required="multi_items_opt == 'Required'"
+                                readonly="state != 'Draft'"/>
                         </group>
                     </div>
                     
                     <notebook>
                         <page string="Description" name="description">
-                            <field name="description" nolabel="1" placeholder='Description' attrs="{'readonly': [('state', '!=', 'Draft')]}"/>
+                            <field name="description" nolabel="1" placeholder='Description' readonly="state != 'Draft'"/>
                         </page>
-                        <page string="Approver(s)" name="approver" attrs="{'invisible': [('state', 'in', ['Draft', 'Cancel'])]}">
+                        <page string="Approver(s)" name="approver" invisible="state in ['Draft', 'Cancel']">
                             <field name="line_ids">
-                                <tree editable="top" create='false' delete='false'>
+                                <list editable="top" create='false' delete='false'>
                                     <field name="name" readonly="1"/>
-                                    <field name="user_id" readonly="1"/>
+                                    <field name="user_ids" readonly="1" widget="many2many_tags"/>
+                                    <field name="approved_user_ids" readonly="1" invisible="not require_all_approvers"
+                                           widget="many2many_tags" optional="hide"/>
+                                    <field name="pending_user_ids" readonly="1" invisible="not require_all_approvers"
+                                           widget="many2many_tags" optional="hide"/>
                                     <field name="require_opt" readonly="1"/>
-                                    <field name="deadline" attrs="{'readonly': [('state', 'not in', ('draft', 'Waiting for Approval'))]}"/>
+                                    <field name="require_all_approvers" readonly="1" optional="show"/>
+                                    <field name="deadline" readonly="state not in ['draft','Waiting for Approval']"/>
                                     <field name="state" readonly="1"/>
-                                </tree>
+                                    <field name="approval_progress" readonly="1" optional="show"/>
+                                </list>
                             </field>
                         </page>
                         <page string="Options" name="options" invisible="1">
@@ -173,11 +212,7 @@
                         </page>
                     </notebook>
                 </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user" />
-                    <field name="activity_ids" widget="mail_activity"/>
-                    <field name="message_ids" widget="mail_thread" />
-                </div>
+                <chatter/>
             </form>
         </field>
     </record>
@@ -194,10 +229,10 @@
                 <field name="state"/>
                 <field name="is_pic"/>
                 <templates>
-                    <t t-name="kanban-box">
+                    <t t-name="card">
                         <div t-attf-class="oe_kanban_card oe_kanban_global_click">
                             <!--t t-if="record.id">
-                                <img t-att-src="kanban_image('multi.approval', 'image', record.id.raw_value)" alt="Approval Image" class="oe_kanban_avatar float-left mr-3" width="64"
+                                <img t-att-src="'/web/image/multi.approval/' + record.id.raw_value + '/image'" alt="Approval Image" class="oe_kanban_avatar float-left mr-3" width="64"
                                     height="64" />
                             </t-->
                             <div class="o_kanban_record_top mb16">
@@ -231,10 +266,10 @@
                                     <div class="oe_kanban_bottom_left">
                                         <button name="action_approve" type="object"
                                             string="APROBAR"
-                                            attrs="{'invisible': ['|', ('is_pic', '=', False), ('state', '!=', 'Submitted')]}"
+                                            invisible="is_pic == False or state != 'Submitted'"
                                             class="oe_highlight" />
                                         <button name="%(rail_odoo_approvals.refused_reason_action)d" type="action"
-                                            attrs="{'invisible': ['|', ('is_pic', '=', False), ('state', '!=', 'Submitted')]}"
+                                            invisible="is_pic == False or state != 'Submitted'"
                                             string="RECHAZAR" 
                                             class="btn btn-danger" 
                                             confirm="Esta seguro(a) de rechazar esta solicitud"/>

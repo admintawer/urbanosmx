@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_rail_vacation_line_user,rail.vacation.line.user,model_rail_vacation_line,hr_holidays.group_hr_holidays_user,1,0,0,0
+access_rail_vacation_line_manager,rail.vacation.line.manager,model_rail_vacation_line,hr_holidays.group_hr_holidays_manager,1,1,1,1
+access_rail_vacation_leave_consumption_user,rail.vacation.leave.consumption.user,model_rail_vacation_leave_consumption,hr_holidays.group_hr_holidays_user,1,0,0,0
+access_rail_vacation_leave_consumption_manager,rail.vacation.leave.consumption.manager,model_rail_vacation_leave_consumption,hr_holidays.group_hr_holidays_manager,1,1,1,1

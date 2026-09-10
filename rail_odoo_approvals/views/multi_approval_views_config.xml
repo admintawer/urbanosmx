@@ -10,11 +10,11 @@
             </field>
             <button name="action_cancel" position="after">
                 <button name="%(rail_odoo_approvals.cancel_approval_action)d" type="action"
-                            string="Cancel" states="Submitted"/>
+                            string="Cancel" invisible="state != 'Submitted'" />
             </button>
             <button name="action_cancel" position="before">
                 <button name="%(rail_odoo_approvals.change_approver_action)d" type="action"
-                            string="Change Approver" states="Submitted"/>
+                            string="Change Approver" invisible="state != 'Submitted'"/>
             </button>
         </field>
     </record>

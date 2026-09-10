@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rail_hr_employee_form_vacations" model="ir.ui.view">
+        <field name="name">rail.hr.employee.form.vacations</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr_payroll.payroll_hr_employee_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='payroll_information']" position="inside">
+                <group name="rail_mx_vacation_group" string="Vacaciones MX" groups="hr_holidays.group_hr_holidays_user" invisible="company_country_code != 'MX'">
+                    <group string="Antigüedad y saldo">
+                        <field name="rail_seniority_start_date" readonly="1"/>
+                        <field name="rail_seniority_years" readonly="1"/>
+                        <field name="rail_vacation_available_days" readonly="1"/>
+                        <field name="rail_vacation_advance_days" readonly="1"/>
+                        <button name="action_rail_generate_vacation_line"
+                                type="object"
+                                string="Generar / recalcular saldo anual"
+                                class="btn-secondary"/>
+                    </group>
+                    <field name="rail_vacation_line_ids" nolabel="1" colspan="4">
+                        <list editable="bottom">
+                            <field name="year"/>
+                            <field name="seniority_start_date" readonly="1" optional="show"/>
+                            <field name="seniority_years" readonly="1" optional="show"/>
+                            <field name="anniversary_date" readonly="1" optional="show"/>
+                            <field name="state"/>
+                            <field name="granted_days"/>
+                            <field name="used_days"/>
+                            <field name="remaining_days" readonly="1"/>
+                            <field name="origin"/>
+                        </list>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

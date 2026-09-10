@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_rail_payroll_account_mapping_user,rail.payroll.account.mapping user,model_rail_payroll_account_mapping,hr_payroll.group_hr_payroll_manager,1,1,1,1
+access_wizard_poliza_imss_user,wizard.poliza.imss user,model_wizard_poliza_imss,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_wizard_poliza_imss_line_user,wizard.poliza.imss.line user,model_wizard_poliza_imss_line,hr_payroll.group_hr_payroll_user,1,1,1,1

@@ -1,0 +1,808 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* advanced_web_domain_widget
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-03 05:43+0000\n"
+"PO-Revision-Date: 2025-12-04 12:00+0800\n"
+"Last-Translator: Your Name <your@email.com>\n"
+"Language-Team: Chinese (Simplified)\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Manual Translation\n"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector/domain_selector.xml:0
+#, python-format
+msgid "# Code editor"
+msgstr "# 代码编辑器"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_autocomplete.js:0
+#, python-format
+msgid "(no result)"
+msgstr "(无结果)"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "=ilike"
+msgstr "= 不区分大小写匹配"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "=like"
+msgstr "= 精确匹配模式"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "Add New Rule"
+msgstr "添加新规则"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "Add branch"
+msgstr "添加分支"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#, python-format
+msgid "Add condition"
+msgstr "添加条件"
+
+#. module: advanced_web_domain_widget
+#: model:ir.model,name:advanced_web_domain_widget.model_base
+msgid "Base"
+msgstr "基础"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "Clear"
+msgstr "清除"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector_dialog/domain_selector_dialog.xml:0
+#, python-format
+msgid "Close"
+msgstr "关闭"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector/domain_selector.xml:0
+#, python-format
+msgid "Company filter"
+msgstr "公司筛选"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector_dialog/domain_selector_dialog.js:0
+#, python-format
+msgid "Confirm"
+msgstr "确认"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "Delete node"
+msgstr "删除节点"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector_dialog/domain_selector_dialog.js:0
+#, python-format
+msgid "Discard"
+msgstr "放弃"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.js:0
+#, python-format
+msgid "Display the domain using facets"
+msgstr "使用分面显示域"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.js:0
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector_dialog/domain_selector_dialog.js:0
+#, python-format
+msgid "Domain"
+msgstr "域"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector_dialog/domain_selector_dialog.js:0
+#, python-format
+msgid "Domain is invalid. Please correct it"
+msgstr "域无效。请更正"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "Domain node"
+msgstr "域节点"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#, python-format
+msgid "Edit Domain"
+msgstr "编辑域"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.js:0
+#, python-format
+msgid "Edit in dialog"
+msgstr "在对话框中编辑"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "False"
+msgstr "否"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.js:0
+#, python-format
+msgid "Foldable"
+msgstr "可折叠"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_autocomplete.js:0
+#, python-format
+msgid "Inaccessible/missing record ID: %s"
+msgstr "记录 ID 不可访问或不存在: %s"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector/domain_selector.xml:0
+#, python-format
+msgid "Include archived"
+msgstr "包含已归档"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#, python-format
+msgid "Invalid domain"
+msgstr "无效的域"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector/domain_selector.js:0
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector/domain_selector.js:0
+#, python-format
+msgid "Invalid field chain"
+msgstr "无效的字段链"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_autocomplete.js:0
+#, python-format
+msgid "Invalid record ID: %s"
+msgstr "无效的记录 ID: %s"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Last 30 Days"
+msgstr "最近30天"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Last 365 Days"
+msgstr "最近365天"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Last 7 Days"
+msgstr "最近7天"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Last 90 Days"
+msgstr "最近90天"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Last Day"
+msgstr "昨天"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Last Month"
+msgstr "上个月"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Last Quarter"
+msgstr "上季度"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Last Week"
+msgstr "上周"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Last Year"
+msgstr "去年"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#, python-format
+msgid "Loading"
+msgstr "加载中"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "Match"
+msgstr "匹配"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.js:0
+#, python-format
+msgid "Model"
+msgstr "模型"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#, python-format
+msgid "Modify filter"
+msgstr "修改筛选"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "New Rule"
+msgstr "新规则"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Next Day"
+msgstr "明天"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Next Month"
+msgstr "下个月"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Next Quarter"
+msgstr "下季度"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Next Week"
+msgstr "下周"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Next Year"
+msgstr "明年"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "Next day"
+msgstr "明天"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "Next month"
+msgstr "下个月"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "Next week"
+msgstr "下周"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "Next year"
+msgstr "明年"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "Not a valid %s"
+msgstr "不是有效的 %s"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "Operator not supported"
+msgstr "不支持的运算符"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_autocomplete.js:0
+#, python-format
+msgid "Quick search: %s"
+msgstr "快速搜索：%s"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#, python-format
+msgid "Refresh"
+msgstr "刷新"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector/domain_selector.xml:0
+#, python-format
+msgid "Reset domain"
+msgstr "重置域"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_autocomplete.js:0
+#, python-format
+msgid "Search More..."
+msgstr "搜索更多..."
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_autocomplete.js:0
+#, python-format
+msgid "Search: %s"
+msgstr "搜索：%s"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#, python-format
+msgid "Select a model to add a filter."
+msgstr "选择一个模型以添加筛选。"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.js:0
+#, python-format
+msgid "Selected records"
+msgstr "已选记录"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "This Month"
+msgstr "本月"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "This Quarter"
+msgstr "本季度"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "This Week"
+msgstr "本周"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "This Year"
+msgstr "今年"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector/domain_selector.xml:0
+#, python-format
+msgid "This domain is not supported."
+msgstr "此域不受支持。"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "This quarter"
+msgstr "本季度"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "This week"
+msgstr "本周"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "This year"
+msgstr "今年"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "Thismonth"
+msgstr "本月"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "Today"
+msgstr "今天"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "True"
+msgstr "是"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_autocomplete.js:0
+#, python-format
+msgid "Unnamed"
+msgstr "未命名"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "Value not in selection"
+msgstr "值不在选择范围内"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "Value not supported"
+msgstr "不支持的值"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#, python-format
+msgid "Warning"
+msgstr "警告"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "all"
+msgstr "所有"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "all records"
+msgstr "所有记录"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector/utils.js:0
+#, python-format
+msgid "and"
+msgstr "且"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "any"
+msgstr "任一"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "child of"
+msgstr "子级"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "contains"
+msgstr "包含"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "date filter"
+msgstr "日期筛选"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "does not contain"
+msgstr "不包含"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "is"
+msgstr "等于"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "is between"
+msgstr "介于"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "is in"
+msgstr "在...之中"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "is not"
+msgstr "不等于"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "is not in"
+msgstr "不在...之中"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "is not set"
+msgstr "未设置"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "is set"
+msgstr "已设置"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "last 30 days"
+msgstr "最近30天"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "last 365 days"
+msgstr "最近365天"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "last 7 days"
+msgstr "最近7天"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "last 90 days"
+msgstr "最近90天"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "last day"
+msgstr "昨天"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "last month"
+msgstr "上个月"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "last quarter"
+msgstr "上季度"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "last week"
+msgstr "上周"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "last year"
+msgstr "去年"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "like"
+msgstr "相似"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "next quarter"
+msgstr "下季度"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "none"
+msgstr "无"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "not all"
+msgstr "并非全部"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "not like"
+msgstr "不相似"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "not set"
+msgstr "未设置"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "of the following rules:"
+msgstr "以下规则："
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "of:"
+msgstr "的："
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector/utils.js:0
+#, python-format
+msgid "or"
+msgstr "或"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "parent of"
+msgstr "父级"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "set"
+msgstr "已设置"

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Ejecución única al incorporar esta versión del módulo. Es idempotente. -->
+        <function model="rail.imss.incidence" name="_rail_backfill_hires_on_module_update"/>
+    </data>
+</odoo>

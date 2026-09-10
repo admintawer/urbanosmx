@@ -40,11 +40,7 @@ class RequestApproval(models.TransientModel):
             'model': obj._name,
             'id': obj.id
         }
-        _logger.critical("BASE: " + base)
-        _logger.critical("FRAGMENT: " + str(fragment))
         url = base + werkzeug.urls.url_encode(fragment)
-        _logger.critical("URL: " + str(url))
-        _logger.critical("WEB.BASE.URL: "+ str(self.env['ir.config_parameter'].sudo().get_param('web.base.url')))
         return "%s/%s" % (
             self.env['ir.config_parameter'].sudo().get_param('web.base.url'),
             url
@@ -87,7 +83,6 @@ class RequestApproval(models.TransientModel):
 
         if approval_type.request_tmpl:
             request_tmpl= werkzeug.urls.url_unquote(_(approval_type.request_tmpl))
-            #_logger.critical("REQUEST_TMPL: " + str(request_tmpl))
             descr = request_tmpl.format(
                 approval = self,
                 record_url=record_url,

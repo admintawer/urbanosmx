@@ -7,6 +7,7 @@
             <field name="arch" type="xml">
                 <form>
                     <group>
+                        <field name="action_type"/>
                         <field name="new_pic_id" context="{'has_deputy_groups': group_ids}"/>
                         <field name="reason" />
                         <field name="group_ids" invisible="1"/>

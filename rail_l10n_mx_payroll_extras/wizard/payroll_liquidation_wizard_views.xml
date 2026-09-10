@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="wizard_liquidacion_form_view" model="ir.ui.view">
+        <field name="name">Calculo liquidaciones</field>
+        <field name="model">calculo.liquidaciones</field>
+        <field name="arch" type="xml">
+            <form string="Liquidaciones">
+                <group col="4" string="Generales">
+                    <field name="employee_id"/>
+                    <field name="version_id"/>
+                    <field name="fecha_inicio"/>
+                    <field name="fecha_liquidacion"/>
+                    <field name="tipo_de_baja"/>
+                    <field name="state" invisible="1"/>
+                </group>
+                <group col="2" string="Liquidación / Compensación" invisible="tipo_de_baja == '01'">
+                    <group string="Configuración">
+                        <field name="antiguedad_anos"/>
+                        <field name="sueldo_calculo"/>
+                        <field name="sueldo_calculo_monto"/>
+                    </group>
+                    <group string="Prima de antigüedad">
+                        <field name="antiguedad"/>
+                        <field name="monto_prima_antiguedad"/>
+                        <field name="tope_prima"/>
+                        <field name="tope_prima_monto"/>
+                        <field name="round_antiguedad"/>
+                    </group>
+                    <group string="Indemnización">
+                        <field name="indemnizacion"/>
+                        <field name="dias_base"/>
+                        <field name="dias_x_ano"/>
+                        <field name="dias_totales"/>
+                        <field name="monto_indemnizacion"/>
+                    </group>
+                    <group string="Pago por separación">
+                        <field name="pago_separacion"/>
+                    </group>
+                </group>
+                <group col="2" string="Conceptos ordinarios">
+                    <group string="Montos pendientes a pagar">
+                        <field name="dias_pendientes_pagar"/>
+                        <field name="dias_aguinaldo"/>
+                        <field name="dias_vacaciones"/>
+                        <field name="prima_vac"/>
+                        <field name="dias_prima_vac"/>
+                        <field name="fondo_ahorro"/>
+                    </group>
+                    <group string="Datos nómina">
+                        <field name="estructura"/>
+                        <field name="estructura_extra" invisible="tipo_de_baja == '01'"/>
+                        <field name="payslip_run_id"/>
+                    </group>
+                </group>
+                <field name="generated_payslip_ids" widget="many2many_tags" invisible="not generated_payslip_ids"/>
+                <footer>
+                    <button name="calculo_liquidacion" string="Calcular" type="object" class="btn-primary"/>
+                    <button name="calculo_create" string="Crear recibos" type="object" class="btn-primary" invisible="state == 'draft'"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizard_liquidacion" model="ir.actions.act_window">
+        <field name="name">Genera liquidaciones</field>
+        <field name="res_model">calculo.liquidaciones</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="wizard_liquidacion_form_view"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

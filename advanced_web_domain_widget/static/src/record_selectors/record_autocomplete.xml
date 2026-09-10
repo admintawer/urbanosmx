@@ -1,0 +1,27 @@
+<t t-name="awdw.RecordAutocompleteBits">
+    <AutoCompleteBits
+        placeholder="props.placeholder"
+        value="props.value"
+        autoSelect="true"
+        resetOnSelect="props.multiSelect"
+        class="props.className"
+        sources="sources"
+        onChange.bind="onChange"
+        resmodel="props.resModel"
+    >
+        <t t-set-slot="option" t-slot-scope="optionScope">
+            <t t-if="optionScope.data and optionScope.data.record">
+                <t t-if="optionScope.data.img">
+                    <img t-att-src="optionScope.data.img" alt="" style="width: 24px; height: 24px; margin-right: 8px; object-fit: contain; vertical-align: middle;"/>
+                    <span t-out="optionScope.label"/>
+                </t>
+                <t t-else="">
+                    <t t-slot="autoCompleteItem" label="optionScope.label" data="optionScope.data"/>
+                </t>
+            </t>
+            <t t-else="">
+                <t t-out="optionScope.label"/>
+            </t>
+        </t>
+    </AutoCompleteBits>
+</t>

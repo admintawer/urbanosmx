@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_rail_imss_incidence_user,rail.imss.incidence.user,model_rail_imss_incidence,hr_payroll.group_hr_payroll_user,1,1,1,0
+access_rail_imss_incidence_manager,rail.imss.incidence.manager,model_rail_imss_incidence,hr_payroll.group_hr_payroll_manager,1,1,1,1
+access_wizard_sbc_bimestral_user,wizard.sbc.bimestral.user,model_wizard_sbc_bimestral,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_wizard_sbc_bimestral_line_user,wizard.sbc.bimestral.line.user,model_wizard_sbc_bimestral_line,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_exportar_cfdi_sua_user,exportar.cfdi.sua.user,model_exportar_cfdi_sua,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_rail_imss_retroactive_hire_wizard_user,rail.imss.retroactive.hire.wizard.user,model_rail_imss_retroactive_hire_wizard,hr_payroll.group_hr_payroll_user,1,1,1,1

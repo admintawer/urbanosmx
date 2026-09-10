@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rail_hr_payslip_form_payroll_extras" model="ir.ui.view">
+        <field name="name">rail.hr.payslip.form.payroll.extras</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='compute_sheet'][1]" position="after">
+                <button string="Sincronizar préstamos" name="action_rail_sync_installments" type="object" invisible="state != 'draft' or rail_viaticos_id"/>
+            </xpath>
+
+            <!-- Odoo 19 bloquea por defecto la captura manual en Días trabajados.
+                 Para nómina MX necesitamos conservar la operación legacy donde el usuario
+                 puede agregar conceptos como VAC, PVC o AGUI directamente en el recibo. -->
+            <xpath expr="//page[@name='worked_days']//field[@name='worked_days_line_ids']/list" position="attributes">
+                <attribute name="create">1</attribute>
+                <attribute name="delete">1</attribute>
+                <attribute name="editable">bottom</attribute>
+            </xpath>
+            <xpath expr="//page[@name='worked_days']//field[@name='worked_days_line_ids']/list/field[@name='work_entry_type_id']" position="attributes">
+                <attribute name="readonly">0</attribute>
+            </xpath>
+            <xpath expr="//page[@name='worked_days']//field[@name='worked_days_line_ids']/list/field[@name='number_of_days']" position="attributes">
+                <attribute name="readonly">0</attribute>
+            </xpath>
+            <xpath expr="//page[@name='worked_days']//field[@name='worked_days_line_ids']/list/field[@name='number_of_hours']" position="attributes">
+                <attribute name="readonly">0</attribute>
+            </xpath>
+            <xpath expr="//page[@name='salary_computation']" position="before">
+                <page string="Préstamos / descuentos MX" name="rail_installments" invisible="rail_viaticos_id">
+                    <group>
+                        <field name="rail_apply_installments" readonly="state != 'draft'"/>
+                        <field name="rail_installment_total" readonly="1"/>
+                    </group>
+                    <field name="installment_ids" readonly="state != 'draft'">
+                        <list>
+                            <field name="date"/>
+                            <field name="loan_id"/>
+                            <field name="tipo_deduccion"/>
+                            <field name="installment_amt" sum="Capital"/>
+                            <field name="ins_interest" sum="Interés"/>
+                            <field name="total_installment" sum="Total"/>
+                            <field name="is_skip"/>
+                            <field name="is_paid"/>
+                            <field name="payslip_id"/>
+                        </list>
+                    </field>
+                    <group string="Campos puente legacy v18" groups="base.group_no_one">
+                        <field name="installment_amount" readonly="1"/>
+                        <field name="installment_int" readonly="1"/>
+                        <field name="descuento1_amount" readonly="1"/>
+                        <field name="descuento1_int" readonly="1"/>
+                        <field name="descuento2_amount" readonly="1"/>
+                        <field name="descuento2_int" readonly="1"/>
+                        <field name="descuento3_amount" readonly="1"/>
+                        <field name="descuento3_int" readonly="1"/>
+                        <field name="descuento4_amount" readonly="1"/>
+                        <field name="descuento4_int" readonly="1"/>
+                        <field name="descuento5_amount" readonly="1"/>
+                        <field name="descuento5_int" readonly="1"/>
+                        <field name="descuento6_amount" readonly="1"/>
+                        <field name="descuento6_int" readonly="1"/>
+                        <field name="descuento7_amount" readonly="1"/>
+                        <field name="descuento7_int" readonly="1"/>
+                        <field name="descuento8_amount" readonly="1"/>
+                        <field name="descuento8_int" readonly="1"/>
+                        <field name="descuento9_amount" readonly="1"/>
+                        <field name="descuento9_int" readonly="1"/>
+                        <field name="descuento10_amount" readonly="1"/>
+                        <field name="descuento10_int" readonly="1"/>
+                        <field name="descuento11_amount" readonly="1"/>
+                        <field name="descuento11_int" readonly="1"/>
+                        <field name="descuento12_amount" readonly="1"/>
+                        <field name="descuento12_int" readonly="1"/>
+                        <field name="descuento13_amount" readonly="1"/>
+                        <field name="descuento13_int" readonly="1"/>
+                        <field name="descuento14_amount" readonly="1"/>
+                        <field name="descuento14_int" readonly="1"/>
+                        <field name="descuento15_amount" readonly="1"/>
+                        <field name="descuento15_int" readonly="1"/>
+                    </group>
+                </page>
+            </xpath>
+
+            <xpath expr="(//field[@name='version_id'])[1]" position="after">
+                <field name="rail_viaticos_id" readonly="1" invisible="not rail_viaticos_id"/>
+                <field name="rail_viaticos_kind" readonly="1" invisible="not rail_viaticos_id"/>
+            </xpath>
+            <xpath expr="//field[@name='input_line_ids']//list//field[@name='amount']" position="after">
+                <field name="rail_generated_by_extra" optional="hide"/>
+                <field name="rail_installment_line_id" optional="hide"/>
+                <field name="rail_viaticos_id" optional="hide"/>
+            </xpath>
+            <xpath expr="//field[@name='input_line_ids']//form//field[@name='amount']" position="after">
+                <field name="rail_generated_by_extra"/>
+                <field name="rail_installment_line_id"/>
+                <field name="rail_viaticos_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

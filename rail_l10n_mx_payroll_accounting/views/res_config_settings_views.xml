@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_rail_accounting" model="ir.ui.view">
+        <field name="name">res.config.settings.form.rail.payroll.accounting</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="hr_payroll_account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//setting[field[@name='batch_payroll_move_lines']]" position="after">
+                <setting string="Compactación RAIL MX" help="Configuración informativa para replicar criterios legacy de compactación. La generación base continúa usando hr_payroll_account nativo.">
+                    <field name="rail_payroll_compact_mode"/>
+                </setting>
+                <setting string="Cuentas póliza IMSS patronal" help="Cuentas usadas por el wizard de póliza IMSS patronal.">
+                    <group>
+                        <group string="Enfermedad y maternidad">
+                            <field name="rail_imss_fixed_fee_debit_account_id"/>
+                            <field name="rail_imss_fixed_fee_credit_account_id"/>
+                            <field name="rail_imss_excess_debit_account_id"/>
+                            <field name="rail_imss_excess_credit_account_id"/>
+                            <field name="rail_imss_cash_benefits_debit_account_id"/>
+                            <field name="rail_imss_cash_benefits_credit_account_id"/>
+                            <field name="rail_imss_medical_expenses_debit_account_id"/>
+                            <field name="rail_imss_medical_expenses_credit_account_id"/>
+                        </group>
+                        <group string="Patronal">
+                            <field name="rail_imss_work_risk_debit_account_id"/>
+                            <field name="rail_imss_work_risk_credit_account_id"/>
+                            <field name="rail_imss_disability_life_debit_account_id"/>
+                            <field name="rail_imss_disability_life_credit_account_id"/>
+                            <field name="rail_imss_childcare_debit_account_id"/>
+                            <field name="rail_imss_childcare_credit_account_id"/>
+                            <field name="rail_imss_retirement_debit_account_id"/>
+                            <field name="rail_imss_retirement_credit_account_id"/>
+                            <field name="rail_imss_severance_old_age_debit_account_id"/>
+                            <field name="rail_imss_severance_old_age_credit_account_id"/>
+                            <field name="rail_imss_infonavit_debit_account_id"/>
+                            <field name="rail_imss_infonavit_credit_account_id"/>
+                        </group>
+                    </group>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

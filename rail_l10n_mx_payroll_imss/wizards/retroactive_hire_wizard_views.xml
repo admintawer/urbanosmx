@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rail_imss_retroactive_hire_wizard_form" model="ir.ui.view">
+        <field name="name">rail.imss.retroactive.hire.wizard.form</field>
+        <field name="model">rail.imss.retroactive.hire.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Reconstruir altas IMSS retroactivas">
+                <group>
+                    <field name="company_id"/>
+                    <field name="employee_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                    <field name="include_inactive"/>
+                </group>
+                <group string="Filtro opcional por fecha de alta">
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </group>
+                <div class="alert alert-info" role="alert">
+                    El proceso toma la primera <strong>hr.version</strong> histórica de cada empleado,
+                    crea únicamente el evento <strong>Alta</strong> faltante y no duplica incidencias existentes.
+                    Si faltan NSS, registro patronal, SBC o datos SUA, el alta se conserva en borrador.
+                </div>
+                <footer>
+                    <button name="action_generate"
+                            string="Reconstruir altas"
+                            type="object"
+                            class="btn-primary"/>
+                    <button string="Cancelar" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="rail_imss_retroactive_hire_wizard_action" model="ir.actions.act_window">
+        <field name="name">Reconstruir altas retroactivas</field>
+        <field name="res_model">rail.imss.retroactive.hire.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

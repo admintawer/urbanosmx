@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="rail_l10n_mx_payroll_imss_menu_root"
+              name="SUA / IDSE"
+              parent="hr.hr_menu_hr_reports"
+              sequence="85"
+              groups="hr_payroll.group_hr_payroll_user"/>
+
+    <menuitem id="rail_l10n_mx_payroll_imss_menu_incidence"
+              name="Incidencias IMSS"
+              parent="rail_l10n_mx_payroll_imss_menu_root"
+              action="rail_imss_incidence_action"
+              sequence="10"
+              groups="hr_payroll.group_hr_payroll_user"/>
+
+    <menuitem id="rail_l10n_mx_payroll_imss_menu_export"
+              name="Exportar SUA / IDSE"
+              parent="rail_l10n_mx_payroll_imss_menu_root"
+              action="exportar_cfdi_sua_action"
+              sequence="20"
+              groups="hr_payroll.group_hr_payroll_user"/>
+
+    <menuitem id="rail_l10n_mx_payroll_imss_menu_retroactive_hires"
+              name="Reconstruir altas retroactivas"
+              parent="rail_l10n_mx_payroll_imss_menu_root"
+              action="rail_imss_retroactive_hire_wizard_action"
+              sequence="25"
+              groups="hr_payroll.group_hr_payroll_user"/>
+
+    <menuitem id="rail_l10n_mx_payroll_imss_menu_sbc"
+              name="Cálculo SBC bimestral"
+              parent="rail_l10n_mx_payroll_imss_menu_root"
+              action="wizard_sbc_bimestral_action"
+              sequence="30"
+              groups="hr_payroll.group_hr_payroll_user"/>
+
+    <menuitem id="rail_l10n_mx_payroll_imss_menu_configuration"
+              name="Configuración"
+              parent="rail_l10n_mx_payroll_imss_menu_root"
+              sequence="90"
+              groups="hr_payroll.group_hr_payroll_manager"/>
+
+    <menuitem id="rail_l10n_mx_payroll_imss_menu_leave_types"
+              name="Tipos de ausencia"
+              parent="rail_l10n_mx_payroll_imss_menu_configuration"
+              action="hr_holidays.open_view_holiday_status"
+              sequence="10"
+              groups="hr_payroll.group_hr_payroll_manager"/>
+
+    <menuitem id="rail_l10n_mx_payroll_imss_menu_work_entry_types"
+              name="Tipos de entrada de trabajo"
+              parent="rail_l10n_mx_payroll_imss_menu_configuration"
+              action="hr_work_entry.hr_work_entry_type_action"
+              sequence="20"
+              groups="hr_payroll.group_hr_payroll_manager"/>
+</odoo>

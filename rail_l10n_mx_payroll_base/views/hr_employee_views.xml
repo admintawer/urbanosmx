@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rail_hr_employee_form_payroll_base" model="ir.ui.view">
+        <field name="name">rail.hr.employee.form.payroll.base</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr_payroll.payroll_hr_employee_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='personal_information']//group[@name='hr_birth_group']" position="inside">
+                <separator string="Nombre separado MX"/>
+                <field name="rail_first_name"/>
+                <field name="rail_paternal_surname"/>
+                <field name="rail_maternal_surname"/>
+            </xpath>
+
+            <xpath expr="//page[@name='payroll_information']//group[@name='payroll_group']" position="after">
+                <group name="rail_mx_payroll_custom" string="Nómina MX Custom" groups="hr_payroll.group_hr_payroll_user" invisible="company_country_code != 'MX'">
+                    <group name="rail_mx_custom_perceptions" string="Percepciones custom">
+                        <field name="rail_productivity_bonus"/>
+                        <field name="rail_productivity_bonus_amount" invisible="not rail_productivity_bonus"/>
+                        <field name="rail_attendance_bonus"/>
+                        <field name="rail_attendance_bonus_amount" invisible="not rail_attendance_bonus"/>
+                        <field name="rail_punctuality_bonus"/>
+                        <field name="rail_punctuality_bonus_amount" invisible="not rail_punctuality_bonus"/>
+                        <field name="rail_food_allowance"/>
+                        <field name="rail_food_allowance_amount" invisible="not rail_food_allowance"/>
+                        <field name="rail_additional_perception"/>
+                        <field name="rail_additional_perception_amount" invisible="not rail_additional_perception"/>
+                    </group>
+                    <group name="rail_mx_custom_deductions" string="Deducciones custom">
+                        <field name="rail_alimony"/>
+                        <field name="rail_alimony_fixed_amount" invisible="not rail_alimony"/>
+                        <field name="rail_savings_bank"/>
+                        <field name="rail_savings_bank_amount" invisible="not rail_savings_bank"/>
+                        <field name="rail_additional_deduction"/>
+                        <field name="rail_additional_deduction_amount" invisible="not rail_additional_deduction"/>
+                    </group>
+                    <group name="rail_mx_custom_options" string="Opciones operativas">
+                        <field name="rail_payment_type"/>
+                        <field name="rail_vacation_bonus_type"/>
+                        <field name="rail_fixed_sbc"/>
+                        <field name="rail_seventh_day"/>
+                        <field name="rail_seventh_day_disability"/>
+                        <field name="rail_seventh_day_discount"/>
+                        <field name="rail_english_week"/>
+                        <field name="rail_sunday_bonus"/>
+                        <field name="rail_extra_isr_calculation"/>
+                        <field name="rail_advanced_vacations"/>
+                    </group>
+                </group>
+            </xpath>
+
+            <xpath expr="//page[@name='payroll_information']" position="after">
+                <page name="rail_other_entries" string="Otras entradas" groups="hr_payroll.group_hr_payroll_user">
+                    <field name="rail_other_entry_ids" context="{'default_employee_id': id}">
+                        <list editable="bottom">
+                            <field name="entry_type_id"/>
+                            <field name="description" optional="hide"/>
+                            <field name="code" readonly="1"/>
+                            <field name="amount" string="Monto" optional="show"/>
+                            <field name="percentage" string="Porcentaje (%)" optional="show"/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

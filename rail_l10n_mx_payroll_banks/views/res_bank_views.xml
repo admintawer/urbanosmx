@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_bank_form_rail_payroll_banks" model="ir.ui.view">
+        <field name="name">res.bank.form.rail.payroll.banks</field>
+        <field name="model">res.bank</field>
+        <field name="inherit_id" ref="base.view_res_bank_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='bic']" position="after">
+                <field name="rail_mx_bank_code"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

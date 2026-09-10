@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rail_imss_incidence_view_list" model="ir.ui.view">
+        <field name="name">rail.imss.incidence.list</field>
+        <field name="model">rail.imss.incidence</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="state == 'cancel'" decoration-success="state == 'done'" decoration-warning="state == 'draft'">
+                <field name="date"/>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="incidence_type"/>
+                <field name="origin"/>
+                <field name="old_wage" optional="hide"/>
+                <field name="new_wage" optional="hide"/>
+                <field name="old_sbc"/>
+                <field name="new_sbc"/>
+                <field name="wage_changed" optional="hide"/>
+                <field name="sbc_changed" optional="hide"/>
+                <field name="automatic" optional="hide"/>
+                <field name="state"/>
+                <field name="exported_sua" optional="hide"/>
+                <field name="exported_idse" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="rail_imss_incidence_view_form" model="ir.ui.view">
+        <field name="name">rail.imss.incidence.form</field>
+        <field name="model">rail.imss.incidence</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm" string="Confirmar" type="object" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_draft" string="Volver a borrador" type="object" invisible="state != 'cancel'"/>
+                    <button name="action_cancel" string="Cancelar" type="object" invisible="state == 'cancel'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done,cancel"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="employee_id" readonly="state != 'draft'"/>
+                            <field name="version_id" readonly="state != 'draft'"/>
+                            <field name="date" readonly="state != 'draft'"/>
+                            <field name="incidence_type" readonly="state != 'draft'"/>
+                            <field name="origin" readonly="automatic"/>
+                            <field name="automatic" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="old_sbc" readonly="state != 'draft'"/>
+                            <field name="new_sbc" readonly="state != 'draft'"/>
+                            <field name="old_wage" readonly="state != 'draft'"/>
+                            <field name="new_wage" readonly="state != 'draft'"/>
+                            <field name="wage_changed" readonly="1"/>
+                            <field name="sbc_changed" readonly="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="exported_sua" readonly="1"/>
+                        <field name="exported_idse" readonly="1"/>
+                    </group>
+                    <field name="note"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="rail_imss_incidence_action" model="ir.actions.act_window">
+        <field name="name">Incidencias IMSS</field>
+        <field name="res_model">rail.imss.incidence</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

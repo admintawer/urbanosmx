@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rail_hr_version_form_payroll_base" model="ir.ui.view">
+        <field name="name">rail.hr.version.form.payroll.base</field>
+        <field name="model">hr.version</field>
+        <field name="inherit_id" ref="hr.hr_contract_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='contract']/field[@name='structure_type_id']" position="after">
+                <field name="rail_fixed_sbc"
+                       string="Sueldo base de cotización (IMSS)"
+                       invisible="country_code != 'MX'"
+                       groups="hr_payroll.group_hr_payroll_user"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="rail_hr_version_list_payroll_base" model="ir.ui.view">
+        <field name="name">rail.hr.version.list.payroll.base</field>
+        <field name="model">hr.version</field>
+        <field name="inherit_id" ref="hr.hr_version_list_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='wage']" position="after">
+                <field name="rail_fixed_sbc" string="SBC IMSS" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="rail_hr_version_payrun_list_payroll_base" model="ir.ui.view">
+        <field name="name">rail.hr.version.payrun.list.payroll.base</field>
+        <field name="model">hr.version</field>
+        <field name="inherit_id" ref="hr_payroll.payroll_hr_version_list_view_payrun"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='wage']" position="after">
+                <field name="rail_fixed_sbc" string="SBC IMSS" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

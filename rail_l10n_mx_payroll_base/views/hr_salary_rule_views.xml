@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rail_hr_salary_rule_form_sbc" model="ir.ui.view">
+        <field name="name">rail.hr.salary.rule.form.sbc</field>
+        <field name="model">hr.salary.rule</field>
+        <field name="inherit_id" ref="hr_payroll.hr_salary_rule_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='main_details']" position="after">
+                <group name="rail_sbc_variable_group" string="México IMSS/SBC">
+                    <group>
+                        <field name="rail_sbc_variable"/>
+                        <field name="rail_sbc_variable_type" invisible="not rail_sbc_variable" required="rail_sbc_variable"/>
+                        <field name="rail_sbc_variable_amount" invisible="not rail_sbc_variable or rail_sbc_variable_type == 'all'"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

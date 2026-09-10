@@ -97,19 +97,24 @@ class MultiApproval(models.Model):
                                string="Lines")
     line_id = fields.Many2one('multi.approval.line', string="Line", copy=False)
     deadline = fields.Date(string='Deadline', related='line_id.deadline')
-    pic_id = fields.Many2one(
-        'res.users', string='Approver', related='line_id.user_id')
+    pic_ids = fields.Many2many(
+        'res.users', string='Approvers', related='line_id.user_ids')
     is_pic = fields.Boolean(compute='_check_pic')
     follower = fields.Text('Following Users', default='[]', copy=False)
 
     # copy the idea of hr_expense
     attachment_number = fields.Integer(
         'Number of Attachments', compute='_compute_attachment_number')
+    current_line_progress = fields.Char(
+        string='Progreso de Aprobación',
+        compute='_compute_current_line_progress',
+        store=False
+    )
 
     @api.depends_context("uid")
     def _check_pic(self):
         for r in self:
-            r.is_pic = r.pic_id.id == self.env.uid
+            r.is_pic = self.env.uid in r.pic_ids.ids
 
     def _compute_attachment_number(self):
         attachment_data = self.env['ir.attachment'].read_group(
@@ -182,6 +187,25 @@ class MultiApproval(models.Model):
 
             # Update follower
             rec.update_follower(self.env.uid)
+
+            # Registrar la aprobación del usuario actual
+            line.register_user_approval(self.env.user)
+
+            # Verificar si la línea está completamente aprobada
+            if line.require_all_approvers and len(line.user_ids) >= 1:
+                if not line._check_all_approved():
+                    # Aún faltan aprobadores - no pasar a la siguiente línea
+                    msg = _(
+                        '{} aprobó. Esperando aprobación de: {}'
+                    ).format(
+                        self.env.user.name,
+                        ', '.join(line.pending_user_ids.mapped('name'))
+                    )
+                    rec.message_post(body=msg)
+
+                    # Enviar notificaciones a los pendientes
+                    rec._notify_pending_approvers(line)
+                    return False
 
             # check if this line is required
             other_lines = rec.line_ids.filtered(
@@ -258,19 +282,38 @@ class MultiApproval(models.Model):
     def _create_approval_lines(self):
         ApprovalLine = self.env['multi.approval.line']
         for r in self:
+            # Obtener el registro origen si existe
+            origin_record = None
+            if hasattr(r, 'origin_ref') and r.origin_ref:
+                origin_record = r.origin_ref
             lines = r.type_id.line_ids.sorted('sequence')
             last_seq = 0
+
             for l in lines:
                 line_seq = l.sequence
                 if not line_seq or line_seq <= last_seq:
                     line_seq = last_seq + 1
                 last_seq = line_seq
+
+                # Obtener usuarios - pasando el registro origen para tipos dinámicos
+                user_ids = l.get_user(record=origin_record)
+
+                # Validar que se obtuvieron usuarios
+                if not user_ids:
+                    _logger.warning(
+                        f'Aprobación "{r.name}": La línea "{l.name}" no tiene '
+                        f'usuarios configurados. Se omitirá esta línea.'
+                    )
+                    continue
+
                 vals = {
                     'name': l.name,
-                    'user_id': l.get_user(),
+                    'user_ids': [(6, 0, user_ids)],
                     'sequence': line_seq,
                     'require_opt': l.require_opt,
-                    'approval_id': r.id
+                    'require_all_approvers': l.require_all_approvers,
+                    'approval_id': r.id,
+                    'approved_user_ids': [(5, 0, 0)]
                 }
                 if l == lines[0]:
                     vals.update({'state': 'Waiting for Approval'})
@@ -289,33 +332,50 @@ class MultiApproval(models.Model):
 
     # 12.0.1.3
     def send_request_mail(self):
-        requests = self.filtered(
-            #lambda r: r.type_id.mail_notification and r.pic_id and #Changed to set condition by approver line
-            lambda r: r.mail_notification and r.pic_id and
-                r.state == 'Submitted'
-        )
+        requests = self.filtered(lambda r: r.type_id.mail_notification and r.pic_ids and r.state == 'Submitted')
         for req in requests:
-            if req.type_id.mail_template_id:
-                req.type_id.mail_template_id.send_mail(req.id)
-            else:
-                message = self.env['mail.message'].create({
-                    'subject': _('Request the approval for: {request_name}').format(
-                        request_name=req.display_name
-                    ),
-                    'model': req._name,
-                    'res_id': req.id,
-                    'body': self.description,
-                })
+            approver_notifications = req.type_id.mail_notification
+            mail_notification_line_ids = req.type_id.line_ids.filtered(lambda x: x.mail_notification)
+            if not mail_notification_line_ids:
+                continue
+            approvers = mail_notification_line_ids.filtered(lambda x: x.user_ids.ids in req.pic_ids.ids).mapped(
+                'user_ids')  # usuarios fijos
+            # dinamicos
+            try:
+                origin_record = getattr(req, 'origin_ref', None)
+                for line in mail_notification_line_ids:
+                    if not origin_record:
+                        break
+                    user_ids = line.get_user(record=origin_record)
+                    if user_ids:
+                        users = self.env['res.users'].browse(user_ids)
+                        approvers |= users.filtered(lambda u: u.id in req.pic_ids.ids)
+            except Exception as e:
+                _logger.error(f'Error obteniendo aprobadores dinámicos para solicitud {req.id}: {e}')
+            if not approvers:
+                approver_notifications = False
+            if approver_notifications:
+                if req.type_id.mail_template_id:
+                    req.type_id.mail_template_id.send_mail(req.id)
+                else:
+                    message = self.env['mail.message'].create({
+                        'subject': _('Request the approval for: {request_name}').format(
+                            request_name=req.display_name
+                        ),
+                        'model': req._name,
+                        'res_id': req.id,
+                        'body': self.description,
+                    })
 
-                self.env['mail.mail'].sudo().create({
-                    'mail_message_id': message.id,
-                    'body_html': self.description,
-                    'email_to': req.pic_id.email,
-                    'email_from': req.user_id.email,
-                    'auto_delete': True,
-                    'state': 'outgoing',
+                    self.env['mail.mail'].sudo().create({
+                        'mail_message_id': message.id,
+                        'body_html': self.description,
+                        'email_to': ','.join(req.pic_ids.mapped('email') or []),
+                        'email_from': req.user_id.email,
+                        'auto_delete': True,
+                        'state': 'outgoing',
 
-                })
+                    })
 
     def send_approved_mail(self):
         requests = self.filtered(
@@ -334,21 +394,154 @@ class MultiApproval(models.Model):
             req.type_id.refuse_mail_template_id.send_mail(req.id)
 
     def send_activity_notification(self):
-        requests = self.filtered(
-            lambda r: r.type_id.activity_notification and r.pic_id and
-                r.state == 'Submitted'
-        )
+        requests = self.filtered(lambda r: r.type_id.activity_notification and r.pic_ids and r.state == 'Submitted')
         notify_type = self.env.ref("mail.mail_activity_data_todo", False)
         if not notify_type:
             return
-        for req in requests.filtered(lambda x: x.pic_id.activity_notification):
-            summary = _("The request {code} need to be reviewed").format(
-                code=req.code
-            )
-            self.env['mail.activity'].create({
-                'res_id': req.id,
-                'res_model_id': self.env['ir.model']._get(req._name).id,
-                'activity_type_id': notify_type.id,
-                'summary': summary,
-                'user_id': req.pic_id.id,
+        for req in requests:
+            approver_notifications = req.type_id.activity_notification
+            activity_notification_line_ids = req.type_id.line_ids.filtered(lambda x: x.activity_notification)
+            if not activity_notification_line_ids:
+                continue
+            approvers = activity_notification_line_ids.filtered(lambda x: x.user_ids.ids in req.pic_ids.ids).mapped('user_ids')  # usuarios fijos
+            # dinamicos
+            try:
+                origin_record = getattr(req, 'origin_ref', None)
+                for line in activity_notification_line_ids:
+                    if not origin_record:
+                        break
+                    user_ids = line.get_user(record=origin_record)
+                    if user_ids:
+                        users= self.env['res.users'].browse(user_ids)
+                        approvers |= users.filtered(lambda u: u.id in req.pic_ids.ids)
+            except Exception as e:
+                _logger.error(f'Error obteniendo aprobadores dinámicos para solicitud {req.id}: {e}')
+            if not approvers:
+                approver_notifications = False
+            if approver_notifications:
+                summary = _("The request {code} need to be reviewed").format(
+                    code=req.code
+                )
+                for pic in req.pic_ids:
+                    self.env['mail.activity'].create({
+                        'res_id': req.id,
+                        'res_model_id': self.env['ir.model']._get(req._name).id,
+                        'activity_type_id': notify_type.id,
+                        'summary': summary,
+                        'user_id': pic.id,
+                    })
+
+    @api.depends('line_id', 'line_id.approved_user_ids', 'line_id.user_ids')
+    def _compute_current_line_progress(self):
+        """
+        Calcula el progreso de la línea actual.
+        """
+        for rec in self:
+            if rec.line_id and rec.line_id.require_all_approvers:
+                rec.current_line_progress = rec.line_id.approval_progress
+            else:
+                rec.current_line_progress = ''
+
+    def _notify_pending_approvers(self, line):
+        """
+        Envía notificaciones a los aprobadores pendientes.
+        Args:
+            line: Línea de aprobación con aprobadores pendientes
+        """
+        if not line.pending_user_ids:
+            return
+
+        # Enviar email si está configurado
+        if self.type_id.mail_notification:
+            mail_notification_line_ids = self.type_id.line_ids.filtered(lambda x: x.mail_notification)
+            if not mail_notification_line_ids:
+                return
+            approvers = mail_notification_line_ids.filtered(lambda x: x.user_ids.ids in self.pic_ids.ids).mapped(
+                'user_ids')  # usuarios fijos
+            # dinamicos
+            try:
+                origin_record = getattr(self, 'origin_ref', None)
+                for approval_type_line in mail_notification_line_ids:
+                    if not origin_record:
+                        break
+                    user_ids = approval_type_line.get_user(record=origin_record)
+                    if user_ids:
+                        users = self.env['res.users'].browse(user_ids)
+                        approvers |= users.filtered(lambda u: u.id in self.pic_ids.ids)
+            except Exception as e:
+                _logger.error(f'Error obteniendo aprobadores dinámicos para solicitud {self.id}: {e}')
+            for user in line.pending_user_ids:
+                if approvers and user.id in approvers.ids:
+                    self._send_pending_approval_mail(user, line)
+
+        # Enviar actividad si está configurado
+        if self.type_id.activity_notification:
+            for user in line.pending_user_ids:
+                self._send_pending_approval_activity(user, line)
+
+    def _send_pending_approval_mail(self, user, line):
+        """
+        Envía email recordatorio a un aprobador pendiente.
+        """
+        try:
+            approved_by = ', '.join(line.approved_user_ids.mapped('name'))
+            pending = len(line.pending_user_ids)
+
+            body = _(
+                '<p>La solicitud <strong>{}</strong> está esperando tu aprobación.</p>'
+                '<p>Ya aprobaron: {}</p>'
+                '<p>Pendientes: {} usuario(s)</p>'
+            ).format(self.display_name, approved_by or 'Nadie aún', pending)
+
+            message = self.env['mail.message'].create({
+                'subject': _('Aprobación pendiente: {}').format(self.display_name),
+                'model': self._name,
+                'res_id': self.id,
+                'body': body,
             })
+
+            self.env['mail.mail'].sudo().create({
+                'mail_message_id': message.id,
+                'body_html': body,
+                'email_to': user.email,
+                'email_from': self.env.user.email,
+                'auto_delete': True,
+                'state': 'outgoing',
+            })
+        except Exception as e:
+            _logger.error(f'Error enviando email a aprobador pendiente: {e}')
+
+    def _send_pending_approval_activity(self, user, line):
+        """
+        Crea actividad para un aprobador pendiente.
+        """
+        try:
+            notify_type = self.env.ref("mail.mail_activity_data_todo", False)
+            if not notify_type:
+                return
+
+            approved_count = len(line.approved_user_ids)
+            total = len(line.user_ids)
+
+            summary = _(
+                'Aprobación pendiente ({}/{} aprobados)'
+            ).format(approved_count, total)
+
+            # Verificar si ya existe una actividad para este usuario
+            existing = self.env['mail.activity'].search([
+                ('res_id', '=', self.id),
+                ('res_model', '=', self._name),
+                ('user_id', '=', user.id),
+                ('activity_type_id', '=', notify_type.id),
+            ], limit=1)
+
+            if not existing:
+                self.env['mail.activity'].create({
+                    'res_id': self.id,
+                    'res_model_id': self.env['ir.model']._get(self._name).id,
+                    'activity_type_id': notify_type.id,
+                    'summary': summary,
+                    'user_id': user.id,
+                })
+        except Exception as e:
+            _logger.error(f'Error creando actividad para aprobador pendiente: {e}')

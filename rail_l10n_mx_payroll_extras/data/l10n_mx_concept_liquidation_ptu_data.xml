@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="l10n_mx_concept_p3_exempt" model="l10n.mx.concept">
+        <field name="cfdi_type">perception</field>
+        <field name="sat_code">003</field>
+        <field name="payroll_code">P03_2</field>
+        <field name="name">Participación de los Trabajadores en las Utilidades PTU Exento</field>
+        <field name="is_taxable" eval="False"/>
+    </record>
+
+    <record id="l10n_mx_concept_p22_exempt" model="l10n.mx.concept">
+        <field name="cfdi_type">perception</field>
+        <field name="sat_code">022</field>
+        <field name="payroll_code">P22_2</field>
+        <field name="name">Prima por antigüedad exenta</field>
+        <field name="is_taxable" eval="False"/>
+    </record>
+
+    <record id="l10n_mx_concept_p23_exempt" model="l10n.mx.concept">
+        <field name="cfdi_type">perception</field>
+        <field name="sat_code">023</field>
+        <field name="payroll_code">P23_2</field>
+        <field name="name">Pagos por separación exentos</field>
+        <field name="is_taxable" eval="False"/>
+    </record>
+
+    <record id="l10n_mx_concept_p25_exempt" model="l10n.mx.concept">
+        <field name="cfdi_type">perception</field>
+        <field name="sat_code">025</field>
+        <field name="payroll_code">P25_2</field>
+        <field name="name">Indemnizaciones exentas</field>
+        <field name="is_taxable" eval="False"/>
+    </record>
+</odoo>

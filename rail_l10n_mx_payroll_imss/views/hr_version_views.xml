@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rail_hr_version_form_imss_tracking" model="ir.ui.view">
+        <field name="name">rail.hr.version.form.imss.tracking</field>
+        <field name="model">hr.version</field>
+        <field name="inherit_id" ref="rail_l10n_mx_payroll_base.rail_hr_version_form_payroll_base"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='rail_fixed_sbc']" position="after">
+                <field name="rail_previous_sbc" readonly="1"/>
+                <field name="rail_sbc_effective_date"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="rail_hr_version_list_imss_tracking" model="ir.ui.view">
+        <field name="name">rail.hr.version.list.imss.tracking</field>
+        <field name="model">hr.version</field>
+        <field name="inherit_id" ref="rail_l10n_mx_payroll_base.rail_hr_version_list_payroll_base"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='rail_fixed_sbc']" position="after">
+                <field name="rail_previous_sbc" optional="hide"/>
+                <field name="rail_sbc_effective_date" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="rail_hr_version_payrun_list_imss_tracking" model="ir.ui.view">
+        <field name="name">rail.hr.version.payrun.list.imss.tracking</field>
+        <field name="model">hr.version</field>
+        <field name="inherit_id" ref="rail_l10n_mx_payroll_base.rail_hr_version_payrun_list_payroll_base"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='rail_fixed_sbc']" position="after">
+                <field name="rail_previous_sbc" optional="hide"/>
+                <field name="rail_sbc_effective_date" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

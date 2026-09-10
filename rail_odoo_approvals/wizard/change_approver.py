@@ -18,6 +18,10 @@ class ChangeApprover(models.TransientModel):
         string="Deputy Groups",
         comodel_name="res.groups"
     )
+    action_type = fields.Selection([
+        ('add', 'Adicionar aprobador'),
+        ('replace', 'Reemplazar aprobador(es)')
+    ], string='Acción a realizar', required=True, default='add')
 
     @api.model
     def default_get(self, fs):
@@ -61,9 +65,17 @@ class ChangeApprover(models.TransientModel):
         if requests:
             requests.message_post(body=self.reason)
 
-        vals = {'user_id': self.new_pic_id.id}
         lines = requests.mapped('line_id')
-        lines.write(vals)
+        if self.action_type == 'add':
+            # Adicionar aprobador
+            vals = {'user_ids': [(4, self.new_pic_id.id)]}
+        elif self.action_type == 'replace':
+            # Reemplazar aprobadores
+            vals = {'user_ids': [(6, 0, [self.new_pic_id.id])]}
+        else:
+            vals = {}
+        if vals:
+            lines.write(vals)
         requests.sudo().send_request_mail()
         requests.sudo().send_activity_notification()
         action = self.env["ir.actions.act_window"]._for_xml_id(

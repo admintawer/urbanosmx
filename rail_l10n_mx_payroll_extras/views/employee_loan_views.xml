@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_loan_list" model="ir.ui.view">
+        <field name="name">employee.loan.list</field>
+        <field name="model">employee.loan</field>
+        <field name="arch" type="xml">
+            <list string="Préstamos/descuentos">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="loan_type_id"/>
+                <field name="date"/>
+                <field name="start_date"/>
+                <field name="loan_amount"/>
+                <field name="paid_amount"/>
+                <field name="remaing_amount"/>
+                <field name="state" widget="badge"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_employee_loan_form" model="ir.ui.view">
+        <field name="name">employee.loan.form</field>
+        <field name="model">employee.loan</field>
+        <field name="arch" type="xml">
+            <form string="Préstamo/descuento">
+                <header>
+                    <button name="action_send_request" string="Aprobar" type="object" class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="paid_loan" string="Marcar entregado/pagado" type="object" class="oe_highlight" invisible="state != 'hr_approval'"/>
+                    <button name="action_done_loan" string="Activar en nómina" type="object" class="oe_highlight" invisible="state not in ('hr_approval', 'paid')"/>
+                    <button name="action_compute_installments" string="Regenerar cuotas" type="object" invisible="state not in ('draft', 'hr_approval')"/>
+                    <button name="action_close_loan" string="Cerrar" type="object" invisible="not is_close"/>
+                    <button name="cancel_loan" string="Cancelar" type="object" invisible="state in ('cancel', 'close')"/>
+                    <button name="set_to_draft" string="Regresar a borrador" type="object" invisible="state != 'cancel'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,hr_approval,paid,done,close"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="view_journal_entry" type="object" class="oe_stat_button" icon="fa-book" invisible="not move_id">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Asiento</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="employee_id" readonly="state not in ('draft', 'hr_approval')"/>
+                            <field name="version_id" readonly="state not in ('draft', 'hr_approval')"/>
+                            <field name="department_id" readonly="1"/>
+                            <field name="job_id" readonly="1"/>
+                            <field name="company_id" groups="base.group_multi_company" readonly="state != 'draft'"/>
+                        </group>
+                        <group>
+                            <field name="date" readonly="state != 'draft'"/>
+                            <field name="start_date" readonly="state != 'draft'"/>
+                            <field name="end_date" readonly="1"/>
+                            <field name="loan_type_id" readonly="state != 'draft'"/>
+                            <field name="payment_method" readonly="state != 'draft'"/>
+                        </group>
+                    </group>
+                    <group string="Importes">
+                        <group>
+                            <field name="loan_amount" readonly="state != 'draft'"/>
+                            <field name="term" readonly="state != 'draft'"/>
+                            <field name="installment_amount" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="is_apply_interest" readonly="state != 'draft'"/>
+                            <field name="interest_type" invisible="not is_apply_interest" readonly="state != 'draft'"/>
+                            <field name="interest_rate" invisible="not is_apply_interest" readonly="state != 'draft'"/>
+                            <field name="interest_amount" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="paid_amount" readonly="1"/>
+                            <field name="remaing_amount" readonly="1"/>
+                            <field name="is_close" invisible="1"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Cuotas">
+                            <field name="installment_lines" readonly="state not in ('draft', 'hr_approval')">
+                                <list editable="bottom">
+                                    <field name="date"/>
+                                    <field name="display_name" string="Cuota" readonly="1"/>
+                                    <field name="name" optional="hide"/>
+                                    <field name="tipo_deduccion"/>
+                                    <field name="installment_amt" sum="Total capital"/>
+                                    <field name="ins_interest" sum="Total interés"/>
+                                    <field name="total_installment" sum="Total" readonly="1"/>
+                                    <field name="is_skip" readonly="1"/>
+                                    <field name="skip_reason" optional="hide"/>
+                                    <button name="action_skip_installment" type="object" string="Omitir" icon="fa-forward" invisible="is_skip or is_paid"/>
+                                    <button name="action_unskip_installment" type="object" string="Reactivar" icon="fa-undo" invisible="not is_skip or is_paid"/>
+                                    <field name="is_paid" readonly="1"/>
+                                    <field name="payslip_id" readonly="1"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notas">
+                            <field name="notes" placeholder="Razón o comentarios"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_employee_loan" model="ir.actions.act_window">
+        <field name="name">Préstamos/descuentos</field>
+        <field name="res_model">employee.loan</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

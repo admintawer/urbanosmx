@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_loan_type_list" model="ir.ui.view">
+        <field name="name">employee.loan.type.list</field>
+        <field name="model">employee.loan.type</field>
+        <field name="arch" type="xml">
+            <list string="Tipos de préstamo/descuento">
+                <field name="name"/>
+                <field name="tipo_deduccion"/>
+                <field name="loan_limit"/>
+                <field name="loan_term"/>
+                <field name="payment_period"/>
+                <field name="input_type_id"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_employee_loan_type_form" model="ir.ui.view">
+        <field name="name">employee.loan.type.form</field>
+        <field name="model">employee.loan.type</field>
+        <field name="arch" type="xml">
+            <form string="Tipo de préstamo/descuento">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="tipo_deduccion"/>
+                            <field name="loan_limit"/>
+                            <field name="loan_term"/>
+                            <field name="payment_period"/>
+                            <field name="periodo_de_pago" invisible="1"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group string="Inputs de nómina v19">
+                            <field name="input_type_id"/>
+                            <field name="interest_input_type_id"/>
+                        </group>
+                    </group>
+                    <group string="Interés">
+                        <field name="is_apply_interest"/>
+                        <field name="interest_type" invisible="not is_apply_interest" required="is_apply_interest"/>
+                        <field name="interest_rate" invisible="not is_apply_interest" required="is_apply_interest"/>
+                    </group>
+                    <group string="Contabilidad de entrega">
+                        <field name="journal_id"/>
+                        <field name="loan_account"/>
+                        <field name="interest_account"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_employee_loan_type" model="ir.actions.act_window">
+        <field name="name">Tipos de préstamos/descuentos</field>
+        <field name="res_model">employee.loan.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

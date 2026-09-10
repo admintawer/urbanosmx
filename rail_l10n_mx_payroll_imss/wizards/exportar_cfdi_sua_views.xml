@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="exportar_cfdi_sua_view_form" model="ir.ui.view">
+        <field name="name">exportar.cfdi.sua.form</field>
+        <field name="model">exportar.cfdi.sua</field>
+        <field name="arch" type="xml">
+            <form string="Exportar SUA / IDSE">
+                <group>
+                    <group>
+                        <field name="export_target"/>
+                        <field name="tipo_exp_sua" invisible="export_target != 'sua'"/>
+                        <field name="tipo_exp_idse" invisible="export_target != 'idse'"/>
+                    </group>
+                    <group>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="employee_id"/>
+                    </group>
+                </group>
+                <group invisible="not file_content">
+                    <field name="file_name" readonly="1"/>
+                    <field name="file_content" filename="file_name" readonly="1"/>
+                    <field name="error_log" readonly="1"/>
+                </group>
+                <footer>
+                    <button name="action_export" string="Generar archivo" type="object" class="btn-primary"/>
+                    <button string="Cerrar" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="exportar_cfdi_sua_action" model="ir.actions.act_window">
+        <field name="name">Exportar SUA / IDSE</field>
+        <field name="res_model">exportar.cfdi.sua</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

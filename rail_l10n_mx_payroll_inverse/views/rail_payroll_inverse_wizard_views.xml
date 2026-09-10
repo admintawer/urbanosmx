@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rail_payroll_inverse_wizard_view_form" model="ir.ui.view">
+        <field name="name">rail.payroll.inverse.wizard.form</field>
+        <field name="model">rail.payroll.inverse.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Cálculo inverso">
+                <sheet>
+                    <group>
+                        <group string="Empleado / candidato">
+                            <field name="employee_id"
+                                   options="{'no_create': True, 'no_create_edit': True}"
+                                   readonly="version_id"/>
+                            <field name="candidate_name"
+                                   string="Nombre candidato"
+                                   invisible="employee_id"
+                                   required="not employee_id"/>
+                            <field name="version_id" readonly="1"/>
+                            <field name="payroll_schedule_pay" readonly="1" invisible="not version_id"/>
+                            <field name="current_wage" readonly="1" string="Sueldo actual del periodo de nómina" invisible="not version_id"/>
+                            <field name="current_monthly_wage" readonly="1" invisible="not version_id"/>
+                            <field name="current_sbc" readonly="1" invisible="not version_id"/>
+
+                            <separator string="Datos para simulación sin versión" invisible="version_id"/>
+                            <field name="simulation_schedule_pay"
+                                   invisible="version_id"
+                                   required="not version_id"/>
+                            <field name="simulation_contract_start_date"
+                                   invisible="version_id"
+                                   required="not version_id"/>
+                            <field name="simulation_holiday_bonus_rate"
+                                   invisible="version_id"
+                                   required="not version_id"/>
+                        </group>
+                        <group string="Cálculo">
+                            <field name="country_id" invisible="1"/>
+                            <field name="struct_id"
+                                   domain="[('country_id', 'in', [False, country_id])]"
+                                   options="{'no_create': True, 'no_create_edit': True}"/>
+                            <field name="target_net_amount"/>
+                            <field name="target_schedule_pay"/>
+                            <field name="target_payroll_net_amount" readonly="1"/>
+                            <field name="ultima_nomina" invisible="not version_id"/>
+                            <field name="mes" invisible="not ultima_nomina or not version_id" required="ultima_nomina and version_id"/>
+                        </group>
+                    </group>
+
+                    <div class="alert alert-info" role="alert" invisible="version_id">
+                        <strong>Simulación prospectiva:</strong>
+                        Odoo calculará el recibo con un perfil técnico temporal. No se crea una versión laboral
+                        ni un empleado permanente durante el cálculo. La fecha estimada de ingreso y la prima
+                        vacacional se usan únicamente para el factor de integración de esta simulación.
+                    </div>
+
+                    <group string="Resultado de la estructura salarial" invisible="state == 'draft'">
+                        <group>
+                            <field name="calculated_wage" readonly="1"/>
+                            <field name="calculated_monthly_wage" readonly="1"/>
+                            <field name="calculated_payroll_net" readonly="1"/>
+                            <field name="calculated_net" readonly="1"/>
+                            <field name="calculated_difference" readonly="1"/>
+                        </group>
+                        <group string="Resumen del recibo simulado">
+                            <field name="calculated_basic" readonly="1"/>
+                            <field name="calculated_allowances" readonly="1"/>
+                            <field name="calculated_isr" readonly="1"/>
+                            <field name="calculated_imss" readonly="1"/>
+                            <field name="calculated_other_deductions" readonly="1" string="Deducciones totales"/>
+                        </group>
+                    </group>
+
+                    <group string="Datos IMSS del resultado" invisible="state == 'draft'">
+                        <group>
+                            <field name="calculated_daily_wage" readonly="1"/>
+                            <field name="calculated_integrated_daily_wage" readonly="1"/>
+                            <field name="calculated_sbc" readonly="1"/>
+                            <field name="result_version_id" readonly="1" invisible="not result_version_id"/>
+                        </group>
+                    </group>
+
+                    <notebook invisible="state == 'draft'">
+                        <page string="Reglas calculadas" name="simulation_rules">
+                            <field name="simulation_line_ids" nolabel="1" readonly="1">
+                                <list string="Cálculo de reglas salariales"
+                                      create="0" delete="0" edit="0"
+                                      decoration-info="total == 0">
+                                    <field name="sequence" column_invisible="True"/>
+                                    <field name="name"/>
+                                    <field name="code" optional="show"/>
+                                    <field name="category_id" optional="show"/>
+                                    <field name="line_type" optional="show"/>
+                                    <field name="quantity" optional="show"/>
+                                    <field name="rate" optional="show"/>
+                                    <field name="amount" optional="show"/>
+                                    <field name="total"/>
+                                    <field name="ytd" optional="hide"/>
+                                    <field name="appears_on_payslip" optional="hide"/>
+                                    <field name="salary_rule_id" groups="base.group_no_one" optional="hide"/>
+                                    <field name="currency_id" column_invisible="True"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Bitácora técnica" name="simulation_log" groups="base.group_no_one">
+                            <field name="simulation_log" nolabel="1" readonly="1" widget="text"/>
+                        </page>
+                    </notebook>
+
+                    <group invisible="1">
+                        <field name="company_id"/>
+                        <field name="currency_id"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                        <field name="effective_date"/>
+                        <field name="tolerance"/>
+                        <field name="max_iterations"/>
+                        <field name="lower_wage"/>
+                        <field name="upper_wage"/>
+                        <field name="use_fixed_sbc"/>
+                        <field name="fixed_sbc"/>
+                        <field name="state"/>
+                        <field name="calculated_real_payroll_net"/>
+                        <field name="calculated_real_net"/>
+                        <field name="calculation_breakdown"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_calculate"
+                            type="object"
+                            string="Calcular"
+                            class="btn-primary"
+                            invisible="state == 'applied'"/>
+                    <button name="action_apply_new_version"
+                            type="object"
+                            string="Crear versión laboral"
+                            class="btn-primary"
+                            invisible="state != 'calculated' or not employee_id"/>
+                    <button name="action_open_new_version"
+                            type="object"
+                            string="Abrir versión creada"
+                            invisible="not result_version_id"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="rail_payroll_inverse_wizard_action" model="ir.actions.act_window">
+        <field name="name">Cálculo inverso</field>
+        <field name="res_model">rail.payroll.inverse.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="hr.model_hr_employee"/>
+        <field name="binding_type">action</field>
+        <field name="binding_view_types">form</field>
+    </record>
+
+    <record id="rail_payroll_inverse_candidate_action" model="ir.actions.act_window">
+        <field name="name">Simulación candidato</field>
+        <field name="res_model">rail.payroll.inverse.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

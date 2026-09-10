@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_installment_line_list" model="ir.ui.view">
+        <field name="name">installment.line.list</field>
+        <field name="model">installment.line</field>
+        <field name="arch" type="xml">
+            <list string="Cuotas de préstamos/descuentos">
+                <header>
+                    <button name="action_skip_installment" string="Omitir / reprogramar" type="object"/>
+                    <button name="action_unskip_installment" string="Reactivar" type="object"/>
+                </header>
+                <field name="date"/>
+                <field name="employee_id"/>
+                <field name="display_name" string="Cuota"/>
+                <field name="loan_id"/>
+                <field name="tipo_deduccion"/>
+                <field name="installment_amt" sum="Capital"/>
+                <field name="ins_interest" sum="Interés"/>
+                <field name="total_installment" sum="Total"/>
+                <field name="is_skip" readonly="1"/>
+                <field name="replacement_installment_id" optional="hide"/>
+                <field name="is_paid"/>
+                <field name="payslip_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_installment_line_form" model="ir.ui.view">
+        <field name="name">installment.line.form</field>
+        <field name="model">installment.line</field>
+        <field name="arch" type="xml">
+            <form string="Cuota">
+                <header>
+                    <button name="action_skip_installment" string="Omitir / reprogramar" type="object" invisible="is_skip or is_paid"/>
+                    <button name="action_unskip_installment" string="Reactivar" type="object" invisible="not is_skip or is_paid"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="employee_id"/>
+                            <field name="loan_id"/>
+                            <field name="date"/>
+                            <field name="tipo_deduccion"/>
+                        </group>
+                        <group>
+                            <field name="installment_amt"/>
+                            <field name="ins_interest"/>
+                            <field name="total_installment" readonly="1"/>
+                            <field name="is_skip" readonly="1"/>
+                            <field name="skip_reason" placeholder="Opcional: indique por qué se omitirá/reprogramará la cuota"/>
+                            <field name="skip_date" invisible="not is_skip"/>
+                            <field name="skip_user_id" invisible="not is_skip"/>
+                            <field name="replacement_installment_id" invisible="not is_skip"/>
+                            <field name="skipped_from_id" invisible="not skipped_from_id"/>
+                            <field name="is_paid" readonly="1"/>
+                            <field name="payslip_id" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_installment_line" model="ir.actions.act_window">
+        <field name="name">Cuotas</field>
+        <field name="res_model">installment.line</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

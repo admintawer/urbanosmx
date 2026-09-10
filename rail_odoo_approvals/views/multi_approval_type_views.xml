@@ -4,10 +4,10 @@
         <field name="name">multi_approval_type_view_tree</field>
         <field name="model">multi.approval.type</field>
         <field name="arch" type="xml">
-            <tree string="Approval Types" import="false">
+            <list string="Approval Types" import="false">
                 <field name="name" />
                 <field name="description" />
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -18,7 +18,7 @@
             <form>
                 <sheet>
                     <field name="active" invisible="1" />
-                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}" />
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active == True"/>
                     <field name="image" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;image&quot;, &quot;size&quot;: [80, 80]}" />
                     <div class="oe_title">
                         <label for="name" class="oe_edit_only" />
@@ -52,37 +52,35 @@
                                 <group>
                                     <field name="approval_minimum" />
                                 </group>
-                                <field name="line_ids">
-                                    <tree editable="bottom">
-                                        <field name="sequence" widget="handle" />
-                                        <field name="name" />
-                                        <field name="user_id" />
-                                        <field name="require_opt" />
-                                        <field name="mail_notification" attrs="{'column_invisible': [('parent.mail_notification','=',False)]}"/>
-                                        <field name="activity_notification" attrs="{'column_invisible': [('parent.activity_notification','=',False)]}"/>
-                                    </tree>
-                                </field>
-                            </group>
-                        </page>
-                        <page string="Other Information" name="page_other">
-                            <group>
                                 <group>
                                     <field name="mail_notification"/>
                                     <field name="mail_template_id"
-                                        attrs="{'invisible': [('mail_notification', '=', False)]}"
+                                        invisible="mail_notification == False"
                                         domain="[('model_id.model', '=', 'multi.approval')]"/>
                                     <field name="approve_mail_template_id"
-                                        attrs="{'invisible': [('mail_notification', '=', False)]}"
+                                        invisible="mail_notification == False"
                                         domain="[('model_id.model', '=', 'multi.approval')]"/>
                                     <field name="refuse_mail_template_id"
-                                        attrs="{'invisible': [('mail_notification', '=', False)]}"
+                                        invisible="mail_notification == False"
                                         domain="[('model_id.model', '=', 'multi.approval')]"/>
-                                </group>
-                                <group>
                                     <field name="activity_notification"/>
                                 </group>
+                                <field name="line_ids">
+                                    <list editable="bottom">
+                                        <field name="sequence" widget="handle" />
+                                        <field name="name" />
+                                        <field name="user_ids" widget="many2many_tags"/>
+                                        <field name="require_opt" />
+                                        <field name="require_all_approvers"
+                                           string="Requiere Todos"
+                                           optional="show"/>
+                                        <field name="mail_notification" column_invisible="parent.mail_notification == False"/>
+                                        <field name="activity_notification" column_invisible="parent.mail_notification == False"/>
+                                    </list>
+                                </field>
                             </group>
                         </page>
+
                     </notebook>
                 </sheet>
             </form>
@@ -98,10 +96,10 @@
                 <field name="id" />
                 <field name="image" />
                 <templates>
-                    <t t-name="kanban-box">
+                    <t t-name="card">
                         <div class="oe_module_vignette">
                             <t t-if="record.id">
-                                <img t-att-src="kanban_image('multi.approval.type', 'image', record.id.raw_value)" alt="Approval Type Image" class="oe_kanban_avatar float-left mr-3" width="64"
+                                <img t-att-src="'/web/image/multi.approval.type/' + record.id.raw_value + '/image'" alt="Approval Type Image" class="oe_kanban_avatar float-left mr-3" width="64"
                                     height="64" />
                             </t>
                             <div class="oe_module_desc">
@@ -127,5 +125,205 @@
                 </templates>
             </kanban>
         </field>
+    </record>
+
+    <!-- ================================================================ -->
+    <!-- VISTAS PARA LÍNEA DE APROBACIÓN -->
+    <!-- ================================================================ -->
+    <record id="multi_approval_type_line_view_form" model="ir.ui.view">
+        <field name="name">multi.approval.type.line.form</field>
+        <field name="model">multi.approval.type.line</field>
+        <field name="arch" type="xml">
+            <form string="Línea de Aprobación">
+                <sheet>
+                    <group>
+                        <group string="Información General">
+                            <field name="name"/>
+                            <field name="sequence"/>
+                            <field name="require_opt"/>
+                            <field name="require_all_approvers" invisible="require_opt != 'Required'"/>
+                        </group>
+                        <group string="Notificaciones">
+                            <field name="mail_notification"/>
+                            <field name="activity_notification"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Aprobador" name="approver">
+                            <group>
+                                <group string="Tipo de Selección de Aprobador">
+                                    <field name="user_selection_type" widget="radio"/>
+
+                                    <!-- Usuario Fijo -->
+                                    <field name="user_ids"
+                                           string="Usuarios Fijos"
+                                           widget="many2many_tags"
+                                           options="{'no_create': True}"
+                                           invisible="user_selection_type != 'fixed'"
+                                           required="user_selection_type == 'fixed'"/>
+
+                                    <!-- Ruta de Campo -->
+                                    <field name="user_field_path"
+                                           placeholder="Ej: partner_id.user_id"
+                                           options="{'no_create': True}"
+                                           invisible="user_selection_type != 'field_path'"
+                                           required="user_selection_type == 'field_path'"/>
+
+                                    <!-- Usuario de Respaldo -->
+                                    <field name="fallback_user_id"
+                                           invisible="user_selection_type == 'fixed'"/>
+
+                                    <!-- Grupos -->
+                                    <field name="group_ids" widget="many2many_tags"/>
+
+                                    <!-- Descripción generada -->
+                                    <field name="user_selection_description"
+                                           readonly="1"
+                                           string="Resumen de Configuración"/>
+                                </group>
+
+                                <group string="Código Python">
+                                    <field name="user_python_code"
+                                           widget="ace"
+                                           options="{'mode': 'python'}"
+                                           placeholder="result = record.employee_id.parent_id.user_id"
+                                           nolabel="1"
+                                           invisible="user_selection_type != 'python'"
+                                           required="user_selection_type == 'python'"/>
+                                </group>
+                            </group>
+
+                            <group string="Ayuda Rápida">
+                                <div class="alert alert-info">
+                                    <h5>Ejemplos de Rutas de Campo:</h5>
+                                    <ul>
+                                        <li><code>user_id</code> → Usuario del documento</li>
+                                        <li><code>employee_id.parent_id.user_id</code> → Jefe del empleado</li>
+                                        <li><code>team_id.user_id</code> → Líder del equipo</li>
+                                        <li><code>project_id.user_id</code> → Responsable del proyecto</li>
+                                    </ul>
+                                    <p class="mb-0">
+                                        <strong>Nota:</strong> La ruta debe terminar en un campo <code>res.users</code>
+                                    </p>
+                                </div>
+                            </group>
+                        </page>
+                        <page string="Ayuda y Ejemplos" name="help">
+                            <group>
+                                <group string="Casos de Uso Comunes">
+                                    <div style="margin: 10px;">
+                                        <h5>1. Jefe Inmediato (RH)</h5>
+                                        <p><strong>Tipo:</strong> Ruta de Campo</p>
+                                        <p><strong>Ruta:</strong> <code>employee_id.parent_id.user_id</code></p>
+                                        <p>Obtiene al jefe del empleado vinculado al documento.</p>
+                                        <hr/>
+
+                                        <h5>2. Responsable del Proyecto</h5>
+                                        <p><strong>Tipo:</strong> Ruta de Campo</p>
+                                        <p><strong>Ruta:</strong> <code>project_id.user_id</code></p>
+                                        <p>Obtiene al responsable del proyecto.</p>
+                                        <hr/>
+
+                                        <h5>3. Líder del Equipo de Ventas</h5>
+                                        <p><strong>Tipo:</strong> Ruta de Campo</p>
+                                        <p><strong>Ruta:</strong> <code>team_id.user_id</code></p>
+                                        <p>Obtiene al líder del equipo.</p>
+                                        <hr/>
+                                    </div>
+                                </group>
+
+                                <group string="Código Python Avanzado">
+                                    <div style="margin: 10px;">
+                                        <h5>Ejemplo 1: Lógica Condicional</h5>
+                                        <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px;">
+# Asignar según monto
+if record.amount_total &gt;= 100000:
+    # Montos altos → CEO
+    result = env.ref('base.user_admin')
+elif record.amount_total &gt;= 50000:
+    # Montos medios → Director
+    result = env['res.users'].search([
+        ('login', '=', 'director')
+    ], limit=1)
+else:
+    # Montos bajos → Gerente
+    result = record.team_id.user_id
+                                        </pre>
+                                        <hr/>
+
+                                        <h5>Ejemplo 2: Búsqueda por Grupo</h5>
+                                        <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px;">
+# Buscar usuario con grupo específico
+group = env.ref('sales_team.group_sale_manager')
+result = env['res.users'].search([
+    ('groups_id', 'in', group.id),
+    ('active', '=', True)
+], limit=1)
+                                        </pre>
+                                        <hr/>
+
+                                        <h5>Ejemplo 3: Según Categoría</h5>
+                                        <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px;">
+# Asignar según categoría del producto
+if record.order_line:
+    categ = record.order_line[0].product_id.categ_id
+    if 'Electrónica' in categ.name:
+        result = env['res.users'].search([
+            ('login', '=', 'comprador.electronica')
+        ], limit=1)
+    elif 'Papelería' in categ.name:
+        result = env['res.users'].search([
+            ('login', '=', 'comprador.papeleria')
+        ], limit=1)
+    else:
+        result = record.user_id
+else:
+    result = None
+                                        </pre>
+                                    </div>
+                                </group>
+                            </group>
+
+                            <group string="Notas Importantes">
+                                <div class="alert alert-warning" style="margin: 10px;">
+                                    <ul>
+                                        <li>La ruta debe terminar en un campo <code>res.users</code></li>
+                                        <li>Si la ruta retorna vacío, se usa el Usuario de Respaldo</li>
+                                        <li>En código Python, <strong>debe</strong> asignar el resultado a la variable <code>result</code></li>
+                                        <li>Variables disponibles: <code>record</code> (documento), <code>env</code> (entorno), <code>user</code> (usuario actual)</li>
+                                        <li>Pruebe siempre la configuración antes de activar en producción</li>
+                                    </ul>
+                                </div>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="multi_approval_type_line_view_tree" model="ir.ui.view">
+        <field name="name">multi.approval.type.line.tree</field>
+        <field name="model">multi.approval.type.line</field>
+        <field name="arch" type="xml">
+            <list string="Approval Lines">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="user_ids" optional="show" widget="many2many_tags"/>
+                <field name="user_selection_type" optional="show"/>
+                <field name="user_selection_description" optional="hide"/>
+                <field name="require_opt"/>
+                <field name="require_all_approvers" string="Requiere Todos" optional="show"/>
+                <field name="mail_notification" optional="hide"/>
+                <field name="activity_notification" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_multi_approval_type_line_form" model="ir.actions.act_window">
+        <field name="name">Configurar Aprobador</field>
+        <field name="res_model">multi.approval.type.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="multi_approval_type_line_view_form"/>
     </record>
 </odoo>

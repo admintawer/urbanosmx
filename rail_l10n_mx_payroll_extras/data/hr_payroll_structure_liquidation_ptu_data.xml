@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Structures supplied by the functional payroll rule workbook and adapted to Odoo 19 native payroll. -->
+    <record id="structure_ptu" model="hr.payroll.structure">
+        <field name="name">Reparto de utilidades</field>
+        <field name="code">PTU</field>
+        <field name="country_id" ref="base.mx"/>
+        <field name="type_id" ref="l10n_mx_hr_payroll.l10n_mx_employee"/>
+        <field name="use_worked_day_lines" eval="False"/>
+        <field name="l10n_mx_payroll_type">E</field>
+        <field name="report_id" ref="l10n_mx_hr_payroll.action_report_payslip_mx"/>
+        <field name="rule_ids" eval="[]"/>
+    </record>
+
+    <record id="structure_liquidation" model="hr.payroll.structure">
+        <field name="name">Liquidación - indemnizacion/finiquito</field>
+        <field name="code">LIQUIDATION_MX</field>
+        <field name="country_id" ref="base.mx"/>
+        <field name="type_id" ref="l10n_mx_hr_payroll.l10n_mx_employee"/>
+        <field name="use_worked_day_lines" eval="False"/>
+        <field name="l10n_mx_payroll_type">E</field>
+        <field name="report_id" ref="l10n_mx_hr_payroll.action_report_payslip_mx"/>
+        <field name="rule_ids" eval="[]"/>
+    </record>
+
+    <!-- ========================= PTU ========================= -->
+    <record id="salary_rule_ptu_exempt" model="hr.salary.rule">
+        <field name="name">FRB - Reparto de utilidades exento</field>
+        <field name="code">PE011</field>
+        <field name="sequence">100</field>
+        <field name="struct_id" ref="structure_ptu"/>
+        <field name="category_id" ref="l10n_mx_hr_payroll.l10n_mx_category_exemption"/>
+        <field name="condition_select">input</field>
+        <field name="condition_other_input_id" ref="input_type_ptu"/>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">total = inputs['PTU'].amount
+uma_daily = payslip._rule_parameter('l10n_mx_uma')['daily']
+result = round(min(total, uma_daily * 15), 2)</field>
+        <field name="l10n_mx_concept" ref="l10n_mx_concept_p3_exempt"/>
+    </record>
+
+    <record id="salary_rule_ptu_taxable" model="hr.salary.rule">
+        <field name="name">FRB - Reparto de utilidades gravado</field>
+        <field name="code">PG011</field>
+        <field name="sequence">200</field>
+        <field name="struct_id" ref="structure_ptu"/>
+        <field name="category_id" ref="hr_payroll.GROSS"/>
+        <field name="condition_select">input</field>
+        <field name="condition_other_input_id" ref="input_type_ptu"/>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">total = inputs['PTU'].amount
+uma_daily = payslip._rule_parameter('l10n_mx_uma')['daily']
+result = round(max(total - (uma_daily * 15), 0.0), 2)</field>
+        <field name="l10n_mx_concept" ref="l10n_mx_hr_payroll_account_edi.l10n_mx_concept_p3"/>
+    </record>
+
+    <record id="salary_rule_ptu_total" model="hr.salary.rule">
+        <field name="name">FRB - Reparto de utilidades</field>
+        <field name="code">P011</field>
+        <field name="sequence">300</field>
+        <field name="struct_id" ref="structure_ptu"/>
+        <field name="category_id" ref="hr_payroll.BASIC"/>
+        <field name="condition_select">input</field>
+        <field name="condition_other_input_id" ref="input_type_ptu"/>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = result_rules['PG011']['total'] + result_rules['PE011']['total']</field>
+    </record>
+
+    <record id="salary_rule_ptu_total_exempt" model="hr.salary.rule">
+        <field name="name">FRB - Total Percepcion exento</field>
+        <field name="code">TPERE</field>
+        <field name="sequence">400</field>
+        <field name="struct_id" ref="structure_ptu"/>
+        <field name="category_id" ref="l10n_mx_hr_payroll.l10n_mx_category_intermediary_computation"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = categories['MX_EXEMPTION']</field>
+    </record>
+
+    <record id="salary_rule_ptu_total_taxable" model="hr.salary.rule">
+        <field name="name">FRB - Total Percepciones Gravadas</field>
+        <field name="code">TPERG</field>
+        <field name="sequence">410</field>
+        <field name="struct_id" ref="structure_ptu"/>
+        <field name="category_id" ref="l10n_mx_hr_payroll.l10n_mx_category_intermediary_computation"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = categories['GROSS']</field>
+    </record>
+
+    <record id="salary_rule_ptu_total_perceptions" model="hr.salary.rule">
+        <field name="name">FRB - Total Percepciones</field>
+        <field name="code">TPER</field>
+        <field name="sequence">420</field>
+        <field name="struct_id" ref="structure_ptu"/>
+        <field name="category_id" ref="l10n_mx_hr_payroll.l10n_mx_category_intermediary_computation"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = result_rules['TPERG']['total'] + result_rules['TPERE']['total']</field>
+    </record>
+
+    <record id="salary_rule_ptu_total_other_payments" model="hr.salary.rule">
+        <field name="name">FRB - Total otros pagos</field>
+        <field name="code">TOP</field>
+        <field name="sequence">430</field>
+        <field name="struct_id" ref="structure_ptu"/>
+        <field name="category_id" ref="l10n_mx_hr_payroll.l10n_mx_category_intermediary_computation"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">fix</field>
+        <field name="amount_fix">0</field>
+    </record>
+
+    <record id="salary_rule_ptu_total_deductions" model="hr.salary.rule">
+        <field name="name">FRB - Total deducciones</field>
+        <field name="code">TDED</field>
+        <field name="sequence">440</field>
+        <field name="struct_id" ref="structure_ptu"/>
+        <field name="category_id" ref="l10n_mx_hr_payroll.l10n_mx_category_intermediary_computation"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = categories['DED']</field>
+    </record>
+
+    <record id="salary_rule_ptu_cash_net" model="hr.salary.rule">
+        <field name="name">FRB - Sueldo neto en efectivo</field>
+        <field name="code">EFECT</field>
+        <field name="sequence">450</field>
+        <field name="struct_id" ref="structure_ptu"/>
+        <field name="category_id" ref="l10n_mx_hr_payroll.l10n_mx_category_intermediary_computation"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = categories['BASIC'] + categories['ALW'] + categories['DED']</field>
+    </record>
+
+    <record id="salary_rule_ptu_subsidy" model="hr.salary.rule">
+        <field name="name">FRB - Subsidio para el empleo (sp) PTU</field>
+        <field name="code">O001</field>
+        <field name="sequence">500</field>
+        <field name="struct_id" ref="structure_ptu"/>
+        <field name="category_id" ref="l10n_mx_hr_payroll.l10n_mx_category_intermediary_computation"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">fix</field>
+        <field name="amount_fix">0</field>
+    </record>
+
+    <record id="salary_rule_ptu_isr" model="hr.salary.rule">
+        <field name="name">FRB - ISR (sp) PTU</field>
+        <field name="code">ISR2</field>
+        <field name="sequence">700</field>
+        <field name="struct_id" ref="structure_ptu"/>
+        <field name="category_id" ref="hr_payroll.DED"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">def find_rates(x, rates):
+    for low, high, fix, rate in rates:
+        if low &lt;= x &lt;= high:
+            return low, fix, rate
+    return 0.0, 0.0, 0.0
+
+taxable_ptu = result_rules['PG011']['total']
+monthly_salary = version._get_contract_wage()
+isr_monthly_table = payslip._rule_parameter('l10n_mx_isr_tables')['monthly']
+if taxable_ptu &gt; 0 and monthly_salary &gt; 0:
+    monthly_fraction = taxable_ptu * 30.4 / payslip.l10n_mx_days_of_year
+    low_1, fix_1, rate_1 = find_rates(monthly_salary + monthly_fraction, isr_monthly_table)
+    tax_with_ptu = (monthly_salary + monthly_fraction - low_1) * rate_1 + fix_1
+    low_2, fix_2, rate_2 = find_rates(monthly_salary, isr_monthly_table)
+    tax_without_ptu = (monthly_salary - low_2) * rate_2 + fix_2
+    tax_fraction = tax_with_ptu - tax_without_ptu
+    effective_rate = tax_fraction / monthly_fraction if monthly_fraction else 0.0
+    result = -round(taxable_ptu * effective_rate, 2)
+else:
+    result = 0.0</field>
+        <field name="l10n_mx_concept" ref="l10n_mx_hr_payroll_account_edi.l10n_mx_concept_d2"/>
+    </record>
+
+    <record id="salary_rule_ptu_alimony_percentage" model="hr.salary.rule">
+        <field name="name">FRB - Pensión alimenticia (Porcentaje)</field>
+        <field name="code">D010P</field>
+        <field name="sequence">710</field>
+        <field name="struct_id" ref="structure_ptu"/>
+        <field name="category_id" ref="hr_payroll.DED"/>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = employee.rail_get_other_entry_percentage('D010') &gt; 0</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">percentage = employee.rail_get_other_entry_percentage('D010')
+base_net = result_rules['P011']['total'] + result_rules['ISR2']['total']
+result = -round(max(base_net, 0.0) * (percentage / 100.0), 2)</field>
+        <field name="l10n_mx_concept" ref="l10n_mx_hr_payroll_account_edi.l10n_mx_concept_d7"/>
+    </record>
+
+    <record id="salary_rule_ptu_alimony_amount" model="hr.salary.rule">
+        <field name="name">FRB - Pensión alimenticia (Monto)</field>
+        <field name="code">D010M</field>
+        <field name="sequence">711</field>
+        <field name="struct_id" ref="structure_ptu"/>
+        <field name="category_id" ref="hr_payroll.DED"/>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = employee.rail_get_other_entry_amount('D010') &gt; 0</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = -round(employee.rail_get_other_entry_amount('D010'), 2)</field>
+        <field name="l10n_mx_concept" ref="l10n_mx_hr_payroll_account_edi.l10n_mx_concept_d7"/>
+    </record>
+
+    <record id="salary_rule_ptu_net" model="hr.salary.rule">
+        <field name="name">FRB - Sueldo neto</field>
+        <field name="code">NET</field>
+        <field name="sequence">860</field>
+        <field name="struct_id" ref="structure_ptu"/>
+        <field name="category_id" ref="hr_payroll.NET"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = categories['BASIC'] + categories['ALW'] + categories['DED']</field>
+    </record>
+
+    <!-- ====================== LIQUIDATION ====================== -->
+    <record id="salary_rule_liquidation_integrated_daily_wage" model="hr.salary.rule">
+        <field name="name">FRB - Salario diario integrado</field>
+        <field name="code">INT_DAY_WAGE</field>
+        <field name="sequence">117</field>
+        <field name="struct_id" ref="structure_liquidation"/>
+        <field name="category_id" ref="l10n_mx_hr_payroll.l10n_mx_category_integrated_daily_wage"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">imss_contribution_limit = payslip._rule_parameter('l10n_mx_imss_limit_with_uma') * payslip._rule_parameter('l10n_mx_uma')['daily']
+result = min(imss_contribution_limit, payslip.l10n_mx_integration_factor * payslip.l10n_mx_daily_salary)</field>
+        <field name="appears_on_payslip" eval="False"/>
+    </record>
+
+    <record id="salary_rule_liquidation_seniority_exempt" model="hr.salary.rule">
+        <field name="name">FRB - Prima de antiguedad exento</field>
+        <field name="code">PE104</field>
+        <field name="sequence">118</field>
+        <field name="struct_id" ref="structure_liquidation"/>
+        <field name="category_id" ref="l10n_mx_hr_payroll.l10n_mx_category_exemption"/>
+        <field name="condition_select">input</field>
+        <field name="condition_other_input_id" ref="input_type_liquidation_seniority_bonus"/>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">total = inputs['PDA'].amount
+exempt_limit = payslip.rail_l10n_mx_compensation_exempt_limit()
+result = round(min(total, exempt_limit), 2)</field>
+        <field name="l10n_mx_concept" ref="l10n_mx_concept_p22_exempt"/>
+    </record>
+
+    <record id="salary_rule_liquidation_seniority_taxable" model="hr.salary.rule">
+        <field name="name">FRB - Prima de antiguedad gravado</field>
+        <field name="code">PG104</field>
+        <field name="sequence">119</field>
+        <field name="struct_id" ref="structure_liquidation"/>
+        <field name="category_id" ref="hr_payroll.GROSS"/>
+        <field name="condition_select">input</field>
+        <field name="condition_other_input_id" ref="input_type_liquidation_seniority_bonus"/>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">total = inputs['PDA'].amount
+exempt_limit = payslip.rail_l10n_mx_compensation_exempt_limit()
+result = round(max(total - exempt_limit, 0.0), 2)</field>
+        <field name="l10n_mx_concept" ref="l10n_mx_hr_payroll_account_edi.l10n_mx_concept_p22"/>
+    </record>
+
+    <record id="salary_rule_liquidation_seniority_total" model="hr.salary.rule">
+        <field name="name">FRB - Prima de antiguedad</field>
+        <field name="code">P104</field>
+        <field name="sequence">120</field>
+        <field name="struct_id" ref="structure_liquidation"/>
+        <field name="category_id" ref="hr_payroll.BASIC"/>
+        <field name="condition_select">input</field>
+        <field name="condition_other_input_id" ref="input_type_liquidation_seniority_bonus"/>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = result_rules['PE104']['total'] + result_rules['PG104']['total']</field>
+    </record>
+
+    <record id="salary_rule_liquidation_indemnity_base" model="hr.salary.rule">
+        <field name="name">Pago por Indemnizacion</field>
+        <field name="code">INDEMN_TOT</field>
+        <field name="sequence">122</field>
+        <field name="struct_id" ref="structure_liquidation"/>
+        <field name="category_id" ref="l10n_mx_hr_payroll.l10n_mx_category_intermediary_computation"/>
+        <field name="condition_select">input</field>
+        <field name="condition_other_input_id" ref="input_type_liquidation_indemnity"/>
+        <field name="amount_select">input</field>
+        <field name="amount_other_input_id" ref="input_type_liquidation_indemnity"/>
+        <field name="appears_on_payslip" eval="False"/>
+    </record>
+
+    <record id="salary_rule_liquidation_indemnity_exempt" model="hr.salary.rule">
+        <field name="name">FRB - Indemnización exenta</field>
+        <field name="code">PE103</field>
+        <field name="sequence">123</field>
+        <field name="struct_id" ref="structure_liquidation"/>
+        <field name="category_id" ref="l10n_mx_hr_payroll.l10n_mx_category_exemption"/>
+        <field name="condition_select">input</field>
+        <field name="condition_other_input_id" ref="input_type_liquidation_indemnity"/>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">total = result_rules['INDEMN_TOT']['total']
+exempt_limit = payslip.rail_l10n_mx_compensation_exempt_limit()
+result = round(min(total, exempt_limit), 2)</field>
+        <field name="l10n_mx_concept" ref="l10n_mx_concept_p25_exempt"/>
+    </record>
+
+    <record id="salary_rule_liquidation_indemnity_taxable" model="hr.salary.rule">
+        <field name="name">FRB - Indemnización gravada</field>
+        <field name="code">PG103</field>
+        <field name="sequence">124</field>
+        <field name="struct_id" ref="structure_liquidation"/>
+        <field name="category_id" ref="hr_payroll.GROSS"/>
+        <field name="condition_select">input</field>
+        <field name="condition_other_input_id" ref="input_type_liquidation_indemnity"/>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">total = result_rules['INDEMN_TOT']['total']
+exempt_limit = payslip.rail_l10n_mx_compensation_exempt_limit()
+result = round(max(total - exempt_limit, 0.0), 2)</field>
+        <field name="l10n_mx_concept" ref="l10n_mx_hr_payroll_account_edi.l10n_mx_concept_p25"/>
+    </record>
+
+    <record id="salary_rule_liquidation_indemnity_total" model="hr.salary.rule">
+        <field name="name">FRB - Indemnización</field>
+        <field name="code">P103</field>
+        <field name="sequence">125</field>
+        <field name="struct_id" ref="structure_liquidation"/>
+        <field name="category_id" ref="hr_payroll.BASIC"/>
+        <field name="condition_select">input</field>
+        <field name="condition_other_input_id" ref="input_type_liquidation_indemnity"/>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = result_rules['PE103']['total'] + result_rules['PG103']['total']</field>
+    </record>
+
+    <record id="salary_rule_liquidation_separation_exempt" model="hr.salary.rule">
+        <field name="name">FRB - Pagos por separación exento</field>
+        <field name="code">PE105</field>
+        <field name="sequence">126</field>
+        <field name="struct_id" ref="structure_liquidation"/>
+        <field name="category_id" ref="l10n_mx_hr_payroll.l10n_mx_category_exemption"/>
+        <field name="condition_select">input</field>
+        <field name="condition_other_input_id" ref="input_type_liquidation_separation"/>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">total = inputs['PPS'].amount
+exempt_limit = payslip.rail_l10n_mx_compensation_exempt_limit()
+result = round(min(total, exempt_limit), 2)</field>
+        <field name="l10n_mx_concept" ref="l10n_mx_concept_p23_exempt"/>
+    </record>
+
+    <record id="salary_rule_liquidation_separation_taxable" model="hr.salary.rule">
+        <field name="name">FRB - Pagos por separación gravado</field>
+        <field name="code">PG105</field>
+        <field name="sequence">127</field>
+        <field name="struct_id" ref="structure_liquidation"/>
+        <field name="category_id" ref="hr_payroll.GROSS"/>
+        <field name="condition_select">input</field>
+        <field name="condition_other_input_id" ref="input_type_liquidation_separation"/>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">total = inputs['PPS'].amount
+exempt_limit = payslip.rail_l10n_mx_compensation_exempt_limit()
+result = round(max(total - exempt_limit, 0.0), 2)</field>
+        <field name="l10n_mx_concept" ref="l10n_mx_hr_payroll_account_edi.l10n_mx_concept_p23"/>
+    </record>
+
+    <record id="salary_rule_liquidation_separation_total" model="hr.salary.rule">
+        <field name="name">FRB - Pagos por separación</field>
+        <field name="code">P105</field>
+        <field name="sequence">330</field>
+        <field name="struct_id" ref="structure_liquidation"/>
+        <field name="category_id" ref="hr_payroll.BASIC"/>
+        <field name="condition_select">input</field>
+        <field name="condition_other_input_id" ref="input_type_liquidation_separation"/>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = result_rules['PE105']['total'] + result_rules['PG105']['total']</field>
+    </record>
+
+    <record id="salary_rule_liquidation_total_exempt" model="hr.salary.rule">
+        <field name="name">Total Percepcion exento</field>
+        <field name="code">TPERE</field>
+        <field name="sequence">400</field>
+        <field name="struct_id" ref="structure_liquidation"/>
+        <field name="category_id" ref="l10n_mx_hr_payroll.l10n_mx_category_intermediary_computation"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = categories['MX_EXEMPTION']</field>
+    </record>
+
+    <record id="salary_rule_liquidation_total_taxable" model="hr.salary.rule">
+        <field name="name">Total Percepciones Gravadas</field>
+        <field name="code">TPERG</field>
+        <field name="sequence">410</field>
+        <field name="struct_id" ref="structure_liquidation"/>
+        <field name="category_id" ref="l10n_mx_hr_payroll.l10n_mx_category_intermediary_computation"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = categories['GROSS']</field>
+    </record>
+
+    <record id="salary_rule_liquidation_total_perceptions" model="hr.salary.rule">
+        <field name="name">Total Percepciones</field>
+        <field name="code">TPER</field>
+        <field name="sequence">420</field>
+        <field name="struct_id" ref="structure_liquidation"/>
+        <field name="category_id" ref="l10n_mx_hr_payroll.l10n_mx_category_intermediary_computation"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = result_rules['TPERG']['total'] + result_rules['TPERE']['total']</field>
+    </record>
+
+    <record id="salary_rule_liquidation_total_other_payments" model="hr.salary.rule">
+        <field name="name">Total otros pagos</field>
+        <field name="code">TOP</field>
+        <field name="sequence">430</field>
+        <field name="struct_id" ref="structure_liquidation"/>
+        <field name="category_id" ref="l10n_mx_hr_payroll.l10n_mx_category_intermediary_computation"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">fix</field>
+        <field name="amount_fix">0</field>
+    </record>
+
+    <record id="salary_rule_liquidation_total_deductions" model="hr.salary.rule">
+        <field name="name">Total deducciones</field>
+        <field name="code">TDED</field>
+        <field name="sequence">440</field>
+        <field name="struct_id" ref="structure_liquidation"/>
+        <field name="category_id" ref="l10n_mx_hr_payroll.l10n_mx_category_intermediary_computation"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = categories['DED']</field>
+    </record>
+
+    <record id="salary_rule_liquidation_cash_net" model="hr.salary.rule">
+        <field name="name">Sueldo neto en efectivo</field>
+        <field name="code">EFECT</field>
+        <field name="sequence">450</field>
+        <field name="struct_id" ref="structure_liquidation"/>
+        <field name="category_id" ref="l10n_mx_hr_payroll.l10n_mx_category_intermediary_computation"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = categories['BASIC'] + categories['ALW'] + categories['DED']</field>
+    </record>
+
+    <record id="salary_rule_liquidation_subsidy" model="hr.salary.rule">
+        <field name="name">FRB - Subsidio para el empleo (sp)</field>
+        <field name="code">O001</field>
+        <field name="sequence">510</field>
+        <field name="struct_id" ref="structure_liquidation"/>
+        <field name="category_id" ref="l10n_mx_hr_payroll.l10n_mx_category_intermediary_computation"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">fix</field>
+        <field name="amount_fix">0</field>
+    </record>
+
+    <record id="salary_rule_liquidation_isr" model="hr.salary.rule">
+        <field name="name">FRB - ISR Art. 95 LISR</field>
+        <field name="code">ISR2</field>
+        <field name="sequence">710</field>
+        <field name="struct_id" ref="structure_liquidation"/>
+        <field name="category_id" ref="hr_payroll.DED"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">def find_rates(x, rates):
+    for low, high, fix, rate in rates:
+        if low &lt;= x &lt;= high:
+            return low, fix, rate
+    return 0.0, 0.0, 0.0
+
+taxable_amount = categories['GROSS']
+monthly_table = payslip._rule_parameter('l10n_mx_isr_tables')['monthly']
+if taxable_amount &gt; 0:
+    low, fix, rate = find_rates(taxable_amount, monthly_table)
+    calculated_isr = max((taxable_amount - low) * rate + fix, 0.0)
+    daily_min_wage = payslip._rule_parameter('l10n_mx_daily_min_wage')
+    days_per_month = payslip._rule_parameter('l10n_mx_days_per_month')
+    result = 0.0 if taxable_amount &lt;= daily_min_wage * days_per_month else -round(calculated_isr, 2)
+else:
+    result = 0.0</field>
+        <field name="l10n_mx_concept" ref="l10n_mx_hr_payroll_account_edi.l10n_mx_concept_d2"/>
+    </record>
+
+    <record id="salary_rule_liquidation_alimony_percentage" model="hr.salary.rule">
+        <field name="name">FRB - Pensión alimenticia (Porcentaje)</field>
+        <field name="code">D010P</field>
+        <field name="sequence">720</field>
+        <field name="struct_id" ref="structure_liquidation"/>
+        <field name="category_id" ref="hr_payroll.DED"/>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = employee.rail_get_other_entry_percentage('D010') &gt; 0</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">percentage = employee.rail_get_other_entry_percentage('D010')
+base_net = result_rules['TPER']['total'] + result_rules['ISR2']['total']
+result = -round(max(base_net, 0.0) * (percentage / 100.0), 2)</field>
+        <field name="l10n_mx_concept" ref="l10n_mx_hr_payroll_account_edi.l10n_mx_concept_d7"/>
+    </record>
+
+    <record id="salary_rule_liquidation_alimony_amount" model="hr.salary.rule">
+        <field name="name">FRB - Pensión alimenticia (Monto)</field>
+        <field name="code">D010M</field>
+        <field name="sequence">721</field>
+        <field name="struct_id" ref="structure_liquidation"/>
+        <field name="category_id" ref="hr_payroll.DED"/>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = employee.rail_get_other_entry_amount('D010') &gt; 0</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = -round(employee.rail_get_other_entry_amount('D010'), 2)</field>
+        <field name="l10n_mx_concept" ref="l10n_mx_hr_payroll_account_edi.l10n_mx_concept_d7"/>
+    </record>
+
+    <record id="salary_rule_liquidation_net" model="hr.salary.rule">
+        <field name="name">Sueldo neto</field>
+        <field name="code">NET</field>
+        <field name="sequence">860</field>
+        <field name="struct_id" ref="structure_liquidation"/>
+        <field name="category_id" ref="hr_payroll.NET"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = categories['BASIC'] + categories['ALW'] + categories['DED']</field>
+    </record>
+</odoo>

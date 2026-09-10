@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="structure_viaticos_delivery" model="hr.payroll.structure">
+        <field name="name">México: Entrega de viáticos</field>
+        <field name="code">RAIL_MX_VIAT_DELIVERY</field>
+        <field name="country_id" ref="base.mx"/>
+        <field name="type_id" ref="l10n_mx_hr_payroll.l10n_mx_employee"/>
+        <field name="use_worked_day_lines" eval="False"/>
+        <field name="l10n_mx_payroll_type">E</field>
+        <field name="payslip_name">Entrega de viáticos</field>
+        <field name="report_id" ref="l10n_mx_hr_payroll_account_edi.action_report_payslip_mx_cfdi"/>
+        <field name="input_line_type_ids" eval="[(4, ref('input_type_viaticos_delivery'))]"/>
+        <field name="rule_ids" eval="[]"/>
+    </record>
+
+    <record id="salary_rule_viaticos_delivery" model="hr.salary.rule">
+        <field name="name">Viáticos entregados</field>
+        <field name="code">VIAT</field>
+        <field name="sequence">10</field>
+        <field name="category_id" ref="hr_payroll.GROSS"/>
+        <field name="condition_select">input</field>
+        <field name="condition_other_input_id" ref="input_type_viaticos_delivery"/>
+        <field name="amount_select">input</field>
+        <field name="amount_other_input_id" ref="input_type_viaticos_delivery"/>
+        <field name="struct_id" ref="structure_viaticos_delivery"/>
+        <field name="l10n_mx_concept" ref="l10n_mx_hr_payroll_account_edi.l10n_mx_concept_p50"/>
+    </record>
+
+    <record id="salary_rule_viaticos_delivery_net" model="hr.salary.rule">
+        <field name="name">Neto entrega de viáticos</field>
+        <field name="code">NET</field>
+        <field name="sequence">200</field>
+        <field name="category_id" ref="hr_payroll.NET"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = categories['GROSS']</field>
+        <field name="struct_id" ref="structure_viaticos_delivery"/>
+    </record>
+
+    <record id="structure_viaticos_check" model="hr.payroll.structure">
+        <field name="name">México: Comprobación de viáticos</field>
+        <field name="code">RAIL_MX_VIAT_CHECK</field>
+        <field name="country_id" ref="base.mx"/>
+        <field name="type_id" ref="l10n_mx_hr_payroll.l10n_mx_employee"/>
+        <field name="use_worked_day_lines" eval="False"/>
+        <field name="l10n_mx_payroll_type">E</field>
+        <field name="payslip_name">Comprobación de viáticos</field>
+        <field name="report_id" ref="l10n_mx_hr_payroll_account_edi.action_report_payslip_mx_cfdi"/>
+        <field name="input_line_type_ids" eval="[
+            (4, ref('input_type_viaticos_check')),
+            (4, ref('input_type_viaticos_adjustment'))
+        ]"/>
+        <field name="rule_ids" eval="[]"/>
+    </record>
+
+    <record id="salary_rule_viaticos_check_perception" model="hr.salary.rule">
+        <field name="name">Comprobación de viáticos</field>
+        <field name="code">PVIAT</field>
+        <field name="sequence">10</field>
+        <field name="category_id" ref="hr_payroll.GROSS"/>
+        <field name="condition_select">input</field>
+        <field name="condition_other_input_id" ref="input_type_viaticos_check"/>
+        <field name="amount_select">input</field>
+        <field name="amount_other_input_id" ref="input_type_viaticos_check"/>
+        <field name="struct_id" ref="structure_viaticos_check"/>
+        <field name="l10n_mx_concept" ref="l10n_mx_hr_payroll_account_edi.l10n_mx_concept_p50"/>
+    </record>
+
+    <record id="salary_rule_viaticos_check_deduction" model="hr.salary.rule">
+        <field name="name">Ajuste de viáticos entregados</field>
+        <field name="code">DVIAT</field>
+        <field name="sequence">100</field>
+        <field name="category_id" ref="hr_payroll.DED"/>
+        <field name="condition_select">input</field>
+        <field name="condition_other_input_id" ref="input_type_viaticos_adjustment"/>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = -inputs['RAIL_DVIAT'].amount</field>
+        <field name="struct_id" ref="structure_viaticos_check"/>
+        <field name="l10n_mx_concept" ref="l10n_mx_hr_payroll_account_edi.l10n_mx_concept_d81"/>
+    </record>
+
+    <record id="salary_rule_viaticos_check_net" model="hr.salary.rule">
+        <field name="name">Neto comprobación de viáticos</field>
+        <field name="code">NET</field>
+        <field name="sequence">200</field>
+        <field name="category_id" ref="hr_payroll.NET"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = categories['GROSS'] + categories['DED']</field>
+        <field name="struct_id" ref="structure_viaticos_check"/>
+    </record>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_rail_payroll_reports_root" name="Reportes MX" parent="hr_payroll.menu_hr_payroll_report" sequence="90"/>
+    <menuitem id="menu_rail_payroll_report_wizard" name="Asistente general" parent="menu_rail_payroll_reports_root" action="action_rail_payroll_report_wizard" sequence="1"/>
+    <menuitem id="menu_rail_payroll_report_employee" name="Total por empleado" parent="menu_rail_payroll_reports_root" action="action_rail_payroll_report_employee" sequence="10"/>
+    <menuitem id="menu_rail_payroll_report_department" name="Total por departamento" parent="menu_rail_payroll_reports_root" action="action_rail_payroll_report_department" sequence="20"/>
+    <menuitem id="menu_rail_payroll_report_rules" name="Reglas salariales" parent="menu_rail_payroll_reports_root" action="action_rail_payroll_report_rules" sequence="30"/>
+    <menuitem id="menu_rail_payroll_report_isr" name="ISR anual" parent="menu_rail_payroll_reports_root" action="action_rail_payroll_report_isr" sequence="40"/>
+    <menuitem id="menu_rail_payroll_report_isn" name="ISN" parent="menu_rail_payroll_reports_root" action="action_rail_payroll_report_isn" sequence="50"/>
+    <menuitem id="menu_rail_payroll_report_imss" name="IMSS" parent="menu_rail_payroll_reports_root" action="action_rail_payroll_report_imss" sequence="60"/>
+    <menuitem id="menu_rail_payroll_report_savings" name="Caja / Fondo de ahorro" parent="menu_rail_payroll_reports_root" action="action_rail_payroll_report_savings" sequence="70"/>
+    <menuitem id="menu_rail_payroll_report_movements" name="Altas y bajas IMSS" parent="menu_rail_payroll_reports_root" action="action_rail_payroll_report_movements" sequence="80"/>
+    <menuitem id="menu_rail_payroll_report_liquidations" name="Liquidaciones" parent="menu_rail_payroll_reports_root" action="action_rail_payroll_report_liquidations" sequence="90"/>
+    <menuitem id="menu_rail_payroll_report_ptu" name="PTU / Reparto de utilidades" parent="menu_rail_payroll_reports_root" action="action_rail_payroll_report_ptu" sequence="100"/>
+</odoo>

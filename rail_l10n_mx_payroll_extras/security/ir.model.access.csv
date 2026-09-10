@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_employee_loan_type_user,employee.loan.type.user,model_employee_loan_type,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_employee_loan_user,employee.loan.user,model_employee_loan,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_installment_line_user,installment.line.user,model_installment_line,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_viaticos_nomina_user,viaticos.nomina.user,model_viaticos_nomina,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_entregas_viaticos_nomina_user,entregas.viaticos.nomina.user,model_entregas_viaticos_nomina,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_comprobaciones_viaticos_nomina_user,comprobaciones.viaticos.nomina.user,model_comprobaciones_viaticos_nomina,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_calculo_liquidaciones_user,calculo.liquidaciones.user,model_calculo_liquidaciones,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_reparto_utilidades_user,repart.outilidades.wizard.user,model_repart_outilidades_wizard,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_rail_ptu_preview_line_user,rail.ptu.preview.line.user,model_rail_ptu_preview_line,hr_payroll.group_hr_payroll_user,1,1,1,1

@@ -15,7 +15,7 @@
                     <input type="text" name="email" t-att-value="email" id="email" class="form-control form-control-sm" required="required"/>
                 </div>
                 <p class="alert alert-danger" t-if="error" role="alert">
-                    <t t-esc="error"/>
+                    <t t-out="error"/>
                 </p>
                 <button type="submit" class="btn btn-primary btn-block" >submit</button>
                 <span class="btn btn-sm btn-block">or</span>
@@ -34,7 +34,7 @@
                     <input type="text" name="otp" t-att-value="otp" id="otp" class="form-control form-control-sm" required="required"/>
                 </div>
                 <p class="alert alert-danger" t-if="error" role="alert">
-                    <t t-esc="error"/>
+                    <t t-out="error"/>
                 </p>
                 <button type="submit" class="btn btn-primary btn-block" >submit</button>
                 <span class="btn btn-sm btn-block">or</span>

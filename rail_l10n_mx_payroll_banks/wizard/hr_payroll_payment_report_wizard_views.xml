@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_payroll_payment_report_view_form_rail_mx_banks" model="ir.ui.view">
+        <field name="name">hr.payroll.payment.report.wizard.form.rail.mx.banks</field>
+        <field name="model">hr.payroll.payment.report.wizard</field>
+        <field name="inherit_id" ref="hr_payroll.hr_payroll_payment_report_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='effective_date']" position="after">
+                <field name="payment_journal_id" invisible="export_format == 'csv'" required="export_format != 'csv'"/>
+                <field name="employee_filter" invisible="export_format == 'csv'" required="export_format != 'csv'"/>
+                <field name="payment_code" invisible="export_format not in ['mx_santander_only']"/>
+                <field name="bbva_referencia" invisible="export_format != 'mx_bbva_mixed'" required="export_format == 'mx_bbva_mixed'"/>
+                <field name="bbva_no_contrato" invisible="export_format != 'mx_bbva_mixed'" required="export_format == 'mx_bbva_mixed'"/>
+                <field name="banorte_numero" invisible="export_format != 'mx_banorte'" required="export_format == 'mx_banorte'"/>
+                <field name="banamex_no_cliente" invisible="export_format not in ['mx_banamex_c', 'mx_banamex_d']" required="export_format in ['mx_banamex_c', 'mx_banamex_d']"/>
+                <field name="banamex_secuencia" invisible="export_format != 'mx_banamex_c'"/>
+                <field name="banamex_descripcion" invisible="export_format not in ['mx_banamex_c', 'mx_banamex_d']"/>
+                <field name="banamex_referencia" invisible="export_format not in ['mx_banamex_c', 'mx_banamex_d']"/>
+                <field name="scotia_numero" invisible="export_format != 'mx_scotiabank'" required="export_format == 'mx_scotiabank'"/>
+                <field name="scotia_cuenta" invisible="export_format != 'mx_scotiabank'" required="export_format == 'mx_scotiabank'"/>
+                <field name="scotia_referencia" invisible="export_format != 'mx_scotiabank'" required="export_format == 'mx_scotiabank'"/>
+                <field name="bajio_afinidad" invisible="export_format != 'mx_banbajio'" required="export_format == 'mx_banbajio'"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

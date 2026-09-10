@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_otras_entradas_tipo_payroll_user,rail.payroll.other.entry.type.payroll.user,model_rail_payroll_other_entry_type,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_otras_entradas_empleados_payroll_user,rail.payroll.other.entry.payroll.user,model_rail_payroll_other_entry,hr_payroll.group_hr_payroll_user,1,1,1,1
