@@ -5,6 +5,8 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr_payroll.payroll_hr_employee_view_form"/>
         <field name="arch" type="xml">
+            <!-- Se conservan porque los layouts MX (SUA/IDSE/bancos) requieren
+                 los componentes del nombre de forma explícita. -->
             <xpath expr="//page[@name='personal_information']//group[@name='hr_birth_group']" position="inside">
                 <separator string="Nombre separado MX"/>
                 <field name="rail_first_name"/>
@@ -12,38 +14,20 @@
                 <field name="rail_maternal_surname"/>
             </xpath>
 
+            <!-- wage_type y schedule_pay ya son nativos de hr_payroll y aparecen
+                 en este formulario. Solo mostramos aquí parámetros custom que
+                 siguen teniendo un uso funcional real. -->
             <xpath expr="//page[@name='payroll_information']//group[@name='payroll_group']" position="after">
-                <group name="rail_mx_payroll_custom" string="Nómina MX Custom" groups="hr_payroll.group_hr_payroll_user" invisible="company_country_code != 'MX'">
-                    <group name="rail_mx_custom_perceptions" string="Percepciones custom">
-                        <field name="rail_productivity_bonus"/>
-                        <field name="rail_productivity_bonus_amount" invisible="not rail_productivity_bonus"/>
-                        <field name="rail_attendance_bonus"/>
-                        <field name="rail_attendance_bonus_amount" invisible="not rail_attendance_bonus"/>
-                        <field name="rail_punctuality_bonus"/>
-                        <field name="rail_punctuality_bonus_amount" invisible="not rail_punctuality_bonus"/>
-                        <field name="rail_food_allowance"/>
-                        <field name="rail_food_allowance_amount" invisible="not rail_food_allowance"/>
-                        <field name="rail_additional_perception"/>
-                        <field name="rail_additional_perception_amount" invisible="not rail_additional_perception"/>
-                    </group>
-                    <group name="rail_mx_custom_deductions" string="Deducciones custom">
-                        <field name="rail_alimony"/>
-                        <field name="rail_alimony_fixed_amount" invisible="not rail_alimony"/>
-                        <field name="rail_savings_bank"/>
-                        <field name="rail_savings_bank_amount" invisible="not rail_savings_bank"/>
-                        <field name="rail_additional_deduction"/>
-                        <field name="rail_additional_deduction_amount" invisible="not rail_additional_deduction"/>
-                    </group>
-                    <group name="rail_mx_custom_options" string="Opciones operativas">
-                        <field name="rail_payment_type"/>
-                        <field name="rail_vacation_bonus_type"/>
+                <group name="rail_mx_payroll_options"
+                       string="Configuración Nómina MX"
+                       groups="hr_payroll.group_hr_payroll_user"
+                       invisible="company_country_code != 'MX'">
+                    <group name="rail_mx_imss_options" string="IMSS">
                         <field name="rail_fixed_sbc"/>
-                        <field name="rail_seventh_day"/>
-                        <field name="rail_seventh_day_disability"/>
-                        <field name="rail_seventh_day_discount"/>
-                        <field name="rail_english_week"/>
-                        <field name="rail_sunday_bonus"/>
-                        <field name="rail_extra_isr_calculation"/>
+                    </group>
+                    <group name="rail_mx_operational_options" string="Opciones operativas">
+                        <field name="rail_seventh_day" invisible="schedule_pay != 'weekly'"/>
+                        <field name="rail_english_week" invisible="schedule_pay != 'weekly' or not rail_seventh_day"/>
                         <field name="rail_advanced_vacations"/>
                     </group>
                 </group>

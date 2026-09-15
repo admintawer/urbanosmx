@@ -887,7 +887,7 @@ class RailPayrollInverseWizard(models.TransientModel):
                 candidate = (lower + upper) / 2.0
                 net = self._rail_simulate_net(candidate, employee, version)
                 diff = net - payroll_target
-                log_lines.append(_('Iteración %(i)s: salario=%(w).6f NET=%(n).6f diferencia=%(d).6f') % {
+                log_lines.append(_('Iteración %(i)s: sueldo mensual=%(w).6f NET periodo=%(n).6f diferencia=%(d).6f') % {
                     'i': index + 1,
                     'w': candidate,
                     'n': net,
@@ -923,10 +923,13 @@ class RailPayrollInverseWizard(models.TransientModel):
                 self.target_schedule_pay,
                 raise_if_not_found=True,
             )
-            monthly_wage = self._rail_convert_schedule_amount(
-                best_wage,
-                payroll_schedule,
+            # The inverse candidate is a contractual monthly wage.  Convert it
+            # only for display of the payroll-period gross amount.
+            monthly_wage = best_wage
+            period_wage = self._rail_convert_schedule_amount(
+                monthly_wage,
                 'monthly',
+                payroll_schedule,
                 raise_if_not_found=True,
             )
             log_lines.append(_(
@@ -942,7 +945,7 @@ class RailPayrollInverseWizard(models.TransientModel):
                 'equivalent_net': equivalent_net,
             })
             self.write({
-                'calculated_wage': best_wage,
+                'calculated_wage': period_wage,
                 'calculated_monthly_wage': monthly_wage,
                 'calculated_payroll_net': best_net,
                 'calculated_net': equivalent_net,
@@ -972,10 +975,10 @@ class RailPayrollInverseWizard(models.TransientModel):
 
     def _rail_prepare_new_version_values(self):
         self.ensure_one()
-        if not self.calculated_wage:
+        if not self.calculated_monthly_wage:
             raise UserError(_('Calcule el salario antes de crear la nueva versión.'))
         wage_field = self.version_id._get_contract_wage_field() if self.version_id else 'wage'
-        vals = {wage_field: self.calculated_wage}
+        vals = {wage_field: self.calculated_monthly_wage}
         if self.use_fixed_sbc:
             vals['rail_fixed_sbc'] = self.fixed_sbc
         return vals

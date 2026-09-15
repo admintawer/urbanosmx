@@ -11,7 +11,8 @@ from odoo.exceptions import UserError
 class HrVersion(models.Model):
     _inherit = 'hr.version'
 
-    # Percepciones / beneficios custom que en v18 vivían en hr.contract.
+    # Campos legacy conservados únicamente para migración/compatibilidad.
+    # La captura operativa de percepciones recurrentes se hace en Otras entradas.
     rail_productivity_bonus = fields.Boolean(string='Bono productividad', groups='hr_payroll.group_hr_payroll_user', tracking=True)
     rail_productivity_bonus_amount = fields.Monetary(string='Monto bono productividad', groups='hr_payroll.group_hr_payroll_user', tracking=True)
     rail_attendance_bonus = fields.Boolean(string='Bono asistencia', groups='hr_payroll.group_hr_payroll_user', tracking=True)
@@ -23,7 +24,8 @@ class HrVersion(models.Model):
     rail_additional_perception = fields.Boolean(string='Percepción adicional', groups='hr_payroll.group_hr_payroll_user', tracking=True)
     rail_additional_perception_amount = fields.Monetary(string='Monto percepción adicional', groups='hr_payroll.group_hr_payroll_user', tracking=True)
 
-    # Deducciones custom conservadas como datos versionables.
+    # Deducciones legacy conservadas únicamente para migración/compatibilidad.
+    # La captura operativa de deducciones recurrentes se hace en Otras entradas.
     rail_alimony = fields.Boolean(string='Pensión alimenticia', groups='hr_payroll.group_hr_payroll_user', tracking=True)
     rail_alimony_fixed_amount = fields.Monetary(string='Monto fijo pensión alimenticia', groups='hr_payroll.group_hr_payroll_user', tracking=True)
     rail_savings_bank = fields.Boolean(string='Caja de ahorro', groups='hr_payroll.group_hr_payroll_user', tracking=True)
@@ -31,7 +33,8 @@ class HrVersion(models.Model):
     rail_additional_deduction = fields.Boolean(string='Deducción adicional', groups='hr_payroll.group_hr_payroll_user', tracking=True)
     rail_additional_deduction_amount = fields.Monetary(string='Monto deducción adicional', groups='hr_payroll.group_hr_payroll_user', tracking=True)
 
-    # Parámetros operativos usados por módulos posteriores.
+    # Campos legacy/operativos. Los que no tienen consumidor funcional se mantienen
+    # fuera de las vistas para no duplicar configuración nativa o de Otras entradas.
     rail_payment_type = fields.Selection([
         ('cash', 'Efectivo'),
         ('transfer', 'Transferencia'),
@@ -86,7 +89,6 @@ class HrVersion(models.Model):
             'rail_savings_bank_amount',
             'rail_additional_deduction',
             'rail_additional_deduction_amount',
-            'rail_payment_type',
             'rail_vacation_bonus_type',
             'rail_seventh_day',
             'rail_seventh_day_disability',
@@ -144,6 +146,7 @@ class HrVersion(models.Model):
             'first_contract_date': False,
             'seniority_years': 0,
             'schedule_days': 0.0,
+            'days_per_month': 0.0,
             'daily_wage': 0.0,
             'vacation_days': 0.0,
             'holiday_bonus_rate': self.l10n_mx_holiday_bonus_rate or 0.0,
@@ -158,19 +161,24 @@ class HrVersion(models.Model):
             return empty
 
         wage_value = self.wage if wage is None else float(wage or 0.0)
-        if wage_value <= 0.0 or not self.schedule_pay:
+        if wage_value <= 0.0:
             return empty
 
-        schedule_table = self._rail_get_rule_parameter(
-            'l10n_mx_schedule_table', reference_date, raise_if_not_found
-        ) or {}
-        schedule_days = schedule_table.get(self.schedule_pay)
-        if not schedule_days:
+        # El SBC fijo depende del salario mensual contractual y del parámetro
+        # l10n_mx_days_per_month. La periodicidad de pago (schedule_pay) solo
+        # determina cuántos días se pagan en cada recibo y no forma parte del
+        # cálculo del salario diario integrado / SBC.
+        schedule_days = 0.0
+
+        days_per_month = float(self._rail_get_rule_parameter(
+            'l10n_mx_days_per_month', reference_date, raise_if_not_found
+        ) or 0.0)
+        if not days_per_month:
             if raise_if_not_found:
                 raise UserError(_(
-                    'No existe un número de días configurado para la periodicidad %(schedule)s '
-                    'en el parámetro l10n_mx_schedule_table.'
-                ) % {'schedule': self.schedule_pay})
+                    'No existe un número de días por mes configurado en el parámetro '
+                    'l10n_mx_days_per_month.'
+                ))
             return empty
 
         first_contract_date = self._rail_get_first_contract_date_for_sbc(reference_date)
@@ -217,7 +225,9 @@ class HrVersion(models.Model):
             + float(christmas_bonus_days)
             + float(vacation_days) * holiday_bonus_rate
         ) / days_of_year
-        daily_wage = wage_value / float(schedule_days)
+        # Functional MX rule: wage is the contractual monthly salary; the payment
+        # schedule only defines the days paid in each payroll period.
+        daily_wage = wage_value / days_per_month
         uncapped_sbc = daily_wage * integration_factor
         max_sbc = daily_uma * float(imss_limit) if daily_uma else 0.0
         sbc = min(uncapped_sbc, max_sbc) if max_sbc else uncapped_sbc
@@ -227,6 +237,7 @@ class HrVersion(models.Model):
             'first_contract_date': first_contract_date,
             'seniority_years': seniority_years,
             'schedule_days': float(schedule_days),
+            'days_per_month': days_per_month,
             'daily_wage': daily_wage,
             'vacation_days': float(vacation_days),
             'holiday_bonus_rate': self.l10n_mx_holiday_bonus_rate or 0.0,
@@ -269,7 +280,7 @@ class HrVersion(models.Model):
 
     def write(self, vals):
         watched_fields = {
-            'wage', 'schedule_pay', 'l10n_mx_holiday_bonus_rate',
+            'wage', 'l10n_mx_holiday_bonus_rate',
             'contract_date_start', 'date_version', 'employee_id',
         }
         must_recalculate = (
@@ -283,7 +294,7 @@ class HrVersion(models.Model):
                 version._rail_set_calculated_sbc(reference_date=version.date_version)
         return result
 
-    @api.onchange('wage', 'schedule_pay', 'l10n_mx_holiday_bonus_rate', 'contract_date_start', 'date_version')
+    @api.onchange('wage', 'l10n_mx_holiday_bonus_rate', 'contract_date_start', 'date_version')
     def _onchange_rail_calculate_sbc(self):
         for version in self:
             if version.employee_id and version._rail_is_mexican_version():

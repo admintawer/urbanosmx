@@ -105,3 +105,8 @@ autoritativo.
 - Durante `salary_simulation`, el factor de integración MX usa la fecha estimada de ingreso capturada en el wizard en lugar del historial técnico temporal.
 - Evita `KeyError(0)` al consultar `l10n_mx_holiday_tables`: una simulación prospectiva se considera desde el primer año de antigüedad.
 - La nómina normal fuera del cálculo inverso conserva el cálculo nativo de Odoo.
+
+
+## Sueldo mensual y periodicidad de pago
+
+Desde 19.0.1.1.10 el salario candidato del cálculo inverso siempre representa el sueldo contractual mensual. La simulación obtiene el sueldo diario usando `l10n_mx_days_per_month` y convierte al periodo real con `l10n_mx_schedule_table`. Al crear una nueva `hr.version` se guarda el sueldo mensual, no el importe del periodo.

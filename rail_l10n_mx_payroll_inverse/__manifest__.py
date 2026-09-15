@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Rail Mexican Payroll Inverse Calculation',
-    'version': '19.0.1.1.9',
+    'version': '19.0.1.1.10',
     'category': 'Human Resources/Payroll',
     'summary': 'Cálculo inverso auditable para empleados y candidatos, con estructura salarial y detalle de reglas.',
     'description': """

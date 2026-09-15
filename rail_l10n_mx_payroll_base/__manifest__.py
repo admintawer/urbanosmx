@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Rail Mexican Payroll Base',
-    'version': '19.0.1.2.2',
+    'version': '19.0.1.2.5',
     'category': 'Human Resources/Payroll',
     'summary': 'Base de migración de nómina mexicana v16/v18 hacia Odoo 19 nativo.',
     'description': """

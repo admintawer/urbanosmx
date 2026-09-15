@@ -11,27 +11,52 @@ class HrPayslip(models.Model):
 
     @api.depends('version_id.wage', 'version_id.schedule_pay')
     def _compute_daily_salary(self):
-        """Use the inverse candidate wage in MX salary simulations.
+        """Use the inverse candidate as a contractual monthly wage.
 
-        Native l10n_mx_hr_payroll computes ``l10n_mx_daily_salary`` from
-        ``version_id.wage`` directly. The inverse module deliberately does
-        not write the real hr.version while testing candidates; instead it
-        exposes the candidate through ``version._get_contract_wage()``.
+        The functional rule validated for MX is the same one used in the
+        shared v18 localization: daily salary = monthly wage / configured
+        days per month. The pay schedule is used later only to determine the
+        amount corresponding to the payroll period.
         """
         super()._compute_daily_salary()
         for payslip in self:
             if not payslip.env.context.get('salary_simulation'):
                 continue
             candidate = payslip.env.context.get('rail_inverse_candidate_wage')
-            if candidate is None or not payslip.version_id or not payslip.version_id.schedule_pay:
+            if candidate is None or not payslip.version_id:
                 continue
-            schedule_table = payslip._rule_parameter('l10n_mx_schedule_table') or {}
-            schedule_days = (
-                schedule_table.get(payslip.version_id.schedule_pay)
-                if isinstance(schedule_table, dict) else 0.0
-            )
-            if schedule_days:
-                payslip.l10n_mx_daily_salary = float(candidate or 0.0) / float(schedule_days)
+            days_per_month = float(payslip._rule_parameter('l10n_mx_days_per_month') or 0.0)
+            if days_per_month:
+                payslip.l10n_mx_daily_salary = float(candidate or 0.0) / days_per_month
+
+    def _get_paid_amount(self):
+        """Return the simulated period salary from a monthly candidate wage.
+
+        Core payroll shortcuts `_get_paid_amount()` to the contract wage while
+        `salary_simulation` is active. For MX inverse payroll that would treat a
+        monthly candidate as if it were weekly/quincenal/etc. We instead apply
+        the configured Mexican schedule ratio, reproducing the validated v18
+        behavior.
+        """
+        self.ensure_one()
+        if not self.env.context.get('salary_simulation') or self.country_code != 'MX':
+            return super()._get_paid_amount()
+        candidate = self.env.context.get('rail_inverse_candidate_wage')
+        if candidate is None or not self.version_id or self.version_id.wage_type == 'hourly':
+            return super()._get_paid_amount()
+        schedule_table = self._rule_parameter('l10n_mx_schedule_table') or {}
+        schedule_days = schedule_table.get(self.version_id.schedule_pay) if isinstance(schedule_table, dict) else 0.0
+        days_per_month = float(self._rule_parameter('l10n_mx_days_per_month') or 0.0)
+        if not schedule_days or not days_per_month:
+            return super()._get_paid_amount()
+
+        start_date = max(self.date_from, self.version_id.contract_date_start or self.date_from)
+        end_date = min(self.date_to, self.version_id.contract_date_end) if self.version_id.contract_date_end else self.date_to
+        in_contract_days = max((end_date - start_date).days + 1, 0)
+        actual_period_days = max((self.date_to - self.date_from).days + 1, 1)
+        salary_factor = in_contract_days / actual_period_days
+        daily_salary = float(candidate or 0.0) / days_per_month
+        return daily_salary * float(schedule_days) * salary_factor
 
     @api.depends('l10n_mx_days_of_year', 'date_from', 'date_to', 'version_id')
     def _compute_integration_factor(self):

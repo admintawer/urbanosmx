@@ -6,6 +6,7 @@ from odoo.exceptions import ValidationError
 
 class RailPayrollAccountMapping(models.Model):
     _name = 'rail.payroll.account.mapping'
+    _inherit = ['analytic.mixin']
     _description = 'Cuenta contable especial de nómina'
     _order = 'sequence, id'
     _check_company_auto = True
@@ -49,11 +50,6 @@ class RailPayrollAccountMapping(models.Model):
         string='Cuenta contable',
         required=True,
         check_company=True,
-    )
-    analytic_distribution = fields.Json(
-        string='Distribución analítica',
-        groups='analytic.group_analytic_accounting',
-        help='Si se define, reemplaza la analítica de la regla/versión para esta cuenta especial.',
     )
     active = fields.Boolean(default=True)
 
