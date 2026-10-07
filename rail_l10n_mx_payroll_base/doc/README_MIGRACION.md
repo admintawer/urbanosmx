@@ -60,3 +60,29 @@ migración, pero se retiraron de la interfaz. La captura operativa se centraliza
 - Para salario fijo MX, `wage` se interpreta como salario contractual mensual.
 - El salario diario para SBC se obtiene con `wage / l10n_mx_days_per_month`; cambiar `schedule_pay` no recalcula el SBC.
 - `rail_payment_type` se conserva solo como campo legacy y ya no se propaga a nuevas `hr.version`.
+
+## Periodos de nómina MX
+
+Desde 19.0.1.2.6 se extiende `hr.payslip.run` sin reemplazar el comportamiento nativo de Odoo 19:
+
+- `schedule_pay` continúa siendo el calendario/frecuencia de pago nativo.
+- Odoo 19 completa `date_end` automáticamente a partir de `schedule_pay` y `date_start`; el módulo no duplica esa lógica.
+- `rail_l10n_mx_payroll_type` muestra el tipo CFDI de la estructura salarial (`O` ordinaria / `E` extraordinaria).
+- `rail_payroll_number` permite capturar el consecutivo operativo de nómina.
+- `rail_period_days` calcula los días calendario inclusivos entre `date_start` y `date_end`.
+
+
+## 19.0.1.2.7 - Lotes de nómina
+
+- `schedule_pay` (Calendario de pago) conserva exclusivamente la frecuencia de pago y el cálculo nativo del periodo.
+- `rail_l10n_mx_payroll_type` vuelve a ser una selección funcional (Ordinaria/Extraordinaria) y filtra `structure_id` por `l10n_mx_payroll_type`.
+- `rail_payroll_number` es selección de 1 a 8, como en el flujo funcional legado.
+- El antiguo concepto de "Configuración" no se duplica: en Odoo 19 la estructura efectiva es `structure_id`; la frecuencia queda en `schedule_pay`.
+
+## 19.0.1.2.8 - Alias operativo del lote de nómina
+
+- Se agrega `hr.payslip.run.rail_payroll_alias` como nombre manual/operativo del lote.
+- El campo `name` nativo permanece intacto y continúa siendo generado por Odoo.
+- El alias se captura desde el formulario/wizard de creación del lote y se muestra en formulario, lista y kanban.
+- El alias también está disponible como criterio de búsqueda en la vista search de lotes.
+

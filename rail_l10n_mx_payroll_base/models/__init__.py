@@ -4,3 +4,4 @@ from . import hr_payslip
 from . import hr_salary_rule
 
 from . import other_entries
+from . import hr_payslip_run
