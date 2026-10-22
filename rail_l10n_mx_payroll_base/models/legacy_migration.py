@@ -217,6 +217,122 @@ class RailPayrollLegacyMigration(models.AbstractModel):
         return result
 
     @api.model
+    def _copy_unique_employee_registration_numbers(self):
+        """Copy legacy employee numbers without violating the v19 constraint.
+
+        Odoo 16 allowed ``no_empleado`` to be repeated.  Odoo 19 enforces one
+        ``registration_number`` per company.  A duplicated business identifier
+        must be resolved by the customer, so the migration archives and flags
+        every ambiguous row instead of choosing an employee or inventing a new
+        number.
+        """
+        columns = self._columns('hr_employee')
+        required = {'id', 'company_id', 'no_empleado', 'registration_number'}
+        if not required.issubset(columns):
+            return {'copied': 0, 'duplicate_source_rows': 0, 'target_conflict_rows': 0}
+
+        self.env.cr.execute(
+            """
+            WITH candidates AS (
+                SELECT id,
+                       company_id,
+                       NULLIF(BTRIM(no_empleado::text), '') AS legacy_number
+                  FROM hr_employee
+            ), duplicate_groups AS (
+                SELECT company_id, legacy_number
+                  FROM candidates
+                 WHERE legacy_number IS NOT NULL
+              GROUP BY company_id, legacy_number
+                HAVING COUNT(*) > 1
+            )
+            SELECT ARRAY_AGG(candidate.id ORDER BY candidate.id)
+              FROM candidates AS candidate
+              JOIN duplicate_groups AS duplicate_group
+                ON duplicate_group.company_id IS NOT DISTINCT FROM candidate.company_id
+               AND duplicate_group.legacy_number = candidate.legacy_number
+            """
+        )
+        duplicate_ids = (self.env.cr.fetchone()[0] or [])
+
+        self.env.cr.execute(
+            """
+            WITH candidates AS (
+                SELECT employee.id,
+                       employee.company_id,
+                       NULLIF(BTRIM(employee.no_empleado::text), '') AS legacy_number
+                  FROM hr_employee AS employee
+            )
+            SELECT ARRAY_AGG(candidate.id ORDER BY candidate.id)
+              FROM candidates AS candidate
+             WHERE candidate.legacy_number IS NOT NULL
+               AND EXISTS (
+                    SELECT 1
+                      FROM hr_employee AS other
+                     WHERE other.id != candidate.id
+                       AND other.company_id IS NOT DISTINCT FROM candidate.company_id
+                       AND NULLIF(BTRIM(other.registration_number), '') = candidate.legacy_number
+               )
+            """
+        )
+        target_conflict_ids = (self.env.cr.fetchone()[0] or [])
+        conflict_ids = sorted(set(duplicate_ids) | set(target_conflict_ids))
+
+        self.env.cr.execute(
+            """
+            WITH candidates AS (
+                SELECT employee.id,
+                       employee.company_id,
+                       NULLIF(BTRIM(employee.no_empleado::text), '') AS legacy_number
+                  FROM hr_employee AS employee
+            ), safe_candidates AS (
+                SELECT MIN(id) AS id, company_id, legacy_number
+                  FROM candidates
+                 WHERE legacy_number IS NOT NULL
+              GROUP BY company_id, legacy_number
+                HAVING COUNT(*) = 1
+            )
+            UPDATE hr_employee AS employee
+               SET registration_number = safe.legacy_number
+              FROM safe_candidates AS safe
+             WHERE employee.id = safe.id
+               AND NULLIF(BTRIM(employee.registration_number), '') IS NULL
+               AND NOT EXISTS (
+                    SELECT 1
+                      FROM hr_employee AS other
+                     WHERE other.id != employee.id
+                       AND other.company_id IS NOT DISTINCT FROM employee.company_id
+                       AND NULLIF(BTRIM(other.registration_number), '') = safe.legacy_number
+               )
+            """
+        )
+        copied = self.env.cr.rowcount
+
+        if conflict_ids and self._table_exists('rail_payroll_migration_archive'):
+            self.env.cr.execute(
+                """
+                UPDATE rail_payroll_migration_archive
+                   SET migration_note = CONCAT_WS(
+                        E'\n',
+                        NULLIF(migration_note, ''),
+                        'No se copió no_empleado a registration_number: valor duplicado o en conflicto dentro de la compañía.'
+                   ),
+                       write_uid = %s,
+                       write_date = NOW()
+                 WHERE source_module = 'nomina_cfdi'
+                   AND source_table = 'hr_employee'
+                   AND source_id = ANY(%s)
+                """,
+                (self.env.uid, conflict_ids),
+            )
+
+        return {
+            'copied': copied,
+            'duplicate_source_rows': len(duplicate_ids),
+            'target_conflict_rows': len(target_conflict_ids),
+            'conflict_employee_ids': conflict_ids,
+        }
+
+    @api.model
     def run_nomina_cfdi(self):
         """Archive and map the safe, one-to-one fields from ``nomina_cfdi``."""
         result = {'archive': self._archive_many('nomina_cfdi', self._BASE_ARCHIVE_TABLES)}
@@ -256,11 +372,11 @@ class RailPayrollLegacyMigration(models.AbstractModel):
             'vale_despensa_amount': 'l10n_mx_meal_voucher_amount',
         })
         result['employee'] = self._copy_columns('hr_employee', {
-            'no_empleado': 'registration_number',
             'rfc': 'l10n_mx_rfc',
             'curp': 'l10n_mx_curp',
             'correo_electronico': 'private_email',
         })
+        result['employee_registration_number'] = self._copy_unique_employee_registration_numbers()
         result['employee_version'] = self._copy_employee_fields_to_versions()
         result['company'] = self._copy_columns('res_company', {
             'curp': 'l10n_mx_curp',
