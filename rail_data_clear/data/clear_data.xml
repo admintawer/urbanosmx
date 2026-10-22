@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="clear_data_model_group_base" model='clear.data.model'>
+            <field name="name">Base data</field>
+			<field name="description">Base product data group</field>
+            <field name="internal_model_list">[
+			'product.template',
+			'product.category',
+			]</field>
+            <field name="auto_clear_ir_sequence">True</field>
+        </record>
+
+        <record id="clear_data_model_purchase" model='clear.data.model'>
+            <field name="name">Purchase data</field>
+			<field name="description">Base purchase data group</field>
+            <field name="internal_model_list">[
+			'purchase.order.line',
+			'purchase.order',
+			]</field>
+            <field name="auto_clear_ir_sequence">True</field>
+        </record>
+        <record id="clear_data_model_sale" model='clear.data.model'>
+            <field name="name">Sale data</field>
+			<field name="description">Base sale data group</field>
+            <field name="internal_model_list">[
+			'sale.order.line',
+			'sale.order',
+			]</field>
+            <field name="auto_clear_ir_sequence">True</field>
+        </record>
+        <record id="clear_data_model_pos" model='clear.data.model'>
+            <field name="name">Pos Data</field>
+			<field name="description">Base POS data group</field>
+            <field name="internal_model_list">[
+			'pos.order.line','
+			'pos.order',	
+			]</field>
+            <field name="auto_clear_ir_sequence">True</field>
+        </record>		
+
+        <record id="clear_data_model_mrp" model='clear.data.model'>
+            <field name="name">Manufacture Data</field>
+			<field name="description">Base manufacture data group</field>
+            <field name="internal_model_list">[
+			'mrp.production',
+			'mrp.unbuild',
+			'mrp.workorder.line',
+			'mrp.workorder',
+			]</field>
+            <field name="auto_clear_ir_sequence">True</field>
+        </record>	
+
+        <record id="clear_data_model_group_business" model='clear.data.model'>
+            <field name="name">Business data</field>
+            <field name="internal_model_list">[
+			'purchase.order.line',
+			'purchase.order',
+			'sale.order.line',
+			'sale.order',
+			'pos.order.line',
+			'mrp.inspection.request.line',
+			'mrp.inspection.request',
+			'stock.valuation.layer',
+			'purchase.inquiry.order',
+			'purchase.inquiry.order.line',
+			'sale.inquiry.order',
+			'sale.inquiry.order.line',
+			'delivery.request.order.line',
+			'delivery.request.order',	
+			'mrp.workorder',
+			'mrp.workorder.line',
+			'mrp.unbuild',
+			'mrp.production',
+			'procurement.order',
+			'stock.quant',
+			'stock.move.line',			
+			'stock.move',
+			'stock.pack.operation',
+			'stock.picking',
+			'stock.inventory.line',
+			'stock.inventory',
+			'stock.quant.package',
+			'stock.quant.move.rel',
+			'stock.production.lot',
+			'stock.fixed.putaway.strat',
+			'account.voucher.line',
+			'account.voucher',
+			'account.bank.statement',
+			'account.bank.statement.line',
+			'account.payment',
+			'account.analytic.line',
+			'account.partial.reconcile',
+			'account.move.line',
+			'account.move',
+			'mail.message',
+			'wkf_workitem',
+			'wkf_instance',
+			]</field>
+
+            <field name="auto_clear_ir_sequence">True</field>
+        </record>
+        
+
+    </data>
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rail_hr_leave_form_imss" model="ir.ui.view">
+        <field name="name">rail.hr.leave.form.imss</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group string="Datos IMSS/SUA" name="rail_leave_imss_group" groups="hr_payroll.group_hr_payroll_user">
+                    <group>
+                        <field name="rail_imss_disability_folio"/>
+                        <field name="rail_imss_disability_branch"/>
+                        <field name="rail_imss_risk_type"/>
+                        <field name="rail_imss_percentage"/>
+                    </group>
+                    <group>
+                        <field name="rail_imss_sequela"/>
+                        <field name="rail_imss_control"/>
+                        <field name="rail_imss_control2"/>
+                        <field name="rail_imss_exported" readonly="1"/>
+                    </group>
+                    <field name="rail_imss_description" colspan="4"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

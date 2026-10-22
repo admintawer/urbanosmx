@@ -1,0 +1,1314 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* simplify_access_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-03 05:07+0000\n"
+"PO-Revision-Date: 2025-12-03 05:07+0000\n"
+"Last-Translator: \n"
+"Language-Team: French (Belgium)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"Language: fr_BE\n"
+"X-Generator: Odoo Translation Tool\n"
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid "<span class=\"o_stat_text\">Access Rules</span>"
+msgstr "<span class=\"o_stat_text\">Règles d'accès</span>"
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid ""
+"<span style=\"font-weight: bold;\" class=\"text-danger\">Deactivate "
+"Rule</span>"
+msgstr ""
+"<span style=\"font-weight: bold;\" class=\"text-danger\">Désactiver la "
+"règle</span>"
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid "<span style=\"font-weight: bold;\" class=\"text-success\">Activate Rule</span>"
+msgstr ""
+"<span style=\"font-weight: bold;\" class=\"text-success\">Activer la "
+"règle</span>"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_ir_model__abstract
+msgid "Abstract"
+msgstr "Abstrait"
+
+#. module: simplify_access_management
+#: model:ir.model,name:simplify_access_management.model_access_domain_ah
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__access_domain_ah_ids
+msgid "Access Domain"
+msgstr "Domaine d'accès"
+
+#. module: simplify_access_management
+#: model:ir.actions.act_window,name:simplify_access_management.action_access_management_bits
+#: model:ir.model,name:simplify_access_management.model_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_domain_ah__access_management_id
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_chatter__access_management_id
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_field__access_management_id
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_filters_groups__access_management_id
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_view_nodes__access_management_id
+#: model:ir.model.fields,field_description:simplify_access_management.field_remove_action__access_management_id
+#: model:res.groups,name:simplify_access_management.group_access_management_bits
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_search_view
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.security_ninja_res_users_inherit_form_view_ah
+msgid "Access Management"
+msgstr "Gestion des accès"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_res_users__access_management_ids
+msgid "Access Pack"
+msgstr "Pack d'accès"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__total_rules
+#: model:ir.ui.menu,name:simplify_access_management.menu_access_rule
+msgid "Access Rules"
+msgstr "Règles d'accès"
+
+#. module: simplify_access_management
+#: model:ir.ui.menu,name:simplify_access_management.main_menu_simplify_access_management
+msgid "Access Studio"
+msgstr "Studio d'accès"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_action_data__action_id
+#: model:ir.model.fields.selection,name:simplify_access_management.selection__store_model_nodes__button_type__action
+msgid "Action"
+msgstr "Action"
+
+#. module: simplify_access_management
+#: model:ir.model,name:simplify_access_management.model_action_data
+msgid "Action Data"
+msgstr "Données d'action"
+
+#. module: simplify_access_management
+#: model:ir.model,name:simplify_access_management.model_ir_actions_actions
+msgid "Actions"
+msgstr "Actions"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: simplify_access_management
+#. odoo-javascript
+#: code:addons/simplify_access_management/static/src/search_menu_patch/search_menu_patch.xml:0
+#, python-format
+msgid "Add Custom Filter"
+msgstr "Ajouter un filtre personnalisé"
+
+#. module: simplify_access_management
+#. odoo-python
+#: code:addons/simplify_access_management/models/access_management.py:0
+#: code:addons/simplify_access_management/models/access_management.py:0
+#: code:addons/simplify_access_management/models/res_users.py:0
+#: code:addons/simplify_access_management/models/res_users.py:0
+#, python-format
+msgid "Admin user can not be set as a read-only..!"
+msgstr "L'utilisateur administrateur ne peut pas être défini en lecture seule..!"
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_search_view
+msgid "All"
+msgstr "Tous"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_domain_ah__apply_domain
+msgid "Apply Filter"
+msgstr "Appliquer le filtre"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__is_apply_on_without_company
+msgid "Apply Without Company"
+msgstr "Appliquer sans société"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_remove_action__restrict_archive_unarchive
+msgid ""
+"Archive and Unarchive action will be hidden in selected model from the "
+"defined users."
+msgstr ""
+"Les actions Archiver et Désarchiver seront masquées dans le modèle sélectionné "
+"pour les utilisateurs définis."
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_search_view
+msgid "Archived"
+msgstr "Archivé(s)"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_filters_groups__attribute_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_model_nodes__attribute_name
+msgid "Attribute Name"
+msgstr "Nom de l'attribut"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_filters_groups__attribute_string
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_model_nodes__attribute_string
+msgid "Attribute String"
+msgstr "Chaîne d'attribut"
+
+#. module: simplify_access_management
+#: model:ir.model,name:simplify_access_management.model_base
+msgid "Base"
+msgstr "Base"
+
+#. module: simplify_access_management
+#: model:ir.model.fields.selection,name:simplify_access_management.selection__store_model_nodes__node_option__button
+msgid "Button"
+msgstr "Bouton"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_model_nodes__button_type
+msgid "Button Type"
+msgstr "Type de bouton"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__hide_view_nodes_ids
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid "Button/Tab Access"
+msgstr "Accès Boutons/Onglets"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_chatter__hide_chatter
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid "Chatter"
+msgstr "Chatter"
+
+#. module: simplify_access_management
+#: model:ir.model,name:simplify_access_management.model_hide_chatter
+msgid "Chatter Rights"
+msgstr "Droits du chatter"
+
+#. module: simplify_access_management
+#. odoo-python
+#: code:addons/simplify_access_management/models/models.py:0
+#, python-format
+msgid ""
+"Check Applied Rule on Access Management:\n"
+" %(access_name)s"
+msgstr ""
+"Vérifiez la règle appliquée dans la gestion des accès :\n"
+" %(access_name)s"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__company_ids
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_search_view
+msgid "Companies"
+msgstr "Sociétés"
+
+#. module: simplify_access_management
+#. odoo-python
+#: code:addons/simplify_access_management/models/ir_model_access.py:0
+#, python-format
+msgid "Contact your administrator to request access if necessary."
+msgstr "Contactez votre administrateur pour demander l'accès si nécessaire."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_domain_ah__create_right
+msgid "Create"
+msgstr "Créer"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_remove_action__restrict_create
+msgid "Create Button will be hidden in selected model from the defined users."
+msgstr "Le bouton Créer sera masqué dans le modèle sélectionné pour les utilisateurs définis."
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_search_view
+msgid "Created By"
+msgstr "Créé par"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_domain_ah__create_uid
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__create_uid
+#: model:ir.model.fields,field_description:simplify_access_management.field_action_data__create_uid
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_chatter__create_uid
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_field__create_uid
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_filters_groups__create_uid
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_view_nodes__create_uid
+#: model:ir.model.fields,field_description:simplify_access_management.field_menu_item__create_uid
+#: model:ir.model.fields,field_description:simplify_access_management.field_remove_action__create_uid
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_filters_groups__create_uid
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_model_nodes__create_uid
+#: model:ir.model.fields,field_description:simplify_access_management.field_view_data__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_domain_ah__create_date
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__create_date
+#: model:ir.model.fields,field_description:simplify_access_management.field_action_data__create_date
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_chatter__create_date
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_field__create_date
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_filters_groups__create_date
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_view_nodes__create_date
+#: model:ir.model.fields,field_description:simplify_access_management.field_menu_item__create_date
+#: model:ir.model.fields,field_description:simplify_access_management.field_remove_action__create_date
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_filters_groups__create_date
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_model_nodes__create_date
+#: model:ir.model.fields,field_description:simplify_access_management.field_view_data__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_domain_ah__delete_right
+msgid "Delete"
+msgstr "Supprimer"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_remove_action__restrict_delete
+msgid "Delete Button will be hidden in selected model from the defined users."
+msgstr "Le bouton Supprimer sera masqué dans le modèle sélectionné pour les utilisateurs définis."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_access_management__disable_debug_mode
+msgid "Developer mode will be hidden from the defined users."
+msgstr "Le mode développeur sera masqué pour les utilisateurs définis."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__disable_debug_mode
+msgid "Disable Developer Mode"
+msgstr "Désactiver le mode développeur"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__disable_login
+msgid "Disable Login"
+msgstr "Désactiver la connexion"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_domain_ah__display_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__display_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_action_data__display_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_chatter__display_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_field__display_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_filters_groups__display_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_view_nodes__display_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_ir_actions_actions__display_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_ir_model__display_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_ir_model_access__display_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_ir_model_fields__display_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_ir_module_module__display_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_ir_rule__display_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_ir_ui_menu__display_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_ir_ui_view__display_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_menu_item__display_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_remove_action__display_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_res_users__display_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_filters_groups__display_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_model_nodes__display_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_view_data__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid "Domain Access"
+msgstr "Accès par domaine"
+
+#. module: simplify_access_management
+#. odoo-python
+#: code:addons/simplify_access_management/models/models.py:0
+#, python-format
+msgid ""
+"Due to access management rule,\n"
+"You are not allowed to create records from (%(document_model)s) model."
+msgstr ""
+"En raison d'une règle de gestion des accès,\n"
+"vous n'êtes pas autorisé à créer des enregistrements dans le modèle (%(document_model)s)."
+
+#. module: simplify_access_management
+#. odoo-python
+#: code:addons/simplify_access_management/models/models.py:0
+#, python-format
+msgid ""
+"Due to access management rule,\n"
+"You are not allowed to delete record '%(record)s' from (%(document_model)s) model."
+msgstr ""
+"En raison d'une règle de gestion des accès,\n"
+"vous n'êtes pas autorisé à supprimer l'enregistrement « %(record)s » du modèle (%(document_model)s)."
+
+#. module: simplify_access_management
+#. odoo-python
+#: code:addons/simplify_access_management/models/models.py:0
+#, python-format
+msgid ""
+"Due to access management rule,\n"
+"You are not allowed to edit record '%(record)s' from (%(document_model)s) model."
+msgstr ""
+"En raison d'une règle de gestion des accès,\n"
+"vous n'êtes pas autorisé à modifier l'enregistrement « %(record)s » du modèle (%(document_model)s)."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_remove_action__restrict_duplicate
+msgid ""
+"Duplicate action will be hidden in selected model from the defined users."
+msgstr "L'action Dupliquer sera masquée dans le modèle sélectionné pour les utilisateurs définis."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_remove_action__restrict_edit
+msgid "Edit Button will be hidden in selected model from the defined users."
+msgstr "Le bouton Modifier sera masqué dans le modèle sélectionné pour les utilisateurs définis."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_remove_action__restrict_export
+msgid "Export Button will be hidden in selected model from the defined users."
+msgstr "Le bouton Exporter sera masqué dans le modèle sélectionné pour les utilisateurs définis."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_hide_field__external_link
+msgid ""
+"External Link will be hidden for relational fields in selected model from "
+"the defined users."
+msgstr ""
+"Le lien externe sera masqué pour les champs relationnels dans le modèle sélectionné "
+"pour les utilisateurs définis."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_field__field_id
+msgid "Field"
+msgstr "Champ"
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid "Field Access"
+msgstr "Accès aux champs"
+
+#. module: simplify_access_management
+#: model:ir.model,name:simplify_access_management.model_ir_model_fields
+msgid "Fields"
+msgstr "Champs"
+
+#. module: simplify_access_management
+#: model:ir.model,name:simplify_access_management.model_hide_field
+msgid "Fields Rights"
+msgstr "Droits sur les champs"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_domain_ah__domain
+#: model:ir.model.fields.selection,name:simplify_access_management.selection__store_filters_groups__node_option__filter
+msgid "Filter"
+msgstr "Filtre"
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid "Global"
+msgstr "Global"
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_search_view
+msgid "Group By"
+msgstr "Regrouper par"
+
+#. module: simplify_access_management
+#: model:ir.model.fields.selection,name:simplify_access_management.selection__store_filters_groups__node_option__group
+msgid "Groups"
+msgstr "Groupes"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_remove_action__server_action_ids
+msgid "Hide Actions"
+msgstr "Masquer les actions"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__hide_add_property
+msgid "Hide Add Property"
+msgstr "Masquer Ajouter une propriété"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_remove_action__restrict_archive_unarchive
+msgid "Hide Archive/Unarchive"
+msgstr "Masquer Archiver/Désarchiver"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_view_nodes__btn_store_model_nodes_ids
+msgid "Hide Button"
+msgstr "Masquer le bouton"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__hide_chatter
+#: model:ir.model.fields,field_description:simplify_access_management.field_remove_action__restrict_chatter
+msgid "Hide Chatter"
+msgstr "Masquer le chatter"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__hide_chatter_ids
+msgid "Hide Chatters"
+msgstr "Masquer les chatters"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_remove_action__restrict_create
+msgid "Hide Create"
+msgstr "Masquer Créer"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_remove_action__restrict_delete
+msgid "Hide Delete"
+msgstr "Masquer Supprimer"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_remove_action__restrict_duplicate
+msgid "Hide Duplicate"
+msgstr "Masquer Dupliquer"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_remove_action__restrict_edit
+msgid "Hide Edit"
+msgstr "Masquer Modifier"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__hide_export
+#: model:ir.model.fields,field_description:simplify_access_management.field_remove_action__restrict_export
+msgid "Hide Export"
+msgstr "Masquer Exporter"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__hide_field_ids
+msgid "Hide Field"
+msgstr "Masquer le champ"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_filters_groups__filters_store_model_nodes_ids
+msgid "Hide Filters"
+msgstr "Masquer les filtres"
+
+#. module: simplify_access_management
+#: model:ir.model,name:simplify_access_management.model_hide_filters_groups
+msgid "Hide Filters Groups"
+msgstr "Masquer les filtres et groupes"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__hide_filters_groups_ids
+msgid "Hide Filters/Group By"
+msgstr "Masquer les filtres/Groupes"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_filters_groups__groups_store_model_nodes_ids
+msgid "Hide Groups"
+msgstr "Masquer les groupes"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__hide_import
+#: model:ir.model.fields,field_description:simplify_access_management.field_remove_action__restrict_import
+msgid "Hide Import"
+msgstr "Masquer Importer"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_view_nodes__link_store_model_nodes_ids
+msgid "Hide Kanban Link"
+msgstr "Masquer le lien Kanban"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__hide_log_notes
+msgid "Hide Log Notes"
+msgstr "Masquer les notes de journal"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__hide_menu_ids
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid "Hide Menu"
+msgstr "Masquer le menu"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_remove_action__report_action_ids
+msgid "Hide Reports"
+msgstr "Masquer les rapports"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__hide_schedule_activity
+msgid "Hide Schedule Activity"
+msgstr "Masquer Planifier une activité"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__hide_send_mail
+msgid "Hide Send Message"
+msgstr "Masquer Envoyer un message"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__hide_spreadsheet
+#: model:ir.model.fields,field_description:simplify_access_management.field_remove_action__restrict_spreadsheet
+msgid "Hide Spreadsheet"
+msgstr "Masquer le tableur"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_view_nodes__page_store_model_nodes_ids
+msgid "Hide Tab/Page"
+msgstr "Masquer l'onglet/page"
+
+#. module: simplify_access_management
+#: model:ir.model,name:simplify_access_management.model_hide_view_nodes
+msgid "Hide View Nodes"
+msgstr "Masquer les nœuds de vue"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_remove_action__view_data_ids
+msgid "Hide Views"
+msgstr "Masquer les vues"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_domain_ah__id
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__id
+#: model:ir.model.fields,field_description:simplify_access_management.field_action_data__id
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_chatter__id
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_field__id
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_filters_groups__id
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_view_nodes__id
+#: model:ir.model.fields,field_description:simplify_access_management.field_ir_actions_actions__id
+#: model:ir.model.fields,field_description:simplify_access_management.field_ir_model__id
+#: model:ir.model.fields,field_description:simplify_access_management.field_ir_model_access__id
+#: model:ir.model.fields,field_description:simplify_access_management.field_ir_model_fields__id
+#: model:ir.model.fields,field_description:simplify_access_management.field_ir_module_module__id
+#: model:ir.model.fields,field_description:simplify_access_management.field_ir_rule__id
+#: model:ir.model.fields,field_description:simplify_access_management.field_ir_ui_menu__id
+#: model:ir.model.fields,field_description:simplify_access_management.field_ir_ui_view__id
+#: model:ir.model.fields,field_description:simplify_access_management.field_menu_item__id
+#: model:ir.model.fields,field_description:simplify_access_management.field_remove_action__id
+#: model:ir.model.fields,field_description:simplify_access_management.field_res_users__id
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_filters_groups__id
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_model_nodes__id
+#: model:ir.model.fields,field_description:simplify_access_management.field_view_data__id
+msgid "ID"
+msgstr "ID"
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid "Import & Export"
+msgstr "Import & Export"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_remove_action__restrict_import
+msgid "Import Button will be hidden in selected model from the defined users."
+msgstr "Le bouton Importer sera masqué dans le modèle sélectionné pour les utilisateurs définis."
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid ""
+"In this tab you can apply the rule for every model.\n"
+"                                    <br/>\n"
+"                                    <br/>You can hide chatter, send message, log notes, schedule activities, import,\n"
+"                                    export from everywhere with single checkbox\n"
+"                                    <br/>\n"
+"                                    <br/>selection for specific user."
+msgstr ""
+"Dans cet onglet, vous pouvez appliquer la règle à tous les modèles.\n"
+"                                    <br/>\n"
+"                                    <br/>Vous pouvez masquer le chatter, l'envoi de messages, les notes de journal, la planification d'activités, l'import et\n"
+"                                    l'export partout d'un seul clic\n"
+"                                    <br/>\n"
+"                                    <br/>pour un utilisateur spécifique."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_field__invisible
+msgid "Invisible"
+msgstr "Invisible"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_model_nodes__lang_code
+msgid "Language Code"
+msgstr "Code de langue"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_domain_ah__write_uid
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__write_uid
+#: model:ir.model.fields,field_description:simplify_access_management.field_action_data__write_uid
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_chatter__write_uid
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_field__write_uid
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_filters_groups__write_uid
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_view_nodes__write_uid
+#: model:ir.model.fields,field_description:simplify_access_management.field_menu_item__write_uid
+#: model:ir.model.fields,field_description:simplify_access_management.field_remove_action__write_uid
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_filters_groups__write_uid
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_model_nodes__write_uid
+#: model:ir.model.fields,field_description:simplify_access_management.field_view_data__write_uid
+msgid "Last Updated by"
+msgstr "Mis à jour par"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_domain_ah__write_date
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__write_date
+#: model:ir.model.fields,field_description:simplify_access_management.field_action_data__write_date
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_chatter__write_date
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_field__write_date
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_filters_groups__write_date
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_view_nodes__write_date
+#: model:ir.model.fields,field_description:simplify_access_management.field_menu_item__write_date
+#: model:ir.model.fields,field_description:simplify_access_management.field_remove_action__write_date
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_filters_groups__write_date
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_model_nodes__write_date
+#: model:ir.model.fields,field_description:simplify_access_management.field_view_data__write_date
+msgid "Last Updated on"
+msgstr "Mis à jour le"
+
+#. module: simplify_access_management
+#: model:ir.model.fields.selection,name:simplify_access_management.selection__store_model_nodes__node_option__link
+msgid "Link"
+msgstr "Lien"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_chatter__hide_log_notes
+msgid "Log Notes"
+msgstr "Notes de journal"
+
+#. module: simplify_access_management
+#: model:ir.model,name:simplify_access_management.model_ir_ui_menu
+#: model:ir.model.fields,field_description:simplify_access_management.field_menu_item__name
+msgid "Menu"
+msgstr "Menu"
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid "Menu Access Right"
+msgstr "Droits d'accès aux menus"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_menu_item__menu_id
+msgid "Menu ID"
+msgstr "ID du menu"
+
+#. module: simplify_access_management
+#: model:ir.model,name:simplify_access_management.model_menu_item
+msgid "Menu Item"
+msgstr "Élément de menu"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_domain_ah__model_id
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_chatter__model_id
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_field__model_id
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_filters_groups__model_id
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_view_nodes__model_id
+#: model:ir.model.fields,field_description:simplify_access_management.field_remove_action__model_id
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_filters_groups__model_id
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_model_nodes__model_id
+msgid "Model"
+msgstr "Modèle"
+
+#. module: simplify_access_management
+#: model:ir.model,name:simplify_access_management.model_ir_model_access
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid "Model Access"
+msgstr "Accès au modèle"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_domain_ah__model_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_filters_groups__model_name
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_view_nodes__model_name
+msgid "Model Name"
+msgstr "Nom du modèle"
+
+#. module: simplify_access_management
+#: model:ir.model,name:simplify_access_management.model_ir_model
+msgid "Models"
+msgstr "Modèles"
+
+#. module: simplify_access_management
+#: model:ir.model,name:simplify_access_management.model_remove_action
+msgid "Models Right"
+msgstr "Droits sur les modèles"
+
+#. module: simplify_access_management
+#: model:ir.model,name:simplify_access_management.model_ir_module_module
+msgid "Module"
+msgstr "Module"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__name
+#: model:ir.model.fields,field_description:simplify_access_management.field_action_data__name
+#: model:ir.model.fields,field_description:simplify_access_management.field_view_data__name
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_search_view
+msgid "Name"
+msgstr "Nom"
+
+#. module: simplify_access_management
+#. odoo-python
+#: code:addons/simplify_access_management/models/ir_model_access.py:0
+#, python-format
+msgid "No group currently allows this operation."
+msgstr "Aucun groupe n'autorise actuellement cette opération."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_filters_groups__node_option
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_model_nodes__node_option
+msgid "Node Option"
+msgstr "Option du nœud"
+
+#. module: simplify_access_management
+#: model:ir.model.fields.selection,name:simplify_access_management.selection__store_model_nodes__button_type__object
+msgid "Object"
+msgstr "Objet"
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid "Others"
+msgstr "Autres"
+
+#. module: simplify_access_management
+#: model:ir.model.fields.selection,name:simplify_access_management.selection__store_model_nodes__node_option__page
+msgid "Page"
+msgstr "Page"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_domain_ah__read_right
+msgid "Read"
+msgstr "Lire"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__readonly
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_field__readonly
+#: model:ir.model.fields,field_description:simplify_access_management.field_remove_action__readonly
+msgid "Read-Only"
+msgstr "Lecture seule"
+
+#. module: simplify_access_management
+#: model:ir.model,name:simplify_access_management.model_ir_rule
+msgid "Record Rule"
+msgstr "Règle d'enregistrement"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__remove_action_ids
+msgid "Remove Action"
+msgstr "Supprimer l'action"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_field__external_link
+msgid "Remove External Link"
+msgstr "Supprimer le lien externe"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_field__required
+msgid "Required"
+msgstr "Requis"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_chatter__hide_schedule_activity
+msgid "Schedule Activity"
+msgstr "Planifier une activité"
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid "Search Panel Access"
+msgstr "Accès au panneau de recherche"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_hide_field__readonly
+msgid ""
+"Selected Field will be Read only in selected model from the defined users."
+msgstr "Le champ sélectionné sera en lecture seule dans le modèle choisi pour les utilisateurs définis."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_hide_field__invisible
+msgid ""
+"Selected Field will be hidden in selected model from the defined users."
+msgstr "Le champ sélectionné sera masqué dans le modèle choisi pour les utilisateurs définis."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_hide_field__required
+msgid ""
+"Selected Field will be set as required for selected model from the defined "
+"users."
+msgstr "Le champ sélectionné sera défini comme obligatoire dans le modèle choisi pour les utilisateurs définis."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__self_module_menu_ids
+msgid "Self Module Menu"
+msgstr "Menu du module propre"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_hide_chatter__hide_send_mail
+msgid "Send Message"
+msgstr "Envoyer un message"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_store_model_nodes__is_smart_button
+msgid "Smart Button"
+msgstr "Bouton intelligent"
+
+#. module: simplify_access_management
+#: model:ir.model,name:simplify_access_management.model_store_filters_groups
+msgid "Store Filters Groups"
+msgstr "Stocker les filtres et groupes"
+
+#. module: simplify_access_management
+#: model:ir.model,name:simplify_access_management.model_store_model_nodes
+msgid "Store Model Nodes"
+msgstr "Stocker les nœuds du modèle"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_view_data__techname
+msgid "Tech Name"
+msgstr "Nom technique"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_hide_view_nodes__btn_store_model_nodes_ids
+msgid ""
+"The Buttons are added on list will be hidden in selected model from the "
+"defined users."
+msgstr "Les boutons ajoutés à la liste seront masqués dans le modèle sélectionné pour les utilisateurs définis."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_access_management__hide_chatter
+msgid "The Chatter will be hidden in all model from the specified users."
+msgstr "Le chatter sera masqué dans tous les modèles pour les utilisateurs spécifiés."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_remove_action__restrict_chatter
+msgid "The Chatter will be hidden in selected model from the defined users."
+msgstr "Le chatter sera masqué dans le modèle sélectionné pour les utilisateurs définis."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_hide_chatter__hide_chatter
+msgid "The Chatter will be hidden in selected model from the specified users."
+msgstr "Le chatter sera masqué dans le modèle sélectionné pour les utilisateurs spécifiés."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_hide_filters_groups__groups_store_model_nodes_ids
+msgid ""
+"The Defalut Group are added on list will be hidden in search view of "
+"selected model from the specified users."
+msgstr "Les groupes par défaut ajoutés à la liste seront masqués dans la vue de recherche du modèle sélectionné pour les utilisateurs spécifiés."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_hide_filters_groups__filters_store_model_nodes_ids
+msgid ""
+"The Defalut filter are added on list will be hidden in search view of "
+"selected model from the specified users."
+msgstr "Les filtres par défaut ajoutés à la liste seront masqués dans la vue de recherche du modèle sélectionné pour les utilisateurs spécifiés."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_access_management__hide_export
+msgid ""
+"The Export button will be hidden in all model from the specified users."
+msgstr "Le bouton Exporter sera masqué dans tous les modèles pour les utilisateurs spécifiés."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_access_management__hide_import
+msgid ""
+"The Import button will be hidden in all model from the specified users."
+msgstr "Le bouton Importer sera masqué dans tous les modèles pour les utilisateurs spécifiés."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_hide_view_nodes__link_store_model_nodes_ids
+msgid ""
+"The Kanban view action are added on list will be hidden in selected model "
+"from the defined users."
+msgstr "Les actions de la vue Kanban ajoutées à la liste seront masquées dans le modèle sélectionné pour les utilisateurs définis."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_access_management__hide_log_notes
+msgid ""
+"The Log Notes button will be hidden in chatter of all model from the "
+"specified users."
+msgstr "Le bouton Notes de journal sera masqué dans le chatter de tous les modèles pour les utilisateurs spécifiés."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_hide_chatter__hide_log_notes
+msgid ""
+"The Log Notes button will be hidden in chatter of selected model from the "
+"specified users."
+msgstr "Le bouton Notes de journal sera masqué dans le chatter du modèle sélectionné pour les utilisateurs spécifiés."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_remove_action__report_action_ids
+msgid ""
+"The Reports are added on list will be hidden in selected model from the "
+"defined users."
+msgstr "Les rapports ajoutés à la liste seront masqués dans le modèle sélectionné pour les utilisateurs définis."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_access_management__hide_schedule_activity
+msgid ""
+"The Schedule Activity button will be hidden in chatter of all model from the"
+" specified users."
+msgstr "Le bouton Planifier une activité sera masqué dans le chatter de tous les modèles pour les utilisateurs spécifiés."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_hide_chatter__hide_schedule_activity
+msgid ""
+"The Schedule Activity button will be hidden in chatter of selected model "
+"from the specified users."
+msgstr "Le bouton Planifier une activité sera masqué dans le chatter du modèle sélectionné pour les utilisateurs spécifiés."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_access_management__hide_send_mail
+msgid ""
+"The Send Message button will be hidden in chatter of all model from the "
+"specified users."
+msgstr "Le bouton Envoyer un message sera masqué dans le chatter de tous les modèles pour les utilisateurs spécifiés."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_hide_chatter__hide_send_mail
+msgid ""
+"The Send Message button will be hidden in chatter of selected model from the"
+" specified users."
+msgstr "Le bouton Envoyer un message sera masqué dans le chatter du modèle sélectionné pour les utilisateurs spécifiés."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_hide_view_nodes__page_store_model_nodes_ids
+msgid ""
+"The Tabs(pages) are added on list will be hidden in selected model from the "
+"defined users."
+msgstr "Les onglets (pages) ajoutés à la liste seront masqués dans le modèle sélectionné pour les utilisateurs définis."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_access_management__disable_login
+msgid "The Users can not login if this button is chek."
+msgstr "Les utilisateurs ne pourront pas se connecter si cette case est cochée."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_remove_action__server_action_ids
+msgid ""
+"The actions are added on list will be hidden in selected model from the "
+"defined users."
+msgstr "Les actions ajoutées à la liste seront masquées dans le modèle sélectionné pour les utilisateurs définis."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_access_domain_ah__domain
+msgid ""
+"The create customised domain rule where we can customise rule by selecting "
+"specific fields and records"
+msgstr "Créez une règle de domaine personnalisée en sélectionnant des champs et enregistrements spécifiques."
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid ""
+"The menu or submenu added on above list\n"
+"                                    will be hidden from the defined user(s).\n"
+"                                    <br/>\n"
+"                                    <br/>\n"
+"                                    More Info :"
+msgstr ""
+"Les menus ou sous-menus ajoutés dans la liste ci-dessus\n"
+"                                    seront masqués pour le(s) utilisateur(s) défini(s).\n"
+"                                    <br/>\n"
+"                                    <br/>\n"
+"                                    Plus d'infos :"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_access_management__hide_menu_ids
+msgid ""
+"The menu or submenu added on above list will be hidden from the defined "
+"users."
+msgstr "Les menus ou sous-menus ajoutés dans la liste ci-dessus seront masqués pour les utilisateurs définis."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_access_domain_ah__create_right
+msgid "The set 'Create' access of the selected model for the specified users"
+msgstr "Définit l'accès « Créer » du modèle sélectionné pour les utilisateurs spécifiés"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_access_domain_ah__delete_right
+msgid "The set 'Delete' access of the selected model for the specified users"
+msgstr "Définit l'accès « Supprimer » du modèle sélectionné pour les utilisateurs spécifiés"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_access_domain_ah__read_right
+msgid "The set 'Read' access of the selected model for the specified users"
+msgstr "Définit l'accès « Lire » du modèle sélectionné pour les utilisateurs spécifiés"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_access_domain_ah__write_right
+msgid "The set 'Write' access of the selected model for the specified users"
+msgstr "Définit l'accès « Écrire » du modèle sélectionné pour les utilisateurs spécifiés"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_remove_action__view_data_ids
+msgid ""
+"The views are added on list will be hidden in selected model from the "
+"defined users."
+msgstr "Les vues ajoutées à la liste seront masquées dans le modèle sélectionné pour les utilisateurs définis."
+
+#. module: simplify_access_management
+#. odoo-python
+#: code:addons/simplify_access_management/models/ir_model_access.py:0
+#, python-format
+msgid ""
+"This operation is allowed for the following groups:\n"
+"%(groups_list)s"
+msgstr ""
+"Cette opération est autorisée pour les groupes suivants :\n"
+"%(groups_list)s"
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid "Update"
+msgstr "Mettre à jour"
+
+#. module: simplify_access_management
+#: model:ir.model,name:simplify_access_management.model_res_users
+msgid "User"
+msgstr "Utilisateur"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_management__user_ids
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_search_view
+msgid "Users"
+msgstr "Utilisateurs"
+
+#. module: simplify_access_management
+#: model:ir.model,name:simplify_access_management.model_ir_ui_view
+msgid "View"
+msgstr "Vue"
+
+#. module: simplify_access_management
+#: model:ir.model,name:simplify_access_management.model_view_data
+msgid "View Data"
+msgstr "Données de vue"
+
+#. module: simplify_access_management
+#: model:ir.model.fields,help:simplify_access_management.field_access_management__is_apply_on_without_company
+msgid ""
+"When 'Apply Without Company' is selected, the rules will be applied to every"
+" company."
+msgstr "Lorsque « Appliquer sans société » est sélectionné, les règles seront appliquées à toutes les sociétés."
+
+#. module: simplify_access_management
+#: model:ir.model.fields,field_description:simplify_access_management.field_access_domain_ah__write_right
+msgid "Write"
+msgstr "Écrire"
+
+#. module: simplify_access_management
+#. odoo-python
+#: code:addons/simplify_access_management/models/ir_model_access.py:0
+#, python-format
+msgid ""
+"You are not allowed to access '%(document_kind)s' (%(document_model)s) "
+"records."
+msgstr ""
+"Vous n'êtes pas autorisé à accéder aux enregistrements « %(document_kind)s » (%(document_model)s)."
+
+#. module: simplify_access_management
+#. odoo-python
+#: code:addons/simplify_access_management/models/ir_model_access.py:0
+#, python-format
+msgid ""
+"You are not allowed to create '%(document_kind)s' (%(document_model)s) "
+"records."
+msgstr ""
+"Vous n'êtes pas autorisé à créer des enregistrements « %(document_kind)s » (%(document_model)s)."
+
+#. module: simplify_access_management
+#. odoo-python
+#: code:addons/simplify_access_management/models/ir_model_access.py:0
+#, python-format
+msgid ""
+"You are not allowed to delete '%(document_kind)s' (%(document_model)s) "
+"records."
+msgstr ""
+"Vous n'êtes pas autorisé à supprimer les enregistrements « %(document_kind)s » (%(document_model)s)."
+
+#. module: simplify_access_management
+#. odoo-python
+#: code:addons/simplify_access_management/models/ir_model_access.py:0
+#, python-format
+msgid ""
+"You are not allowed to modify '%(document_kind)s' (%(document_model)s) "
+"records."
+msgstr ""
+"Vous n'êtes pas autorisé à modifier les enregistrements « %(document_kind)s » (%(document_model)s)."
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid ""
+"You can Hide any field of any model, Turn any field to Read-Only or Set any field as\n"
+"                                    Required for the specified user(s) from here.\n"
+"                                    <br/>\n"
+"                                    <br/>\n"
+"                                    More Info :"
+msgstr ""
+"Vous pouvez masquer n'importe quel champ de n'importe quel modèle, le passer en lecture seule ou le rendre obligatoire\n"
+"                                    pour le(s) utilisateur(s) spécifié(s) depuis cet endroit.\n"
+"                                    <br/>\n"
+"                                    <br/>\n"
+"                                    Plus d'infos :"
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid ""
+"You can Hide reports, Hide action buttons like Create, Edit, Export, Hide Views\n"
+"                                    (list, kanban, report, etc), Also hide some actions like Archive, Delete, Duplicate,\n"
+"                                    etc from defined user(s).\n"
+"                                    <br/>\n"
+"                                    <br/>Note: the restriction added here will only become hidden for defined users.\n"
+"                                    They can still be accessed by python code or API, so it won't intruppet the process\n"
+"                                    in some cases like from POS and API. If you strictly want to block the Create, Edit,\n"
+"                                    Delete process entirely from the user, you can use the 'Domain Access' Tab of the\n"
+"                                    form and deine the rule there.\n"
+"                                    <br/>\n"
+"                                    <br/>\n"
+"                                    More Info :"
+msgstr ""
+"Vous pouvez masquer des rapports, masquer des boutons d'action comme Créer, Modifier, Exporter, masquer des vues\n"
+"                                    (liste, kanban, rapport, etc.), ainsi que certaines actions comme Archiver, Supprimer, Dupliquer,\n"
+"                                    etc. pour les utilisateurs définis.\n"
+"                                    <br/>\n"
+"                                    <br/>Note : les restrictions ajoutées ici seront uniquement masquées pour les utilisateurs définis.\n"
+"                                    Elles restent accessibles via du code Python ou l'API, donc cela n'interrompra pas certains processus\n"
+"                                    (ex. : depuis le POS ou l'API). Si vous souhaitez bloquer complètement les actions Créer, Modifier,\n"
+"                                    Supprimer pour un utilisateur, utilisez l'onglet « Accès par domaine » et définissez la règle là-bas.\n"
+"                                    <br/>\n"
+"                                    <br/>\n"
+"                                    Plus d'infos :"
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid ""
+"You can hide Chatter and Buttons of Chatter for any model for specified user from\n"
+"                                    this tab.\n"
+"                                    <br/>\n"
+"                                    <br/>Here Button of Chatter means 'Send message', 'Log note', 'Activities'."
+msgstr ""
+"Vous pouvez masquer le chatter et ses boutons pour n'importe quel modèle et pour un utilisateur spécifié depuis\n"
+"                                    cet onglet.\n"
+"                                    <br/>\n"
+"                                    <br/>Les boutons du chatter correspondent à « Envoyer un message », « Note de journal », « Activités »."
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid ""
+"You can hide access of Filters and Group By of any model for specified user from\n"
+"                                    this tab.\n"
+"                                    <br/>\n"
+"                                    <br/>Here Filters means any Filters visible on List/Tree view.\n"
+"                                    <br/>\n"
+"                                    <br/>Group By means any Group By visible on List/Tree view."
+msgstr ""
+"Vous pouvez masquer l'accès aux filtres et aux regroupements de n'importe quel modèle pour un utilisateur spécifié depuis\n"
+"                                    cet onglet.\n"
+"                                    <br/>\n"
+"                                    <br/>Les filtres correspondent à tous les filtres visibles en vue Liste/Arborescence.\n"
+"                                    <br/>\n"
+"                                    <br/>Les regroupements correspondent à tous les « Regrouper par » visibles en vue Liste/Arborescence."
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid ""
+"You can hide access of action buttons, object buttons, tabs and links (in kanban\n"
+"                                    box) of any model for specified user from this tab.\n"
+"                                    <br/>\n"
+"                                    <br/>Here Button means any action button visible on any view.\n"
+"                                    <br/>\n"
+"                                    <br/>Page means any tab visible on any form view.\n"
+"                                    <br/>\n"
+"                                    <br/>And Link means any action link visible on Kanban view.\n"
+"                                    <br/>\n"
+"                                    <br/>More Info :"
+msgstr ""
+"Vous pouvez masquer les boutons d'action, boutons d'objet, onglets et liens (dans les cartes kanban)\n"
+"                                    de n'importe quel modèle pour un utilisateur spécifié depuis cet onglet.\n"
+"                                    <br/>\n"
+"                                    <br/>Bouton = tout bouton d'action visible sur n'importe quelle vue.\n"
+"                                    <br/>\n"
+"                                    <br/>Page = tout onglet visible sur un formulaire.\n"
+"                                    <br/>\n"
+"                                    <br/>Lien = tout lien d'action visible en vue Kanban.\n"
+"                                    <br/>\n"
+"                                    <br/>Plus d'infos :"
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid ""
+"You can set strict access rights of the model(read, write, delete, update) and set\n"
+"                                    the domain to access the model's records for any user and from one place. The access\n"
+"                                    defined here will either allow or block the entire access from the specified\n"
+"                                    user(s), not only from the system, but also from the code and API. So be careful\n"
+"                                    while defining the accesses here. If you just want to hide the Create, Edit and\n"
+"                                    Delete buttons from the backend user for sales order but want to allow them to use\n"
+"                                    POS, then defining access here will genereate the error on POS side. To prevent\n"
+"                                    that, you can use the 'Model Access' tab to Hide the Create, Edit and Delete\n"
+"                                    buttons.\n"
+"                                    <br/>\n"
+"                                    <br/>You can allow the Read (View), Write (Create), Delete, Update (Edit) rights by\n"
+"                                    just checking the check-boxes of respective actions, and to restrict them of those\n"
+"                                    rights, don't check any of those checkboxes. And also this tab gives you advance\n"
+"                                    configurator to allow those rights for your user on specific conditions, to set that\n"
+"                                    condition check 'Apply Filter' checkbox.\n"
+"                                    <br/>\n"
+"                                    <br/>More Info :"
+msgstr ""
+"Vous pouvez définir des droits d'accès stricts sur le modèle (lire, écrire, supprimer, mettre à jour) et appliquer\n"
+"                                    un domaine pour limiter l'accès aux enregistrements depuis un seul endroit. Les accès définis ici\n"
+"                                    autoriseront ou bloqueront totalement l'accès pour l'utilisateur spécifié, non seulement dans l'interface\n"
+"                                    mais aussi via le code et l'API. Soyez donc très prudent.\n"
+"                                    Si vous souhaitez simplement masquer les boutons Créer/Modifier/Supprimer dans le backend pour les\n"
+"                                    bons de commande tout en laissant le POS fonctionner, définissez les restrictions dans l'onglet\n"
+"                                    « Accès au modèle ». Définir les droits ici générerait une erreur dans le POS.\n"
+"                                    <br/>\n"
+"                                    <br/>Vous pouvez autoriser les droits Lire (Voir), Écrire (Créer), Supprimer, Mettre à jour (Modifier)\n"
+"                                    en cochant simplement les cases correspondantes. Pour interdire ces droits, ne cochez rien.\n"
+"                                    Cet onglet propose aussi un configurateur avancé permettant d'appliquer ces droits sous conditions\n"
+"                                    en cochant « Appliquer le filtre ».\n"
+"                                    <br/>\n"
+"                                    <br/>Plus d'infos :"
+
+#. module: simplify_access_management
+#. odoo-python
+#: code:addons/simplify_access_management/controllers/action.py:0
+#, python-format
+msgid ""
+"You don't have the permission to access any views. Please contact to "
+"administrator."
+msgstr ""
+"Vous n'avez pas la permission d'accéder à une vue. Veuillez contacter "
+"l'administrateur."
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid "https://www.terabits.xyz/simplify_access_management#bt-pills-buttontab"
+msgstr "https://www.terabits.xyz/simplify_access_management#bt-pills-buttontab"
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid "https://www.terabits.xyz/simplify_access_management#bt-pills-domain"
+msgstr "https://www.terabits.xyz/simplify_access_management#bt-pills-domain"
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid "https://www.terabits.xyz/simplify_access_management#bt-pills-fields"
+msgstr "https://www.terabits.xyz/simplify_access_management#bt-pills-fields"
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid "https://www.terabits.xyz/simplify_access_management#bt-pills-menu"
+msgstr "https://www.terabits.xyz/simplify_access_management#bt-pills-menu"
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid "ttps://www.terabits.xyz/simplify_access_management#bt-pills-model"
+msgstr "https://www.terabits.xyz/simplify_access_management#bt-pills-model"
+
+#. module: simplify_access_management
+#: model_terms:ir.ui.view,arch_db:simplify_access_management.access_management_form_view_ah
+msgid ""
+"• Access rules limit which records a user can see.\n"
+"                                                    <br/>\n"
+"                                                    • These limits also apply to domain filter dropdown lists.\n"
+"                                                    <br/>\n"
+"                                                    • Users will only see allowed records in dropdowns based on the rules.\n"
+"                                                    <br/>\n"
+"                                                    • Admin users will still be able to see all records in dropdowns, regardless of rules.\n"
+"                                                    <br/>\n"
+"                                                    • This ensures admins have full control and access at all times.\n"
+"                                                    <br/>\n"
+"                                                    • When the <b>Company Filter Toggle</b> is enabled, the company selected in the environment is applied to the domain."
+msgstr ""
+"• Les règles d'accès limitent les enregistrements qu'un utilisateur peut voir.\n"
+"                                                    <br/>\n"
+"                                                    • Ces limites s'appliquent également aux listes déroulantes des filtres de domaine.\n"
+"                                                    <br/>\n"
+"                                                    • Les utilisateurs ne verront que les enregistrements autorisés dans les listes déroulantes selon les règles.\n"
+"                                                    <br/>\n"
+"                                                    • Les administrateurs verront toujours tous les enregistrements dans les listes déroulantes, quelle que soit la règle.\n"
+"                                                    <br/>\n"
+"                                                    • Cela garantit que les administrateurs conservent un contrôle et un accès total en permanence.\n"
+"                                                    <br/>\n"
+"                                                    • Lorsque le <b>Filtre de société</b> est activé, la société sélectionnée dans l'environnement est appliquée au domaine."

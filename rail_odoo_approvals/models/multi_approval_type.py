@@ -127,7 +127,7 @@ class MultiApprovalType(models.Model):
         self.ensure_one()
         return {
             'name': _('Submitted Requests'),
-            'view_mode': 'tree,form',
+            'view_mode': 'list,form',
             'res_model': 'multi.approval',
             'view_id': False,
             'type': 'ir.actions.act_window',

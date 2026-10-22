@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Odoo Approval',
-    'version': '16.0.1.0',
+    'version': '1.19',
     'category': 'Approvals',
     
     'description': '''

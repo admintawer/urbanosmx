@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="input_type_liquidation_savings_fund" model="hr.payslip.input.type">
+        <field name="name">Fondo ahorro liquidación</field>
+        <field name="code">PFA</field>
+        <field name="country_id" ref="base.mx"/>
+    </record>
+    <record id="input_type_liquidation_seniority_bonus" model="hr.payslip.input.type">
+        <field name="name">Prima antigüedad</field>
+        <field name="code">PDA</field>
+        <field name="country_id" ref="base.mx"/>
+    </record>
+    <record id="input_type_liquidation_indemnity" model="hr.payslip.input.type">
+        <field name="name">Indemnización</field>
+        <field name="code">IND</field>
+        <field name="country_id" ref="base.mx"/>
+    </record>
+    <record id="input_type_liquidation_separation" model="hr.payslip.input.type">
+        <field name="name">Pago por separación</field>
+        <field name="code">PPS</field>
+        <field name="country_id" ref="base.mx"/>
+    </record>
+    <record id="input_type_ptu" model="hr.payslip.input.type">
+        <field name="name">Reparto utilidades</field>
+        <field name="code">PTU</field>
+        <field name="country_id" ref="base.mx"/>
+    </record>
+</odoo>

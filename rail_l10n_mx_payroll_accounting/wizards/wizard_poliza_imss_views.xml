@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_wizard_poliza_imss_form" model="ir.ui.view">
+        <field name="name">wizard.poliza.imss.form</field>
+        <field name="model">wizard.poliza.imss</field>
+        <field name="arch" type="xml">
+            <form string="Póliza IMSS patronal">
+                <group>
+                    <group>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                        <field name="date"/>
+                        <field name="journal_id"/>
+                    </group>
+                    <group>
+                        <field name="total_amount" readonly="1"/>
+                        <field name="move_id" readonly="1"/>
+                    </group>
+                </group>
+                <group string="Recibos origen opcionales">
+                    <field name="payslip_ids" widget="many2many_tags"/>
+                    <button name="action_load_amounts_from_payslips" type="object" string="Cargar importes desde recibos" class="btn-secondary"/>
+                    <button name="action_reload_default_lines" type="object" string="Recargar conceptos base" class="btn-secondary"/>
+                </group>
+                <field name="line_ids" nolabel="1">
+                    <list editable="bottom">
+                        <field name="concept"/>
+                        <field name="name"/>
+                        <field name="salary_rule_codes" optional="hide"/>
+                        <field name="amount" sum="Total"/>
+                        <field name="debit_account_id"/>
+                        <field name="credit_account_id"/>
+                        <field name="analytic_distribution" widget="analytic_distribution" groups="analytic.group_analytic_accounting" optional="hide"/>
+                    </list>
+                </field>
+                <footer>
+                    <button name="action_create_move" type="object" string="Crear póliza" class="btn-primary"/>
+                    <button special="cancel" string="Cerrar" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizard_poliza_imss" model="ir.actions.act_window">
+        <field name="name">Póliza IMSS patronal</field>
+        <field name="res_model">wizard.poliza.imss</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_wizard_poliza_imss"
+              name="Póliza IMSS patronal"
+              parent="hr_payroll.menu_hr_payroll_payslips"
+              action="action_wizard_poliza_imss"
+              sequence="95"
+              groups="hr_payroll.group_hr_payroll_user"/>
+</odoo>

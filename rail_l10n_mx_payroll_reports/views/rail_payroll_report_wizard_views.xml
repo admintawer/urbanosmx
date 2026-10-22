@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_rail_payroll_report_wizard_form" model="ir.ui.view">
+        <field name="name">rail.payroll.report.wizard.form</field>
+        <field name="model">rail.payroll.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Reportes de nómina MX">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="report_type"/>
+                            <field name="company_id"/>
+                            <field name="payslip_run_id"/>
+                            <field name="state_filter"/>
+                        </group>
+                        <group>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="employee_ids" widget="many2many_tags"/>
+                            <field name="department_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <group string="Parámetros adicionales">
+                        <field name="rule_codes" placeholder="Ej. ISR, ISR2, NET, IMSS_EMPLOYEE_TOTAL"/>
+                        <field name="isn_rate" invisible="report_type != 'isn'"/>
+                        <field name="include_cancelled_movements" invisible="report_type != 'movements'"/>
+                    </group>
+                    <group string="Archivo generado" invisible="not file_data">
+                        <field name="file_name" readonly="1"/>
+                        <field name="file_data" filename="file_name" readonly="1"/>
+                        <field name="message" readonly="1" nolabel="1"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_generate_xlsx" string="Generar XLSX" type="object" class="btn-primary"/>
+                    <button name="action_download" string="Descargar" type="object" invisible="not file_data"/>
+                    <button string="Cerrar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_rail_payroll_report_wizard" model="ir.actions.act_window"><field name="name">Reportes de nómina MX</field><field name="res_model">rail.payroll.report.wizard</field><field name="view_mode">form</field><field name="target">new</field></record>
+    <record id="action_rail_payroll_report_employee" model="ir.actions.act_window"><field name="name">Total por empleado</field><field name="res_model">rail.payroll.report.wizard</field><field name="view_mode">form</field><field name="target">new</field><field name="context">{'default_report_type': 'employee'}</field></record>
+    <record id="action_rail_payroll_report_department" model="ir.actions.act_window"><field name="name">Total por departamento</field><field name="res_model">rail.payroll.report.wizard</field><field name="view_mode">form</field><field name="target">new</field><field name="context">{'default_report_type': 'department'}</field></record>
+    <record id="action_rail_payroll_report_rules" model="ir.actions.act_window"><field name="name">Detalle por reglas salariales</field><field name="res_model">rail.payroll.report.wizard</field><field name="view_mode">form</field><field name="target">new</field><field name="context">{'default_report_type': 'rules'}</field></record>
+    <record id="action_rail_payroll_report_isr" model="ir.actions.act_window"><field name="name">Cálculo ISR anual</field><field name="res_model">rail.payroll.report.wizard</field><field name="view_mode">form</field><field name="target">new</field><field name="context">{'default_report_type': 'isr_annual'}</field></record>
+    <record id="action_rail_payroll_report_isn" model="ir.actions.act_window"><field name="name">Reporte ISN</field><field name="res_model">rail.payroll.report.wizard</field><field name="view_mode">form</field><field name="target">new</field><field name="context">{'default_report_type': 'isn'}</field></record>
+    <record id="action_rail_payroll_report_imss" model="ir.actions.act_window"><field name="name">Reporte IMSS</field><field name="res_model">rail.payroll.report.wizard</field><field name="view_mode">form</field><field name="target">new</field><field name="context">{'default_report_type': 'imss'}</field></record>
+    <record id="action_rail_payroll_report_savings" model="ir.actions.act_window"><field name="name">Caja / fondo de ahorro</field><field name="res_model">rail.payroll.report.wizard</field><field name="view_mode">form</field><field name="target">new</field><field name="context">{'default_report_type': 'savings_fund'}</field></record>
+    <record id="action_rail_payroll_report_movements" model="ir.actions.act_window"><field name="name">Altas y bajas IMSS</field><field name="res_model">rail.payroll.report.wizard</field><field name="view_mode">form</field><field name="target">new</field><field name="context">{'default_report_type': 'movements'}</field></record>
+    <record id="action_rail_payroll_report_liquidations" model="ir.actions.act_window"><field name="name">Liquidaciones</field><field name="res_model">rail.payroll.report.wizard</field><field name="view_mode">form</field><field name="target">new</field><field name="context">{'default_report_type': 'liquidations'}</field></record>
+    <record id="action_rail_payroll_report_ptu" model="ir.actions.act_window"><field name="name">PTU / Reparto de utilidades</field><field name="res_model">rail.payroll.report.wizard</field><field name="view_mode">form</field><field name="target">new</field><field name="context">{'default_report_type': 'ptu'}</field></record>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_rail_payroll_inverse_wizard_user,rail.payroll.inverse.wizard.user,model_rail_payroll_inverse_wizard,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_rail_payroll_inverse_batch_wizard_user,rail.payroll.inverse.batch.wizard.user,model_rail_payroll_inverse_batch_wizard,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_rail_payroll_inverse_batch_line_user,rail.payroll.inverse.batch.line.user,model_rail_payroll_inverse_batch_line,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_rail_payroll_inverse_simulation_line_user,rail.payroll.inverse.simulation.line.user,model_rail_payroll_inverse_simulation_line,hr_payroll.group_hr_payroll_user,1,1,1,1

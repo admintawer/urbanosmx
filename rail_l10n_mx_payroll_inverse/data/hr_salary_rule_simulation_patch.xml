@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        Native MX payroll normally gets the same value from version.wage and
+        version._get_contract_wage().  The inverse calculator intentionally
+        overrides _get_contract_wage() by context while testing candidates.
+        Using the helper here keeps normal payroll unchanged and makes salary
+        simulations consistent without writing the real hr.version.
+    -->
+    <record id="l10n_mx_hr_payroll.l10n_mx_regular_pay_exemption_social_security" model="hr.salary.rule">
+        <field name="amount_python_compute"><![CDATA[
+schedule_number_days = payslip._rule_parameter('l10n_mx_schedule_table')[version.schedule_pay]
+wage = version._get_contract_wage()
+
+if wage * 12 >= result_rules['ANNUAL_SOCIAL_PROVISION']['total']:
+    monthly_amount = payslip._rule_parameter('l10n_mx_uma')['monthly']
+else:
+    monthly_amount = max(result_rules['ANNUAL_SOCIAL_PROVISION']['total'] - wage * 12, payslip._rule_parameter('l10n_mx_uma')['annually']) / 12
+
+if version.l10n_mx_payment_period_vouchers == 'in_period':
+    schedule_factor = schedule_number_days / payslip._rule_parameter('l10n_mx_days_per_month')
+else:
+    schedule_factor = 1
+
+result = monthly_amount * schedule_factor
+        ]]></field>
+    </record>
+
+    <record id="l10n_mx_hr_payroll.l10n_mx_regular_pay_savings_fund_salary_limit" model="hr.salary.rule">
+        <field name="amount_python_compute"><![CDATA[
+result = version._get_contract_wage()
+result_rate = payslip._rule_parameter('l10n_mx_exemption_saving_fund_salary') * 100
+        ]]></field>
+    </record>
+</odoo>

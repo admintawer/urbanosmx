@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        Executed on installation and on every module upgrade. The Python
+        method is idempotent: it reuses records by code and creates only the
+        missing catalog entries.
+    -->
+    <function model="hr.work.entry.type" name="_rail_configure_legacy_catalog"/>
+</odoo>

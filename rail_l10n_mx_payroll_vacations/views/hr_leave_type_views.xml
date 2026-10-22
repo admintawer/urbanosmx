@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rail_hr_leave_type_form_vacation" model="ir.ui.view">
+        <field name="name">rail.hr.leave.type.form.vacation</field>
+        <field name="model">hr.leave.type</field>
+        <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='configuration']" position="inside">
+                <separator string="Nómina MX"/>
+                <field name="code"/>
+                <field name="rail_is_vacation"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

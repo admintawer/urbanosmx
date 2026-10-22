@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="input_type_loan" model="hr.payslip.input.type">
+        <field name="name">Préstamo</field>
+        <field name="code">RAIL_LOAN</field>
+    </record>
+    <record id="input_type_loan_interest" model="hr.payslip.input.type">
+        <field name="name">Interés préstamo</field>
+        <field name="code">RAIL_LOAN_INT</field>
+    </record>
+    <record id="input_type_discount_01" model="hr.payslip.input.type">
+        <field name="name">Descuento periódico 1</field>
+        <field name="code">RAIL_DISC01</field>
+    </record>
+    <record id="input_type_discount_02" model="hr.payslip.input.type">
+        <field name="name">Descuento periódico 2</field>
+        <field name="code">RAIL_DISC02</field>
+    </record>
+    <record id="input_type_discount_03" model="hr.payslip.input.type">
+        <field name="name">Descuento periódico 3</field>
+        <field name="code">RAIL_DISC03</field>
+    </record>
+    <record id="input_type_discount_04" model="hr.payslip.input.type">
+        <field name="name">Descuento periódico 4</field>
+        <field name="code">RAIL_DISC04</field>
+    </record>
+    <record id="input_type_discount_05" model="hr.payslip.input.type">
+        <field name="name">Descuento periódico 5</field>
+        <field name="code">RAIL_DISC05</field>
+    </record>
+    <record id="input_type_discount_06" model="hr.payslip.input.type">
+        <field name="name">Descuento periódico 6</field>
+        <field name="code">RAIL_DISC06</field>
+    </record>
+    <record id="input_type_discount_07" model="hr.payslip.input.type">
+        <field name="name">Descuento periódico 7</field>
+        <field name="code">RAIL_DISC07</field>
+    </record>
+    <record id="input_type_discount_08" model="hr.payslip.input.type">
+        <field name="name">Descuento periódico 8</field>
+        <field name="code">RAIL_DISC08</field>
+    </record>
+    <record id="input_type_discount_09" model="hr.payslip.input.type">
+        <field name="name">Descuento periódico 9</field>
+        <field name="code">RAIL_DISC09</field>
+    </record>
+    <record id="input_type_discount_10" model="hr.payslip.input.type">
+        <field name="name">Descuento periódico 10</field>
+        <field name="code">RAIL_DISC10</field>
+    </record>
+    <record id="input_type_discount_11" model="hr.payslip.input.type">
+        <field name="name">Descuento periódico 11</field>
+        <field name="code">RAIL_DISC11</field>
+    </record>
+    <record id="input_type_discount_12" model="hr.payslip.input.type">
+        <field name="name">Descuento periódico 12</field>
+        <field name="code">RAIL_DISC12</field>
+    </record>
+    <record id="input_type_discount_13" model="hr.payslip.input.type">
+        <field name="name">Descuento periódico 13</field>
+        <field name="code">RAIL_DISC13</field>
+    </record>
+    <record id="input_type_discount_14" model="hr.payslip.input.type">
+        <field name="name">Descuento periódico 14</field>
+        <field name="code">RAIL_DISC14</field>
+    </record>
+    <record id="input_type_discount_15" model="hr.payslip.input.type">
+        <field name="name">Descuento periódico 15</field>
+        <field name="code">RAIL_DISC15</field>
+    </record>
+    <record id="input_type_viaticos_delivery" model="hr.payslip.input.type">
+        <field name="name">Viáticos entregados</field>
+        <field name="code">RAIL_VIAT</field>
+    </record>
+    <record id="input_type_viaticos_check" model="hr.payslip.input.type">
+        <field name="name">Comprobación de viáticos</field>
+        <field name="code">RAIL_PVIAT</field>
+    </record>
+    <record id="input_type_viaticos_adjustment" model="hr.payslip.input.type">
+        <field name="name">Ajuste viáticos entregados</field>
+        <field name="code">RAIL_DVIAT</field>
+    </record>
+</odoo>

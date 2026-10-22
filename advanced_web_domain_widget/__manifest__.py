@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #################################################################################
 # Author      : Terabits Technolab (<www.terabits.xyz>)
-# Copyright(c): 2021
+# Copyright(c): 2023-26
 # All Rights Reserved.
 #
 # This module is copyright property of the author mentioned above.
@@ -9,41 +9,38 @@
 #
 #################################################################################
 {
-    'name': 'Advanced Web Domain Widget',
-    'version': '16.0.1.0.2',
-    'summary': 'Set all relational fields domain by selecting its records unsing `in, not in` operator.',
-    'sequence': 10,
-    'author': 'Terabits Technolab',
-    'license': 'OPL-1',
-    'website': 'https://www.terabits.xyz',
-    'description':"""
-      
-        """,
-    "price": "29.00",
+    "name": "Advanced Web Domain Widget",
+    "version": "19.0.3.0.0",
+    "summary": """This widget lets you build dynamic filters for relational fields using simple operators like "in" and "not in". Pick the records you want without wrestling with long domain expressions.
+Web Domain Widget, Domain Filter, Dynamic Domain, Relational Fields, Domain Builder, Record Filtering, Many2one Domain, Many2many Domain, Odoo Domain Editor""",
+    "sequence": 10,
+    "author": "Terabits Technolab",
+    "license": "OPL-1",
+    "website": "https://www.terabits.xyz/apps/19.0/advanced_web_domain_widget",
+    "description": """This widget lets you build dynamic filters for relational fields using simple operators like "in" and "not in". Pick the records you want without wrestling with long domain expressions.""",
+    "price": "5.00",
     "currency": "USD",
-    'depends': ['base', 'web'],
-    'data':[
-        # 'views/assets.xml',
-    ],
-    'assets': {
-        'web.assets_qweb': [
-            "/advanced_web_domain_widget/static/src/xml/domain_base.xml"
-        ],
-        'web.assets_backend': [
-            "advanced_web_domain_widget/static/src/core/**/*",
-            "advanced_web_domain_widget/static/src/js/domain/**/*",
-            "advanced_web_domain_widget/static/src/js/service/views_service.js",
-            # "/advanced_web_domain_widget/static/src/js/fields16/basic_fields.js",
-            # "/advanced_web_domain_widget/static/src/js/fields16/terabits_fields_registry.js",
-            "/advanced_web_domain_widget/static/src/scss/style.scss",
-            # "/advanced_web_domain_widget/static/src/js/widget16/domain_selector_dialog.js",
-            # "/advanced_web_domain_widget/static/src/js/widget16/model_field_selector.js",
-            # "/advanced_web_domain_widget/static/src/js/widget16/model_record_selector.js",
-            # "/advanced_web_domain_widget/static/src/js/widget16/TerabitsDomainSelector.js",
+    "depends": ["web"],
+    "assets": {
+        "web.assets_backend": [
+            "advanced_web_domain_widget/static/src/tree_editor/*.js",
+            "advanced_web_domain_widget/static/src/tree_editor/*.xml",
+            "advanced_web_domain_widget/static/src/domain_selector/*.js",
+            "advanced_web_domain_widget/static/src/domain_selector/*.xml",
+            "advanced_web_domain_widget/static/src/domain_selector_dialog/*.js",
+            "advanced_web_domain_widget/static/src/domain_selector_dialog/*.xml",
+            "advanced_web_domain_widget/static/src/domain/*.js",
+            "advanced_web_domain_widget/static/src/domain/*.xml",
+            "advanced_web_domain_widget/static/src/model_field_selector/*.js", 
+            "advanced_web_domain_widget/static/src/model_field_selector/*.xml", 
+            "advanced_web_domain_widget/static/src/autocomplete/*",
+            "advanced_web_domain_widget/static/src/record_selectors/*.js",
+            "advanced_web_domain_widget/static/src/record_selectors/*.xml",
+            "advanced_web_domain_widget/static/src/name_service.js"
         ],
     },
-    'images': ['static/description/banner.png'],
-    'application': True,
-    'installable': True,
-    'auto_install': False,
+    "images": ["static/description/banner.png"],
+    "application": True,
+    "installable": True,
+    "auto_install": False,
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="rail_other_entry_type_alimony" model="rail.payroll.other.entry.type">
+        <field name="name">Pensión alimenticia</field>
+        <field name="code">D010</field>
+    </record>
+</odoo>

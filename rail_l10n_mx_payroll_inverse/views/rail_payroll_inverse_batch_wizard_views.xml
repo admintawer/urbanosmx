@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rail_payroll_inverse_batch_line_view_list" model="ir.ui.view">
+        <field name="name">rail.payroll.inverse.batch.line.list</field>
+        <field name="model">rail.payroll.inverse.batch.line</field>
+        <field name="arch" type="xml">
+            <list string="Líneas cálculo inverso" editable="bottom">
+                <field name="row_number" readonly="1"/>
+                <field name="employee_number" optional="show"/>
+                <field name="candidate_name"/>
+                <field name="employee_id" optional="show"/>
+                <field name="structure_id"/>
+                <field name="payroll_schedule_pay" optional="show"/>
+                <field name="target_net_amount"/>
+                <field name="target_schedule_pay"/>
+                <field name="contract_start_date" optional="show"/>
+                <field name="holiday_bonus_rate" optional="show"/>
+                <field name="ultima_nomina" optional="hide"/>
+                <field name="mes" invisible="not ultima_nomina" optional="hide"/>
+                <field name="effective_date" optional="hide"/>
+                <field name="use_fixed_sbc" optional="hide"/>
+                <field name="fixed_sbc" invisible="not use_fixed_sbc" optional="hide"/>
+                <field name="calculated_wage" readonly="1"/>
+                <field name="calculated_net" readonly="1"/>
+                <field name="result_version_id" readonly="1" optional="hide"/>
+                <field name="status" readonly="1"/>
+                <field name="message" readonly="1" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="rail_payroll_inverse_batch_wizard_view_form" model="ir.ui.view">
+        <field name="name">rail.payroll.inverse.batch.wizard.form</field>
+        <field name="model">rail.payroll.inverse.batch.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Importar cálculo inverso">
+                <header>
+                    <button name="action_load_file" type="object" string="Cargar archivo" class="btn-primary" invisible="state not in ('draft', 'loaded')"/>
+                    <button name="action_calculate" type="object" string="Calcular líneas" class="btn-primary" invisible="state == 'draft'"/>
+                    <button name="action_apply" type="object" string="Crear versiones" class="btn-primary" invisible="state not in ('calculated', 'loaded')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,loaded,calculated,applied"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Archivo">
+                            <field name="file" filename="filename"/>
+                            <field name="filename" invisible="1"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group string="Parámetros">
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="effective_date"/>
+                            <field name="tolerance"/>
+                            <field name="max_iterations"/>
+                            <field name="auto_apply"/>
+                        </group>
+                    </group>
+                    <div class="alert alert-info" role="alert">
+                        El No. empleado es opcional. Para candidatos sin número use <strong>Nombre candidato</strong>.
+                        Si el nombre no existe todavía como empleado, el cálculo utiliza un perfil técnico temporal y no crea
+                        registros permanentes. Para candidatos sin versión indique también la periodicidad de nómina,
+                        fecha estimada de ingreso y prima vacacional aplicable.
+                    </div>
+                    <notebook>
+                        <page string="Líneas">
+                            <field name="line_ids" context="{'default_wizard_id': id}"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <footer>
+                    <button name="action_load_file" type="object" string="Cargar archivo" class="btn-primary"/>
+                    <button string="Cerrar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="rail_payroll_inverse_batch_wizard_action" model="ir.actions.act_window">
+        <field name="name">Importar cálculo inverso</field>
+        <field name="res_model">rail.payroll.inverse.batch.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

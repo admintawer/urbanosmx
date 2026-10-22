@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="otras_entradas_tipo_view_list" model="ir.ui.view">
+        <field name="name">rail.payroll.other.entry.type.list</field>
+        <field name="model">rail.payroll.other.entry.type</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="default_amount"/>
+                <field name="default_percentage"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="otras_entradas_tipo_view_form" model="ir.ui.view">
+        <field name="name">rail.payroll.other.entry.type.form</field>
+        <field name="model">rail.payroll.other.entry.type</field>
+        <field name="arch" type="xml">
+            <form string="Tipo de otra entrada">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="active"/>
+                        </group>
+                        <group string="Valores sugeridos">
+                            <field name="default_amount"/>
+                            <field name="default_percentage"/>
+                        </group>
+                    </group>
+                    <div class="text-muted">
+                        Los valores predeterminados solo se proponen al crear la entrada del empleado; después pueden modificarse por empleado sin alterar el catálogo.
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="otras_entradas_tipo_action" model="ir.actions.act_window">
+        <field name="name">Tipos de otras entradas</field>
+        <field name="res_model">rail.payroll.other.entry.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_otras_entradas_tipo"
+              name="Tipos de otras entradas"
+              parent="hr_payroll.menu_hr_salary_configuration"
+              action="otras_entradas_tipo_action"
+              sequence="45"
+              groups="hr_payroll.group_hr_payroll_manager"/>
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="rail_l10n_mx_payroll_inverse_menu_root"
+              name="Cálculo inverso"
+              parent="hr_payroll.menu_hr_payroll_payslips"
+              sequence="95"
+              groups="hr_payroll.group_hr_payroll_user"/>
+
+    <menuitem id="rail_l10n_mx_payroll_inverse_menu_candidate"
+              name="Simulación candidato"
+              parent="rail_l10n_mx_payroll_inverse_menu_root"
+              action="rail_payroll_inverse_candidate_action"
+              sequence="10"
+              groups="hr_payroll.group_hr_payroll_user"/>
+
+    <menuitem id="rail_l10n_mx_payroll_inverse_menu_batch"
+              name="Importación masiva"
+              parent="rail_l10n_mx_payroll_inverse_menu_root"
+              action="rail_payroll_inverse_batch_wizard_action"
+              sequence="20"
+              groups="hr_payroll.group_hr_payroll_user"/>
+</odoo>

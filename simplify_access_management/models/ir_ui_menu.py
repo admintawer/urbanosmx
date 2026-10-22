@@ -5,17 +5,30 @@ class ir_ui_menu(models.Model):
     _inherit = 'ir.ui.menu'
 
     @api.model
-    def search(self, args, offset=0, limit=None, order=None, count=False):
-        ids = super(ir_ui_menu, self).search(args, offset=0, limit=None, order=order, count=False)
-        user = self.env.user
-        # user.clear_caches()
-        cids = request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids').split(',')[0] or self.env.company.id
-        for menu_id in user.access_management_ids.filtered(lambda line: int(cids) in line.company_ids.ids).mapped('hide_menu_ids'):
-            if menu_id in ids:
-                ids = ids - menu_id
-        if offset:
-            ids = ids[offset:]
-        if limit:
-            ids = ids[:limit]
-        return len(ids) if count else ids
+    def search_fetch(self, domain, field_names, offset=0, limit=None, order=None):
+        ids = super(ir_ui_menu, self).search_fetch(domain, field_names, offset=0, limit=None, order=order)
+        all_menu =ids.ids
+        try:
+            cids = request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids').split('-')[0] or self.env.company.id
+            for menu_id in self.env.user.access_management_ids.filtered(lambda line: line.is_apply_on_without_company == True or int(cids) in line.company_ids.ids).mapped('hide_menu_ids.menu_id'):
+                if menu_id in all_menu:
+                    all_menu.remove(menu_id)
+        except:
+            pass
+        return self.browse(all_menu)
+   
+    
+    @api.model_create_multi
+    def create(self, vals_list):
+        res = super(ir_ui_menu, self).create(vals_list)
+        menu_item_obj = self.env['menu.item'].sudo()
+        for record in res:
+            menu_item_obj.create({'name':record.display_name,'menu_id':record.id})
+        return res
+
+    def unlink(self):
+        menu_item_obj = self.env['menu.item'].sudo()
+        for record in self:
+            menu_item_obj.search([('menu_id','=',record.id)]).unlink()
+        return super(ir_ui_menu, self).unlink()
 

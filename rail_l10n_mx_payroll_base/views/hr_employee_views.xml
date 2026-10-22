@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rail_hr_employee_form_payroll_base" model="ir.ui.view">
+        <field name="name">rail.hr.employee.form.payroll.base</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr_payroll.payroll_hr_employee_view_form"/>
+        <field name="arch" type="xml">
+            <!-- Se conservan porque los layouts MX (SUA/IDSE/bancos) requieren
+                 los componentes del nombre de forma explícita. -->
+            <xpath expr="//page[@name='personal_information']//group[@name='hr_birth_group']" position="inside">
+                <separator string="Nombre separado MX"/>
+                <field name="rail_first_name"/>
+                <field name="rail_paternal_surname"/>
+                <field name="rail_maternal_surname"/>
+            </xpath>
+
+            <!-- wage_type y schedule_pay ya son nativos de hr_payroll y aparecen
+                 en este formulario. Solo mostramos aquí parámetros custom que
+                 siguen teniendo un uso funcional real. -->
+            <xpath expr="//page[@name='payroll_information']//group[@name='payroll_group']" position="after">
+                <group name="rail_mx_payroll_options"
+                       string="Configuración Nómina MX"
+                       groups="hr_payroll.group_hr_payroll_user"
+                       invisible="company_country_code != 'MX'">
+                    <group name="rail_mx_imss_options" string="IMSS">
+                        <field name="rail_fixed_sbc"/>
+                    </group>
+                    <group name="rail_mx_operational_options" string="Opciones operativas">
+                        <field name="rail_seventh_day" invisible="schedule_pay != 'weekly'"/>
+                        <field name="rail_english_week" invisible="schedule_pay != 'weekly' or not rail_seventh_day"/>
+                        <field name="rail_advanced_vacations"/>
+                    </group>
+                </group>
+            </xpath>
+
+            <xpath expr="//page[@name='payroll_information']" position="after">
+                <page name="rail_other_entries" string="Otras entradas" groups="hr_payroll.group_hr_payroll_user">
+                    <field name="rail_other_entry_ids" context="{'default_employee_id': id}">
+                        <list editable="bottom">
+                            <field name="entry_type_id"/>
+                            <field name="description" optional="hide"/>
+                            <field name="code" readonly="1"/>
+                            <field name="amount" string="Monto" optional="show"/>
+                            <field name="percentage" string="Porcentaje (%)" optional="show"/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

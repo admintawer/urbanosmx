@@ -1,0 +1,65 @@
+<odoo>
+  <data>
+   
+   
+    <record model="ir.ui.view" id="view_clear_data_tree">
+      <field name="name">Clear model group list</field>
+      <field name="model">clear.data.model</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="model_clear_ids"/>
+        </list>
+      </field>
+    </record>
+    
+     <record model="ir.ui.view" id="view_clear_data_form">
+      <field name="name">Clear model group form</field>
+      <field name="model">clear.data.model</field>
+      <field name="arch" type="xml">
+        <form string="clear model group form">
+          <header>
+          		<button name="action_do_clear" string="do clear" type="object"  class="btn-primary" confirm="Estas seguro de continuar?"></button>
+          </header>
+          <sheet>
+         		<group>
+         			<group>
+         				<field name="name"/>
+						    <field name="auto_clear_ir_sequence"/>
+         			</group>
+         			<group>
+						    <field name="description"/>
+                <field name="company_ids" widget="many2many_tags"/>
+         			</group>
+         		</group>
+				<label string="Custome Define Business Datas" for="model_clear_ids"/>
+				<field name="model_clear_ids" >
+					<list string="Custome Define Models" editable="bottom">
+						<field name="sequence"  widget="handle" />
+						<field name="name" />
+						<field name="display_name" />
+						<field name="model" />
+						<field name="modules" />
+						<field name="state" />									
+					</list>					
+				</field>
+				<label string="Default Business Datas" for="internal_model_list"/>
+				<field name="internal_model_list"></field>				
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_clear_data_list">
+      <field name="name">Clear model group list</field>
+      <field name="res_model">clear.data.model</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Top menu item -->
+    
+    <menuitem name="Clear data" web_icon="rail_data_clear,static/description/icon.png" id="data_clear_menu_root"/>
+
+    <menuitem name="Data Clear List" id="clear_data_model_list"  parent="data_clear_menu_root" action="action_clear_data_list"/>
+	</data>
+</odoo>

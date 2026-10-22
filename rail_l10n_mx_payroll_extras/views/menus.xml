@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_action_wizard_reglas_salariales"
+              name="Genera liquidaciones"
+              parent="hr_payroll.menu_hr_payroll_payslips"
+              action="action_wizard_liquidacion"
+              sequence="70"
+              groups="hr_payroll.group_hr_payroll_user"/>
+
+    <menuitem id="reparto_utilidades"
+              name="Reparto utilidades"
+              parent="hr_payroll.menu_hr_payroll_payslips"
+              action="reparto_utilidades_wizard_action"
+              sequence="80"
+              groups="hr_payroll.group_hr_payroll_user"/>
+
+    <menuitem id="menu_rail_payroll_extras_root"
+              name="Extras MX"
+              parent="hr_payroll.menu_hr_payroll_employees"
+              sequence="90"
+              groups="hr_payroll.group_hr_payroll_user"/>
+
+    <menuitem id="menu_employee_loan"
+              name="Préstamos/descuentos"
+              parent="menu_rail_payroll_extras_root"
+              action="action_employee_loan"
+              sequence="10"/>
+
+    <menuitem id="menu_installment_line"
+              name="Cuotas"
+              parent="menu_rail_payroll_extras_root"
+              action="action_installment_line"
+              sequence="20"/>
+
+    <menuitem id="menu_viaticos_nomina"
+              name="Viáticos"
+              parent="menu_rail_payroll_extras_root"
+              action="action_viaticos_nomina"
+              sequence="30"/>
+
+    <menuitem id="menu_employee_loan_type"
+              name="Tipos de préstamos/descuentos"
+              parent="hr_payroll.menu_hr_salary_configuration"
+              action="action_employee_loan_type"
+              sequence="90"
+              groups="hr_payroll.group_hr_payroll_manager"/>
+</odoo>

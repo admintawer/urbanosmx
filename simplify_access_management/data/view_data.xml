@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data noupdate="1">
-        
+
         <record id="view_data_graph_ah" model="view.data">
             <field name="name">Graph</field>
             <field name="techname">graph</field>
@@ -41,7 +41,7 @@
             <field name="name">Grid</field>
             <field name="techname">grid</field>
         </record>
-        
+
         <record id="view_data_dashboard_ah" model="view.data">
             <field name="name">Dashboard</field>
             <field name="techname">dashboard</field>
@@ -55,6 +55,10 @@
         <record id="view_data_kanban_ah" model="view.data">
             <field name="name">Kanban</field>
             <field name="techname">kanban</field>
+        </record>
+        <record id="view_data_list_ah" model="view.data">
+            <field name="name">List</field>
+            <field name="techname">list</field>
         </record>
     </data>
 </odoo>

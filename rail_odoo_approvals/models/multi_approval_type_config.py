@@ -164,18 +164,18 @@ class MultiApprovalType(models.Model):
 
     def unlink(self):
         res = super(MultiApprovalType, self).unlink()
-        self.clear_caches()
+        #self.clear_caches()
         return res
 
     @api.model_create_multi
     def create(self, vals_list):
         res = super(MultiApprovalType, self).create(vals_list)
-        self.clear_caches()
+        #self.clear_caches()
         return res
 
     def write(self, vals):
         res = super(MultiApprovalType, self).write(vals)
-        self.clear_caches()
+        #self.clear_caches()
         return res
 
     @api.onchange('apply_for_model')
@@ -232,7 +232,7 @@ class MultiApprovalType(models.Model):
             'rail_odoo_approvals.multi_approval_view_form', False)
         res = {
             'name': _('Submitted Requests'),
-            'view_mode': 'kanban,tree,form',
+            'view_mode': 'kanban,list,form',
             'res_model': 'multi.approval',
             'view_id': False,
             'type': 'ir.actions.act_window',
@@ -345,9 +345,7 @@ for rec in self:
             type="action",
             string="SOLICITAR APROBACION",
             groups="rail_odoo_approvals.group_approval_user",
-            attrs=str({
-                'invisible': ['|', (f_name, '=', False), (f_name2, '=', True)]
-            }),
+            invisible= f"{f_name} == False or {f_name2} == True",
         )
         btn_vie_node = E.button(
             {'approval_btn': '1'},
@@ -355,9 +353,7 @@ for rec in self:
             type="action",
             string="VER APROBACION",
             groups="rail_odoo_approvals.group_approval_user",
-            attrs=str({
-                'invisible': [(f_name2, '=', False)]
-            })
+            invisible = f"{f_name2} == False",
         )
         btn_refuse_node = E.button(
             {'approval_btn': '1'},
@@ -365,9 +361,7 @@ for rec in self:
             type="action",
             string="RE-HACER",
             groups="rail_odoo_approvals.group_approval_user",
-            attrs=str({
-                'invisible': [(f_name1, '!=', 'refused')]
-            })
+            invisible=f"{f_name} != 'refused'",
         )
 
         # div is insert right after the header
@@ -375,25 +369,19 @@ for rec in self:
             'Este documento necesita ser aprobado !',
             {'class': "alert alert-info", 'style': 'margin-top: 5px;',
              'role': 'alert'},
-            attrs=str({
-                'invisible': ['|', (f_name, '=', False), (f_name1, '!=', False)]
-            })
+            invisible = f"{f_name} == False or {f_name1} != False"
         )
         div_node2 = E.div(
             'Est documento ha sido aprobado !',
             {'class': "alert alert-info", 'style': 'margin-top: 5px;',
              'role': 'alert'},
-            attrs=str({
-                'invisible': ['|', (f_name, '=', False), (f_name1, '!=', 'approved')]
-            })
+            invisible=f"{f_name} == False or {f_name1} != 'approved'"
         )
         div_node3 = E.div(
             'Este documento ha sido rechazado !',
             {'class': "alert alert-danger", 'style': 'margin-top: 5px;',
              'role': 'alert'},
-            attrs=str({
-                'invisible': ['|', (f_name, '=', False), (f_name1, '!=', 'refused')]
-            })
+            invisible=f"{f_name} == False or {f_name1} != 'refused'"
         )
         div_node = E.div(
             div_node1,
@@ -624,14 +612,13 @@ for rec in self:
     @api.model
     def exec_func(self, python_code='', eval_context=None):
         try:
-            safe_eval(python_code.strip(), eval_context, mode="exec",
-                      nocopy=True)  # nocopy allows to return 'action'
+            safe_eval(python_code.strip(), eval_context, mode="exec")
         except Exception as e:
             raise UserError(ustr(e))
         except:
             raise UserError(_('''
-Approval Type is not configured properly, contact your administrator for help!
-'''))
+                Approval Type is not configured properly, contact your administrator for help!
+            '''))
         if 'action' in eval_context:
             return eval_context['action']
 
@@ -642,7 +629,7 @@ Approval Type is not configured properly, contact your administrator for help!
         types = self.search(args)
         model_names = types.mapped('model_id')
         return model_names
-
+    
     @api.model
     def check_rule(self, records, vals):
         '''
@@ -650,7 +637,7 @@ Approval Type is not configured properly, contact your administrator for help!
         2. check (not x_review_result and x_need_approval)
         3. prevent from editing the fields in domain
         '''
-        if self.env.su or self._context.get('run_python_code'):
+        if self.env.su or self.env.context.get('run_python_code'):
             return True
         # Find the approval type
         model_name = records._name
@@ -670,6 +657,8 @@ Approval Type is not configured properly, contact your administrator for help!
                 raise UserError(self._make_err_msg(True))
             # Could not update state field
             if approval_type.state_field and approval_type.state_field in vals:
+                _logger.critical("VALS: " + str(vals))
+                _logger.critical("APPROVAL_TYPE.STATE_FIELD: " + str(approval_type.state_field))
                 raise UserError(self._make_err_msg())
         return True
 

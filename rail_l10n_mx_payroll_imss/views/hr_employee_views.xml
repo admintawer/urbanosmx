@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rail_hr_employee_form_imss" model="ir.ui.view">
+        <field name="name">rail.hr.employee.form.imss</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr_payroll.payroll_hr_employee_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_open_versions']" position="before">
+                <button class="oe_stat_button"
+                        name="action_open_rail_imss_incidents"
+                        type="object"
+                        icon="fa-shield"
+                        groups="hr_payroll.group_hr_payroll_user">
+                    <field name="rail_imss_incidence_count" string="Incidencias IMSS" widget="statinfo"/>
+                </button>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page name="rail_imss_sua_idse" string="SUA / IDSE"
+                      groups="hr_payroll.group_hr_payroll_user"
+                      invisible="company_country_code != 'MX'">
+                    <group cols="4">
+                        <group string="Información IDSE">
+                            <field name="rail_imss_worker_type"/>
+                            <field name="rail_imss_salary_type"/>
+                            <field name="rail_imss_workday_type"/>
+                            <field name="rail_imss_clinic"/>
+                            <field name="rail_imss_subdelegation_code"/>
+                        </group>
+                        <group string="Información SUA / IMSS">
+                            <field name="private_zip" string="CP trabajador"/>
+                            <field name="ssnid" string="NSS"/>
+                            <field name="rail_fixed_sbc"/>
+                            <field name="rail_sbc_effective_date"/>
+                            <field name="rail_previous_sbc"/>
+                            <button name="action_rail_sync_imss_incidents"
+                                    string="Sincronizar incidencias IMSS"
+                                    type="object"
+                                    class="btn-secondary"
+                                    icon="fa-refresh"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="rail_action_sync_imss_incidents" model="ir.actions.server">
+        <field name="name">Sincronizar incidencias IMSS</field>
+        <field name="model_id" ref="hr.model_hr_employee"/>
+        <field name="binding_model_id" ref="hr.model_hr_employee"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">action = records.action_rail_sync_imss_incidents()</field>
+    </record>
+</odoo>

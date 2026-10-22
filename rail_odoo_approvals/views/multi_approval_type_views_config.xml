@@ -7,42 +7,44 @@
         <field name="arch" type="xml">
             <field name="description" position="after">
                 <field name="priority" />
-                <field name="apply_for_model" attrs="{'readonly': [('is_configured', '=', True)]}"/>
+                <field name="apply_for_model" readonly="is_configured == True"/>
                 <field name="is_configured" invisible="1"/>
                 <field name="view_id" invisible="1"/>
             </field>
             <xpath expr="//group[@name='option_settings']" position="attributes">
-                <attribute name="attrs">{'invisible': [('apply_for_model', '=', True)]}</attribute>
+                <attribute name="invisible">apply_for_model ==  True</attribute>
             </xpath>
             <xpath expr="//group[@name='option_settings']" position="after">
-                <group string="Model Settings" name="model_settings" attrs="{'invisible': [('apply_for_model', '=', False)]}">
+                <group string="Model Settings" name="model_settings" invisible="apply_for_model == False">
                     <field name="model_id"
-                        attrs="{'required': [('apply_for_model', '=', True)], 'readonly': [('is_configured', '=', True)]}"/>
+                        required="apply_for_model == True"
+                        readonly="is_configured == True"/>
                     <field name="domain" widget="domain" options="{'model': 'model_id'}"
-                        attrs="{'required': [('apply_for_model', '=', True)], 'readonly': [('is_configured', '=', True)]}"/>
+                        required="apply_for_model == True"
+                        readonly="is_configured == True"/>
                     <field name="hide_button"/>
                     <field name="approve_python_code" placeholder="Python code" widget="ace" options="{'mode': 'python'}"
-                        attrs="{'invisible': [('apply_for_model', '=', False)]}"/>
+                        invisible="apply_for_model == False"/>
                     <field name="refuse_python_code" placeholder="Python code" widget="ace" options="{'mode': 'python'}"
-                        attrs="{'invisible': [('apply_for_model', '=', False)]}"/>
+                        invisible="apply_for_model == False"/>
                 </group>
             </xpath>
             <xpath expr="//form/sheet" position="before">
                 <header>
                     <button name="action_configure" type="object"
                             string="Configure"
-                            attrs="{'invisible': ['|', '|', ('active', '=', False), ('is_configured', '=', True), ('apply_for_model', '=', False)]}"
+                            invisible="active == False or is_configured == True or apply_for_model == False"
                             class="oe_highlight" />
                 </header>
-                <div class="alert alert-info" role="alert" style="margin-bottom:0px;" attrs="{'invisible': [('is_configured', '=', False)]}">
+                <div class="alert alert-info" role="alert" style="margin-bottom:0px;" invisible="is_configured == False">
                 This type has been configured! 
                 </div>
             </xpath>
             <xpath expr="//notebook" position="inside">
-                <page string="Description Template" attrs="{'invisible': [('apply_for_model', '=', False)]}">
+                <page string="Description Template" invisible="apply_for_model == False or mail_notification == False">
                     <field name="request_tmpl" options="{'style-inline': true, 'codeview': true, 'dynamic_placeholder': true}"/>
                 </page>
-                <page string="Security" attrs="{'invisible': [('apply_for_model', '=', False)]}">
+                <page string="Security" invisible="apply_for_model == False">
                     <group>
                         <group>
                             <field name="company_id" />
@@ -50,7 +52,7 @@
                         </group>
                     </group>
                 </page>
-                <page string="Help" attrs="{'invisible': [('apply_for_model', '=', False)]}">
+                <page string="Help" invisible="apply_for_model == False">
                     <div style="margin-top: 4px;">
                         <h3>Help with Python expressions</h3>
                         <p>Various fields may use Python code or Python expressions. The following variables can <code>only</code> be used:</p>
@@ -72,8 +74,17 @@ env['res.partner'].create({'name': partner_name})
                     </div>
                 </page>
             </xpath>
-            <xpath expr="//field[@name='line_ids']/tree/field[@name='user_id']" position="after">
+            <xpath expr="//field[@name='line_ids']/list/field[@name='user_ids']" position="after">
+                <field name="user_selection_type" optional="show"/>
+                <field name="user_selection_description" optional="hide"/>
                 <field name="group_ids" widget="many2many_tags"/>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']/list/field[@name='user_ids']" position="attributes">
+                <attribute name="required">user_selection_type == 'fixed'</attribute>
+                <attribute name="invisible">user_selection_type != 'fixed'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']/list" position="attributes">
+                <attribute name="editable"/>
             </xpath>
         </field>
     </record>
@@ -116,7 +127,7 @@ env['res.partner'].create({'name': partner_name})
                 <field name="apply_for_model" invisible="1" />
             </button>
             <button name="create_request" position="attributes">
-                <attribute name="attrs">{'invisible': [('apply_for_model', '=', True)]}</attribute>
+                <attribute name="invisible">apply_for_model == True</attribute>
             </button>
         </field>
     </record>

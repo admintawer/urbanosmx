@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="wizard_sbc_bimestral_view_form" model="ir.ui.view">
+        <field name="name">wizard.sbc.bimestral.form</field>
+        <field name="model">wizard.sbc.bimestral</field>
+        <field name="arch" type="xml">
+            <form string="Cálculo SBC bimestral">
+                <group>
+                    <group string="Primer mes">
+                        <field name="primer_fecha_inicio"/>
+                        <field name="primer_fecha_fin"/>
+                    </group>
+                    <group string="Segundo mes">
+                        <field name="segundo_fecha_inicio"/>
+                        <field name="segundo_fecha_fin"/>
+                        <field name="effective_date"/>
+                    </group>
+                </group>
+                <group>
+                    <field name="employee_ids" widget="many2many_tags"/>
+                    <field name="detalles"/>
+                </group>
+                <field name="line_ids">
+                    <list editable="bottom" decoration-success="state == 'applied'" decoration-danger="state == 'error'">
+                        <field name="employee_id" readonly="1"/>
+                        <field name="registration_number" readonly="1"/>
+                        <field name="ssnid" readonly="1"/>
+                        <field name="department_id" readonly="1"/>
+                        <field name="daily_wage" readonly="1"/>
+                        <field name="integration_factor" readonly="1"/>
+                        <field name="period_days" readonly="1"/>
+                        <field name="fixed_sbc" readonly="1"/>
+                        <field name="previous_sbc" readonly="1" optional="hide"/>
+                        <field name="variable_taxable_amount" readonly="1"/>
+                        <field name="variable_daily_amount" readonly="1"/>
+                        <field name="new_sbc"/>
+                        <field name="new_version_id" readonly="1"/>
+                        <field name="incidence_id" readonly="1"/>
+                        <field name="state" readonly="1"/>
+                    </list>
+                </field>
+                <group invisible="not file_content">
+                    <field name="file_name" readonly="1"/>
+                    <field name="file_content" filename="file_name" readonly="1"/>
+                </group>
+                <footer>
+                    <button name="action_compute" string="Calcular" type="object" class="btn-primary"/>
+                    <button name="action_export_xlsx" string="Exportar XLSX" type="object"/>
+                    <button name="action_apply_new_sbc" string="Aplicar nuevo SBC" type="object"/>
+                    <button string="Cerrar" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="wizard_sbc_bimestral_action" model="ir.actions.act_window">
+        <field name="name">Cálculo SBC bimestral</field>
+        <field name="res_model">wizard.sbc.bimestral</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

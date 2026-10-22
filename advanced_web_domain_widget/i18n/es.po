@@ -1,0 +1,805 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* advanced_web_domain_widget
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-03 05:43+0000\n"
+"PO-Revision-Date: 2025-12-03 05:43+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector/domain_selector.xml:0
+#, python-format
+msgid "# Code editor"
+msgstr "# Editor de código"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_autocomplete.js:0
+#, python-format
+msgid "(no result)"
+msgstr "(sin resultado)"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "=ilike"
+msgstr "=ilike"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "=like"
+msgstr "=like"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "Add New Rule"
+msgstr "Añadir Nueva Regla"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "Add branch"
+msgstr "Añadir rama"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#, python-format
+msgid "Add condition"
+msgstr "Añadir condición"
+
+#. module: advanced_web_domain_widget
+#: model:ir.model,name:advanced_web_domain_widget.model_base
+msgid "Base"
+msgstr "Base"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "Clear"
+msgstr "Limpiar"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector_dialog/domain_selector_dialog.xml:0
+#, python-format
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector/domain_selector.xml:0
+#, python-format
+msgid "Company filter"
+msgstr "Filtro de compañía"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector_dialog/domain_selector_dialog.js:0
+#, python-format
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "Delete node"
+msgstr "Eliminar nodo"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector_dialog/domain_selector_dialog.js:0
+#, python-format
+msgid "Discard"
+msgstr "Descartar"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.js:0
+#, python-format
+msgid "Display the domain using facets"
+msgstr "Mostrar el dominio usando facetas"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.js:0
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector_dialog/domain_selector_dialog.js:0
+#, python-format
+msgid "Domain"
+msgstr "Dominio"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector_dialog/domain_selector_dialog.js:0
+#, python-format
+msgid "Domain is invalid. Please correct it"
+msgstr "El dominio es inválido. Por favor corríjalo"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "Domain node"
+msgstr "Nodo de dominio"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#, python-format
+msgid "Edit Domain"
+msgstr "Editar Dominio"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.js:0
+#, python-format
+msgid "Edit in dialog"
+msgstr "Editar en diálogo"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "False"
+msgstr "Falso"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.js:0
+#, python-format
+msgid "Foldable"
+msgstr "Plegable"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_autocomplete.js:0
+#, python-format
+msgid "Inaccessible/missing record ID: %s"
+msgstr "ID de registro inaccesible/faltante: %s"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector/domain_selector.xml:0
+#, python-format
+msgid "Include archived"
+msgstr "Incluir archivados"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#, python-format
+msgid "Invalid domain"
+msgstr "Dominio inválido"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector/domain_selector.js:0
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector/domain_selector.js:0
+#, python-format
+msgid "Invalid field chain"
+msgstr "Cadena de campo inválida"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_autocomplete.js:0
+#, python-format
+msgid "Invalid record ID: %s"
+msgstr "ID de registro inválido: %s"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Last 30 Days"
+msgstr "Últimos 30 Días"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Last 365 Days"
+msgstr "Últimos 365 Días"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Last 7 Days"
+msgstr "Últimos 7 Días"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Last 90 Days"
+msgstr "Últimos 90 Días"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Last Day"
+msgstr "Último Día"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Last Month"
+msgstr "Último Mes"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Last Quarter"
+msgstr "Último Trimestre"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Last Week"
+msgstr "Última Semana"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Last Year"
+msgstr "Último Año"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#, python-format
+msgid "Loading"
+msgstr "Cargando"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "Match"
+msgstr "Coincidir"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.js:0
+#, python-format
+msgid "Model"
+msgstr "Modelo"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#, python-format
+msgid "Modify filter"
+msgstr "Modificar filtro"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "New Rule"
+msgstr "Nueva Regla"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Next Day"
+msgstr "Siguiente Día"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Next Month"
+msgstr "Siguiente Mes"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Next Quarter"
+msgstr "Siguiente Trimestre"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Next Week"
+msgstr "Siguiente Semana"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "Next Year"
+msgstr "Siguiente Año"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "Next day"
+msgstr "Siguiente día"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "Next month"
+msgstr "Siguiente mes"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "Next week"
+msgstr "Siguiente semana"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "Next year"
+msgstr "Siguiente año"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "Not a valid %s"
+msgstr "No es un %s válido"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "Operator not supported"
+msgstr "Operador no soportado"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_autocomplete.js:0
+#, python-format
+msgid "Quick search: %s"
+msgstr "Búsqueda rápida: %s"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#, python-format
+msgid "Refresh"
+msgstr "Actualizar"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector/domain_selector.xml:0
+#, python-format
+msgid "Reset domain"
+msgstr "Restablecer dominio"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_autocomplete.js:0
+#, python-format
+msgid "Search More..."
+msgstr "Buscar Más..."
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_autocomplete.js:0
+#, python-format
+msgid "Search: %s"
+msgstr "Buscar: %s"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#, python-format
+msgid "Select a model to add a filter."
+msgstr "Seleccione un modelo para añadir un filtro."
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.js:0
+#, python-format
+msgid "Selected records"
+msgstr "Registros seleccionados"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "This Month"
+msgstr "Este Mes"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "This Quarter"
+msgstr "Este Trimestre"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "This Week"
+msgstr "Esta Semana"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#, python-format
+msgid "This Year"
+msgstr "Este Año"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector/domain_selector.xml:0
+#, python-format
+msgid "This domain is not supported."
+msgstr "Este dominio no es soportado."
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "This quarter"
+msgstr "Este trimestre"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "This week"
+msgstr "Esta semana"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "This year"
+msgstr "Este año"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "Thismonth"
+msgstr "Este mes"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/dateSelectionBits/dateSelectionBits.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "Today"
+msgstr "Hoy"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "True"
+msgstr "Verdadero"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_autocomplete.js:0
+#, python-format
+msgid "Unnamed"
+msgstr "Sin nombre"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "Value not in selection"
+msgstr "Valor no en selección"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "Value not supported"
+msgstr "Valor no soportado"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#, python-format
+msgid "Warning"
+msgstr "Advertencia"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "all"
+msgstr "todos"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/domain/domain_field.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "all records"
+msgstr "todos los registros"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector/utils.js:0
+#, python-format
+msgid "and"
+msgstr "y"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "any"
+msgstr "cualquiera"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "child of"
+msgstr "hijo de"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "contains"
+msgstr "contiene"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "date filter"
+msgstr "filtro de fecha"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "does not contain"
+msgstr "no contiene"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "is"
+msgstr "es"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "is between"
+msgstr "está entre"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "is in"
+msgstr "está en"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "is not"
+msgstr "no es"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "is not in"
+msgstr "no está en"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "is not set"
+msgstr "no establecido"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "is set"
+msgstr "establecido"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "last 30 days"
+msgstr "últimos 30 días"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "last 365 days"
+msgstr "últimos 365 días"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "last 7 days"
+msgstr "últimos 7 días"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "last 90 days"
+msgstr "últimos 90 días"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "last day"
+msgstr "último día"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "last month"
+msgstr "último mes"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "last quarter"
+msgstr "último trimestre"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "last week"
+msgstr "última semana"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "last year"
+msgstr "último año"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "like"
+msgstr "like"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "next quarter"
+msgstr "próximo trimestre"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "none"
+msgstr "ninguno"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "not all"
+msgstr "no todos"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "not like"
+msgstr "no like"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "not set"
+msgstr "no establecido"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "of the following rules:"
+msgstr "de las siguientes reglas:"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor.xml:0
+#, python-format
+msgid "of:"
+msgstr "de:"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/domain_selector/utils.js:0
+#, python-format
+msgid "or"
+msgstr "o"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_operator_editor.js:0
+#, python-format
+msgid "parent of"
+msgstr "padre de"
+
+#. module: advanced_web_domain_widget
+#. odoo-javascript
+#: code:addons/advanced_web_domain_widget/static/src/tree_editor/tree_editor_value_editors.js:0
+#, python-format
+msgid "set"
+msgstr "establecido"
