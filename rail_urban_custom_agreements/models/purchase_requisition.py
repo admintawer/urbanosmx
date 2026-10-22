@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT, format_amount, format_date, formatLang, get_lang, groupby
 from odoo.exceptions import UserError,ValidationError
 from datetime import datetime
 import base64, logging
@@ -44,17 +43,51 @@ class ExcelReport(models.AbstractModel):
             sheet.write(row, 6, i['description'])
             row += 1
 
+class PurchaseRequisitionType(models.Model):
+    """Legacy agreement type retained so v16 foreign keys remain readable."""
+
+    _name = 'purchase.requisition.type'
+    _description = 'Legacy Purchase Agreement Type'
+
+    name = fields.Char(required=True, translate=True)
+    sequence = fields.Integer(default=10)
+    exclusive = fields.Selection([('exclusive', 'Exclusive'), ('multiple', 'Multiple')], default='multiple')
+    quantity_copy = fields.Selection([('none', 'Do not copy'), ('copy', 'Copy')], default='none')
+    vendor_qty = fields.Integer(string="Cnt. min. proveedores", default=1)
+
+
 class PurchaseRequisition(models.Model):
-    _name = 'purchase.requisition'
     _inherit = 'purchase.requisition'
 
     subtype = fields.Selection(string="Criterio", selection=[('time','Tiempo de entrega'),('price','Mejor precio'),('time_price', 'Tiempo + Precio')])
-    vendor_qty = fields.Integer(string="Cnt. min. proveedores", related='type_id.vendor_qty')
+    type_id = fields.Many2one('purchase.requisition.type', string='Legacy Agreement Type', ondelete='set null')
+    vendor_qty = fields.Integer(string="Cnt. min. proveedores", related='type_id.vendor_qty', readonly=True)
     vendor_ids = fields.Many2many('res.partner', string="Proveedores", domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
     bl_count = fields.Integer(compute='_compute_blanket_number', string='Number of BLs')
     blanket_ids = fields.One2many('pr.blanket.lines', 'requisition_id')
-    state = fields.Selection(selection_add=[('sent','Enviado'),('in_progress',)], ondelete={'sent': 'set default'})
-    state_blanket_order = fields.Selection(selection_add=[('sent','Enviado'),('in_progress',)], ondelete={'sent': 'cascade'})
+    state = fields.Selection(
+        selection_add=[
+            ('sent', 'Enviado'),
+            ('in_progress', 'En progreso'),
+            ('ongoing', 'Vigente'),
+            ('open', 'Abierto'),
+        ],
+        ondelete={
+            'sent': 'set default',
+            'in_progress': 'set default',
+            'ongoing': 'set default',
+            'open': 'set default',
+        },
+    )
+    state_blanket_order = fields.Selection([
+        ('draft', 'Borrador'),
+        ('sent', 'Enviado'),
+        ('in_progress', 'En progreso'),
+        ('open', 'Abierto'),
+        ('done', 'Cerrado'),
+    ], default='draft')
+    origin = fields.Char(string='Origen')
+    ordering_date = fields.Date(string='Fecha de pedido', default=fields.Date.context_today)
     vendor_emails = fields.Char(compute='_compute_vendor_emails')
     manual_aproval = fields.Boolean()
 
@@ -76,30 +109,10 @@ class PurchaseRequisition(models.Model):
     # MAIL.THREAD
     # ------------------------------------------------------------
 
-    @api.returns('mail.message', lambda value: value.id)
     def message_post(self, **kwargs):
         if self.env.context.get('mark_rfq_as_sent'):
             self.filtered(lambda o: o.state == 'draft').write({'state': 'sent'})
         return super(PurchaseRequisition, self.with_context(mail_post_autofollow=self.env.context.get('mail_post_autofollow', True))).message_post(**kwargs)
-
-    def _notify_by_email_prepare_rendering_context(self, message, msg_vals, model_description=False,
-                                                   force_email_company=False, force_email_lang=False):
-        render_context = super()._notify_by_email_prepare_rendering_context(
-            message, msg_vals, model_description=model_description,
-            force_email_company=force_email_company, force_email_lang=force_email_lang
-        )
-        subtitles = [render_context['record'].name]
-        # don't show price on RFQ mail
-        if self.state not in ['draft', 'sent']:
-            if self.date_order:
-                subtitles.append(_('%(amount)s due\N{NO-BREAK SPACE}%(date)s',
-                                   amount=format_amount(self.env, self.amount_total, self.currency_id, lang_code=render_context.get('lang')),
-                                   date=format_date(self.env, self.date_order, date_format='short', lang_code=render_context.get('lang'))
-                                   ))
-            else:
-                subtitles.append(format_amount(self.env, self.amount_total, self.currency_id, lang_code=render_context.get('lang')))
-        render_context['subtitles'] = subtitles
-        return render_context
 
     def _track_subtype(self, init_values):
         self.ensure_one()
@@ -140,45 +153,27 @@ class PurchaseRequisition(models.Model):
             'name': 'Licitacion'+self.name+'.xlsx',
             'type': 'binary',
             'datas': data_record,
-            'store_fname': data_record,
             'mimetype': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-            'res_model': 'purchase.requisition'
+            'res_model': 'purchase.requisition',
+            'res_id': self.id,
         }
         attachment = self.env['ir.attachment'].sudo().create(ir_values)
         email_template = self.env.ref('rail_urban_custom_agreements.email_template_rail_urban_bl').sudo()
         if email_template and email_template.lang:
             lang = email_template._render_lang(self.ids)[self.id]
             email_values = {
-            'email_to': self.user_id.email,
-            #'email_bcc': self.vendor_emails,
-            'email_from': self.user_id.email,
+                'email_to': self.user_id.email,
+                'email_bcc': self.vendor_emails,
+                'email_from': self.user_id.email,
+                'attachment_ids': [(4, attachment.id)],
             }
-            email_template.email_bcc = self.vendor_emails
-            email_template.attachment_ids = [4, attachment.id]
-            email_template.send_mail(self.id, email_values=email_values)
+            email_template.send_mail(self.id, force_send=True, email_values=email_values)
 
-        ctx = {
-            'default_model': 'purchase.requisition',
-            'default_res_id': self.id,
-            'default_use_template': bool(email_template),
-            'default_template_id': email_template.id if email_template else None,
-            'default_composition_mode': 'comment',
-            'default_email_layout_xmlid': 'mail.mail_notification_layout_with_responsible_signature',
-            'force_email': True,
-            'model_description':'Solicitud de licitacion',
-        }
-        #email_template.attachment_ids = [(5,0,0)]
-        self.update({
-            'state': 'sent',
-        })
+        self.state = 'sent'
         return {
-            'type': 'ir.actions.act_window',
-            'view_mode': 'form',
-            'res_model': 'mail.compose.message',
-            'views': [(False, 'form')],
-            'view_id': False,
-            'target': 'new',
-            'context': ctx,
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {'title': _('Correo enviado'), 'type': 'success', 'sticky': False},
         }
 
             
@@ -249,13 +244,13 @@ class PurchaseRequisition(models.Model):
         self.ensure_one()
         if not self.line_ids:
             raise UserError(_("You cannot confirm agreement '%s' because there is no product line.", self.name))
-        if self.type_id.quantity_copy == 'none' and self.vendor_id:
+        if self.requisition_type == 'blanket_order' and self.vendor_id:
             for requisition_line in self.line_ids:
                 if requisition_line.price_unit <= 0.0:
                     raise UserError(_('You cannot confirm the blanket order without price.'))
                 if requisition_line.product_qty <= 0.0:
                     raise UserError(_('You cannot confirm the blanket order without quantity.'))
-                requisition_line.create_supplier_info()
+                requisition_line._create_supplier_info()
             self.write({'state': 'ongoing'})
         else:
             self.write({'state': 'in_progress'})
@@ -277,7 +272,7 @@ class PurchaseRequisition(models.Model):
                         'name': line_id.product_id.name,
                         'price_unit': line_id.price_unit,
                         'product_qty': line_id.product_qty,
-                        'product_uom': line_id.product_uom_id.id or False,
+                        'product_uom_id': line_id.product_uom_id.id or False,
                         'taxes_id': [(6, 0, line_id.product_id.supplier_taxes_id.ids)],
                     }))
 
@@ -291,24 +286,13 @@ class PurchaseRequisition(models.Model):
             for line in lines:
                 line.purchase_id = purchase.id
 
-    @api.model
-    def create(self,vals):
-        if vals.get("name", _("New")) == _("New"):
-            # Set the sequence number regarding the requisition type
-            vals['name'] = self.env['ir.sequence'].next_by_code('purchase.requisition.blanket.order')
-        return super(PurchaseRequisition, self).create(vals)
-
 class PurchaseRequisitionLine(models.Model):
     _inherit = 'purchase.requisition.line'
 
     vendor_id = fields.Many2one('res.partner', string="Vendor", domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
+    schedule_date = fields.Date(string='Fecha de entrega')
     manual_aproval = fields.Boolean(related='requisition_id.manual_aproval') 
     purchase_id = fields.Many2one('purchase.order')   
-
-class PurchaseRequisitionType(models.Model):
-    _inherit = 'purchase.requisition.type'
-
-    vendor_qty = fields.Integer(string="Cnt. min. proveedores", default=1)
 
 class PurchaseRequisitionRfqs(models.Model):
     _name = 'pr.blanket.lines'

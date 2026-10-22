@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Simplify Access Management JSON Import/Export',
-    'version': '16.0.1.0.0',
+    'version': '19.0.1.0.0',
     'summary': 'Export and import Simplify Access Management rules using portable JSON',
     'category': 'Tools',
     'author': 'ODOO VERSION 16/18 Custom',

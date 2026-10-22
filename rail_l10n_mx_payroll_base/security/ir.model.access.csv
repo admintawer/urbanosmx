@@ -1,3 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_otras_entradas_tipo_payroll_user,rail.payroll.other.entry.type.payroll.user,model_rail_payroll_other_entry_type,hr_payroll.group_hr_payroll_user,1,1,1,1
 access_otras_entradas_empleados_payroll_user,rail.payroll.other.entry.payroll.user,model_rail_payroll_other_entry,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_rail_payroll_migration_archive_manager,rail.payroll.migration.archive.manager,model_rail_payroll_migration_archive,hr_payroll.group_hr_payroll_manager,1,0,0,0
+access_legacy_otras_entradas_tipo_payroll_manager,otras.entradas.tipo.compatibilidad,model_otras_entradas_tipo,hr_payroll.group_hr_payroll_manager,1,1,1,1
+access_legacy_otras_entradas_empleados_payroll_manager,otras.entradas.empleados.compatibilidad,model_otras_entradas_empleados,hr_payroll.group_hr_payroll_manager,1,1,1,1

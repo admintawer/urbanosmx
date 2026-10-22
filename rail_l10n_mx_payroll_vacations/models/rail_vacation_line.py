@@ -64,11 +64,18 @@ class RailVacationLine(models.Model):
     remaining_days = fields.Float(string='Días disponibles', digits='Payroll', compute='_compute_remaining_days', store=True)
     note = fields.Text(string='Notas')
 
-    _sql_constraints = [
-        ('rail_vacation_line_version_year_unique', 'unique(version_id, year)', 'Ya existe una línea vacacional para esta versión y año.'),
-        ('rail_vacation_line_days_positive', 'CHECK(granted_days >= 0 AND used_days >= 0)', 'Los días otorgados y usados no pueden ser negativos.'),
-        ('rail_vacation_line_seniority_positive', 'CHECK(seniority_years >= 0)', 'Los años de antigüedad no pueden ser negativos.'),
-    ]
+    _version_year_unique = models.Constraint(
+        'UNIQUE(version_id, year)',
+        'Ya existe una línea vacacional para esta versión y año.',
+    )
+    _days_positive = models.Constraint(
+        'CHECK(granted_days >= 0 AND used_days >= 0)',
+        'Los días otorgados y usados no pueden ser negativos.',
+    )
+    _seniority_positive = models.Constraint(
+        'CHECK(seniority_years >= 0)',
+        'Los años de antigüedad no pueden ser negativos.',
+    )
 
     @api.depends('year', 'seniority_years', 'granted_days', 'used_days', 'state')
     def _compute_display_name(self):

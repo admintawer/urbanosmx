@@ -78,7 +78,10 @@ class CopyPasteTemplate(models.Model):
                     }
                     m_lines = []
                     for ml in m.line_ids:
-                        matrix_account = self.env['account.account'].sudo().search([('code','=',ml.account_id.code),('company_id','=', company_id.id)])
+                        matrix_account = self.env['account.account'].sudo().with_company(company_id).search([
+                            ('code', '=', ml.account_id.with_company(m.company_id).code),
+                            ('company_ids', 'in', company_id.id),
+                        ], limit=1)
                         dist_dict = {}
                         for al in ml.analytic_line_ids:                            
                             matrix_analytic = self.env['account.analytic.account'].sudo().search([('name','=',al.account_id.name),('company_id','=', company_id.id)], limit=1)
@@ -87,7 +90,7 @@ class CopyPasteTemplate(models.Model):
                             else:
                                 dist_total = ml.debit
                             
-                            dist_percentage = abs(round((al.amount / dist_total) * 100, ml.analytic_precision))
+                            dist_percentage = abs(round((al.amount / dist_total) * 100, 2)) if dist_total else 0.0
                             dist_dict.update({
                                 str(matrix_analytic.id): dist_percentage,
                             })
@@ -122,7 +125,9 @@ class CopyPasteTemplate(models.Model):
                 t.compare_accounts()
 
     def compare_accounts(self):
-        source_accounts = self.env['account.account'].search([('company_id','=', self.company_id.id)])
+        source_accounts = self.env['account.account'].with_company(self.company_id).search([
+            ('company_ids', 'in', self.company_id.id),
+        ])
         source_analytic = self.env['account.analytic.account'].search([('company_id','=', self.company_id.id)])
         missing_accounts = False
         missing_analytic = False
@@ -131,7 +136,10 @@ class CopyPasteTemplate(models.Model):
             sa_list = []
             for a in source_accounts:
                 sa_list.append(a.code)
-            missing_accounts = self.env['account.account'].sudo().search([('company_id','in', self.source_company_ids.ids),('code','not in', sa_list)])
+            missing_accounts = self.env['account.account'].sudo().search([
+                ('company_ids', 'in', self.source_company_ids.ids),
+                ('code', 'not in', sa_list),
+            ])
         if source_analytic:
             sac_list = []
             for ac in source_analytic:
@@ -152,11 +160,14 @@ class CopyPasteTemplate(models.Model):
             try:
                 self._get_account_moves_to_matrix()
                 return {
-                    'effect':{
-                        'fadeout': 'slow',
-                        'message': 'El proceso de sincronizacion ha finalizado satisfactoriamente',
-                        'type': 'rainbow_man',
-                    }
+                    'type': 'ir.actions.client',
+                    'tag': 'display_notification',
+                    'params': {
+                        'title': _('Sincronización terminada'),
+                        'message': _('El proceso de sincronización finalizó satisfactoriamente.'),
+                        'type': 'success',
+                        'sticky': False,
+                    },
                 }
             except Exception as e:
                 raise ValidationError("Algo a salido mal con  la sincronizacion por favor contacta a soporte \n"\

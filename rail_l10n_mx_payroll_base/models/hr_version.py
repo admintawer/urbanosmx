@@ -30,6 +30,38 @@ class HrVersion(models.Model):
     rail_alimony_fixed_amount = fields.Monetary(string='Monto fijo pensión alimenticia', groups='hr_payroll.group_hr_payroll_user', tracking=True)
     rail_savings_bank = fields.Boolean(string='Caja de ahorro', groups='hr_payroll.group_hr_payroll_user', tracking=True)
     rail_savings_bank_amount = fields.Monetary(string='Monto caja de ahorro', groups='hr_payroll.group_hr_payroll_user', tracking=True)
+    rail_savings_fund = fields.Boolean(
+        string='Fondo de ahorro legacy',
+        groups='hr_payroll.group_hr_payroll_user',
+        tracking=True,
+        help='Campo puente para conservar fondo_ahorro de nomina_cfdi v16.',
+    )
+    rail_savings_fund_amount = fields.Monetary(
+        string='Monto fondo de ahorro legacy',
+        groups='hr_payroll.group_hr_payroll_user',
+        tracking=True,
+    )
+    rail_grocery_voucher = fields.Boolean(
+        string='Vale de despensa legacy',
+        groups='hr_payroll.group_hr_payroll_user',
+        tracking=True,
+    )
+    rail_grocery_voucher_amount = fields.Monetary(
+        string='Monto vale de despensa legacy',
+        groups='hr_payroll.group_hr_payroll_user',
+        tracking=True,
+    )
+    rail_alimony_percentage = fields.Float(
+        string='Pensión alimenticia legacy (%)',
+        digits='Payroll Rate',
+        groups='hr_payroll.group_hr_payroll_user',
+        tracking=True,
+    )
+    rail_fonacot_loan_amount = fields.Monetary(
+        string='Préstamo FONACOT legacy',
+        groups='hr_payroll.group_hr_payroll_user',
+        tracking=True,
+    )
     rail_additional_deduction = fields.Boolean(string='Deducción adicional', groups='hr_payroll.group_hr_payroll_user', tracking=True)
     rail_additional_deduction_amount = fields.Monetary(string='Monto deducción adicional', groups='hr_payroll.group_hr_payroll_user', tracking=True)
 
@@ -42,6 +74,17 @@ class HrVersion(models.Model):
         ('other', 'Otro'),
     ], string='Tipo de pago legacy', groups='hr_payroll.group_hr_payroll_user', tracking=True,
        help='Campo puente para migrar el tipo de pago utilizado por layouts v18. No sustituye la cuenta bancaria nativa.')
+    rail_day_count_type = fields.Selection([
+        ('01', 'Por periodo'),
+        ('02', 'Por día'),
+        ('03', 'Mes proporcional'),
+    ], string='Conteo de días legacy', groups='hr_payroll.group_hr_payroll_user', tracking=True,
+       help='Conserva hr.contract.tipo_pago de nomina_cfdi v16; no representa el medio de pago bancario.')
+    rail_vacation_bonus_timing = fields.Selection([
+        ('01', 'Al cumplir el año'),
+        ('02', 'Con día de vacaciones'),
+    ], string='Momento prima vacacional legacy', groups='hr_payroll.group_hr_payroll_user', tracking=True,
+       help='Conserva tipo_prima_vacacional de nomina_cfdi v16 sin alterar la tasa nativa de prima vacacional.')
     rail_vacation_bonus_type = fields.Selection([
         ('fixed', 'Fijo'),
         ('percentage', 'Porcentaje'),
@@ -87,8 +130,16 @@ class HrVersion(models.Model):
             'rail_alimony_fixed_amount',
             'rail_savings_bank',
             'rail_savings_bank_amount',
+            'rail_savings_fund',
+            'rail_savings_fund_amount',
+            'rail_grocery_voucher',
+            'rail_grocery_voucher_amount',
+            'rail_alimony_percentage',
+            'rail_fonacot_loan_amount',
             'rail_additional_deduction',
             'rail_additional_deduction_amount',
+            'rail_day_count_type',
+            'rail_vacation_bonus_timing',
             'rail_vacation_bonus_type',
             'rail_seventh_day',
             'rail_seventh_day_disability',

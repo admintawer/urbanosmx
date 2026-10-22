@@ -12,10 +12,10 @@
     # Check https://github.com/odoo/odoo/blob/16.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Customization',
-    'version': '16.0.0.2',
+    'version': '19.0.1.0.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['account','l10n_mx_edi'],
+    'depends': ['account', 'l10n_mx_edi', 'mail'],
 
     # always loaded
     'data': [
@@ -27,7 +27,8 @@
         'views/copy_paste_template.xml',
         'views/account_move.xml',
         'views/account_move_sync.xml',
-        'views/cfdi_complement.xml',
     ],
+    'post_init_hook': 'post_init_hook',
     'license': 'LGPL-3',
+    'installable': True,
 }

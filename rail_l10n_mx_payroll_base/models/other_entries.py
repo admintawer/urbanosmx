@@ -70,7 +70,6 @@ class RailPayrollOtherEntry(models.Model):
     description = fields.Char(
         string='Descripción',
         related='entry_type_id.name',
-        store=True,
         readonly=True,
     )
     code = fields.Char(

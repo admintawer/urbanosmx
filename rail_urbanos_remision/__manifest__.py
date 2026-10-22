@@ -8,10 +8,13 @@
     'author': "Rail / Kevin Lopez",
     'website': "https://www.rail.com.mx",
     'category': 'Customization',
-    'version': '0.1',
+    'version': '19.0.1.0.0',
     'depends': ['stock', 'sale_stock'],
     'data': [
         'views/stock_picking.xml',
         'reports/delivery_order.xml',
     ],
+    'installable': True,
+    'application': False,
+    'license': 'LGPL-3',
 }

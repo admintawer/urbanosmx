@@ -133,6 +133,7 @@ class WizardPolizaImssLine(models.TransientModel):
     _description = 'Línea póliza IMSS patronal'
 
     wizard_id = fields.Many2one('wizard.poliza.imss', required=True, ondelete='cascade')
+    company_id = fields.Many2one(related='wizard_id.company_id')
     concept = fields.Selection([
         ('fixed_fee', 'Cuota fija patronal'),
         ('excess', 'Excedente 3 UMA'),

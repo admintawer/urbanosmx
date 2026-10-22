@@ -3,7 +3,7 @@
 
 {
     "name" : "Mass Clean and Delete Data Records",
-    "version" : "16.0.0.1",
+    "version" : "19.0.1.0.0",
     "category" : "Extra Tools",
     'summary': 'Mass Clear Data Mass Delete data Mass clean data mass remove data Bulk Clear Data bulk Delete data bulk clean data bulk remove data remove data from database clean database clear database data clean from database',
     "description": """
@@ -24,7 +24,7 @@
     'price': 5,
     'currency': "EUR",
     'website': 'https://www.browseinfo.in',
-    "depends" : ['base','account','stock','project','sale_management','purchase'],
+    "depends" : ['base', 'account', 'stock', 'project', 'sale_management', 'purchase'],
     "data": [
         'security/ir.model.access.csv',
         'wizard/clear_data_view.xml',

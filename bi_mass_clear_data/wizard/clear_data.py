@@ -58,9 +58,6 @@ class ClearData(models.TransientModel):
 
     def clear_data(self):
         for record in self:
-            if record.all_data:
-                property_obj = self.env['ir.property'].search([])
-                property_obj.unlink()
             if record.sale_and_transfer:
                 sale_model = self.env['ir.model'].search([('model','=','sale.order')])
                 if sale_model:
@@ -177,10 +174,6 @@ class ClearData(models.TransientModel):
             if record.all_accounting_data:
                 move_model = self.env['ir.model'].search([('model','=','account.move')])
                 if move_model:
-                    property_obj = self.env['ir.property'].search([])
-                    for properties in property_obj:
-                        properties.unlink()
-                        
                     journal_entry_obj = self.env['account.move'].search([])
                     journal_entry_obj.line_ids.with_context(dynamic_unlink=True,force_delete=True).unlink()
                     for journal in journal_entry_obj:

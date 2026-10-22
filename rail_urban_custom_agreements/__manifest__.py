@@ -13,7 +13,7 @@
     # Check https://github.com/odoo/odoo/blob/16.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Customizations',
-    'version': '16.0.1',
+    'version': '19.0.1.0.0',
 
     # any module necessary for this one to work correctly
     'depends': ['purchase_requisition','report_xlsx','mail','contacts'],
@@ -30,7 +30,6 @@
         'views/purchase_requisition.xml',
         'views/templates.xml',
         'views/stock_picking.xml',
-        'reports/delivery_order.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
@@ -38,5 +37,7 @@
     ],
 
     "license": "LGPL-3",
+    'installable': True,
+    'application': False,
 
 }

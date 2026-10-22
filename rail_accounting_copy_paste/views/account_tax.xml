@@ -6,16 +6,16 @@
         <field name="inherit_id" ref="account.view_tax_form"/>
         <field name="arch" type="xml">
             <field name="amount_type" position="after">
-                <field name="local_tax" widget="boolean_toggle" attrs="{'invisible':[('amount','>=',0)]}"/>
+                <field name="local_tax" widget="boolean_toggle" invisible="(amount &gt;= 0)"/>
             </field>
             <xpath expr="//notebook" position="inside">
-                <page name="local_tax" string="Impuestos locales" attrs="{'invisible':[('local_tax','=',False)]}">
+                <page name="local_tax" string="Impuestos locales" invisible="(local_tax == False)">
                     <group>
                         <group>
                             <field name="local_tax_name"/>
                         </group>
                         <group>
-                            <field name="local_amount_type" attrs="{'required':[('local_tax','=',True)]}"/> 
+                            <field name="local_amount_type" required="(local_tax == True)"/> 
                         </group>
                     </group>
                 </page>

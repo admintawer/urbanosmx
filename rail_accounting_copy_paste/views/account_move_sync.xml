@@ -13,14 +13,14 @@
                         'search_default_by_synced': 1, 
                         'search_default_source_company':2,
                         'search_default_journal': 3}</field>
-        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_mode">list,kanban,form</field>
     </record>
 
     <menuitem
         id="synced_records_menu"
         name="Consulta integrada"
         action="action_synced_records_views"
-        parent="account.menu_finance_entries_accounting_miscellaneous"
+        parent="account.menu_finance_entries"
         sequence="99"
     />
 </odoo>

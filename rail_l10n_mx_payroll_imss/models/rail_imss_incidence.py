@@ -72,10 +72,27 @@ class RailImssIncidence(models.Model):
     note = fields.Text(string='Notas')
     exported_sua = fields.Boolean(string='Exportado SUA', copy=False)
     exported_idse = fields.Boolean(string='Exportado IDSE', copy=False)
+    rail_legacy_source_model = fields.Char(
+        string='Modelo origen legacy',
+        readonly=True,
+        copy=False,
+        index=True,
+    )
+    rail_legacy_source_id = fields.Integer(
+        string='ID origen legacy',
+        readonly=True,
+        copy=False,
+        index=True,
+    )
 
     _rail_unique_active_event = models.UniqueIndex(
         "(employee_id, version_id, incidence_type, date) WHERE state != 'cancel'",
         'Ya existe una incidencia IMSS activa del mismo tipo para esta versión y fecha.',
+    )
+    _rail_unique_legacy_event = models.UniqueIndex(
+        "(rail_legacy_source_model, rail_legacy_source_id) "
+        "WHERE rail_legacy_source_model IS NOT NULL AND rail_legacy_source_id IS NOT NULL",
+        'La incidencia legacy ya fue migrada.',
     )
 
     @api.model

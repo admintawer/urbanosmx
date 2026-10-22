@@ -11,7 +11,7 @@ class HrEmployee(models.Model):
 
     rail_imss_incidence_ids = fields.One2many('rail.imss.incidence', 'employee_id', string='Incidencias IMSS')
     rail_imss_incidence_count = fields.Integer(
-        string='Incidencias IMSS',
+        string='Número de incidencias IMSS',
         compute='_compute_rail_imss_incidence_count',
     )
 

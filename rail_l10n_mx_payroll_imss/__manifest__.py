@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Rail Mexican Payroll IMSS/SUA/IDSE',
-    'version': '19.0.1.0.8',
+    'version': '19.0.1.0.9',
     'category': 'Human Resources/Payroll',
     'summary': 'IMSS, SUA, IDSE y SBC para nómina mexicana Odoo 19 nativa.',
     'description': """
