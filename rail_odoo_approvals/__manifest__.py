@@ -32,8 +32,8 @@
         'views/multi_approval_type_views.xml',
         'views/multi_approval_views.xml',
 
-        'views/multi_approval_type_views_config.xml',
         'views/multi_approval_views_config.xml',
+        'views/multi_approval_type_views_config.xml',
 
         # Add actions after all views.
         'views/actions.xml',
