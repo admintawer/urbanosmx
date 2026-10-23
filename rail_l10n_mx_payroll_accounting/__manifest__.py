@@ -2,7 +2,7 @@
 {
     'name': 'RAIL Mexican Payroll Accounting Extensions',
     'summary': 'Extensiones contables de nómina MX para Odoo 19',
-    'version': '19.0.1.0.2',
+    'version': '19.0.1.0.3',
     'category': 'Human Resources/Payroll',
     'author': 'RAIL',
     'license': 'LGPL-3',
