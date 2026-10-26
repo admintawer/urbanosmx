@@ -6,6 +6,19 @@ from odoo import api, models
 class HrPayslip(models.Model):
     _inherit = 'hr.payslip'
 
+    def _l10n_mx_edi_add_payslip_cfdi_values(self, cfdi_values=None):
+        """Complete the payroll issuer values expected by Odoo's CFDI template.
+
+        Some Odoo 19 revisions can render a template that requires
+        ``rfc_patron_origen`` while the values assembled by the server do not
+        contain that key.  Keep the native result and only supply the missing
+        value, using the same company VAT source as the current native method.
+        """
+        values = super()._l10n_mx_edi_add_payslip_cfdi_values(cfdi_values)
+        nomina_emisor = values.setdefault('nomina_emisor', {})
+        nomina_emisor.setdefault('rfc_patron_origen', self.company_id.vat or False)
+        return values
+
     @api.depends('version_id.wage', 'version_id.wage_type')
     def _compute_daily_salary(self):
         """Keep the contractual MX fixed wage as a monthly amount.
